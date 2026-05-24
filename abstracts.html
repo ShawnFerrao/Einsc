@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abstract Submission — EINSC 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --gold:  #c9a96e;
+      --gold-l:#e2c28a;
+      --cream: #f0ece4;
+      --navy:  #0d1b3e;
+      --dark:  #020510;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Barlow', sans-serif;
+      --max:   1200px;
+      --pad:   clamp(20px, 5vw, 80px);
+    }
+
+    html { scroll-behavior:smooth; font-size:18px; }
+    body { font-family:var(--sans); background:#fff; color:#1c1c2e; overflow-x:hidden; line-height:1.7; }
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    .nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:20px var(--pad);
+      background:rgba(2,5,16,.96);
+      border-bottom:1px solid rgba(201,169,110,.15);
+      backdrop-filter:blur(10px);
+    }
+    .nav__logo { display:flex; align-items:center; gap:14px; text-decoration:none; flex-shrink:0; }
+    .nav__emblem {
+      width:46px; height:46px; border-radius:50%;
+      border:1.5px solid rgba(201,169,110,.55);
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .nav__emblem span { font-family:var(--serif); font-size:12px; font-weight:600; color:var(--gold); letter-spacing:.05em; }
+    .nav__logo-text .t1 { font-size:13px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--cream); }
+    .nav__logo-text .t2 { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(240,236,228,.4); margin-top:2px; }
+
+    .nav__links { display:flex; gap:clamp(14px,2vw,32px); list-style:none; }
+    .nav__links a {
+      font-size:clamp(11px,1.1vw,13px); font-weight:400; letter-spacing:.1em; text-transform:uppercase;
+      color:rgba(240,236,228,.7); text-decoration:none;
+      position:relative; padding-bottom:4px; transition:color .22s; white-space:nowrap;
+    }
+    .nav__links a::after {
+      content:''; position:absolute; bottom:0; left:0;
+      width:0; height:1.5px; background:var(--gold); transition:width .28s ease;
+    }
+    .nav__links a:hover { color:var(--gold); }
+    .nav__links a:hover::after { width:100%; }
+    .nav__links a.active { color:var(--gold); }
+    .nav__links a.active::after { width:100%; }
+
+    .nav__cta {
+      font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--dark); background:var(--gold); padding:10px 20px;
+      text-decoration:none; white-space:nowrap; flex-shrink:0; transition:background .22s;
+    }
+    .nav__cta:hover { background:var(--gold-l); }
+
+    .nav__burger {
+      display:none; flex-direction:column; gap:6px; cursor:pointer;
+      background:none; border:none; padding:8px; z-index:200;
+    }
+    .nav__burger span { display:block; width:26px; height:2px; background:var(--cream); border-radius:2px; transition:all .3s; }
+    .nav__burger.open span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2){ opacity:0; }
+    .nav__burger.open span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+    .nav__drawer {
+      display:none; position:fixed; inset:0; z-index:150;
+      background:rgba(2,5,16,.97); flex-direction:column;
+      align-items:center; justify-content:center; gap:32px;
+    }
+    .nav__drawer.open { display:flex; }
+    .nav__drawer a { font-size:clamp(1.1rem,4.5vw,1.7rem); letter-spacing:.16em; text-transform:uppercase; color:rgba(240,236,228,.85); text-decoration:none; transition:color .2s; }
+    .nav__drawer a:hover { color:var(--gold); }
+    .nav__drawer .drawer-cta { margin-top:10px; background:var(--gold); color:var(--dark) !important; padding:16px 36px; letter-spacing:.2em; font-size:.95rem !important; }
+
+    /* ── PAGE HERO ───────────────────────────────────────── */
+    .page-hero {
+      background:var(--dark); padding:140px var(--pad) 80px;
+      position:relative; overflow:hidden;
+    }
+    .page-hero__bg {
+      position:absolute; inset:0;
+      background:radial-gradient(ellipse 70% 60% at 80% 50%, rgba(201,169,110,.07) 0%, transparent 70%);
+    }
+    .page-hero__content { position:relative; z-index:1; max-width:var(--max); margin:0 auto; }
+    .page-hero__eyebrow {
+      font-size:11px; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:16px; display:block;
+    }
+    .page-hero__title {
+      font-family:var(--serif); font-size:clamp(2.4rem,5.5vw,4.4rem);
+      font-weight:300; line-height:1.1; color:var(--cream); margin-bottom:20px;
+    }
+    .page-hero__title em { font-style:italic; color:var(--gold); }
+    .page-hero__rule { width:44px; height:2px; background:var(--gold); margin-bottom:24px; }
+    .page-hero__sub {
+      font-size:clamp(14px,1.5vw,17px); font-weight:300;
+      color:rgba(240,236,228,.6); max-width:620px; line-height:1.85;
+    }
+
+    /* ── SHARED LAYOUT ───────────────────────────────────── */
+    .sec-pad { padding:clamp(64px,8vw,100px) var(--pad); }
+    .sec-pad--sm { padding:clamp(40px,5vw,64px) var(--pad); }
+    .container { max-width:var(--max); margin:0 auto; }
+    .label { font-size:11px; font-weight:600; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:block; }
+    .sec-title { font-family:var(--serif); font-size:clamp(1.8rem,3.5vw,3rem); font-weight:300; line-height:1.2; color:#1c1c2e; margin-bottom:18px; }
+    .sec-title em { font-style:italic; color:var(--navy); }
+    .sec-title--light { color:var(--cream); }
+    .sec-title--light em { color:var(--gold); }
+    .gold-rule { width:44px; height:2px; background:var(--gold); margin-bottom:30px; }
+    .body-text { font-size:clamp(14px,1.4vw,16px); font-weight:300; line-height:1.9; color:#4a4a5a; }
+    .body-text--light { color:rgba(240,236,228,.68); }
+    .body-text p + p { margin-top:16px; }
+    .section-rule { border:none; height:1px; background:#eeebe4; max-width:var(--max); margin:0 auto; }
+
+    /* ── INTRO CALLOUT ───────────────────────────────────── */
+    .intro-callout {
+      background:var(--dark);
+      border-left:3px solid var(--gold);
+      padding:clamp(32px,4vw,52px) clamp(28px,4vw,52px);
+      max-width:var(--max); margin:0 auto;
+    }
+    .intro-callout p {
+      font-size:clamp(15px,1.5vw,18px); font-weight:300; line-height:1.95;
+      color:rgba(240,236,228,.75);
+    }
+    .intro-callout p strong { color:var(--gold); font-weight:500; }
+
+    /* ── DATES TIMELINE ──────────────────────────────────── */
+    .dates-zone { background:var(--navy); }
+    .dates-grid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:2px; max-width:var(--max); margin:0 auto;
+    }
+    .date-card {
+      background:rgba(255,255,255,.04);
+      padding:clamp(32px,4vw,48px) clamp(24px,3vw,40px);
+      border:1px solid rgba(201,169,110,.15);
+      display:flex; flex-direction:column; gap:12px;
+      transition:background .3s;
+    }
+    .date-card:hover { background:rgba(201,169,110,.08); }
+    .date-card__num {
+      font-family:var(--serif); font-size:clamp(2.4rem,4vw,3.6rem);
+      font-weight:300; line-height:1; color:var(--gold); letter-spacing:-.02em;
+    }
+    .date-card__month {
+      font-size:11px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+      color:rgba(240,236,228,.4); margin-top:2px;
+    }
+    .date-card__label {
+      font-family:var(--serif); font-size:clamp(1.1rem,1.8vw,1.4rem); font-weight:400;
+      color:var(--cream); line-height:1.3; margin-top:8px;
+    }
+    .date-card__sub {
+      font-size:clamp(12px,1.2vw,14px); font-weight:300;
+      color:rgba(240,236,228,.5); line-height:1.6;
+    }
+    .date-card--range .date-card__num { font-size:clamp(1.8rem,3vw,2.6rem); }
+
+    /* ── SUBMIT CTA STRIP ────────────────────────────────── */
+    .submit-strip {
+      background:var(--dark);
+      border-top:3px solid var(--gold);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:clamp(24px,3vw,36px) var(--pad); gap:24px; flex-wrap:wrap;
+    }
+    .submit-strip__text { font-size:clamp(14px,1.5vw,17px); color:rgba(240,236,228,.7); font-weight:300; }
+    .submit-strip__text strong { color:var(--cream); font-weight:500; }
+    .btn-gold {
+      font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+      color:var(--dark); background:var(--gold); padding:16px 36px;
+      text-decoration:none; white-space:nowrap; flex-shrink:0; transition:background .22s;
+    }
+    .btn-gold:hover { background:var(--gold-l); }
+
+    /* ── GUIDELINES SECTION ──────────────────────────────── */
+    .guidelines-layout {
+      display:grid; grid-template-columns:260px 1fr; gap:clamp(32px,5vw,72px);
+      align-items:start; max-width:var(--max); margin:0 auto;
+    }
+    .guidelines-nav { position:sticky; top:100px; }
+    .guidelines-nav__title { font-size:11px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; }
+    .guidelines-nav__list { list-style:none; }
+    .guidelines-nav__list li + li { margin-top:4px; }
+    .guidelines-nav__list a {
+      display:block; padding:10px 14px;
+      font-size:13px; letter-spacing:.06em; text-transform:uppercase; font-weight:400;
+      color:#666; text-decoration:none; border-left:2px solid #eeebe4;
+      transition:color .2s, border-color .2s, background .2s;
+    }
+    .guidelines-nav__list a:hover,
+    .guidelines-nav__list a.active { color:var(--navy); border-left-color:var(--gold); background:#faf8f4; }
+
+    /* ── ACCORDION ───────────────────────────────────────── */
+    .accordion { border-top:1px solid #eeebe4; }
+    .accordion__item { border-bottom:1px solid #eeebe4; }
+    .accordion__trigger {
+      width:100%; display:flex; align-items:center; justify-content:space-between;
+      padding:22px 0; gap:16px; cursor:pointer; background:none; border:none; text-align:left;
+    }
+    .accordion__trigger-label {
+      font-family:var(--serif); font-size:clamp(1.1rem,1.8vw,1.4rem); font-weight:400;
+      color:var(--navy); line-height:1.3; flex:1;
+    }
+    .accordion__icon {
+      width:32px; height:32px; border-radius:50%; border:1.5px solid rgba(201,169,110,.45);
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+      color:var(--gold); font-size:18px; font-weight:300; line-height:1;
+      transition:background .22s, border-color .22s, transform .28s;
+    }
+    .accordion__item.open .accordion__icon { background:var(--gold); color:var(--dark); border-color:var(--gold); transform:rotate(45deg); }
+    .accordion__body { display:none; padding-bottom:28px; }
+    .accordion__item.open .accordion__body { display:block; }
+    .accordion__body .body-text { font-size:clamp(14px,1.35vw,16px); }
+
+    /* Lists inside accordion */
+    .rule-list { list-style:none; margin-top:12px; }
+    .rule-list li {
+      display:flex; gap:14px; align-items:flex-start;
+      padding:10px 0; border-bottom:1px solid #f5f3ef;
+      font-size:clamp(13px,1.3vw,15px); line-height:1.75; color:#4a4a5a; font-weight:300;
+    }
+    .rule-list li:last-child { border:none; }
+    .rule-list li::before {
+      content:''; width:7px; height:7px; border-radius:50%;
+      background:var(--gold); margin-top:9px; flex-shrink:0;
+    }
+
+    /* Structure boxes */
+    .structure-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:20px; }
+    .structure-box {
+      background:#f9f7f3; border:1px solid #e8e4da; padding:24px 28px;
+      border-top:3px solid var(--gold);
+    }
+    .structure-box__title { font-family:var(--serif); font-size:1.1rem; font-weight:600; color:var(--navy); margin-bottom:14px; }
+    .structure-box ol { list-style:none; counter-reset:step; }
+    .structure-box ol li { counter-increment:step; display:flex; gap:12px; align-items:flex-start; padding:7px 0; font-size:14px; color:#555; font-weight:300; line-height:1.6; }
+    .structure-box ol li::before { content:counter(step); font-family:var(--serif); font-size:1rem; color:var(--gold); font-weight:600; min-width:18px; flex-shrink:0; margin-top:1px; }
+    .structure-box .note { font-size:12px; color:#999; margin-top:12px; font-style:italic; padding-top:12px; border-top:1px solid #eeebe4; }
+
+    /* Callout box inside accordion */
+    .info-box {
+      background:#fdf8f0; border:1px solid rgba(201,169,110,.3);
+      border-left:3px solid var(--gold); padding:18px 22px; margin-top:16px;
+      font-size:clamp(13px,1.3vw,15px); color:#555; font-weight:300; line-height:1.75;
+    }
+    .info-box strong { color:var(--navy); font-weight:500; }
+    .info-box a { color:var(--gold); text-decoration:none; }
+    .info-box a:hover { text-decoration:underline; }
+
+    /* ── SELECTION CRITERIA CARDS ────────────────────────── */
+    .criteria-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .criteria-card {
+      border:1px solid #e8e4da; padding:clamp(28px,3.5vw,40px) clamp(22px,2.5vw,32px);
+      border-top:3px solid var(--gold); background:#fff;
+      transition:box-shadow .3s, transform .3s;
+    }
+    .criteria-card:hover { box-shadow:0 12px 40px rgba(0,0,0,.08); transform:translateY(-3px); }
+    .criteria-num {
+      font-family:var(--serif); font-size:2.8rem; font-weight:300;
+      color:rgba(201,169,110,.3); line-height:1; margin-bottom:16px;
+    }
+    .criteria-title { font-family:var(--serif); font-size:clamp(1.1rem,1.7vw,1.35rem); font-weight:400; color:var(--navy); margin-bottom:10px; line-height:1.3; }
+    .criteria-body { font-size:clamp(13px,1.3vw,14px); font-weight:300; color:#606070; line-height:1.8; }
+
+    /* ── FINAL CTA ───────────────────────────────────────── */
+    .cta-section { background:var(--gold); padding:clamp(64px,8vw,96px) var(--pad); text-align:center; }
+    .cta-section h2 { font-family:var(--serif); font-size:clamp(2rem,4vw,3.2rem); font-weight:300; color:var(--dark); margin-bottom:12px; }
+    .cta-section p { font-size:clamp(14px,1.5vw,17px); color:rgba(2,5,16,.6); margin-bottom:36px; font-weight:300; }
+    .btn-dark {
+      display:inline-block; font-size:12px; font-weight:600; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--cream); background:var(--dark);
+      padding:18px 52px; text-decoration:none; margin:6px; transition:background .22s;
+    }
+    .btn-dark:hover { background:var(--navy); }
+    .btn-outline-dark {
+      display:inline-block; font-size:12px; font-weight:500; letter-spacing:.18em;
+      text-transform:uppercase; color:var(--dark); background:transparent;
+      border:1.5px solid rgba(2,5,16,.35); padding:16px 36px; text-decoration:none;
+      margin:6px; transition:all .22s;
+    }
+    .btn-outline-dark:hover { background:rgba(2,5,16,.08); border-color:var(--dark); }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    .footer { background:#060a1a; padding:clamp(64px,8vw,88px) var(--pad) 40px; }
+    .footer-grid {
+      display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:clamp(28px,4vw,56px);
+      max-width:var(--max); margin:0 auto;
+      padding-bottom:56px; border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .footer-brand-name { font-family:var(--serif); font-size:clamp(1.4rem,2.5vw,1.8rem); font-weight:300; color:var(--cream); line-height:1.4; margin-bottom:14px; }
+    .footer-brand-sub { font-size:clamp(13px,1.3vw,15px); color:rgba(240,236,228,.38); line-height:1.75; }
+    .footer-col h4 { font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; font-weight:600; }
+    .footer-col a, .footer-col p { display:block; font-size:clamp(13px,1.3vw,15px); color:rgba(240,236,228,.5); text-decoration:none; margin-bottom:10px; line-height:1.7; transition:color .2s; }
+    .footer-col a:hover { color:var(--gold); }
+    .footer-newsletter { display:flex; overflow:hidden; border:1.5px solid rgba(201,169,110,.3); margin-top:12px; }
+    .footer-newsletter input { flex:1; background:transparent; border:none; outline:none; padding:14px 16px; font-size:14px; color:var(--cream); font-family:var(--sans); min-width:0; }
+    .footer-newsletter input::placeholder { color:rgba(240,236,228,.28); }
+    .footer-newsletter button { background:var(--gold); border:none; padding:14px 18px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--dark); font-family:var(--sans); font-weight:600; cursor:pointer; transition:background .22s; white-space:nowrap; }
+    .footer-newsletter button:hover { background:var(--gold-l); }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:28px; flex-wrap:wrap; gap:12px; max-width:var(--max); margin:0 auto; }
+    .footer-bottom p, .footer-bottom a { font-size:13px; color:rgba(240,236,228,.25); text-decoration:none; transition:color .2s; }
+    .footer-bottom a:hover { color:var(--gold); }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media(max-width:1024px){
+      .guidelines-layout { grid-template-columns:1fr; }
+      .guidelines-nav { display:none; }
+      .dates-grid { grid-template-columns:1fr; gap:1px; }
+      .criteria-grid { grid-template-columns:1fr 1fr; }
+      .structure-grid { grid-template-columns:1fr; }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:40px; }
+    }
+    @media(max-width:768px){
+      html { font-size:16px; }
+      .nav__links { display:none; }
+      .nav__cta { display:none; }
+      .nav__burger { display:flex; }
+      .criteria-grid { grid-template-columns:1fr; }
+      .submit-strip { justify-content:center; text-align:center; }
+      .footer-grid { grid-template-columns:1fr; }
+      .dates-grid { grid-template-columns:1fr; }
+    }
+    @media(max-width:480px){
+      .nav { padding:16px 20px; }
+      .nav__emblem { width:40px; height:40px; }
+      .footer-newsletter { flex-direction:column; }
+      .footer-newsletter input { border-bottom:1px solid rgba(201,169,110,.18); }
+      .footer-newsletter button { width:100%; padding:14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────── -->
+<nav class="nav" aria-label="Main navigation">
+  <a href="index.html" class="nav__logo">
+    <div class="nav__emblem"><span>EINSC</span></div>
+    <div class="nav__logo-text">
+      <div class="t1">EINSC 2026</div>
+      <div class="t2">Emirates Neurosurgery</div>
+    </div>
+  </a>
+  <ul class="nav__links">
+    <li><a href="https://einsc.com/program/">Program</a></li>
+    <li><a href="https://einsc.com/speakers/">Faculty</a></li>
+    <li><a href="abstracts.html" class="active">Abstracts</a></li>
+    <li><a href="https://einsc.com/sponsors/">Sponsors</a></li>
+    <li><a href="https://einsc.com/venue/">Venue</a></li>
+    <li><a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a></li>
+    <li><a href="https://einsc.com/contact-us/">Contact</a></li>
+  </ul>
+  <a href="https://einsc.com/register/" class="nav__cta">Register Now</a>
+  <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav__drawer" id="drawer" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="https://einsc.com/program/">Program</a>
+  <a href="https://einsc.com/speakers/">Faculty</a>
+  <a href="abstracts.html">Abstracts</a>
+  <a href="https://einsc.com/sponsors/">Sponsors</a>
+  <a href="https://einsc.com/venue/">Venue</a>
+  <a href="https://einsc.com/contact-us/">Contact</a>
+  <a href="https://einsc.com/register/" class="drawer-cta">Register Now</a>
+</div>
+
+<!-- ── PAGE HERO ─────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="page-hero__bg" aria-hidden="true"></div>
+  <div class="page-hero__content">
+    <span class="page-hero__eyebrow">EINSC 2026 — 10th Edition</span>
+    <h1 class="page-hero__title">Abstract <em>Submission</em></h1>
+    <div class="page-hero__rule" aria-hidden="true"></div>
+    <p class="page-hero__sub">Online submissions open for the 10th Emirates International Neurosurgical Conference — 16–18 October 2026, Hotel Raffles Dubai.</p>
+  </div>
+</section>
+
+<!-- ── INTRO CALLOUT ─────────────────────────────────────── -->
+<div style="background:var(--dark); padding:0 var(--pad) clamp(48px,6vw,72px);">
+  <div class="intro-callout">
+    <p>We are officially inviting <strong>researchers, clinicians, and students</strong> to contribute to the 10th ESNS scientific legacy. This is your opportunity to present your original research before an international faculty and a diverse regional audience. We particularly encourage <strong>Resident Research</strong> and <strong>Case Studies</strong> that align with our focus on surgical foundations. Selected abstracts will be featured in oral presentations and digital poster galleries, providing a premier platform for your work to be recognised.</p>
+  </div>
+</div>
+
+<!-- ── KEY DATES ─────────────────────────────────────────── -->
+<div class="dates-zone">
+  <div style="max-width:var(--max); margin:0 auto; padding:clamp(40px,5vw,64px) var(--pad) 0;">
+    <span class="label" style="display:block; text-align:center; margin-bottom:32px;">Important Dates</span>
+  </div>
+  <div style="padding:0 var(--pad) clamp(48px,6vw,72px);">
+    <div class="dates-grid">
+      <div class="date-card">
+        <div>
+          <div class="date-card__num">29</div>
+          <div class="date-card__month">May 2026</div>
+        </div>
+        <div class="date-card__label">Abstract Portal Launch</div>
+        <div class="date-card__sub">Submissions open online. All abstracts must be submitted via the portal on the website.</div>
+      </div>
+      <div class="date-card">
+        <div>
+          <div class="date-card__num">19</div>
+          <div class="date-card__month">June 2026</div>
+        </div>
+        <div class="date-card__label">Submission Deadline</div>
+        <div class="date-card__sub">Final date to submit your abstract. Late submissions will not be considered.</div>
+      </div>
+      <div class="date-card date-card--range">
+        <div>
+          <div class="date-card__num">22–30</div>
+          <div class="date-card__month">June 2026</div>
+        </div>
+        <div class="date-card__label">Abstract Review Period</div>
+        <div class="date-card__sub">Blind peer-review by the Scientific Committee. Authors notified of outcomes by email.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SUBMIT STRIP ──────────────────────────────────────── -->
+<div class="submit-strip">
+  <p class="submit-strip__text"><strong>Submissions are online only.</strong> All abstracts must be submitted via the abstract portal.</p>
+  <a href="https://einsc.com/abstracts/" class="btn-gold">Submit Your Abstract →</a>
+</div>
+
+<!-- ── GUIDELINES ────────────────────────────────────────── -->
+<section class="sec-pad">
+  <div class="container">
+    <div class="guidelines-layout">
+
+      <!-- Sticky side nav -->
+      <aside class="guidelines-nav" aria-label="Guidelines navigation">
+        <p class="guidelines-nav__title">Guidelines</p>
+        <ul class="guidelines-nav__list">
+          <li><a href="#call" class="active">Call for Abstracts</a></li>
+          <li><a href="#research">Research Reports</a></li>
+          <li><a href="#submission">Submission Rules</a></li>
+          <li><a href="#structure">Abstract Structure</a></li>
+          <li><a href="#format">Presentation Format</a></li>
+          <li><a href="#general">General Guidelines</a></li>
+        </ul>
+      </aside>
+
+      <!-- Accordion content -->
+      <div>
+        <span class="label">Full Guidelines</span>
+        <h2 class="sec-title" style="margin-bottom:32px;">Submission <em>Guidelines</em></h2>
+
+        <div class="accordion">
+
+          <!-- 1. Call for Abstracts -->
+          <div class="accordion__item open" id="call">
+            <button class="accordion__trigger" aria-expanded="true">
+              <span class="accordion__trigger-label">Call for Abstracts — Online Submission Only</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__body">
+              <div class="body-text">
+                <p>The Emirates Society of Neurological Surgeons (ESNS) is proud to announce the <strong>10th Emirates International Neurosurgical Conference</strong>. The Scientific Committee invites individuals to submit abstracts for oral or poster presentations.</p>
+                <p>Submissions are accepted for both original research and case reports. The conference particularly encourages contributions from residents and early-career clinicians.</p>
+              </div>
+              <div class="info-box" style="margin-top:20px;">
+                <strong>Contact:</strong> If you have any difficulties with the submission portal, please contact the Secretariat at <a href="mailto:info@einsc.com">info@einsc.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Research Reports -->
+          <div class="accordion__item" id="research">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span class="accordion__trigger-label">Research Reports</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__body">
+              <div class="body-text">
+                <p>Abstracts must contain original scientific data collected by the author(s). All reports must be based on work that has already been completed.</p>
+              </div>
+              <ul class="rule-list">
+                <li>All submitted research must be <strong>original scientific data</strong> collected by the author(s)</li>
+                <li>Studies "in progress" will <strong>not</strong> be accepted — work must already be completed</li>
+                <li>Any established research design or methodology may be used</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. Submission Rules -->
+          <div class="accordion__item" id="submission">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span class="accordion__trigger-label">Submission of Oral / Poster Presentations</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__body">
+              <div class="body-text">
+                <p><strong>Language:</strong> All abstracts must be written in English. The Scientific Committee reserves the right to edit abstracts where the English structure makes comprehension difficult.</p>
+              </div>
+              <ul class="rule-list" style="margin-top:20px;">
+                <li>All abstracts must be submitted via the <strong>abstract portal on the website</strong> — no email submissions accepted</li>
+                <li>Maximum <strong>400 words</strong></li>
+                <li>Include the <strong>title</strong> of the abstract</li>
+                <li>Include <strong>names and full contact details</strong> of all author(s): organisation, city/country, email, phone, fax, and mailing address</li>
+                <li>Provide a <strong>50-word biography</strong> of the presenting author with your abstract</li>
+                <li>Include <strong>ethical approval and funding acknowledgements</strong> where relevant</li>
+              </ul>
+              <div class="info-box" style="margin-top:16px;">
+                You will be notified of receipt of your abstract by email. If you do not receive a confirmation within a few hours of submission, contact <a href="mailto:info@einsc.com">info@einsc.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Abstract Structure -->
+          <div class="accordion__item" id="structure">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span class="accordion__trigger-label">Abstract Structure</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__body">
+              <div class="body-text">
+                <p>Use the appropriate structure below depending on your submission type. No citations are permitted within the abstract body.</p>
+              </div>
+              <div class="structure-grid">
+                <div class="structure-box">
+                  <p class="structure-box__title">Research Reports</p>
+                  <ol>
+                    <li>Introduction</li>
+                    <li>Methods</li>
+                    <li>Results</li>
+                    <li>Discussion <em style="color:#aaa;">(Optional)</em></li>
+                    <li>Conclusion</li>
+                  </ol>
+                  <p class="note">Include ethical approval and funding acknowledgements where relevant.</p>
+                </div>
+                <div class="structure-box">
+                  <p class="structure-box__title">Case Reports</p>
+                  <ol>
+                    <li>Introduction</li>
+                    <li>Case Report</li>
+                    <li>Discussion <em style="color:#aaa;">(Optional)</em></li>
+                    <li>Conclusion</li>
+                  </ol>
+                  <p class="note">No citations are allowed in the abstract.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Presentation Format -->
+          <div class="accordion__item" id="format">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span class="accordion__trigger-label">Oral and Poster Presentation Format</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__body">
+              <div class="body-text">
+                <p>Once your abstract is accepted as an oral or poster presentation, the secretariat will contact you directly with further information and detailed instructions.</p>
+              </div>
+              <div class="info-box" style="margin-top:16px;">
+                If you have any problem submitting your abstract through the online system, please contact the Secretariat at <a href="mailto:info@einsc.com">info@einsc.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. General Guidelines -->
+          <div class="accordion__item" id="general">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span class="accordion__trigger-label">General Guidelines</span>
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__body">
+              <ul class="rule-list">
+                <li>The Scientific Committee reserves the right to make the final decision on abstract acceptance and scheduling, based on topics and time constraints</li>
+                <li>The language of the conference is <strong>English</strong></li>
+                <li>Each abstract must indicate if the material was previously published, presented at another conference, or received any awards</li>
+                <li>All presenters must be <strong>registered delegates</strong> of the congress</li>
+                <li>Each abstract may have only <strong>one designated presenting author</strong></li>
+                <li>A <strong>certificate of appreciation</strong> will be presented to all speakers to acknowledge their contribution</li>
+                <li>Presenters must not use the session as a marketing opportunity for products or equipment</li>
+                <li>The conference does <strong>not</strong> provide travel grants — all registration and travel expenses must be covered by the abstract presenter</li>
+              </ul>
+            </div>
+          </div>
+
+        </div><!-- /accordion -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-rule"/>
+
+<!-- ── SELECTION CRITERIA ────────────────────────────────── -->
+<section class="sec-pad">
+  <div class="container">
+    <div style="margin-bottom:48px;">
+      <span class="label">Evaluation</span>
+      <h2 class="sec-title">Selection <em>Criteria</em></h2>
+      <div class="gold-rule"></div>
+      <p class="body-text" style="max-width:620px;">All abstracts are evaluated through a <strong>blind peer-review process</strong> and scored against the following criteria by the Scientific Committee.</p>
+    </div>
+    <div class="criteria-grid">
+      <div class="criteria-card">
+        <div class="criteria-num">01</div>
+        <h3 class="criteria-title">Relevance</h3>
+        <p class="criteria-body">Relevance to the congress topics and the broader field of neurosurgery and neurological sciences.</p>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-num">02</div>
+        <h3 class="criteria-title">Scientific Merit</h3>
+        <p class="criteria-body">Scientific quality of the research, including methodological rigour and its contemporary contribution to neurosurgical knowledge.</p>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-num">03</div>
+        <h3 class="criteria-title">Quality &amp; Clarity</h3>
+        <p class="criteria-body">Overall quality, clarity, and completeness of the abstract — including structure, language, and completeness of reported data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ─────────────────────────────────────────── -->
+<section class="cta-section">
+  <h2>Ready to Submit?</h2>
+  <p>Abstract portal open from 29 May 2026 — deadline 19 June 2026</p>
+  <a href="https://einsc.com/abstracts/" class="btn-dark">Submit Your Abstract</a>
+  <a href="mailto:info@einsc.com" class="btn-outline-dark">Contact the Secretariat</a>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <p class="footer-brand-name">Emirates International<br>Neurosurgical Conference<br>2026</p>
+      <p class="footer-brand-sub">The National Conference of the<br>Emirates Society of Neurological Surgeons</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="https://einsc.com/program/">Program</a>
+      <a href="https://einsc.com/local-speakers/">Local Speakers</a>
+      <a href="abstracts.html">Abstracts</a>
+      <a href="https://einsc.com/sponsors/">Sponsors</a>
+      <a href="https://einsc.com/contact-us/">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Gulf Dunes</h4>
+      <p>Al Barsha Boutique Building,<br>3rd Floor, Al Barsha 1,<br>P.O. Box 124174, Dubai, UAE</p>
+      <a href="mailto:info@einsc.com" style="margin-top:14px;">info@einsc.com</a>
+      <a href="tel:+971504537277">+971 50 453 7277</a>
+    </div>
+    <div class="footer-col">
+      <h4>Stay Updated</h4>
+      <p>Receive news about EINSC 2026 and related neurosurgical events from across the region.</p>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Your email address" aria-label="Email address"/>
+        <button type="button">Join</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 EINSC. All rights reserved.</p>
+    <a href="https://einsc.com/">Privacy Policy</a>
+    <p>Designed and built by Gulf Dunes</p>
+  </div>
+</footer>
+
+<script>
+  /* Accordion */
+  document.querySelectorAll('.accordion__trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.accordion__item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.accordion__item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.accordion__trigger').setAttribute('aria-expanded','false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+  /* Sidebar nav active state on scroll */
+  const sections = document.querySelectorAll('.accordion__item[id]');
+  const navLinks = document.querySelectorAll('.guidelines-nav__list a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.guidelines-nav__list a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold:0.4 });
+  sections.forEach(s => observer.observe(s));
+
+  /* Mobile nav */
+  const burger = document.getElementById('burger'), drawer = document.getElementById('drawer');
+  burger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    drawer.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    drawer.classList.remove('open'); burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }));
+</script>
+</body>
+</html>
