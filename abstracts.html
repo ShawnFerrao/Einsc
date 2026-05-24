@@ -324,7 +324,59 @@
     .date-card__label, .accordion__trigger-label,
     .criteria-title, .structure-box__title { font-size: 20px; }
 
+    /* ── PAGE LAYOUT WITH SIDEBAR ───────────────────────── */
+    .page-layout { display:flex; align-items:flex-start; }
+    .page-main   { flex:1; min-width:0; overflow:hidden; }
+
+    .dates-sidebar {
+      width:272px; min-width:272px; flex-shrink:0;
+      position:sticky; top:80px;
+      max-height:calc(100vh - 80px); overflow-y:auto;
+      background:#f9f7f3; border-left:3px solid var(--gold);
+      padding:28px 22px; scrollbar-width:thin;
+    }
+    .dates-sidebar::-webkit-scrollbar { width:4px; }
+    .dates-sidebar::-webkit-scrollbar-thumb { background:rgba(201,169,110,.35); border-radius:2px; }
+
+    .sb-heading {
+      font-family:var(--serif); font-size:20px; font-weight:400;
+      color:var(--navy); margin-bottom:20px;
+      padding-bottom:16px; border-bottom:2px solid #e8e4da;
+    }
+    .sb-group { margin-bottom:8px; }
+    .sb-group-label {
+      font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+      color:#bbb; margin-bottom:10px; padding-bottom:8px;
+      border-bottom:1px solid #e8e4da; display:flex; align-items:center; gap:8px;
+    }
+    .sb-group-label::after { content:''; flex:1; height:1px; background:#e8e4da; }
+    .sb-item {
+      display:flex; gap:12px; align-items:flex-start;
+      padding:11px 0; border-bottom:1px solid #f0ece8;
+    }
+    .sb-item:last-child { border:none; padding-bottom:4px; }
+    .sb-dot {
+      width:10px; height:10px; border-radius:50%; flex-shrink:0;
+      margin-top:5px; background:#ddd; border:2px solid #ddd;
+      transition:background .2s;
+    }
+    .sb-dot--active { background:var(--gold); border-color:var(--gold); }
+    .sb-dot--next   { background:#fff; border-color:var(--gold); }
+    .sb-text {}
+    .sb-label { font-size:14px; font-weight:600; color:#1c1c2e; line-height:1.35; margin-bottom:3px; }
+    .sb-date  { font-size:13px; font-weight:300; color:#888; line-height:1.5; }
+    .sb-cta {
+      display:block; margin-top:22px; text-align:center;
+      font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--dark); background:var(--gold); padding:13px 16px; text-decoration:none;
+      transition:background .22s;
+    }
+    .sb-cta:hover { background:var(--gold-l); }
+
     /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media(max-width:1200px){
+      .dates-sidebar { display:none; }
+    }
     @media(max-width:1024px){
       .guidelines-layout { grid-template-columns:1fr; }
       .guidelines-nav { display:none; }
@@ -388,6 +440,9 @@
   <a href="https://einsc.com/contact-us/">Contact</a>
   <a href="https://einsc.com/register/" class="drawer-cta">Register Now</a>
 </div>
+
+<div class="page-layout">
+<div class="page-main">
 
 <!-- ── PAGE HERO ─────────────────────────────────────────── -->
 <section class="page-hero">
@@ -686,6 +741,57 @@
     <p>Designed and built by Gulf Dunes</p>
   </div>
 </footer>
+
+</div><!-- /page-main -->
+
+<!-- ── KEY DATES SIDEBAR ─────────────────────────────────── -->
+<aside class="dates-sidebar" aria-label="Key dates">
+  <h2 class="sb-heading">Key Dates</h2>
+
+  <div class="sb-group">
+    <div class="sb-group-label">Abstracts</div>
+
+    <div class="sb-item">
+      <span class="sb-dot sb-dot--active" aria-hidden="true"></span>
+      <div class="sb-text">
+        <div class="sb-label">Portal Launch</div>
+        <div class="sb-date">Friday, 29 May 2026</div>
+      </div>
+    </div>
+
+    <div class="sb-item">
+      <span class="sb-dot sb-dot--next" aria-hidden="true"></span>
+      <div class="sb-text">
+        <div class="sb-label">Submission Deadline</div>
+        <div class="sb-date">Thursday, 19 June 2026</div>
+      </div>
+    </div>
+
+    <div class="sb-item">
+      <span class="sb-dot" aria-hidden="true"></span>
+      <div class="sb-text">
+        <div class="sb-label">Review Period</div>
+        <div class="sb-date">22 – 30 June 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sb-group">
+    <div class="sb-group-label">Conference</div>
+
+    <div class="sb-item">
+      <span class="sb-dot" aria-hidden="true"></span>
+      <div class="sb-text">
+        <div class="sb-label">EINSC 2026</div>
+        <div class="sb-date">16 – 18 October 2026<br>Hotel Raffles Dubai</div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://einsc.com/abstracts/" class="sb-cta">Submit Abstract →</a>
+</aside>
+
+</div><!-- /page-layout -->
 
 <script>
   /* Accordion */
