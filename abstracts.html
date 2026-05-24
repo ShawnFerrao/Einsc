@@ -365,6 +365,33 @@
     .elementor-editor-active .criteria-card  { background: #fff          !important; }
 
     /* ── ELEMENTOR OVERRIDES ─────────────────────────────── */
+    /* Kill Elementor's global pink accent on every interactive element */
+    html body a:hover,
+    html body a:focus,
+    html body button:hover,
+    html body button:focus { color: inherit !important; }
+
+    /* Accordion trigger hover */
+    html body .accordion__trigger:hover .accordion__trigger-label,
+    html body .accordion__trigger:focus .accordion__trigger-label { color: var(--navy) !important; }
+    html body .accordion__trigger:hover .accordion__icon,
+    html body .accordion__trigger:focus .accordion__icon { border-color: var(--gold) !important; color: var(--gold) !important; background: transparent !important; }
+    html body .accordion__item.open .accordion__trigger .accordion__trigger-label { color: var(--navy) !important; }
+    html body .accordion__item.open .accordion__icon { background: var(--gold) !important; color: var(--dark) !important; border-color: var(--gold) !important; }
+
+    /* Nav links */
+    html body .nav__links a:hover  { color: var(--gold) !important; }
+    html body .nav__drawer a:hover { color: var(--gold) !important; }
+
+    /* Sidebar links */
+    html body .guidelines-nav__list a:hover { color: var(--navy) !important; }
+    html body .card__link:hover    { color: var(--gold) !important; border-bottom-color: var(--gold) !important; }
+    html body .abstract-link:hover { color: var(--gold-l) !important; }
+
+    /* Footer links */
+    html body .footer-col a:hover        { color: var(--gold) !important; }
+    html body .footer-bottom a:hover     { color: var(--gold) !important; }
+
     html body .btn-gold,
     html body .btn-gold:visited {
       color:var(--dark) !important; background:var(--gold) !important;

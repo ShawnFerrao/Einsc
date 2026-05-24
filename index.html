@@ -431,6 +431,24 @@
     .elementor-editor-active .member-card    { background: #f9f7f3    !important; }
 
     /* ── ELEMENTOR OVERRIDES ─────────────────────────────── */
+    /* Kill Elementor's global pink accent on every interactive element */
+    html body a:hover,
+    html body a:focus,
+    html body button:hover,
+    html body button:focus { color: inherit !important; }
+
+    /* Nav */
+    html body .nav__links a:hover  { color: var(--gold) !important; }
+    html body .nav__drawer a:hover { color: var(--gold) !important; }
+
+    /* Card / section links */
+    html body .card__link:hover    { color: var(--gold) !important; border-bottom-color: var(--gold) !important; }
+    html body .abstract-link:hover { color: var(--gold-l) !important; }
+
+    /* Footer */
+    html body .footer-col a:hover    { color: var(--gold) !important; }
+    html body .footer-bottom a:hover { color: var(--gold) !important; }
+
     html body .btn-gold,
     html body .btn-gold:visited {
       color:var(--dark) !important; background:var(--gold) !important;
