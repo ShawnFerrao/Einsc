@@ -431,11 +431,24 @@
     .elementor-editor-active .member-card    { background: #f9f7f3    !important; }
 
     /* ── ELEMENTOR OVERRIDES ─────────────────────────────── */
-    /* Kill Elementor's global pink accent on every interactive element */
+    /* Kill Elementor's global pink/teal on all elements */
+    html body a,
+    html body a:visited              { color: inherit !important; text-decoration: none !important; }
     html body a:hover,
-    html body a:focus,
+    html body a:focus                { color: inherit !important; }
+    html body button,
     html body button:hover,
-    html body button:focus { color: inherit !important; }
+    html body button:focus           { color: inherit !important; background-color: transparent !important; }
+
+    /* Lock body / paragraph text to dark grey */
+    html body .body-text,
+    html body .body-text p,
+    html body .date-item p,
+    html body .why-body,
+    html body .member-body,
+    html body .bullet-list li        { color: #4a4a5a !important; }
+    html body .body-text--light,
+    html body .body-text--light p    { color: rgba(240,236,228,.68) !important; }
 
     /* Nav */
     html body .nav__links a:hover  { color: var(--gold) !important; }
