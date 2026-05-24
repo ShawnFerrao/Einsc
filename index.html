@@ -383,6 +383,70 @@
     .footer-bottom p, .footer-bottom a { font-size:13px; color:rgba(240,236,228,.25); text-decoration:none; transition:color .2s; }
     .footer-bottom a:hover { color:var(--gold); }
 
+    /* ── ELEMENTOR OVERRIDES ─────────────────────────────── */
+    html body .btn-gold,
+    html body .btn-gold:visited {
+      color:var(--dark) !important; background:var(--gold) !important;
+      border:1.5px solid var(--gold) !important; border-radius:0 !important;
+      text-decoration:none !important; box-shadow:none !important;
+      display:inline-block !important;
+    }
+    html body .btn-gold:hover {
+      background:var(--gold-l) !important; border-color:var(--gold-l) !important;
+      color:var(--dark) !important;
+    }
+    html body .btn-ghost,
+    html body .btn-ghost:visited {
+      color:rgba(240,236,228,.85) !important; background:transparent !important;
+      border:1.5px solid rgba(240,236,228,.28) !important; border-radius:0 !important;
+      text-decoration:none !important; box-shadow:none !important;
+      display:inline-block !important;
+    }
+    html body .btn-ghost:hover {
+      border-color:var(--gold) !important; color:var(--gold) !important;
+      background:rgba(201,169,110,.06) !important;
+    }
+    html body .nav__cta,
+    html body .nav__cta:visited {
+      color:var(--dark) !important; background:var(--gold) !important;
+      border-radius:0 !important; text-decoration:none !important;
+      box-shadow:none !important;
+    }
+    html body .nav__cta:hover {
+      background:var(--gold-l) !important; color:var(--dark) !important;
+    }
+    html body .btn-dark,
+    html body .btn-dark:visited {
+      color:var(--cream) !important; background:var(--dark) !important;
+      border-radius:0 !important; text-decoration:none !important;
+      box-shadow:none !important; display:inline-block !important;
+    }
+    html body .btn-dark:hover { background:var(--navy) !important; color:var(--cream) !important; }
+    html body .btn-navy,
+    html body .btn-navy:visited {
+      color:var(--navy) !important; background:transparent !important;
+      border:1.5px solid rgba(13,27,62,.3) !important; border-radius:0 !important;
+      text-decoration:none !important; box-shadow:none !important;
+      display:inline-block !important;
+    }
+    html body .btn-navy:hover {
+      background:var(--navy) !important; color:var(--cream) !important;
+      border-color:var(--navy) !important;
+    }
+    html body .btn-outline,
+    html body .btn-outline:visited {
+      color:var(--gold) !important; background:transparent !important;
+      border:1.5px solid rgba(201,169,110,.5) !important; border-radius:0 !important;
+      text-decoration:none !important; box-shadow:none !important;
+      display:inline-block !important;
+    }
+    html body .btn-outline:hover {
+      background:rgba(201,169,110,.1) !important; border-color:var(--gold) !important;
+    }
+    html body .abstract-link,
+    html body .abstract-link:visited { color:var(--gold-l) !important; text-decoration:none !important; }
+    html body .abstract-link:hover   { color:var(--gold-l) !important; }
+
     /* ── TYPOGRAPHY — fixed sizes ───────────────────────── */
     .body-text, .body-text--light,
     .why-body, .abstract-body,
