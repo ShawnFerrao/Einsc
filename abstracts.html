@@ -357,7 +357,8 @@
     .elementor-editor-active .submit-strip   { background: var(--dark)   !important; }
     .elementor-editor-active .cta-section    { background: var(--gold)   !important; }
     .elementor-editor-active .footer         { background: #060a1a       !important; }
-    .elementor-editor-active .dates-sidebar  { background: #f9f7f3       !important; }
+    .elementor-editor-active .sidebar-col    { background: #f9f7f3       !important; }
+    .elementor-editor-active .dates-sidebar  { background: transparent   !important; }
     .elementor-editor-active .date-card      { background: rgba(255,255,255,.04) !important; }
     .elementor-editor-active .intro-callout  { background: var(--dark)   !important; }
     .elementor-editor-active .info-box       { background: #fdf8f0       !important; }
@@ -499,14 +500,19 @@
     .accordion__item[id] { scroll-margin-top: 130px; }
 
     /* ── PAGE LAYOUT WITH SIDEBAR ───────────────────────── */
-    .page-layout { display:flex; align-items:flex-start; }
-    .page-main   { flex:1; min-width:0; overflow:hidden; }
+    .page-layout  { display:flex; align-items:stretch; }
+    .page-main    { flex:1; min-width:0; overflow:hidden; }
 
-    .dates-sidebar {
+    /* Outer column stretches full page height → provides the cream BG */
+    .sidebar-col  {
       width:272px; min-width:272px; flex-shrink:0;
+      background:#f9f7f3; border-left:3px solid var(--gold);
+    }
+
+    /* Inner sticky pane scrolls within the column */
+    .dates-sidebar {
       position:sticky; top:80px;
       max-height:calc(100vh - 80px); overflow-y:auto;
-      background:#f9f7f3; border-left:3px solid var(--gold);
       padding:28px 22px; scrollbar-width:thin;
     }
     .dates-sidebar::-webkit-scrollbar { width:4px; }
@@ -553,7 +559,8 @@
 
     /* Sidebar hidden below 1200px */
     @media(max-width:1200px){
-      .dates-sidebar { display:none; }
+      .sidebar-col  { display:none; }
+      .dates-sidebar{ display:none; }
     }
 
     /* Wide tablet (1024px – 1200px) */
@@ -959,6 +966,7 @@
 </div><!-- /page-main -->
 
 <!-- ── KEY DATES SIDEBAR ─────────────────────────────────── -->
+<div class="sidebar-col">
 <aside class="dates-sidebar" aria-label="Key dates">
   <h2 class="sb-heading">Key Dates</h2>
 
@@ -1004,6 +1012,7 @@
 
   <a href="https://einsc.com/abstracts/" class="sb-cta">Submit Abstract →</a>
 </aside>
+</div><!-- /sidebar-col -->
 
 </div><!-- /page-layout -->
 
