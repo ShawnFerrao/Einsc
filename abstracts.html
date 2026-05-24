@@ -324,6 +324,9 @@
     .date-card__label, .accordion__trigger-label,
     .criteria-title, .structure-box__title { font-size: 20px; }
 
+    /* ── ANCHOR OFFSET — compensate for fixed nav ───────── */
+    .accordion__item[id] { scroll-margin-top: 100px; }
+
     /* ── PAGE LAYOUT WITH SIDEBAR ───────────────────────── */
     .page-layout { display:flex; align-items:flex-start; }
     .page-main   { flex:1; min-width:0; overflow:hidden; }
