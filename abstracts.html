@@ -315,6 +315,55 @@
     .footer-bottom p, .footer-bottom a { font-size:13px; color:rgba(240,236,228,.25); text-decoration:none; transition:color .2s; }
     .footer-bottom a:hover { color:var(--gold); }
 
+    /* ── ELEMENTOR EDITOR — strip injected overlays ─────── */
+    .elementor-editor-active *:not(.elementor-element):not(.elementor-element *) {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    .elementor-editor-active a,
+    .elementor-editor-active p,
+    .elementor-editor-active span,
+    .elementor-editor-active li,
+    .elementor-editor-active h1,
+    .elementor-editor-active h2,
+    .elementor-editor-active h3,
+    .elementor-editor-active h4,
+    .elementor-editor-active blockquote,
+    .elementor-editor-active .label,
+    .elementor-editor-active .body-text,
+    .elementor-editor-active .page-hero__eyebrow,
+    .elementor-editor-active .page-hero__sub,
+    .elementor-editor-active .intro-callout p,
+    .elementor-editor-active .date-card__sub,
+    .elementor-editor-active .date-card__month,
+    .elementor-editor-active .accordion__trigger-label,
+    .elementor-editor-active .rule-list li,
+    .elementor-editor-active .criteria-body,
+    .elementor-editor-active .sb-label,
+    .elementor-editor-active .sb-date,
+    .elementor-editor-active .sb-group-label,
+    .elementor-editor-active .footer-col a,
+    .elementor-editor-active .footer-col p,
+    .elementor-editor-active .nav__links a,
+    .elementor-editor-active .submit-strip__text {
+      background: transparent !important;
+      background-color: transparent !important;
+      outline: none !important;
+      text-decoration: none !important;
+    }
+    /* Restore intentional section backgrounds */
+    .elementor-editor-active .page-hero      { background: var(--dark)   !important; }
+    .elementor-editor-active .dates-zone     { background: var(--navy)   !important; }
+    .elementor-editor-active .submit-strip   { background: var(--dark)   !important; }
+    .elementor-editor-active .cta-section    { background: var(--gold)   !important; }
+    .elementor-editor-active .footer         { background: #060a1a       !important; }
+    .elementor-editor-active .dates-sidebar  { background: #f9f7f3       !important; }
+    .elementor-editor-active .date-card      { background: rgba(255,255,255,.04) !important; }
+    .elementor-editor-active .intro-callout  { background: var(--dark)   !important; }
+    .elementor-editor-active .info-box       { background: #fdf8f0       !important; }
+    .elementor-editor-active .structure-box  { background: #f9f7f3       !important; }
+    .elementor-editor-active .criteria-card  { background: #fff          !important; }
+
     /* ── ELEMENTOR OVERRIDES ─────────────────────────────── */
     html body .btn-gold,
     html body .btn-gold:visited {

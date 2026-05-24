@@ -383,6 +383,53 @@
     .footer-bottom p, .footer-bottom a { font-size:13px; color:rgba(240,236,228,.25); text-decoration:none; transition:color .2s; }
     .footer-bottom a:hover { color:var(--gold); }
 
+    /* ── ELEMENTOR EDITOR — strip injected overlays ─────── */
+    .elementor-editor-active *:not(.elementor-element):not(.elementor-element *) {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    /* Reset any backgrounds Elementor injects onto text/link nodes */
+    .elementor-editor-active a,
+    .elementor-editor-active p,
+    .elementor-editor-active span,
+    .elementor-editor-active li,
+    .elementor-editor-active h1,
+    .elementor-editor-active h2,
+    .elementor-editor-active h3,
+    .elementor-editor-active h4,
+    .elementor-editor-active blockquote,
+    .elementor-editor-active .label,
+    .elementor-editor-active .body-text,
+    .elementor-editor-active .hero__eyebrow,
+    .elementor-editor-active .hero__date-row,
+    .elementor-editor-active .why-body,
+    .elementor-editor-active .why-title,
+    .elementor-editor-active .member-body,
+    .elementor-editor-active .member-name,
+    .elementor-editor-active .bullet-list li,
+    .elementor-editor-active .footer-col a,
+    .elementor-editor-active .footer-col p,
+    .elementor-editor-active .nav__links a,
+    .elementor-editor-active .date-item p,
+    .elementor-editor-active .supporters-label {
+      background: transparent !important;
+      background-color: transparent !important;
+      outline: none !important;
+      text-decoration: none !important;
+    }
+    /* Restore intentional dark/coloured section backgrounds */
+    .elementor-editor-active .hero           { background: var(--dark) !important; }
+    .elementor-editor-active .zone-dark      { background: var(--dark) !important; }
+    .elementor-editor-active .strip          { background: var(--dark) !important; }
+    .elementor-editor-active .cta-section    { background: var(--gold) !important; }
+    .elementor-editor-active .footer         { background: #060a1a   !important; }
+    .elementor-editor-active .dates-card     { background: #fff       !important; }
+    .elementor-editor-active .why-card       { background: var(--dark) !important; }
+    .elementor-editor-active .abstract-card  {
+      background: linear-gradient(160deg,#7a5a1e,#4a3610 55%,#2c2008) !important;
+    }
+    .elementor-editor-active .member-card    { background: #f9f7f3    !important; }
+
     /* ── ELEMENTOR OVERRIDES ─────────────────────────────── */
     html body .btn-gold,
     html body .btn-gold:visited {
