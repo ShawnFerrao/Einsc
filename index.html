@@ -118,7 +118,7 @@
 
     .hero__content {
       position:relative; z-index:2;
-      padding:120px var(--pad) 160px; max-width:min(760px, 90vw);
+      padding:180px var(--pad) 160px; max-width:min(760px, 90vw);
       opacity:0; animation:fadeUp 1.4s .15s ease forwards;
     }
     .hero__eyebrow {
@@ -560,11 +560,14 @@
     }
 
     /* â”€â”€ RESPONSIVE â€” 768px â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    @media(max-width:768px){
-      html { font-size:16px; }
+    @media(max-width:900px){
       .nav__links  { display:none; }
       .nav__cta    { display:none; }
       .nav__burger { display:flex; }
+    }
+
+    @media(max-width:768px){
+      html { font-size:16px; }
       .pulse-ring  { right:-25%; }
       .hero__content { max-width:100%; }
       .countdown   { gap:10px; }
