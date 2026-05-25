@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scientific Program — EINSC 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --gold:   #c9a96e;
+      --gold-l: #e2c28a;
+      --cream:  #f0ece4;
+      --navy:   #0d1b3e;
+      --dark:   #020510;
+      --room-b: #163d5e;
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --sans:   'Barlow', sans-serif;
+      --max:    1280px;
+      --pad:    clamp(20px, 5vw, 80px);
+    }
+
+    html { scroll-behavior:smooth; }
+    body { font-family:var(--sans); background:#fff; color:#1c1c2e; overflow-x:hidden; line-height:1.7; }
+
+    /* ── NAV ────────────────────────────────────────────────── */
+    .nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:20px var(--pad);
+      background:rgba(2,5,16,.96);
+      border-bottom:1px solid rgba(201,169,110,.15);
+      backdrop-filter:blur(10px);
+    }
+    .nav__logo { display:flex; align-items:center; gap:14px; text-decoration:none; flex-shrink:0; }
+    .nav__emblem {
+      width:46px; height:46px; border-radius:50%;
+      border:1.5px solid rgba(201,169,110,.55);
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .nav__emblem span { font-family:var(--serif); font-size:12px; font-weight:600; color:var(--gold); letter-spacing:.05em; }
+    .nav__logo-text .t1 { font-size:13px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--cream); }
+    .nav__logo-text .t2 { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(240,236,228,.4); margin-top:2px; }
+
+    .nav__links { display:flex; gap:clamp(14px,2vw,32px); list-style:none; }
+    .nav__links a {
+      font-size:clamp(11px,1.1vw,13px); font-weight:400; letter-spacing:.1em; text-transform:uppercase;
+      color:rgba(240,236,228,.7); text-decoration:none;
+      position:relative; padding-bottom:4px; transition:color .22s; white-space:nowrap;
+    }
+    .nav__links a::after {
+      content:''; position:absolute; bottom:0; left:0;
+      width:0; height:1.5px; background:var(--gold); transition:width .28s ease;
+    }
+    .nav__links a:hover { color:var(--gold); }
+    .nav__links a:hover::after { width:100%; }
+    .nav__links a.active { color:var(--gold); }
+    .nav__links a.active::after { width:100%; }
+
+    .nav__cta {
+      font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--dark); background:var(--gold); padding:10px 20px;
+      text-decoration:none; white-space:nowrap; flex-shrink:0; transition:background .22s;
+    }
+    .nav__cta:hover { background:var(--gold-l); }
+
+    .nav__burger {
+      display:none; flex-direction:column; gap:6px; cursor:pointer;
+      background:none; border:none; padding:8px; z-index:200;
+    }
+    .nav__burger span { display:block; width:26px; height:2px; background:var(--cream); border-radius:2px; transition:all .3s; }
+    .nav__burger.open span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2){ opacity:0; }
+    .nav__burger.open span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+    .nav__drawer {
+      display:none; position:fixed; inset:0; z-index:150;
+      background:rgba(2,5,16,.97); flex-direction:column;
+      align-items:center; justify-content:center; gap:32px;
+    }
+    .nav__drawer.open { display:flex; }
+    .nav__drawer a { font-size:clamp(1.1rem,4.5vw,1.7rem); letter-spacing:.16em; text-transform:uppercase; color:rgba(240,236,228,.85); text-decoration:none; transition:color .2s; }
+    .nav__drawer a:hover { color:var(--gold); }
+    .nav__drawer .drawer-cta { margin-top:10px; background:var(--gold); color:var(--dark) !important; padding:16px 36px; letter-spacing:.2em; font-size:.95rem !important; }
+
+    /* ── PAGE HERO ───────────────────────────────────────────── */
+    .page-hero {
+      background:var(--dark); padding:140px var(--pad) 72px;
+      position:relative; overflow:hidden;
+    }
+    .page-hero__bg {
+      position:absolute; inset:0;
+      background:radial-gradient(ellipse 70% 60% at 80% 50%, rgba(201,169,110,.07) 0%, transparent 70%);
+    }
+    .page-hero__content { position:relative; z-index:1; max-width:var(--max); margin:0 auto; }
+    .page-hero__eyebrow {
+      font-size:11px; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:16px; display:block;
+    }
+    .page-hero__title {
+      font-family:var(--serif); font-size:clamp(2.4rem,5vw,4rem); font-weight:300;
+      color:var(--cream); line-height:1.15; margin-bottom:24px;
+    }
+    .page-hero__title em { font-style:italic; color:var(--gold); }
+    .page-hero__desc {
+      font-size:16px; font-weight:300; color:rgba(240,236,228,.62);
+      max-width:640px; line-height:1.8; margin-bottom:48px;
+    }
+
+    /* Stats strip */
+    .hero-stats {
+      display:flex; gap:clamp(24px,4vw,56px); flex-wrap:wrap;
+      border-top:1px solid rgba(201,169,110,.18); padding-top:36px;
+    }
+    .hero-stat__num {
+      font-family:var(--serif); font-size:clamp(2rem,3.5vw,3rem); font-weight:300;
+      color:var(--gold); line-height:1;
+    }
+    .hero-stat__label {
+      font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+      color:rgba(240,236,228,.45); margin-top:4px;
+    }
+
+    /* ── TABS ────────────────────────────────────────────────── */
+    .tabs-outer {
+      background:#fff; border-bottom:2px solid #f0ece4;
+      position:sticky; top:86px; z-index:80;
+    }
+    .tabs-inner {
+      max-width:var(--max); margin:0 auto; padding:0 var(--pad);
+      display:flex; gap:0; overflow-x:auto; scrollbar-width:none;
+    }
+    .tabs-inner::-webkit-scrollbar { display:none; }
+
+    .tab-btn {
+      flex-shrink:0; padding:18px 28px; cursor:pointer;
+      font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+      color:#9a9aaa; background:none; border:none;
+      border-bottom:2.5px solid transparent; margin-bottom:-2px;
+      transition:color .22s, border-color .22s; white-space:nowrap;
+    }
+    .tab-btn:hover { color:var(--navy); }
+    .tab-btn.active { color:var(--navy); border-bottom-color:var(--gold); }
+
+    /* ── PROGRAM SECTION ─────────────────────────────────────── */
+    .program-section { background:#fff; padding:0 var(--pad) 100px; }
+    .program-inner   { max-width:var(--max); margin:0 auto; }
+
+    .day-program { display:none; padding-top:40px; }
+    .day-program.active { display:block; }
+
+    /* Day heading */
+    .day-heading {
+      display:flex; align-items:center; gap:20px; margin-bottom:36px;
+      padding-bottom:20px; border-bottom:2px solid var(--cream);
+    }
+    .day-heading__date {
+      font-family:var(--serif); font-size:clamp(1.4rem,2.5vw,2rem);
+      font-weight:300; color:var(--navy);
+    }
+    .day-heading__day {
+      font-size:11px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+      color:var(--gold); background:rgba(201,169,110,.1);
+      padding:5px 14px; border-radius:2px;
+    }
+
+    /* ── TIMELINE ROW BASE ──── */
+    .tl-row {
+      display:flex; align-items:flex-start;
+      border-bottom:1px solid #f5f2ed;
+      padding:20px 0;
+    }
+
+    .tl-time {
+      width:82px; min-width:82px; flex-shrink:0;
+      padding-top:4px;
+      display:flex; flex-direction:column; align-items:flex-end;
+      padding-right:20px; border-right:2px solid #ede9e1;
+      position:relative;
+    }
+    .tl-time::after {
+      content:''; position:absolute; right:-6px; top:8px;
+      width:10px; height:10px; border-radius:50%;
+      background:#e0dbd2; border:2px solid #fff;
+    }
+    .tl-start { font-size:15px; font-weight:600; color:#1c1c2e; }
+    .tl-end   { font-size:12px; color:#aaa; margin-top:1px; }
+    .tl-dur   { font-size:11px; color:#ccc; margin-top:4px; }
+
+    .tl-content { flex:1; padding-left:24px; }
+
+    /* Break / admin rows */
+    .tl-row--break .tl-time::after { background:#d5d0c8; }
+    .break-bar {
+      display:inline-flex; align-items:center; gap:12px;
+      padding:11px 22px; background:#f8f6f1; border:1px dashed #ddd8ce;
+      font-size:13px; font-weight:500; letter-spacing:.08em; text-transform:uppercase;
+      color:#999;
+    }
+    .break-bar svg { flex-shrink:0; opacity:.5; }
+
+    /* Ceremony */
+    .tl-row--ceremony .tl-time::after { background:var(--gold); }
+    .ceremony-card {
+      background:var(--navy); border-left:4px solid var(--gold);
+      padding:20px 26px;
+    }
+    .ceremony-card__label {
+      font-size:10px; font-weight:600; letter-spacing:.24em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:6px;
+    }
+    .ceremony-card__title {
+      font-family:var(--serif); font-size:clamp(1.3rem,2vw,1.65rem);
+      font-weight:400; color:var(--cream);
+    }
+
+    /* Session card */
+    .tl-row--session .tl-time::after { background:var(--navy); }
+    .tl-row--keynote .tl-time::after { background:var(--gold); }
+
+    .session-card {
+      border:1px solid #eae7e0; border-left:4px solid var(--navy);
+      padding:20px 24px; background:#fff; transition:box-shadow .22s;
+    }
+    .session-card:hover { box-shadow:0 4px 24px rgba(13,27,62,.07); }
+    .session-card--keynote { border-left-color:var(--gold); background:rgba(201,169,110,.03); }
+
+    .sc-meta {
+      display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:10px;
+    }
+    .sc-num {
+      font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+      color:var(--navy); background:rgba(13,27,62,.07); padding:3px 10px;
+    }
+    .sc-room {
+      font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+      color:#888; border:1px solid #e0dbd2; padding:3px 10px;
+    }
+    .sc-type {
+      font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+      color:var(--gold); font-weight:600;
+    }
+
+    .sc-title {
+      font-family:var(--serif); font-size:clamp(1.2rem,1.8vw,1.55rem);
+      font-weight:400; color:var(--navy); line-height:1.25; margin-bottom:4px;
+    }
+    .session-card--keynote .sc-title { color:var(--navy); }
+
+    .sc-chairs {
+      font-size:13px; color:#aaa; margin-bottom:16px; font-style:italic;
+    }
+
+    /* Expand toggle */
+    .sc-toggle {
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+      color:#888; background:none; border:none; cursor:pointer; padding:0;
+      transition:color .2s;
+    }
+    .sc-toggle:hover { color:var(--navy); }
+    .sc-toggle__arrow { font-size:14px; display:inline-block; transition:transform .25s; }
+    .sc-toggle.open .sc-toggle__arrow { transform:rotate(90deg); }
+
+    /* Presentation list */
+    .pres-list { display:none; margin-top:14px; border-top:1px solid #f0ece4; padding-top:14px; }
+    .pres-list.open { display:block; }
+
+    .pres-item {
+      display:flex; align-items:baseline; gap:14px;
+      padding:7px 0; border-bottom:1px solid #f8f5f0; font-size:14px; line-height:1.55;
+    }
+    .pres-item:last-child { border:none; padding-bottom:0; }
+    .pi-time  { min-width:96px; font-size:12px; color:#aaa; flex-shrink:0; font-variant-numeric:tabular-nums; }
+    .pi-label { color:#4a4a5a; flex:1; }
+    .pi-label--keynote { color:var(--gold); font-weight:600; }
+    .pi-label--qa      { color:#aaa; font-style:italic; }
+
+    /* ── KEYNOTE STANDALONE CARD ────────────────────────────── */
+    .keynote-card {
+      background:rgba(201,169,110,.05); border:1px solid rgba(201,169,110,.22);
+      border-left:4px solid var(--gold); padding:22px 26px;
+    }
+    .kc-eyebrow {
+      font-size:10px; font-weight:600; letter-spacing:.24em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:7px;
+    }
+    .kc-title {
+      font-family:var(--serif); font-size:clamp(1.2rem,1.8vw,1.5rem);
+      font-weight:400; color:var(--navy);
+    }
+
+    /* ── CONCURRENT BLOCK ───────────────────────────────────── */
+    .tl-row--concurrent { flex-direction:column; }
+    .tl-row--concurrent .tl-top {
+      display:flex; align-items:flex-start; width:100%;
+    }
+    .tl-row--concurrent .tl-content { width:100%; padding-bottom:0; }
+
+    .concurrent-label {
+      font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:10px;
+    }
+    .concurrent-label::after { content:''; flex:1; height:1px; background:rgba(201,169,110,.25); }
+
+    .rooms-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:12px;
+    }
+
+    /* Room A */
+    .room-a .room-bar {
+      background:var(--navy); color:rgba(240,236,228,.75);
+      font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+      padding:7px 14px;
+    }
+    .room-a .session-card { border-top:none; border-radius:0; }
+
+    /* Room B */
+    .room-b .room-bar {
+      background:var(--room-b); color:rgba(240,236,228,.75);
+      font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+      padding:7px 14px;
+    }
+    .room-b .session-card { border-left-color:var(--room-b); border-top:none; border-radius:0; }
+
+    /* Room C (Abstracts) */
+    .room-c .room-bar {
+      background:rgba(201,169,110,.12); color:var(--gold);
+      font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+      padding:7px 14px; border:1px solid rgba(201,169,110,.25); border-bottom:none;
+    }
+    .room-c .session-card { border-left-color:var(--gold); background:#fdf9f3; border-top:none; border-radius:0; }
+    .room-c .sc-num { color:var(--gold); background:rgba(201,169,110,.12); }
+
+    /* ── CLOSING STRIP ───────────────────────────────────────── */
+    .closing-strip {
+      margin-top:8px;
+      display:flex; align-items:center; justify-content:center;
+      background:var(--navy); border-top:3px solid var(--gold);
+      padding:20px 28px; gap:16px;
+    }
+    .closing-strip__label {
+      font-size:11px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+      color:var(--gold);
+    }
+    .closing-strip__title {
+      font-family:var(--serif); font-size:1.3rem; font-weight:300; color:var(--cream);
+    }
+    .closing-strip__time { font-size:13px; color:rgba(240,236,228,.4); }
+
+    /* ── FOOTER ──────────────────────────────────────────────── */
+    .footer { background:#060a1a; padding:clamp(64px,8vw,88px) var(--pad) 40px; }
+    .footer-grid {
+      display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:clamp(28px,4vw,56px);
+      max-width:var(--max); margin:0 auto;
+      padding-bottom:56px; border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .footer-brand-name { font-family:var(--serif); font-size:clamp(1.4rem,2.5vw,1.8rem); font-weight:300; color:var(--cream); line-height:1.4; margin-bottom:14px; }
+    .footer-brand-sub  { font-size:clamp(13px,1.3vw,15px); color:rgba(240,236,228,.38); line-height:1.75; }
+    .footer-col h4     { font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; font-weight:600; }
+    .footer-col a, .footer-col p { display:block; font-size:clamp(13px,1.3vw,15px); color:rgba(240,236,228,.5); text-decoration:none; margin-bottom:10px; line-height:1.7; transition:color .2s; }
+    .footer-col a:hover { color:var(--gold); }
+    .footer-newsletter { display:flex; overflow:hidden; border:1.5px solid rgba(201,169,110,.3); margin-top:12px; }
+    .footer-newsletter input { flex:1; background:transparent; border:none; outline:none; padding:14px 16px; font-size:14px; color:var(--cream); font-family:var(--sans); min-width:0; }
+    .footer-newsletter input::placeholder { color:rgba(240,236,228,.28); }
+    .footer-newsletter button { background:var(--gold); border:none; padding:14px 18px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--dark); font-family:var(--sans); font-weight:600; cursor:pointer; transition:background .22s; white-space:nowrap; }
+    .footer-newsletter button:hover { background:var(--gold-l); }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:28px; flex-wrap:wrap; gap:12px; max-width:var(--max); margin:0 auto; }
+    .footer-bottom p, .footer-bottom a { font-size:13px; color:rgba(240,236,228,.25); text-decoration:none; transition:color .2s; }
+    .footer-bottom a:hover { color:var(--gold); }
+
+    /* ── ELEMENTOR OVERRIDES ─────────────────────────────────── */
+    html body a,
+    html body a:visited              { color:inherit !important; text-decoration:none !important; }
+    html body a:hover,
+    html body a:focus                { color:inherit !important; }
+    html body button,
+    html body button:hover,
+    html body button:focus           { color:inherit !important; background-color:transparent !important; }
+
+    html body .nav__links a,
+    html body .nav__links a:visited  { color:rgba(240,236,228,.7) !important; }
+    html body .nav__links a:hover,
+    html body .nav__links a:focus    { color:var(--gold) !important; }
+    html body .nav__drawer a,
+    html body .nav__drawer a:visited { color:rgba(240,236,228,.85) !important; }
+    html body .nav__drawer a:hover   { color:var(--gold) !important; }
+
+    html body .nav__cta,
+    html body .nav__cta:visited {
+      color:var(--dark) !important; background:var(--gold) !important;
+      text-decoration:none !important;
+    }
+    html body .nav__cta:hover { background:var(--gold-l) !important; color:var(--dark) !important; }
+
+    html body .footer-col a,
+    html body .footer-col a:visited   { color:rgba(240,236,228,.5) !important; }
+    html body .footer-col a:hover     { color:var(--gold) !important; }
+    html body .footer-bottom a,
+    html body .footer-bottom a:visited{ color:rgba(240,236,228,.25) !important; }
+    html body .footer-bottom a:hover  { color:var(--gold) !important; }
+
+    html body .sc-toggle,
+    html body .sc-toggle:hover { color:#888 !important; background:transparent !important; }
+    html body .sc-toggle:hover { color:var(--navy) !important; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media(max-width:900px) {
+      .nav__links, .nav__cta { display:none; }
+      .nav__burger { display:flex; }
+
+      .rooms-grid { grid-template-columns:1fr; gap:16px; }
+      .room-a .room-bar, .room-b .room-bar, .room-c .room-bar { display:block; }
+    }
+    @media(max-width:680px) {
+      .tl-time { width:58px; min-width:58px; }
+      .tl-start { font-size:13px; }
+      .tl-content { padding-left:14px; }
+      .session-card { padding:14px 16px; }
+      .hero-stats { gap:24px; }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:28px; }
+    }
+    @media(max-width:480px) {
+      .footer-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────── -->
+<nav class="nav">
+  <a href="https://einsc.com/" class="nav__logo">
+    <div class="nav__emblem"><span>EINSC</span></div>
+    <div class="nav__logo-text">
+      <div class="t1">EINSC 2026</div>
+      <div class="t2">17–18 October · Dubai</div>
+    </div>
+  </a>
+  <ul class="nav__links">
+    <li><a href="https://einsc.com/program/" class="active">Program</a></li>
+    <li><a href="https://einsc.com/faculty/">Faculty</a></li>
+    <li><a href="https://einsc.com/abstracts/">Abstracts</a></li>
+    <li><a href="https://einsc.com/sponsors/">Sponsors</a></li>
+    <li><a href="https://einsc.com/venue/">Venue</a></li>
+    <li><a href="https://einsc.com/visa-travel/">Visa &amp; Travel</a></li>
+    <li><a href="https://einsc.com/contact/">Contact</a></li>
+  </ul>
+  <a href="https://einsc.com/register/" class="nav__cta">Register Now</a>
+  <button class="nav__burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── MOBILE DRAWER ────────────────────────────────────────── -->
+<div class="nav__drawer" id="drawer">
+  <a href="https://einsc.com/program/">Program</a>
+  <a href="https://einsc.com/faculty/">Faculty</a>
+  <a href="https://einsc.com/abstracts/">Abstracts</a>
+  <a href="https://einsc.com/sponsors/">Sponsors</a>
+  <a href="https://einsc.com/venue/">Venue</a>
+  <a href="https://einsc.com/visa-travel/">Visa &amp; Travel</a>
+  <a href="https://einsc.com/contact/">Contact</a>
+  <a href="https://einsc.com/register/" class="drawer-cta">Register Now</a>
+</div>
+
+<!-- ── PAGE HERO ─────────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="page-hero__bg"></div>
+  <div class="page-hero__content">
+    <span class="page-hero__eyebrow">EINSC 2026 — Scientific Program</span>
+    <h1 class="page-hero__title">Education,<br>Simulation,<br>and <em>Precision.</em></h1>
+    <p class="page-hero__desc">
+      The EINSC 2026 Scientific Program is meticulously curated to transcend traditional lectures —
+      featuring high-impact plenary sessions, provocative debates on surgical ethics, and
+      specialized tracks in Basic Spinal and Cranial Surgery. From neuro-oncology to neuro-trauma
+      management, our program offers a comprehensive roadmap for both seasoned consultants and
+      early-career residents.
+    </p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat__num">2</div>
+        <div class="hero-stat__label">Conference Days</div>
+      </div>
+      <div>
+        <div class="hero-stat__num">14</div>
+        <div class="hero-stat__label">Scientific Sessions</div>
+      </div>
+      <div>
+        <div class="hero-stat__num">3</div>
+        <div class="hero-stat__label">Concurrent Rooms</div>
+      </div>
+      <div>
+        <div class="hero-stat__num">83</div>
+        <div class="hero-stat__label">Presentations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DAY TABS ──────────────────────────────────────────────── -->
+<div class="tabs-outer">
+  <div class="tabs-inner">
+    <button class="tab-btn active" data-day="1">Day 1 — Saturday, 17 October</button>
+    <button class="tab-btn"        data-day="2">Day 2 — Sunday, 18 October</button>
+  </div>
+</div>
+
+<!-- ── PROGRAM SECTION ───────────────────────────────────────── -->
+<section class="program-section">
+<div class="program-inner">
+
+<!-- ══════════════════ DAY 1 ══════════════════ -->
+<div class="day-program active" id="day1">
+
+  <div class="day-heading">
+    <span class="day-heading__day">Day 1</span>
+    <h2 class="day-heading__date">Saturday, 17 October 2026</h2>
+  </div>
+
+  <!-- Registration -->
+  <div class="tl-row tl-row--break">
+    <div class="tl-time">
+      <span class="tl-start">7:30</span>
+      <span class="tl-end">8:30</span>
+    </div>
+    <div class="tl-content">
+      <div class="break-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Registration
+      </div>
+    </div>
+  </div>
+
+  <!-- Opening Ceremony -->
+  <div class="tl-row tl-row--ceremony">
+    <div class="tl-time">
+      <span class="tl-start">8:30</span>
+      <span class="tl-end">9:15</span>
+    </div>
+    <div class="tl-content">
+      <div class="ceremony-card">
+        <div class="ceremony-card__label">Ceremony</div>
+        <div class="ceremony-card__title">Opening Ceremony</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Session 1: Skull Base -->
+  <div class="tl-row tl-row--session">
+    <div class="tl-time">
+      <span class="tl-start">9:15</span>
+      <span class="tl-end">10:30</span>
+    </div>
+    <div class="tl-content">
+      <div class="session-card">
+        <div class="sc-meta">
+          <span class="sc-num">Session 1</span>
+          <span class="sc-room">Room A — Main Plenary Hall</span>
+          <span class="sc-type">Plenary</span>
+        </div>
+        <h3 class="sc-title">Skull Base</h3>
+        <p class="sc-chairs">Session Chairs: TBA</p>
+        <button class="sc-toggle" onclick="togglePres(this)">
+          <span class="sc-toggle__arrow">›</span> 4 Presentations + Q&amp;A
+        </button>
+        <div class="pres-list">
+          <div class="pres-item"><span class="pi-time">9:15 – 9:30</span><span class="pi-label">Presentation 1</span></div>
+          <div class="pres-item"><span class="pi-time">9:30 – 9:45</span><span class="pi-label">Presentation 2</span></div>
+          <div class="pres-item"><span class="pi-time">9:45 – 10:00</span><span class="pi-label">Presentation 3</span></div>
+          <div class="pres-item"><span class="pi-time">10:00 – 10:15</span><span class="pi-label">Presentation 4</span></div>
+          <div class="pres-item"><span class="pi-time">10:15 – 10:30</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coffee Break -->
+  <div class="tl-row tl-row--break">
+    <div class="tl-time">
+      <span class="tl-start">10:30</span>
+      <span class="tl-end">10:45</span>
+    </div>
+    <div class="tl-content">
+      <div class="break-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        Morning Coffee Break
+      </div>
+    </div>
+  </div>
+
+  <!-- Session 2: Neurotrauma -->
+  <div class="tl-row tl-row--session">
+    <div class="tl-time">
+      <span class="tl-start">10:45</span>
+      <span class="tl-end">12:45</span>
+    </div>
+    <div class="tl-content">
+      <div class="session-card">
+        <div class="sc-meta">
+          <span class="sc-num">Session 2</span>
+          <span class="sc-room">Room A — Main Plenary Hall</span>
+          <span class="sc-type">Plenary</span>
+        </div>
+        <h3 class="sc-title">Neurotrauma</h3>
+        <p class="sc-chairs">Session Chairs: TBA</p>
+        <button class="sc-toggle" onclick="togglePres(this)">
+          <span class="sc-toggle__arrow">›</span> 5 Presentations + Keynote + Q&amp;A
+        </button>
+        <div class="pres-list">
+          <div class="pres-item"><span class="pi-time">10:45 – 11:00</span><span class="pi-label">Presentation 5</span></div>
+          <div class="pres-item"><span class="pi-time">11:00 – 11:15</span><span class="pi-label">Presentation 6</span></div>
+          <div class="pres-item"><span class="pi-time">11:15 – 11:30</span><span class="pi-label">Presentation 7</span></div>
+          <div class="pres-item"><span class="pi-time">11:30 – 11:45</span><span class="pi-label">Presentation 8</span></div>
+          <div class="pres-item"><span class="pi-time">11:45 – 12:00</span><span class="pi-label">Presentation 9</span></div>
+          <div class="pres-item"><span class="pi-time">12:00 – 12:30</span><span class="pi-label pi-label--keynote">★ Keynote Lecture 1</span></div>
+          <div class="pres-item"><span class="pi-time">12:30 – 12:45</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Afternoon Coffee Break -->
+  <div class="tl-row tl-row--break">
+    <div class="tl-time">
+      <span class="tl-start">12:45</span>
+      <span class="tl-end">13:00</span>
+    </div>
+    <div class="tl-content">
+      <div class="break-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        Afternoon Coffee Break
+      </div>
+    </div>
+  </div>
+
+  <!-- Session 3: Global Neurosurgery -->
+  <div class="tl-row tl-row--session">
+    <div class="tl-time">
+      <span class="tl-start">13:00</span>
+      <span class="tl-end">14:45</span>
+    </div>
+    <div class="tl-content">
+      <div class="session-card">
+        <div class="sc-meta">
+          <span class="sc-num">Session 3</span>
+          <span class="sc-room">Room A — Main Plenary Hall</span>
+          <span class="sc-type">Plenary</span>
+        </div>
+        <h3 class="sc-title">Global Neurosurgery</h3>
+        <p class="sc-chairs">Session Chairs: TBA</p>
+        <button class="sc-toggle" onclick="togglePres(this)">
+          <span class="sc-toggle__arrow">›</span> 6 Presentations + Q&amp;A
+        </button>
+        <div class="pres-list">
+          <div class="pres-item"><span class="pi-time">13:00 – 13:15</span><span class="pi-label">Presentation 10</span></div>
+          <div class="pres-item"><span class="pi-time">13:15 – 13:30</span><span class="pi-label">Presentation 11</span></div>
+          <div class="pres-item"><span class="pi-time">13:30 – 13:45</span><span class="pi-label">Presentation 12</span></div>
+          <div class="pres-item"><span class="pi-time">13:45 – 14:00</span><span class="pi-label">Presentation 13</span></div>
+          <div class="pres-item"><span class="pi-time">14:00 – 14:15</span><span class="pi-label">Presentation 14</span></div>
+          <div class="pres-item"><span class="pi-time">14:15 – 14:30</span><span class="pi-label">Presentation 15</span></div>
+          <div class="pres-item"><span class="pi-time">14:30 – 14:45</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lunch Break -->
+  <div class="tl-row tl-row--break">
+    <div class="tl-time">
+      <span class="tl-start">14:45</span>
+      <span class="tl-end">15:45</span>
+    </div>
+    <div class="tl-content">
+      <div class="break-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2s-5 2-5 10"/><path d="M16 17h5v1a4 4 0 0 1-4 4H16"/><path d="M17 21l-1 2"/></svg>
+        Lunch Break
+      </div>
+    </div>
+  </div>
+
+  <!-- Session 4: Oncology -->
+  <div class="tl-row tl-row--session">
+    <div class="tl-time">
+      <span class="tl-start">15:45</span>
+      <span class="tl-end">17:30</span>
+    </div>
+    <div class="tl-content">
+      <div class="session-card">
+        <div class="sc-meta">
+          <span class="sc-num">Session 4</span>
+          <span class="sc-room">Room A — Main Plenary Hall</span>
+          <span class="sc-type">Plenary</span>
+        </div>
+        <h3 class="sc-title">Oncology</h3>
+        <p class="sc-chairs">Session Chairs: TBA</p>
+        <button class="sc-toggle" onclick="togglePres(this)">
+          <span class="sc-toggle__arrow">›</span> 5 Presentations + Keynote + Q&amp;A
+        </button>
+        <div class="pres-list">
+          <div class="pres-item"><span class="pi-time">15:45 – 16:00</span><span class="pi-label">Presentation 16</span></div>
+          <div class="pres-item"><span class="pi-time">16:00 – 16:15</span><span class="pi-label">Presentation 17</span></div>
+          <div class="pres-item"><span class="pi-time">16:15 – 16:30</span><span class="pi-label">Presentation 18</span></div>
+          <div class="pres-item"><span class="pi-time">16:30 – 16:45</span><span class="pi-label">Presentation 19</span></div>
+          <div class="pres-item"><span class="pi-time">16:45 – 17:00</span><span class="pi-label">Presentation 20</span></div>
+          <div class="pres-item"><span class="pi-time">17:00 – 17:15</span><span class="pi-label pi-label--keynote">★ Keynote Lecture 2</span></div>
+          <div class="pres-item"><span class="pi-time">17:15 – 17:30</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End of Day marker -->
+  <div style="text-align:center; padding:32px 0; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#bbb;">
+    — End of Day 1 —
+  </div>
+
+</div><!-- /day1 -->
+
+<!-- ══════════════════ DAY 2 ══════════════════ -->
+<div class="day-program" id="day2">
+
+  <div class="day-heading">
+    <span class="day-heading__day">Day 2</span>
+    <h2 class="day-heading__date">Sunday, 18 October 2026</h2>
+  </div>
+
+  <!-- Registration -->
+  <div class="tl-row tl-row--break">
+    <div class="tl-time">
+      <span class="tl-start">7:30</span>
+      <span class="tl-end">8:00</span>
+    </div>
+    <div class="tl-content">
+      <div class="break-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Registration
+      </div>
+    </div>
+  </div>
+
+  <!-- Session 5: Neurosurgical Education and Training -->
+  <div class="tl-row tl-row--session">
+    <div class="tl-time">
+      <span class="tl-start">8:00</span>
+      <span class="tl-end">10:00</span>
+    </div>
+    <div class="tl-content">
+      <div class="session-card">
+        <div class="sc-meta">
+          <span class="sc-num">Session 5</span>
+          <span class="sc-room">Room A — Plenary Hall</span>
+          <span class="sc-type">Plenary</span>
+        </div>
+        <h3 class="sc-title">Neurosurgical Education &amp; Training</h3>
+        <p class="sc-chairs">Session Chairs: TBA</p>
+        <button class="sc-toggle" onclick="togglePres(this)">
+          <span class="sc-toggle__arrow">›</span> 5 Presentations + Keynote + Q&amp;A
+        </button>
+        <div class="pres-list">
+          <div class="pres-item"><span class="pi-time">8:00 – 8:15</span><span class="pi-label">Presentation 21</span></div>
+          <div class="pres-item"><span class="pi-time">8:15 – 8:30</span><span class="pi-label">Presentation 22</span></div>
+          <div class="pres-item"><span class="pi-time">8:30 – 8:45</span><span class="pi-label">Presentation 23</span></div>
+          <div class="pres-item"><span class="pi-time">8:45 – 9:00</span><span class="pi-label">Presentation 24</span></div>
+          <div class="pres-item"><span class="pi-time">9:00 – 9:15</span><span class="pi-label">Presentation 25</span></div>
+          <div class="pres-item"><span class="pi-time">9:15 – 9:45</span><span class="pi-label pi-label--keynote">★ Keynote Lecture 3</span></div>
+          <div class="pres-item"><span class="pi-time">9:45 – 10:00</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Morning Coffee Break -->
+  <div class="tl-row tl-row--break">
+    <div class="tl-time">
+      <span class="tl-start">10:00</span>
+      <span class="tl-end">10:15</span>
+    </div>
+    <div class="tl-content">
+      <div class="break-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        Morning Coffee Break
+      </div>
+    </div>
+  </div>
+
+  <!-- Session 6: Spine -->
+  <div class="tl-row tl-row--session">
+    <div class="tl-time">
+      <span class="tl-start">10:15</span>
+      <span class="tl-end">11:45</span>
+    </div>
+    <div class="tl-content">
+      <div class="session-card">
+        <div class="sc-meta">
+          <span class="sc-num">Session 6</span>
+          <span class="sc-room">Room A — Plenary Hall</span>
+          <span class="sc-type">Plenary</span>
+        </div>
+        <h3 class="sc-title">Spine</h3>
+        <p class="sc-chairs">Session Chairs: TBA</p>
+        <button class="sc-toggle" onclick="togglePres(this)">
+          <span class="sc-toggle__arrow">›</span> 5 Presentations + Q&amp;A
+        </button>
+        <div class="pres-list">
+          <div class="pres-item"><span class="pi-time">10:15 – 10:30</span><span class="pi-label">Presentation 26</span></div>
+          <div class="pres-item"><span class="pi-time">10:30 – 10:45</span><span class="pi-label">Presentation 27</span></div>
+          <div class="pres-item"><span class="pi-time">10:45 – 11:00</span><span class="pi-label">Presentation 28</span></div>
+          <div class="pres-item"><span class="pi-time">11:00 – 11:15</span><span class="pi-label">Presentation 29</span></div>
+          <div class="pres-item"><span class="pi-time">11:15 – 11:30</span><span class="pi-label">Presentation 30</span></div>
+          <div class="pres-item"><span class="pi-time">11:30 – 11:45</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Session 7: Oncology -->
+  <div class="tl-row tl-row--session">
+    <div class="tl-time">
+      <span class="tl-start">11:45</span>
+      <span class="tl-end">13:15</span>
+    </div>
+    <div class="tl-content">
+      <div class="session-card">
+        <div class="sc-meta">
+          <span class="sc-num">Session 7</span>
+          <span class="sc-room">Room A — Plenary Hall</span>
+          <span class="sc-type">Plenary</span>
+        </div>
+        <h3 class="sc-title">Oncology</h3>
+        <p class="sc-chairs">Session Chairs: TBA</p>
+        <button class="sc-toggle" onclick="togglePres(this)">
+          <span class="sc-toggle__arrow">›</span> 5 Presentations + Q&amp;A
+        </button>
+        <div class="pres-list">
+          <div class="pres-item"><span class="pi-time">11:45 – 12:00</span><span class="pi-label">Presentation 31</span></div>
+          <div class="pres-item"><span class="pi-time">12:00 – 12:15</span><span class="pi-label">Presentation 32</span></div>
+          <div class="pres-item"><span class="pi-time">12:15 – 12:30</span><span class="pi-label">Presentation 33</span></div>
+          <div class="pres-item"><span class="pi-time">12:30 – 12:45</span><span class="pi-label">Presentation 34</span></div>
+          <div class="pres-item"><span class="pi-time">12:45 – 13:00</span><span class="pi-label">Presentation 35</span></div>
+          <div class="pres-item"><span class="pi-time">13:00 – 13:15</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lunch Break -->
+  <div class="tl-row tl-row--break">
+    <div class="tl-time">
+      <span class="tl-start">13:15</span>
+      <span class="tl-end">14:15</span>
+    </div>
+    <div class="tl-content">
+      <div class="break-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2s-5 2-5 10"/><path d="M16 17h5v1a4 4 0 0 1-4 4H16"/><path d="M17 21l-1 2"/></svg>
+        Lunch Break
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCURRENT BLOCK 1: 14:15 – 15:30 -->
+  <div class="tl-row tl-row--concurrent">
+    <div class="tl-top">
+      <div class="tl-time">
+        <span class="tl-start">14:15</span>
+        <span class="tl-end">15:30</span>
+      </div>
+      <div class="tl-content">
+        <div class="concurrent-label">Concurrent Sessions</div>
+        <div class="rooms-grid">
+
+          <!-- Room A -->
+          <div class="room-a">
+            <div class="room-bar">Room A — Plenary Hall</div>
+            <div class="session-card">
+              <div class="sc-meta"><span class="sc-num">Session 8</span><span class="sc-type">Plenary</span></div>
+              <h3 class="sc-title">Spine</h3>
+              <p class="sc-chairs">Session Chairs: TBA</p>
+              <button class="sc-toggle" onclick="togglePres(this)">
+                <span class="sc-toggle__arrow">›</span> 4 Presentations + Q&amp;A
+              </button>
+              <div class="pres-list">
+                <div class="pres-item"><span class="pi-time">14:15 – 14:30</span><span class="pi-label">Presentation 36</span></div>
+                <div class="pres-item"><span class="pi-time">14:30 – 14:45</span><span class="pi-label">Presentation 37</span></div>
+                <div class="pres-item"><span class="pi-time">14:45 – 15:00</span><span class="pi-label">Presentation 38</span></div>
+                <div class="pres-item"><span class="pi-time">15:00 – 15:15</span><span class="pi-label">Presentation 39</span></div>
+                <div class="pres-item"><span class="pi-time">15:15 – 15:30</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room B -->
+          <div class="room-b">
+            <div class="room-bar">Room B</div>
+            <div class="session-card">
+              <div class="sc-meta"><span class="sc-num">Session 9</span><span class="sc-type">Plenary</span></div>
+              <h3 class="sc-title">Functional Neurosurgery</h3>
+              <p class="sc-chairs">Session Chairs: TBA</p>
+              <button class="sc-toggle" onclick="togglePres(this)">
+                <span class="sc-toggle__arrow">›</span> 4 Presentations + Q&amp;A
+              </button>
+              <div class="pres-list">
+                <div class="pres-item"><span class="pi-time">14:15 – 14:30</span><span class="pi-label">Presentation 40</span></div>
+                <div class="pres-item"><span class="pi-time">14:30 – 14:45</span><span class="pi-label">Presentation 41</span></div>
+                <div class="pres-item"><span class="pi-time">14:45 – 15:00</span><span class="pi-label">Presentation 42</span></div>
+                <div class="pres-item"><span class="pi-time">15:00 – 15:15</span><span class="pi-label">Presentation 43</span></div>
+                <div class="pres-item"><span class="pi-time">15:15 – 15:30</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room C -->
+          <div class="room-c">
+            <div class="room-bar">Room C — Abstracts</div>
+            <div class="session-card">
+              <div class="sc-meta"><span class="sc-num">Abstracts</span></div>
+              <h3 class="sc-title">Abstract Presentations</h3>
+              <p class="sc-chairs">Session Chairs: TBA</p>
+              <button class="sc-toggle" onclick="togglePres(this)">
+                <span class="sc-toggle__arrow">›</span> 4 Abstracts + Q&amp;A
+              </button>
+              <div class="pres-list">
+                <div class="pres-item"><span class="pi-time">14:15 – 14:25</span><span class="pi-label">Abstract 1</span></div>
+                <div class="pres-item"><span class="pi-time">14:25 – 14:35</span><span class="pi-label">Abstract 2</span></div>
+                <div class="pres-item"><span class="pi-time">14:35 – 14:45</span><span class="pi-label">Abstract 3</span></div>
+                <div class="pres-item"><span class="pi-time">14:45 – 14:55</span><span class="pi-label">Abstract 4</span></div>
+                <div class="pres-item"><span class="pi-time">14:55 – 15:15</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /rooms-grid -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Afternoon Coffee Break -->
+  <div class="tl-row tl-row--break">
+    <div class="tl-time">
+      <span class="tl-start">15:30</span>
+      <span class="tl-end">15:45</span>
+    </div>
+    <div class="tl-content">
+      <div class="break-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        Afternoon Coffee Break
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCURRENT BLOCK 2: 15:45 – 17:15 -->
+  <div class="tl-row tl-row--concurrent">
+    <div class="tl-top">
+      <div class="tl-time">
+        <span class="tl-start">15:45</span>
+        <span class="tl-end">17:15</span>
+      </div>
+      <div class="tl-content">
+        <div class="concurrent-label">Concurrent Sessions</div>
+        <div class="rooms-grid">
+
+          <!-- Room A -->
+          <div class="room-a">
+            <div class="room-bar">Room A — Plenary Hall</div>
+            <div class="session-card">
+              <div class="sc-meta"><span class="sc-num">Session 10</span><span class="sc-type">Plenary</span></div>
+              <h3 class="sc-title">Paediatric Neurosurgery</h3>
+              <p class="sc-chairs">Session Chairs: TBA</p>
+              <button class="sc-toggle" onclick="togglePres(this)">
+                <span class="sc-toggle__arrow">›</span> 5 Presentations + Q&amp;A
+              </button>
+              <div class="pres-list">
+                <div class="pres-item"><span class="pi-time">15:45 – 16:00</span><span class="pi-label">Presentation 44</span></div>
+                <div class="pres-item"><span class="pi-time">16:00 – 16:15</span><span class="pi-label">Presentation 45</span></div>
+                <div class="pres-item"><span class="pi-time">16:15 – 16:30</span><span class="pi-label">Presentation 46</span></div>
+                <div class="pres-item"><span class="pi-time">16:30 – 16:45</span><span class="pi-label">Presentation 47</span></div>
+                <div class="pres-item"><span class="pi-time">16:45 – 17:00</span><span class="pi-label">Presentation 48</span></div>
+                <div class="pres-item"><span class="pi-time">17:00 – 17:15</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room B -->
+          <div class="room-b">
+            <div class="room-bar">Room B</div>
+            <div class="session-card">
+              <div class="sc-meta"><span class="sc-num">Session 11</span><span class="sc-type">Plenary</span></div>
+              <h3 class="sc-title">Vascular Neurosurgery</h3>
+              <p class="sc-chairs">Session Chairs: TBA</p>
+              <button class="sc-toggle" onclick="togglePres(this)">
+                <span class="sc-toggle__arrow">›</span> 5 Presentations + Q&amp;A
+              </button>
+              <div class="pres-list">
+                <div class="pres-item"><span class="pi-time">15:45 – 16:00</span><span class="pi-label">Presentation 49</span></div>
+                <div class="pres-item"><span class="pi-time">16:00 – 16:15</span><span class="pi-label">Presentation 50</span></div>
+                <div class="pres-item"><span class="pi-time">16:15 – 16:30</span><span class="pi-label">Presentation 51</span></div>
+                <div class="pres-item"><span class="pi-time">16:30 – 16:45</span><span class="pi-label">Presentation 52</span></div>
+                <div class="pres-item"><span class="pi-time">16:45 – 17:00</span><span class="pi-label">Presentation 53</span></div>
+                <div class="pres-item"><span class="pi-time">17:00 – 17:15</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room C -->
+          <div class="room-c">
+            <div class="room-bar">Room C — Abstracts</div>
+            <div class="session-card">
+              <div class="sc-meta"><span class="sc-num">Abstracts</span></div>
+              <h3 class="sc-title">Abstract Presentations</h3>
+              <p class="sc-chairs">Session Chairs: TBA</p>
+              <button class="sc-toggle" onclick="togglePres(this)">
+                <span class="sc-toggle__arrow">›</span> 6 Abstracts + Q&amp;A
+              </button>
+              <div class="pres-list">
+                <div class="pres-item"><span class="pi-time">15:15 – 15:25</span><span class="pi-label">Abstract 5</span></div>
+                <div class="pres-item"><span class="pi-time">15:25 – 15:35</span><span class="pi-label">Abstract 6</span></div>
+                <div class="pres-item"><span class="pi-time">15:35 – 15:45</span><span class="pi-label">Abstract 7</span></div>
+                <div class="pres-item"><span class="pi-time">15:45 – 16:00</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+                <div class="pres-item"><span class="pi-time">16:00 – 16:10</span><span class="pi-label">Abstract 8</span></div>
+                <div class="pres-item"><span class="pi-time">16:10 – 16:20</span><span class="pi-label">Abstract 9</span></div>
+                <div class="pres-item"><span class="pi-time">16:20 – 16:30</span><span class="pi-label">Abstract 10</span></div>
+                <div class="pres-item"><span class="pi-time">16:20 – 16:45</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /rooms-grid -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Keynote Lecture 4 (standalone) -->
+  <div class="tl-row tl-row--keynote">
+    <div class="tl-time">
+      <span class="tl-start">17:15</span>
+      <span class="tl-end">17:45</span>
+    </div>
+    <div class="tl-content">
+      <div class="keynote-card">
+        <div class="kc-eyebrow">★ Keynote Lecture</div>
+        <div class="kc-title">Room A — Main Plenary Hall</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCURRENT BLOCK 3: 17:45 – 19:30 -->
+  <div class="tl-row tl-row--concurrent">
+    <div class="tl-top">
+      <div class="tl-time">
+        <span class="tl-start">17:45</span>
+        <span class="tl-end">19:30</span>
+      </div>
+      <div class="tl-content">
+        <div class="concurrent-label">Concurrent Sessions</div>
+        <div class="rooms-grid">
+
+          <!-- Room A -->
+          <div class="room-a">
+            <div class="room-bar">Room A — Plenary Hall</div>
+            <div class="session-card">
+              <div class="sc-meta"><span class="sc-num">Session 12</span><span class="sc-type">Plenary</span></div>
+              <h3 class="sc-title">Interventional Neuroradiology</h3>
+              <p class="sc-chairs">Session Chairs: TBA</p>
+              <button class="sc-toggle" onclick="togglePres(this)">
+                <span class="sc-toggle__arrow">›</span> 6 Presentations + Q&amp;A
+              </button>
+              <div class="pres-list">
+                <div class="pres-item"><span class="pi-time">17:45 – 18:00</span><span class="pi-label">Presentation 54</span></div>
+                <div class="pres-item"><span class="pi-time">18:00 – 18:15</span><span class="pi-label">Presentation 55</span></div>
+                <div class="pres-item"><span class="pi-time">18:15 – 18:30</span><span class="pi-label">Presentation 56</span></div>
+                <div class="pres-item"><span class="pi-time">18:30 – 18:45</span><span class="pi-label">Presentation 57</span></div>
+                <div class="pres-item"><span class="pi-time">18:45 – 19:00</span><span class="pi-label">Presentation 58</span></div>
+                <div class="pres-item"><span class="pi-time">19:00 – 19:15</span><span class="pi-label">Presentation 59</span></div>
+                <div class="pres-item"><span class="pi-time">19:15 – 19:30</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room B -->
+          <div class="room-b">
+            <div class="room-bar">Room B</div>
+            <div class="session-card">
+              <div class="sc-meta"><span class="sc-num">Session 13</span><span class="sc-type">Plenary</span></div>
+              <h3 class="sc-title">Peripheral Nerve Surgery</h3>
+              <p class="sc-chairs">Session Chairs: TBA</p>
+              <button class="sc-toggle" onclick="togglePres(this)">
+                <span class="sc-toggle__arrow">›</span> 6 Presentations + Q&amp;A
+              </button>
+              <div class="pres-list">
+                <div class="pres-item"><span class="pi-time">17:00 – 17:15</span><span class="pi-label">Presentation 60</span></div>
+                <div class="pres-item"><span class="pi-time">17:15 – 17:30</span><span class="pi-label">Presentation 61</span></div>
+                <div class="pres-item"><span class="pi-time">17:30 – 17:45</span><span class="pi-label">Presentation 62</span></div>
+                <div class="pres-item"><span class="pi-time">17:45 – 18:00</span><span class="pi-label">Presentation 63</span></div>
+                <div class="pres-item"><span class="pi-time">18:00 – 18:15</span><span class="pi-label">Presentation 64</span></div>
+                <div class="pres-item"><span class="pi-time">18:15 – 18:30</span><span class="pi-label">Presentation 65</span></div>
+                <div class="pres-item"><span class="pi-time">18:30 – 18:45</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Room C -->
+          <div class="room-c">
+            <div class="room-bar">Room C — Abstracts</div>
+            <div class="session-card">
+              <div class="sc-meta"><span class="sc-num">Abstracts</span></div>
+              <h3 class="sc-title">Abstract Presentations</h3>
+              <p class="sc-chairs">Session Chairs: TBA</p>
+              <button class="sc-toggle" onclick="togglePres(this)">
+                <span class="sc-toggle__arrow">›</span> 5 Abstracts + Q&amp;A
+              </button>
+              <div class="pres-list">
+                <div class="pres-item"><span class="pi-time">16:45 – 16:55</span><span class="pi-label">Abstract 11</span></div>
+                <div class="pres-item"><span class="pi-time">16:55 – 17:05</span><span class="pi-label">Abstract 12</span></div>
+                <div class="pres-item"><span class="pi-time">17:05 – 17:15</span><span class="pi-label">Abstract 13</span></div>
+                <div class="pres-item"><span class="pi-time">17:15 – 17:25</span><span class="pi-label">Abstract 14</span></div>
+                <div class="pres-item"><span class="pi-time">17:25 – 17:35</span><span class="pi-label">Abstract 15</span></div>
+                <div class="pres-item"><span class="pi-time">17:35 – 18:00</span><span class="pi-label pi-label--qa">Panel Discussion / Q&amp;A</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /rooms-grid -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Closing Ceremony -->
+  <div class="tl-row tl-row--ceremony" style="margin-top:8px;">
+    <div class="tl-time">
+      <span class="tl-start">19:30</span>
+      <span class="tl-end">20:00</span>
+    </div>
+    <div class="tl-content">
+      <div class="ceremony-card">
+        <div class="ceremony-card__label">Ceremony</div>
+        <div class="ceremony-card__title">Closing Ceremony</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End of Day marker -->
+  <div style="text-align:center; padding:32px 0; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#bbb;">
+    — End of Conference —
+  </div>
+
+</div><!-- /day2 -->
+
+</div><!-- /program-inner -->
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Emirates International<br>Neurosurgical Conference</div>
+      <p class="footer-brand-sub">The National Conference of the<br>Emirates Society of Neurological Surgeons</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="https://einsc.com/">Home</a>
+      <a href="https://einsc.com/program/">Program</a>
+      <a href="https://einsc.com/faculty/">Faculty</a>
+      <a href="https://einsc.com/abstracts/">Abstracts</a>
+      <a href="https://einsc.com/contact-us/">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Gulf Dunes</h4>
+      <p>Al Barsha Boutique Building,<br>3rd Floor, Al Barsha 1,<br>P.O. Box 124174, Dubai, UAE</p>
+      <a href="mailto:info@einsc.com">info@einsc.com</a>
+      <a href="tel:+971504537277">+971 50 453 7277</a>
+    </div>
+    <div class="footer-col">
+      <h4>Stay Updated</h4>
+      <p>Receive news about EINSC 2026 and related neurosurgical events from across the region.</p>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Your email address"/>
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 EINSC. All rights reserved.</p>
+    <a href="https://einsc.com/privacy/">Privacy Policy</a>
+  </div>
+</footer>
+
+<script>
+  /* ── Burger ── */
+  const burger  = document.getElementById('burger');
+  const drawer  = document.getElementById('drawer');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    drawer.classList.toggle('open');
+  });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open');
+    drawer.classList.remove('open');
+  }));
+
+  /* ── Day tabs ── */
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.day-program').forEach(d => d.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('day' + btn.dataset.day).classList.add('active');
+      window.scrollTo({ top: document.querySelector('.tabs-outer').offsetTop - 86, behavior:'smooth' });
+    });
+  });
+
+  /* ── Presentation toggle ── */
+  function togglePres(btn) {
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
