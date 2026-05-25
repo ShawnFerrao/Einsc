@@ -403,39 +403,34 @@
     html body .footer-bottom a:visited{ color:rgba(240,236,228,.25) !important; }
     html body .footer-bottom a:hover  { color:var(--gold) !important; }
 
-    /* Tier CTA buttons — beat Elementor's colour:inherit */
-    html body .tier-card--platinum .tier-cta,
-    html body .tier-card--platinum .tier-cta:visited {
-      color:var(--dark) !important; background:var(--gold) !important;
-      border-color:var(--gold) !important; text-decoration:none !important;
+    /* Tier CTA — border/bg on the <a>, colour on the inner <span>
+       Span is NOT an <a> so Elementor's "html body a { color:inherit }" never touches it */
+    html body .tier-card--platinum .tier-cta {
+      background:var(--gold) !important; border-color:var(--gold) !important; text-decoration:none !important;
     }
-    html body .tier-card--platinum .tier-cta:hover {
-      background:var(--gold-l) !important; border-color:var(--gold-l) !important;
+    html body .tier-card--platinum .tier-cta:hover { background:var(--gold-l) !important; border-color:var(--gold-l) !important; }
+    html body .tier-card--platinum .tier-cta span  { color:var(--dark) !important; }
+
+    html body .tier-card--gold .tier-cta {
+      background:transparent !important; border-color:#d4af37 !important; text-decoration:none !important;
     }
-    html body .tier-card--gold .tier-cta,
-    html body .tier-card--gold .tier-cta:visited {
-      color:#d4af37 !important; background:transparent !important;
-      border-color:#d4af37 !important; text-decoration:none !important;
+    html body .tier-card--gold .tier-cta:hover     { background:#d4af37 !important; }
+    html body .tier-card--gold .tier-cta span      { color:#d4af37 !important; }
+    html body .tier-card--gold .tier-cta:hover span{ color:var(--dark) !important; }
+
+    html body .tier-card--silver .tier-cta {
+      background:transparent !important; border-color:#c8c8d4 !important; text-decoration:none !important;
     }
-    html body .tier-card--gold .tier-cta:hover {
-      background:#d4af37 !important; color:var(--dark) !important;
+    html body .tier-card--silver .tier-cta:hover      { background:#c8c8d4 !important; }
+    html body .tier-card--silver .tier-cta span       { color:#c8c8d4 !important; }
+    html body .tier-card--silver .tier-cta:hover span { color:var(--dark) !important; }
+
+    html body .tier-card--bronze .tier-cta {
+      background:transparent !important; border-color:#c89060 !important; text-decoration:none !important;
     }
-    html body .tier-card--silver .tier-cta,
-    html body .tier-card--silver .tier-cta:visited {
-      color:#c8c8d4 !important; background:transparent !important;
-      border-color:#c8c8d4 !important; text-decoration:none !important;
-    }
-    html body .tier-card--silver .tier-cta:hover {
-      background:#c8c8d4 !important; color:var(--dark) !important;
-    }
-    html body .tier-card--bronze .tier-cta,
-    html body .tier-card--bronze .tier-cta:visited {
-      color:#c89060 !important; background:transparent !important;
-      border-color:#c89060 !important; text-decoration:none !important;
-    }
-    html body .tier-card--bronze .tier-cta:hover {
-      background:#c89060 !important; color:var(--dark) !important;
-    }
+    html body .tier-card--bronze .tier-cta:hover      { background:#c89060 !important; }
+    html body .tier-card--bronze .tier-cta span       { color:#c89060 !important; }
+    html body .tier-card--bronze .tier-cta:hover span { color:var(--dark) !important; }
 
     html body .contact-cta,
     html body .contact-cta:visited   { color:var(--dark) !important; text-decoration:none !important; }
@@ -659,7 +654,7 @@
             VIP networking event access
           </li>
         </ul>
-        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Platinum Partnership Enquiry" class="tier-cta">Enquire Now</a>
+        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Platinum Partnership Enquiry" class="tier-cta"><span>Enquire Now</span></a>
       </div>
 
       <!-- GOLD -->
@@ -698,7 +693,7 @@
             Networking event access
           </li>
         </ul>
-        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Gold Partnership Enquiry" class="tier-cta">Enquire Now</a>
+        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Gold Partnership Enquiry" class="tier-cta"><span>Enquire Now</span></a>
       </div>
 
       <!-- SILVER -->
@@ -733,7 +728,7 @@
             Networking event access
           </li>
         </ul>
-        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Silver Partnership Enquiry" class="tier-cta">Enquire Now</a>
+        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Silver Partnership Enquiry" class="tier-cta"><span>Enquire Now</span></a>
       </div>
 
       <!-- BRONZE -->
@@ -760,7 +755,7 @@
             Literature display space
           </li>
         </ul>
-        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Industry Partnership Enquiry" class="tier-cta">Enquire Now</a>
+        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Industry Partnership Enquiry" class="tier-cta"><span>Enquire Now</span></a>
       </div>
 
     </div>
