@@ -137,7 +137,7 @@
     }
 
     /* ── VENUE INTRO ────────────────────────────────────────── */
-    .intro-section { background:#fff; padding:clamp(72px,9vw,110px) var(--pad); }
+    .intro-section { background:#fff; padding:clamp(64px,8vw,96px) var(--pad) clamp(48px,5vw,72px); }
     .intro-inner { max-width:var(--max); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:clamp(48px,6vw,96px); align-items:center; }
 
     .intro-text .eyebrow {
@@ -391,10 +391,12 @@
     .elementor-editor-active .location-section { background:var(--dark) !important; }
     .elementor-editor-active .stay-section  { background:var(--navy)  !important; }
     .elementor-editor-active .highlights-section { background:var(--cream) !important; }
+    .elementor-editor-active .raffles-section    { background:var(--navy)  !important; }
+    .elementor-editor-active .raffles-text-col   { background:var(--navy)  !important; }
     .elementor-editor-active .footer        { background:#060a1a     !important; }
 
     /* ── RAFFLES HOTEL ──────────────────────────────────────────── */
-    .raffles-section { background:#fff; overflow:hidden; }
+    .raffles-section { background:var(--navy); overflow:hidden; }
     .raffles-inner {
       max-width:100%; display:grid; grid-template-columns:1fr 1fr;
     }
@@ -403,7 +405,7 @@
     .raffles-text-col {
       padding:clamp(52px,7vw,88px) clamp(36px,5vw,80px);
       display:flex; flex-direction:column; justify-content:center;
-      background:#fff;
+      background:var(--navy);
     }
     .raffles-text-col .eyebrow {
       font-size:11px; font-weight:600; letter-spacing:.26em; text-transform:uppercase;
@@ -411,11 +413,11 @@
     }
     .raffles-text-col h2 {
       font-family:var(--serif); font-size:clamp(2rem,3.5vw,3rem); font-weight:300;
-      color:var(--navy); line-height:1.15; margin-bottom:20px;
+      color:var(--cream); line-height:1.15; margin-bottom:20px;
     }
     .raffles-rule { width:48px; height:2px; background:var(--gold); margin-bottom:28px; }
     .raffles-text-col p {
-      font-size:15px; font-weight:300; color:#5a5a6a; line-height:1.9; margin-bottom:18px;
+      font-size:15px; font-weight:300; color:rgba(240,236,228,.62); line-height:1.9; margin-bottom:18px;
     }
     .raffles-features {
       display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
@@ -424,10 +426,11 @@
     .rf-item { border-left:2px solid var(--gold); padding-left:14px; }
     .rf-num {
       font-family:var(--serif); font-size:1.5rem; font-weight:300;
-      color:var(--navy); line-height:1; margin-bottom:4px;
+      color:var(--cream); line-height:1; margin-bottom:4px;
     }
     .rf-label {
-      font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#888;
+      font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+      color:rgba(240,236,228,.38);
     }
     .raffles-cta {
       display:inline-block; font-size:11px; font-weight:600; letter-spacing:.18em;
