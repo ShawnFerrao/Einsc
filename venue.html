@@ -374,6 +374,9 @@
     html body .btn-gold:visited { color:var(--dark) !important; text-decoration:none !important; }
     html body .btn-outline,
     html body .btn-outline:visited { text-decoration:none !important; }
+    html body .raffles-cta,
+    html body .raffles-cta:visited { color:var(--dark) !important; background:var(--gold) !important; text-decoration:none !important; }
+    html body .raffles-cta:hover   { background:var(--gold-l) !important; }
 
     /* ab-value and sd-value links */
     html body .ab-value a,
@@ -390,9 +393,53 @@
     .elementor-editor-active .highlights-section { background:var(--cream) !important; }
     .elementor-editor-active .footer        { background:#060a1a     !important; }
 
+    /* ── RAFFLES HOTEL ──────────────────────────────────────────── */
+    .raffles-section { background:#fff; overflow:hidden; }
+    .raffles-inner {
+      max-width:100%; display:grid; grid-template-columns:1fr 1fr;
+    }
+    .raffles-img-col { overflow:hidden; position:relative; min-height:520px; }
+    .raffles-img { width:100%; height:100%; object-fit:cover; display:block; }
+    .raffles-text-col {
+      padding:clamp(52px,7vw,88px) clamp(36px,5vw,80px);
+      display:flex; flex-direction:column; justify-content:center;
+      background:#fff;
+    }
+    .raffles-text-col .eyebrow {
+      font-size:11px; font-weight:600; letter-spacing:.26em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:14px; display:block;
+    }
+    .raffles-text-col h2 {
+      font-family:var(--serif); font-size:clamp(2rem,3.5vw,3rem); font-weight:300;
+      color:var(--navy); line-height:1.15; margin-bottom:20px;
+    }
+    .raffles-rule { width:48px; height:2px; background:var(--gold); margin-bottom:28px; }
+    .raffles-text-col p {
+      font-size:15px; font-weight:300; color:#5a5a6a; line-height:1.9; margin-bottom:18px;
+    }
+    .raffles-features {
+      display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+      margin:28px 0 36px;
+    }
+    .rf-item { border-left:2px solid var(--gold); padding-left:14px; }
+    .rf-num {
+      font-family:var(--serif); font-size:1.5rem; font-weight:300;
+      color:var(--navy); line-height:1; margin-bottom:4px;
+    }
+    .rf-label {
+      font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#888;
+    }
+    .raffles-cta {
+      display:inline-block; font-size:11px; font-weight:600; letter-spacing:.18em;
+      text-transform:uppercase; color:var(--dark); background:var(--gold);
+      padding:14px 28px; text-decoration:none; transition:background .22s; align-self:flex-start;
+    }
+    .raffles-cta:hover { background:var(--gold-l); }
+
     /* ── RESPONSIVE ──────────────────────────────────────────── */
     @media(max-width:1100px) {
       .dining-grid { grid-template-columns:1fr 1fr; }
+      .raffles-features { grid-template-columns:repeat(2,1fr); }
     }
     @media(max-width:900px) {
       .nav__links, .nav__cta { display:none; }
@@ -402,6 +449,8 @@
       .stay-inner    { grid-template-columns:1fr; }
       .highlights-grid { grid-template-columns:1fr 1fr; }
       .dining-grid   { grid-template-columns:1fr 1fr; }
+      .raffles-inner { grid-template-columns:1fr; }
+      .raffles-img-col { min-height:320px; }
     }
     @media(max-width:640px) {
       .highlights-grid { grid-template-columns:1fr; }
@@ -409,6 +458,7 @@
       .venue-meta__item{ min-width:140px; }
       .footer-grid     { grid-template-columns:1fr 1fr; gap:28px; }
       .stay-ctas       { flex-direction:column; }
+      .raffles-features { grid-template-columns:repeat(2,1fr); }
     }
     @media(max-width:480px) {
       .footer-grid { grid-template-columns:1fr; }
@@ -535,6 +585,43 @@
         <div class="istat__num">5&#9733;</div>
         <div class="istat__label">Conference Venue</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RAFFLES HOTEL ────────────────────────────────────────────── -->
+<section class="raffles-section">
+  <div class="raffles-inner">
+    <div class="raffles-img-col">
+      <img src="https://einsc.com/wp-content/uploads/2026/05/Raffles-Hotel.webp"
+           alt="Raffles Dubai — EINSC 2026 Conference Venue"
+           class="raffles-img"/>
+    </div>
+    <div class="raffles-text-col">
+      <span class="eyebrow">The Conference Venue</span>
+      <h2>Raffles Dubai</h2>
+      <div class="raffles-rule"></div>
+      <p>Rising above the iconic Wafi pyramid complex on Sheikh Rashid Road, Raffles Dubai is one of the most recognisable landmarks on the city skyline. As the host venue for EINSC 2026, it delivers world-class conference infrastructure alongside the legendary hospitality that has defined the Raffles name for over a century.</p>
+      <p>From its grand ballroom and purpose-built meeting rooms to its rooftop terrace and six award-winning restaurants, every detail has been considered — so delegates can focus entirely on the science, the sessions, and the connections that matter.</p>
+      <div class="raffles-features">
+        <div class="rf-item">
+          <div class="rf-num">248</div>
+          <div class="rf-label">Rooms &amp; Suites</div>
+        </div>
+        <div class="rf-item">
+          <div class="rf-num">6+</div>
+          <div class="rf-label">Dining Outlets</div>
+        </div>
+        <div class="rf-item">
+          <div class="rf-num">5&#9733;</div>
+          <div class="rf-label">Luxury Rating</div>
+        </div>
+        <div class="rf-item">
+          <div class="rf-num">2007</div>
+          <div class="rf-label">Est. in Dubai</div>
+        </div>
+      </div>
+      <a href="https://www.raffles.com/dubai/" target="_blank" rel="noopener" class="raffles-cta">Explore Raffles Dubai</a>
     </div>
   </div>
 </section>
