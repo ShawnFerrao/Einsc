@@ -232,12 +232,20 @@
       background:var(--gold); color:var(--dark); border-color:var(--gold);
     }
     .tier-card--platinum .tier-cta:hover { background:var(--gold-l); border-color:var(--gold-l); }
-    .tier-card--gold .tier-cta, .tier-card--silver .tier-cta, .tier-card--bronze .tier-cta {
-      background:transparent; color:rgba(240,236,228,.75); border-color:rgba(255,255,255,.15);
+    .tier-card--gold .tier-cta {
+      background:transparent; color:#d4af37; border-color:#d4af37;
     }
-    .tier-card--gold   .tier-cta:hover { border-color:#d4af37; color:#d4af37; }
-    .tier-card--silver .tier-cta:hover { border-color:#a8a8b3; color:#a8a8b3; }
-    .tier-card--bronze .tier-cta:hover { border-color:#ba8055; color:#ba8055; }
+    .tier-card--gold .tier-cta:hover { background:#d4af37; color:var(--dark); }
+
+    .tier-card--silver .tier-cta {
+      background:transparent; color:#c8c8d4; border-color:#c8c8d4;
+    }
+    .tier-card--silver .tier-cta:hover { background:#c8c8d4; color:var(--dark); }
+
+    .tier-card--bronze .tier-cta {
+      background:transparent; color:#c89060; border-color:#c89060;
+    }
+    .tier-card--bronze .tier-cta:hover { background:#c89060; color:var(--dark); }
 
     /* ── OPPORTUNITIES SECTION ──────────────────────────────── */
     .opps-section { background:var(--cream); padding:clamp(64px,8vw,100px) var(--pad); }
