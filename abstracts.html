@@ -421,8 +421,13 @@
     }
 
     /* Nav links */
-    html body .nav__links a:hover  { color: var(--gold) !important; }
-    html body .nav__drawer a:hover { color: var(--gold) !important; }
+    html body .nav__links a,
+    html body .nav__links a:visited  { color: rgba(240,236,228,.7) !important; }
+    html body .nav__links a:hover,
+    html body .nav__links a:focus    { color: var(--gold) !important; }
+    html body .nav__drawer a,
+    html body .nav__drawer a:visited { color: rgba(240,236,228,.85) !important; }
+    html body .nav__drawer a:hover   { color: var(--gold) !important; }
 
     /* Sidebar links */
     html body .guidelines-nav__list a:hover { color: var(--navy) !important; }
@@ -430,7 +435,11 @@
     html body .abstract-link:hover { color: var(--gold-l) !important; }
 
     /* Footer links */
+    html body .footer-col a,
+    html body .footer-col a:visited      { color: rgba(240,236,228,.5) !important; }
     html body .footer-col a:hover        { color: var(--gold) !important; }
+    html body .footer-bottom a,
+    html body .footer-bottom a:visited   { color: rgba(240,236,228,.25) !important; }
     html body .footer-bottom a:hover     { color: var(--gold) !important; }
 
     html body .btn-gold,
@@ -479,7 +488,6 @@
     html body .abstract-link,
     html body .card__link:visited,
     html body .abstract-link:visited { color:var(--gold-l) !important; text-decoration:none !important; }
-    html body .nav__drawer a:hover { color:var(--gold) !important; }
     html body .nav__drawer .drawer-cta,
     html body .nav__drawer .drawer-cta:visited {
       background:var(--gold) !important; color:var(--dark) !important;
