@@ -375,8 +375,8 @@
     html body .btn-outline,
     html body .btn-outline:visited { text-decoration:none !important; }
     html body .raffles-cta,
-    html body .raffles-cta:visited { color:var(--dark) !important; background:var(--gold) !important; text-decoration:none !important; }
-    html body .raffles-cta:hover   { background:var(--gold-l) !important; }
+    html body .raffles-cta:visited { color:#020510 !important; background:#c9a96e !important; text-decoration:none !important; }
+    html body .raffles-cta:hover   { background:#e2c28a !important; }
 
     /* ab-value and sd-value links */
     html body .ab-value a,
@@ -400,8 +400,10 @@
     .raffles-inner {
       max-width:100%; display:grid; grid-template-columns:1fr 1fr;
     }
-    .raffles-img-col { overflow:hidden; position:relative; min-height:520px; }
-    .raffles-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+    .raffles-img-col {
+      min-height:520px;
+      background:url('https://einsc.com/wp-content/uploads/2026/05/Raffles-Hotel.webp') center/cover no-repeat;
+    }
     .raffles-text-col {
       padding:clamp(52px,7vw,88px) clamp(36px,5vw,80px);
       display:flex; flex-direction:column; justify-content:center;
@@ -595,11 +597,7 @@
 <!-- ── RAFFLES HOTEL ────────────────────────────────────────────── -->
 <section class="raffles-section">
   <div class="raffles-inner">
-    <div class="raffles-img-col">
-      <img src="https://einsc.com/wp-content/uploads/2026/05/Raffles-Hotel.webp"
-           alt="Raffles Dubai — EINSC 2026 Conference Venue"
-           class="raffles-img"/>
-    </div>
+    <div class="raffles-img-col" role="img" aria-label="Raffles Dubai — EINSC 2026 Conference Venue"></div>
     <div class="raffles-text-col">
       <span class="eyebrow">The Conference Venue</span>
       <h2>Raffles Dubai</h2>
