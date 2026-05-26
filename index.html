@@ -592,6 +592,8 @@
       transition:opacity .18s ease, transform .18s ease;
       z-index:300; padding:6px 0;
     }
+    /* Invisible bridge fills the hover gap so mouse doesn't escape */
+    .nav__dropdown::before { content:''; position:absolute; top:-16px; left:0; right:0; height:16px; }
     .nav__has-dropdown:hover .nav__dropdown,
     .nav__has-dropdown:focus-within .nav__dropdown {
       opacity:1; visibility:visible; pointer-events:auto;
@@ -623,7 +625,18 @@
     html body .nav__drawer a.drawer-sub:hover     { color:var(--gold) !important; }
     html body .nav__drawer a.drawer-sub.active,
     html body .nav__drawer a.drawer-sub.active:visited { color:var(--gold) !important; }
-    .drawer-sub.active { color:var(--gold) !important; }  </style>
+    .drawer-sub.active { color:var(--gold) !important; }
+    /* Chevron affordance on Sponsors nav trigger */
+    html body .nav__has-dropdown > a { padding-right:14px !important; }
+    html body .nav__has-dropdown > a::after {
+      content:'\25BE' !important; position:absolute !important;
+      bottom:auto !important; top:50% !important; left:auto !important; right:0 !important;
+      transform:translateY(-50%) !important; width:auto !important; height:auto !important;
+      background:transparent !important; font-size:9px !important; opacity:.55 !important;
+      transition:opacity .2s, color .2s !important; letter-spacing:0 !important;
+    }
+    html body .nav__has-dropdown:hover > a::after,
+    html body .nav__has-dropdown:focus-within > a::after { opacity:1 !important; color:var(--gold) !important; }  </style>
 </head>
 <body>
 
