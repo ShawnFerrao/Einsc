@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us — EINSC 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --gold:   #c9a96e;
+      --gold-l: #e2c28a;
+      --cream:  #f0ece4;
+      --navy:   #0d1b3e;
+      --dark:   #020510;
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --sans:   'Barlow', sans-serif;
+      --max:    1280px;
+      --pad:    clamp(20px, 5vw, 80px);
+    }
+
+    html { scroll-behavior:smooth; }
+    body { font-family:var(--sans); background:#fff; color:#1c1c2e; overflow-x:hidden; line-height:1.7; }
+
+    /* ── NAV ─────────────────────────────────────────────────────── */
+    .nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:20px var(--pad);
+      background:rgba(2,5,16,.96);
+      border-bottom:1px solid rgba(201,169,110,.15);
+      backdrop-filter:blur(10px);
+    }
+    .nav__logo { display:flex; align-items:center; gap:14px; text-decoration:none; flex-shrink:0; }
+    .nav__emblem {
+      width:46px; height:46px; border-radius:50%;
+      border:1.5px solid rgba(201,169,110,.55);
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .nav__emblem span { font-family:var(--serif); font-size:12px; font-weight:600; color:var(--gold); letter-spacing:.05em; }
+    .nav__logo-text .t1 { font-size:13px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--cream); }
+    .nav__logo-text .t2 { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(240,236,228,.4); margin-top:2px; }
+    .nav__links { display:flex; gap:clamp(14px,2vw,32px); list-style:none; }
+    .nav__links a {
+      font-size:clamp(11px,1.1vw,13px); font-weight:400; letter-spacing:.1em; text-transform:uppercase;
+      color:rgba(240,236,228,.7); text-decoration:none;
+      position:relative; padding-bottom:4px; transition:color .22s; white-space:nowrap;
+    }
+    .nav__links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--gold); transition:width .28s ease; }
+    .nav__links a:hover  { color:var(--gold); }
+    .nav__links a:hover::after { width:100%; }
+    .nav__links a.active { color:var(--gold); }
+    .nav__links a.active::after { width:100%; }
+    .nav__burger {
+      display:none; flex-direction:column; gap:6px; cursor:pointer;
+      background:none; border:none; padding:8px; z-index:200;
+    }
+    .nav__burger span { display:block; width:26px; height:2px; background:var(--cream); border-radius:2px; transition:all .3s; }
+    .nav__burger.open span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2){ opacity:0; }
+    .nav__burger.open span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+    .nav__drawer {
+      display:none; position:fixed; inset:0; z-index:150;
+      background:rgba(2,5,16,.97); flex-direction:column;
+      align-items:center; justify-content:center; gap:32px;
+    }
+    .nav__drawer.open { display:flex; }
+    .nav__drawer a { font-size:clamp(1.1rem,4.5vw,1.7rem); letter-spacing:.16em; text-transform:uppercase; color:rgba(240,236,228,.85); text-decoration:none; transition:color .2s; }
+    .nav__drawer a:hover { color:var(--gold); }
+
+    /* ── PAGE HERO ────────────────────────────────────────────────── */
+    .page-hero {
+      background:var(--dark); padding:140px var(--pad) 0;
+      position:relative; overflow:hidden; min-height:58vh;
+      display:flex; flex-direction:column; justify-content:flex-end;
+    }
+    .page-hero__bg {
+      position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse 65% 55% at 85% 15%, rgba(201,169,110,.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 0% 90%, rgba(13,27,62,.65) 0%, transparent 55%);
+    }
+    .hero-deco {
+      position:absolute; right:var(--pad); top:50%; transform:translateY(-50%);
+      opacity:.04; pointer-events:none;
+    }
+    .hero-deco svg { width:clamp(180px,24vw,360px); height:auto; }
+    .page-hero__inner {
+      position:relative; z-index:2; max-width:var(--max); margin:0 auto; width:100%;
+      padding-bottom:64px;
+    }
+    .page-hero__eyebrow {
+      font-size:11px; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:16px; display:block;
+    }
+    .page-hero__title {
+      font-family:var(--serif); font-size:clamp(2.6rem,6vw,5rem); font-weight:300;
+      color:var(--cream); line-height:1.1; margin-bottom:10px;
+    }
+    .page-hero__subtitle {
+      font-family:var(--serif); font-size:clamp(1rem,1.8vw,1.35rem); font-weight:300;
+      font-style:italic; color:var(--gold); margin-bottom:28px;
+    }
+    .page-hero__desc {
+      font-size:clamp(16px,1.5vw,18px); font-weight:300; color:rgba(240,236,228,.62);
+      max-width:580px; line-height:1.85; margin-bottom:52px;
+    }
+    .hero-meta {
+      display:flex; gap:0; flex-wrap:wrap;
+      border-top:1px solid rgba(201,169,110,.18);
+    }
+    .hero-meta__item {
+      flex:1; min-width:140px; padding:22px 24px 22px 0;
+      border-right:1px solid rgba(201,169,110,.1);
+    }
+    .hero-meta__item:last-child { border-right:none; }
+    .hm-label { font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:rgba(240,236,228,.35); margin-bottom:5px; }
+    .hm-value { font-size:clamp(13px,1.4vw,15px); font-weight:400; color:rgba(240,236,228,.82); }
+
+    /* ── SECTION HELPERS ──────────────────────────────────────────── */
+    .section-eyebrow {
+      font-size:11px; font-weight:600; letter-spacing:.26em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:12px; display:block;
+    }
+    .section-title {
+      font-family:var(--serif); font-size:clamp(1.9rem,3.2vw,2.9rem); font-weight:300;
+      color:var(--navy); line-height:1.2; margin-bottom:16px;
+    }
+
+    /* ── PARTNERSHIP SECTION ─────────────────────────────────────── */
+    .partner-section {
+      background:#fff;
+      padding:clamp(72px,9vw,108px) var(--pad);
+    }
+    .partner-inner {
+      max-width:var(--max); margin:0 auto;
+      display:grid; grid-template-columns:1fr 420px; gap:clamp(40px,6vw,96px);
+      align-items:start;
+    }
+
+    /* Left column */
+    .partner-left { }
+    .partner-lead {
+      font-size:clamp(16px,1.5vw,18px); font-weight:300; color:#5a5a6a;
+      line-height:1.9; margin-bottom:clamp(28px,3.5vw,40px);
+    }
+    .partner-callout {
+      border-left:3px solid var(--gold); padding-left:24px;
+      margin-bottom:clamp(36px,4.5vw,52px);
+    }
+    .partner-callout p {
+      font-family:var(--serif); font-size:clamp(1.1rem,1.6vw,1.35rem); font-weight:300;
+      font-style:italic; color:var(--navy); line-height:1.5;
+    }
+
+    /* Organizers */
+    .organizers { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .org-card {
+      background:var(--cream); padding:clamp(20px,2.5vw,30px);
+      border-top:3px solid rgba(201,169,110,.45);
+    }
+    .org-card__label {
+      font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:10px; display:block;
+    }
+    .org-card__name {
+      font-family:var(--serif); font-size:clamp(1rem,1.4vw,1.2rem); font-weight:400;
+      color:var(--navy); line-height:1.3;
+    }
+    .org-card__sub {
+      font-size:12px; color:#7a7a8a; margin-top:6px; line-height:1.5;
+    }
+
+    /* Right column — contact card */
+    .contact-card {
+      background:var(--navy);
+      padding:clamp(36px,4vw,52px);
+      position:sticky; top:108px;
+    }
+    .contact-card__eyebrow {
+      font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:20px; display:block;
+    }
+    .contact-card__title {
+      font-family:var(--serif); font-size:clamp(1.3rem,2vw,1.75rem); font-weight:300;
+      color:var(--cream); line-height:1.25; margin-bottom:32px;
+    }
+    .contact-item {
+      display:flex; align-items:flex-start; gap:16px; margin-bottom:24px;
+    }
+    .contact-item:last-of-type { margin-bottom:36px; }
+    .contact-icon {
+      width:40px; height:40px; border-radius:50%;
+      background:rgba(201,169,110,.12); border:1px solid rgba(201,169,110,.2);
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .contact-icon svg { width:17px; height:17px; stroke:var(--gold); stroke-width:1.5; fill:none; }
+    .contact-item-body { }
+    .contact-item__label {
+      font-size:10px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+      color:rgba(240,236,228,.4); margin-bottom:4px;
+    }
+    .contact-item__value {
+      font-size:clamp(14px,1.3vw,15px); color:var(--cream); font-weight:400;
+    }
+    .contact-item__value a { color:var(--gold); text-decoration:none; transition:color .2s; }
+    .contact-item__value a:hover { color:var(--gold-l); }
+    .contact-card__rule {
+      height:1px; background:rgba(255,255,255,.08); margin-bottom:32px;
+    }
+    .btn-enquire {
+      display:block; text-align:center; width:100%;
+      font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+      color:#020510; background:#c9a96e; padding:16px 24px;
+      text-decoration:none; transition:background .22s;
+    }
+    .btn-enquire:hover { background:#e2c28a; }
+
+    /* ── WHAT TO EXPECT ─────────────────────────────────────────── */
+    .expect-section {
+      background:var(--cream);
+      padding:clamp(72px,9vw,108px) var(--pad);
+    }
+    .expect-inner { max-width:var(--max); margin:0 auto; }
+    .expect-inner .section-title { color:var(--navy); margin-bottom:clamp(40px,5vw,56px); }
+    .expect-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,24px);
+    }
+    .expect-card {
+      background:#fff; padding:clamp(28px,3vw,40px);
+      border-top:3px solid rgba(201,169,110,.35);
+    }
+    .expect-icon {
+      width:44px; height:44px; margin-bottom:18px;
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(201,169,110,.1); border-radius:50%;
+    }
+    .expect-icon svg { width:20px; height:20px; stroke:var(--gold); stroke-width:1.5; fill:none; }
+    .expect-card__title {
+      font-family:var(--serif); font-size:clamp(1.05rem,1.5vw,1.3rem); font-weight:400;
+      color:var(--navy); margin-bottom:10px;
+    }
+    .expect-card__text {
+      font-size:clamp(14px,1.3vw,16px); font-weight:300; color:#5a5a6a; line-height:1.8;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────────── */
+    .footer {
+      background:var(--dark);
+      padding:clamp(48px,6vw,72px) var(--pad) clamp(28px,4vw,40px);
+      border-top:1px solid rgba(201,169,110,.12);
+    }
+    .footer-grid {
+      max-width:var(--max); margin:0 auto;
+      display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:clamp(24px,4vw,52px);
+      margin-bottom:clamp(36px,5vw,52px);
+    }
+    .footer-brand-name {
+      font-family:var(--serif); font-size:clamp(1rem,1.6vw,1.3rem); font-weight:300;
+      color:var(--cream); line-height:1.55; margin-bottom:10px;
+    }
+    .footer-brand-sub {
+      font-size:11px; letter-spacing:.08em; color:rgba(240,236,228,.32); line-height:1.65;
+    }
+    .footer-col h4 {
+      font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:16px;
+    }
+    .footer-col a {
+      display:block; font-size:13px; color:rgba(240,236,228,.5);
+      text-decoration:none; margin-bottom:8px; transition:color .2s;
+    }
+    .footer-col a:hover { color:var(--gold); }
+    .footer-col p { font-size:13px; color:rgba(240,236,228,.5); line-height:1.7; }
+    .footer-newsletter { display:flex; margin-top:12px; }
+    .footer-newsletter input {
+      flex:1; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+      color:var(--cream); font-size:12px; padding:10px 14px;
+      font-family:var(--sans); outline:none;
+    }
+    .footer-newsletter button {
+      background:var(--gold); color:var(--dark); font-size:11px; font-weight:600;
+      letter-spacing:.1em; text-transform:uppercase; border:none; padding:10px 18px;
+      cursor:pointer; font-family:var(--sans); transition:background .22s;
+    }
+    .footer-newsletter button:hover { background:var(--gold-l); }
+    .footer-bottom {
+      max-width:var(--max); margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+      border-top:1px solid rgba(255,255,255,.07); padding-top:24px;
+      font-size:12px; color:rgba(240,236,228,.3);
+    }
+    .footer-bottom a { color:rgba(240,236,228,.35); text-decoration:none; }
+    .footer-bottom a:hover { color:var(--gold); }
+
+    /* ── ELEMENTOR OVERRIDES ─────────────────────────────────────── */
+    html body .nav__links a,
+    html body .nav__links a:visited { color:rgba(240,236,228,.7) !important; text-decoration:none !important; }
+    html body .nav__links a:hover { color:#c9a96e !important; }
+    html body .nav__links a.active { color:#c9a96e !important; }
+    html body .nav__drawer a,
+    html body .nav__drawer a:visited { color:rgba(240,236,228,.85) !important; text-decoration:none !important; }
+    html body .nav__drawer a:hover { color:#c9a96e !important; }
+    html body .btn-enquire,
+    html body .btn-enquire:visited { color:#020510 !important; background:#c9a96e !important; text-decoration:none !important; }
+    html body .btn-enquire:hover { background:#e2c28a !important; }
+    html body .contact-item__value a,
+    html body .contact-item__value a:visited { color:#c9a96e !important; text-decoration:none !important; }
+    html body .contact-item__value a:hover { color:#e2c28a !important; }
+    html body .partner-section { background:#fff !important; }
+    html body .contact-card { background:#0d1b3e !important; }
+    html body .expect-section { background:#f0ece4 !important; }
+    html body .org-card { background:#f0ece4 !important; }
+    html body .expect-card { background:#fff !important; }
+    html body .footer { background:#020510 !important; }
+    html body .footer-col a,
+    html body .footer-col a:visited { color:rgba(240,236,228,.5) !important; text-decoration:none !important; }
+    html body .footer-col a:hover { color:#c9a96e !important; }
+    html body .footer-bottom a { color:rgba(240,236,228,.35) !important; }
+    html body .footer-bottom a:hover { color:#c9a96e !important; }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────── */
+    @media (max-width:1100px) {
+      .partner-inner { grid-template-columns:1fr; }
+      .contact-card { position:static; }
+      .footer-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:900px) {
+      .nav__links { display:none; }
+      .nav__burger { display:flex; }
+      .expect-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:640px) {
+      .organizers { grid-template-columns:1fr; }
+      .expect-grid { grid-template-columns:1fr; }
+      .footer-grid { grid-template-columns:1fr; }
+      .hero-meta { flex-direction:column; }
+      .hero-meta__item { min-width:100%; border-right:none; border-bottom:1px solid rgba(201,169,110,.1); padding:16px 0; }
+      .hero-meta__item:last-child { border-bottom:none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="https://einsc.com/" class="nav__logo" aria-label="EINSC 2026 — Home">
+    <div class="nav__emblem"><span>EINSC</span></div>
+    <div class="nav__logo-text">
+      <div class="t1">EINSC 2026</div>
+      <div class="t2">Emirates Neurosurgical Conference</div>
+    </div>
+  </a>
+
+  <ul class="nav__links">
+    <li><a href="https://einsc.com/program/">Program</a></li>
+    <li><a href="https://einsc.com/faculty/">Faculty</a></li>
+    <li><a href="https://einsc.com/abstracts/">Abstracts</a></li>
+    <li><a href="https://einsc.com/partners-opportunities/">Sponsors</a></li>
+    <li><a href="https://einsc.com/venue/">Venue</a></li>
+    <li><a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a></li>
+    <li><a href="https://einsc.com/contact-us/" class="active">Contact</a></li>
+  </ul>
+
+  <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav__drawer" id="drawer" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+  <a href="https://einsc.com/">Home</a>
+  <a href="https://einsc.com/program/">Program</a>
+  <a href="https://einsc.com/faculty/">Faculty</a>
+  <a href="https://einsc.com/abstracts/">Abstracts</a>
+  <a href="https://einsc.com/partners-opportunities/">Sponsors</a>
+  <a href="https://einsc.com/venue/">Venue</a>
+  <a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a>
+  <a href="https://einsc.com/contact-us/">Contact</a>
+</div>
+
+<!-- ── HERO ──────────────────────────────────────────────────────── -->
+<section class="page-hero" aria-label="Page header">
+  <div class="page-hero__bg"></div>
+
+  <div class="hero-deco" aria-hidden="true">
+    <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="150" cy="150" r="140" stroke="#c9a96e" stroke-width=".5"/>
+      <circle cx="150" cy="150" r="108" stroke="#c9a96e" stroke-width=".4"/>
+      <circle cx="150" cy="150" r="75"  stroke="#c9a96e" stroke-width=".35"/>
+      <circle cx="150" cy="150" r="42"  stroke="#c9a96e" stroke-width=".3"/>
+      <line x1="10"  y1="150" x2="290" y2="150" stroke="#c9a96e" stroke-width=".4"/>
+      <line x1="150" y1="10"  x2="150" y2="290" stroke="#c9a96e" stroke-width=".4"/>
+    </svg>
+  </div>
+
+  <div class="page-hero__inner">
+    <span class="page-hero__eyebrow">EINSC 2026 · Dubai</span>
+    <h1 class="page-hero__title">Contact Us</h1>
+    <p class="page-hero__subtitle">Let's build something exceptional together</p>
+    <p class="page-hero__desc">We welcome enquiries from potential partners, sponsors, and delegates attending EINSC 2026 in Dubai.</p>
+
+    <div class="hero-meta">
+      <div class="hero-meta__item">
+        <div class="hm-label">Enquiries</div>
+        <div class="hm-value">dilan.pereira@gdplus.ae</div>
+      </div>
+      <div class="hero-meta__item">
+        <div class="hm-label">Phone</div>
+        <div class="hm-value">+971 58 817 9215</div>
+      </div>
+      <div class="hero-meta__item">
+        <div class="hm-label">Venue</div>
+        <div class="hm-value">Raffles Dubai</div>
+      </div>
+      <div class="hero-meta__item">
+        <div class="hm-label">Conference</div>
+        <div class="hm-value">EINSC 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTNERSHIP + CONTACT ────────────────────────────────────── -->
+<section class="partner-section">
+  <div class="partner-inner">
+
+    <!-- LEFT: Partnership pitch -->
+    <div class="partner-left">
+      <span class="section-eyebrow">Partnership Opportunities</span>
+      <h2 class="section-title">Become a Partner<br>of EINSC 2026</h2>
+
+      <p class="partner-lead">Join the leading neurosurgical conference in the GCC and connect your brand with the region's most influential neurosurgeons and healthcare decision-makers. Partnership opportunities are limited — secure your position today.</p>
+
+      <div class="partner-callout">
+        <p>Partnership opportunities are limited. Secure your position today and connect your brand with the region's most influential voices in neurological surgery.</p>
+      </div>
+
+      <div style="margin-bottom:clamp(28px,4vw,44px);">
+        <span class="section-eyebrow" style="margin-bottom:20px;">Conference Organised By</span>
+        <div class="organizers">
+          <div class="org-card">
+            <span class="org-card__label">Organiser</span>
+            <div class="org-card__name">Emirates Society of Neurological Surgeons</div>
+            <div class="org-card__sub">ESNS</div>
+          </div>
+          <div class="org-card">
+            <span class="org-card__label">In Partnership With</span>
+            <div class="org-card__name">GD+</div>
+            <div class="org-card__sub">A Gulf Dunes Division</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Contact card -->
+    <div class="contact-card">
+      <span class="contact-card__eyebrow">Get in Touch</span>
+      <h3 class="contact-card__title">Ready to book<br>your package?</h3>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="contact-item-body">
+          <div class="contact-item__label">Email</div>
+          <div class="contact-item__value">
+            <a href="mailto:dilan.pereira@gdplus.ae">dilan.pereira@gdplus.ae</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.53 2 2 0 0 1 3.6 1.37h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/>
+          </svg>
+        </div>
+        <div class="contact-item-body">
+          <div class="contact-item__label">Phone</div>
+          <div class="contact-item__value">
+            <a href="tel:+971588179215">+971 58 817 9215</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card__rule"></div>
+
+      <a href="mailto:dilan.pereira@gdplus.ae" class="btn-enquire">Send an Enquiry</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── WHAT YOU CAN EXPECT ───────────────────────────────────────── -->
+<section class="expect-section">
+  <div class="expect-inner">
+    <span class="section-eyebrow">Why Partner with EINSC 2026</span>
+    <h2 class="section-title">Reach the Region's Leading<br>Neurosurgical Community</h2>
+
+    <div class="expect-grid">
+
+      <div class="expect-card">
+        <div class="expect-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3 class="expect-card__title">Senior Decision-Makers</h3>
+        <p class="expect-card__text">Connect directly with neurosurgeons, department heads, and healthcare executives from across the GCC and wider region.</p>
+      </div>
+
+      <div class="expect-card">
+        <div class="expect-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <h3 class="expect-card__title">Clinical Relevance</h3>
+        <p class="expect-card__text">Present your innovations alongside leading science in a focused, high-credibility academic environment with real clinical impact.</p>
+      </div>
+
+      <div class="expect-card">
+        <div class="expect-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h3 class="expect-card__title">Regional Visibility</h3>
+        <p class="expect-card__text">Gain brand exposure across a concentrated audience of specialists in one of the world's fastest-growing healthcare markets.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <p class="footer-brand-name">Emirates International<br>Neurosurgical Conference<br>2026</p>
+      <p class="footer-brand-sub">The National Conference of the<br>Emirates Society of Neurological Surgeons</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="https://einsc.com/">Home</a>
+      <a href="https://einsc.com/program/">Program</a>
+      <a href="https://einsc.com/abstracts/">Abstracts</a>
+      <a href="https://einsc.com/partners-opportunities/">Sponsors</a>
+      <a href="https://einsc.com/contact-us/">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Gulf Dunes</h4>
+      <p>Al Barsha Boutique Building,<br>3rd Floor, Al Barsha 1,<br>P.O. Box 124174, Dubai, UAE</p>
+      <a href="mailto:info@einsc.com" style="margin-top:14px; display:block;">info@einsc.com</a>
+      <a href="tel:+971504537277">+971 50 453 7277</a>
+    </div>
+    <div class="footer-col">
+      <h4>Stay Updated</h4>
+      <p>Receive news about EINSC 2026 and related neurosurgical events from across the region.</p>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Your email address" aria-label="Email address"/>
+        <button type="button">Join</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 EINSC. All rights reserved.</p>
+    <a href="https://einsc.com/privacy/">Privacy Policy</a>
+    <p>Designed and built by Gulf Dunes</p>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    drawer.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    drawer.setAttribute('aria-hidden', !open);
+  });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open');
+    drawer.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    drawer.setAttribute('aria-hidden', 'true');
+  }));
+</script>
+
+</body>
+</html>
