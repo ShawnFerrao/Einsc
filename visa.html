@@ -411,7 +411,52 @@
     @media(max-width:480px) {
       .footer-grid { grid-template-columns:1fr; }
     }
-  </style>
+
+    /* -- NAV DROPDOWN -------------------------------------- */
+    .nav__has-dropdown { position:relative; }
+    .nav__dropdown {
+      position:absolute; top:calc(100% + 14px); left:50%;
+      transform:translateX(-50%) translateY(-6px);
+      background:rgba(2,5,16,.97); backdrop-filter:blur(10px);
+      border:1px solid rgba(201,169,110,.22);
+      border-top:2px solid var(--gold);
+      min-width:234px; list-style:none;
+      opacity:0; visibility:hidden; pointer-events:none;
+      transition:opacity .18s ease, transform .18s ease;
+      z-index:300; padding:6px 0;
+    }
+    .nav__has-dropdown:hover .nav__dropdown,
+    .nav__has-dropdown:focus-within .nav__dropdown {
+      opacity:1; visibility:visible; pointer-events:auto;
+      transform:translateX(-50%) translateY(0);
+    }
+    .nav__dropdown li a {
+      display:block; padding:10px 18px;
+      font-size:11px; font-weight:400; letter-spacing:.12em; text-transform:uppercase;
+      color:rgba(240,236,228,.65); white-space:nowrap; text-decoration:none;
+      transition:color .2s, background .2s;
+    }
+    .nav__dropdown li a::after { display:none !important; }
+    .nav__dropdown li a:hover  { color:var(--gold); background:rgba(201,169,110,.07); }
+    .nav__dropdown li a.active { color:var(--gold); }
+    .nav__dropdown li + li { border-top:1px solid rgba(255,255,255,.05); }
+    .drawer-sub {
+      font-size:clamp(.95rem,4vw,1.4rem) !important;
+      color:rgba(240,236,228,.48) !important;
+      letter-spacing:.14em !important;
+      margin-top:-20px;
+    }
+    html body .nav__dropdown li a,
+    html body .nav__dropdown li a:visited  { color:rgba(240,236,228,.65) !important; text-decoration:none !important; background:transparent !important; }
+    html body .nav__dropdown li a:hover    { color:var(--gold) !important; background:rgba(201,169,110,.07) !important; }
+    html body .nav__dropdown li a.active,
+    html body .nav__dropdown li a.active:visited { color:var(--gold) !important; }
+    html body .nav__drawer a.drawer-sub,
+    html body .nav__drawer a.drawer-sub:visited  { color:rgba(240,236,228,.48) !important; }
+    html body .nav__drawer a.drawer-sub:hover     { color:var(--gold) !important; }
+    html body .nav__drawer a.drawer-sub.active,
+    html body .nav__drawer a.drawer-sub.active:visited { color:var(--gold) !important; }
+    .drawer-sub.active { color:var(--gold) !important; }  </style>
 </head>
 <body>
 
@@ -428,7 +473,13 @@
     <li><a href="https://einsc.com/program/">Program</a></li>
     <li><a href="https://einsc.com/faculty/">Faculty</a></li>
     <li><a href="https://einsc.com/abstracts/">Abstracts</a></li>
-    <li><a href="https://einsc.com/sponsors/">Sponsors</a></li>
+    <li class="nav__has-dropdown">
+      <a href="https://einsc.com/sponsors/">Sponsors</a>
+      <ul class="nav__dropdown">
+        <li><a href="https://einsc.com/sponsors/">Sponsors</a></li>
+        <li><a href="https://einsc.com/partners-opportunities/">Partnership Opportunities</a></li>
+      </ul>
+    </li>
     <li><a href="https://einsc.com/venue/">Venue</a></li>
     <li><a href="https://einsc.com/visa-travel-info/" class="active">Visa &amp; Travel</a></li>
     <li><a href="https://einsc.com/contact-us/">Contact</a></li>
@@ -445,6 +496,7 @@
   <a href="https://einsc.com/faculty/">Faculty</a>
   <a href="https://einsc.com/abstracts/">Abstracts</a>
   <a href="https://einsc.com/sponsors/">Sponsors</a>
+  <a href="https://einsc.com/partners-opportunities/" class="drawer-sub">Partnership Opportunities</a>
   <a href="https://einsc.com/venue/">Venue</a>
   <a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a>
   <a href="https://einsc.com/contact-us/">Contact</a>
