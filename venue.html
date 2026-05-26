@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -54,12 +54,6 @@
     .nav__links a:hover::after { width:100%; }
     .nav__links a.active { color:var(--gold); }
     .nav__links a.active::after { width:100%; }
-    .nav__cta {
-      font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
-      color:var(--dark); background:var(--gold); padding:10px 20px;
-      text-decoration:none; white-space:nowrap; flex-shrink:0; transition:background .22s;
-    }
-    .nav__cta:hover { background:var(--gold-l); }
     .nav__burger {
       display:none; flex-direction:column; gap:6px; cursor:pointer;
       background:none; border:none; padding:8px; z-index:200;
@@ -76,7 +70,6 @@
     .nav__drawer.open { display:flex; }
     .nav__drawer a { font-size:clamp(1.1rem,4.5vw,1.7rem); letter-spacing:.16em; text-transform:uppercase; color:rgba(240,236,228,.85); text-decoration:none; transition:color .2s; }
     .nav__drawer a:hover { color:var(--gold); }
-    .nav__drawer .drawer-cta { margin-top:10px; background:var(--gold); color:var(--dark) !important; padding:16px 36px; letter-spacing:.2em; font-size:.95rem !important; }
 
     /* -- PAGE HERO ------------------------------------------- */
     .page-hero {
@@ -359,9 +352,6 @@
     html body .nav__drawer a,
     html body .nav__drawer a:visited { color:rgba(240,236,228,.85) !important; }
     html body .nav__drawer a:hover   { color:var(--gold) !important; }
-    html body .nav__cta,
-    html body .nav__cta:visited      { color:var(--dark) !important; background:var(--gold) !important; text-decoration:none !important; }
-    html body .nav__cta:hover        { background:var(--gold-l) !important; }
 
     html body .footer-col a,
     html body .footer-col a:visited   { color:rgba(240,236,228,.5) !important; }
@@ -449,7 +439,7 @@
       .raffles-features { grid-template-columns:repeat(2,1fr); }
     }
     @media(max-width:900px) {
-      .nav__links, .nav__cta { display:none; }
+      .nav__links { display:none; }
       .nav__burger { display:flex; }
       .intro-inner   { grid-template-columns:1fr; }
       .location-inner{ grid-template-columns:1fr; }
@@ -487,7 +477,7 @@
     <li><a href="https://einsc.com/program/">Program</a></li>
     <li><a href="https://einsc.com/faculty/">Faculty</a></li>
     <li><a href="https://einsc.com/abstracts/">Abstracts</a></li>
-    <li><a href="https://einsc.com/partners-opportunities/">Sponsors</a></li>
+    <li><a href="https://einsc.com/sponsors/">Sponsors</a></li>
     <li><a href="https://einsc.com/venue/" class="active">Venue</a></li>
     <li><a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a></li>
     <li><a href="https://einsc.com/contact-us/">Contact</a></li>
@@ -502,7 +492,7 @@
   <a href="https://einsc.com/program/">Program</a>
   <a href="https://einsc.com/faculty/">Faculty</a>
   <a href="https://einsc.com/abstracts/">Abstracts</a>
-  <a href="https://einsc.com/partners-opportunities/">Sponsors</a>
+  <a href="https://einsc.com/sponsors/">Sponsors</a>
   <a href="https://einsc.com/venue/">Venue</a>
   <a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a>
   <a href="https://einsc.com/contact-us/">Contact</a>

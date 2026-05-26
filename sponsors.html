@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sponsors &amp; Partners - EINSC 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --gold:   #c9a96e;
+      --gold-l: #e2c28a;
+      --cream:  #f0ece4;
+      --navy:   #0d1b3e;
+      --dark:   #020510;
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --sans:   'Barlow', sans-serif;
+      --max:    1280px;
+      --pad:    clamp(20px, 5vw, 80px);
+    }
+
+    html { scroll-behavior:smooth; }
+    body { font-family:var(--sans); background:#fff; color:#1c1c2e; overflow-x:hidden; line-height:1.7; }
+
+    /* -- NAV ----------------------------------------------- */
+    .nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:20px var(--pad);
+      background:rgba(2,5,16,.96);
+      border-bottom:1px solid rgba(201,169,110,.15);
+      backdrop-filter:blur(10px);
+    }
+    .nav__logo { display:flex; align-items:center; gap:14px; text-decoration:none; flex-shrink:0; }
+    .nav__emblem {
+      width:46px; height:46px; border-radius:50%;
+      border:1.5px solid rgba(201,169,110,.55);
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .nav__emblem span { font-family:var(--serif); font-size:12px; font-weight:600; color:var(--gold); letter-spacing:.05em; }
+    .nav__logo-text .t1 { font-size:13px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--cream); }
+    .nav__logo-text .t2 { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(240,236,228,.4); margin-top:2px; }
+    .nav__links { display:flex; gap:clamp(14px,2vw,32px); list-style:none; }
+    .nav__links a {
+      font-size:clamp(11px,1.1vw,13px); font-weight:400; letter-spacing:.1em; text-transform:uppercase;
+      color:rgba(240,236,228,.7); text-decoration:none;
+      position:relative; padding-bottom:4px; transition:color .22s; white-space:nowrap;
+    }
+    .nav__links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--gold); transition:width .28s ease; }
+    .nav__links a:hover  { color:var(--gold); }
+    .nav__links a:hover::after { width:100%; }
+    .nav__links a.active { color:var(--gold); }
+    .nav__links a.active::after { width:100%; }
+    .nav__burger {
+      display:none; flex-direction:column; gap:6px; cursor:pointer;
+      background:none; border:none; padding:8px; z-index:200;
+    }
+    .nav__burger span { display:block; width:26px; height:2px; background:var(--cream); border-radius:2px; transition:all .3s; }
+    .nav__burger.open span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2){ opacity:0; }
+    .nav__burger.open span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+    .nav__drawer {
+      display:none; position:fixed; inset:0; z-index:150;
+      background:rgba(2,5,16,.97); flex-direction:column;
+      align-items:center; justify-content:center; gap:32px;
+    }
+    .nav__drawer.open { display:flex; }
+    .nav__drawer a { font-size:clamp(1.1rem,4.5vw,1.7rem); letter-spacing:.16em; text-transform:uppercase; color:rgba(240,236,228,.85); text-decoration:none; transition:color .2s; }
+    .nav__drawer a:hover { color:var(--gold); }
+
+    /* -- PAGE HERO ----------------------------------------- */
+    .page-hero {
+      background:var(--dark); padding:140px var(--pad) 80px;
+      position:relative; overflow:hidden;
+    }
+    .page-hero__bg {
+      position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse 55% 70% at 92% 40%, rgba(201,169,110,.09) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 8% 80%, rgba(13,27,62,.55) 0%, transparent 60%);
+    }
+    .hero-line {
+      position:absolute; left:0; bottom:0; right:0; height:3px;
+      background:linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+    }
+    .page-hero__inner { position:relative; z-index:1; max-width:var(--max); margin:0 auto; }
+    .page-hero__eyebrow {
+      font-size:11px; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:16px; display:block;
+    }
+    .page-hero__title {
+      font-family:var(--serif); font-size:clamp(2.2rem,5vw,3.8rem); font-weight:300;
+      color:var(--cream); line-height:1.15; margin-bottom:28px; max-width:760px;
+    }
+    .page-hero__title em { font-style:italic; color:var(--gold); }
+    .page-hero__desc {
+      font-size:clamp(16px,1.5vw,18px); font-weight:300; color:rgba(240,236,228,.62);
+      max-width:660px; line-height:1.85; margin-bottom:52px;
+    }
+    .hero-stats {
+      display:flex; gap:clamp(24px,4vw,56px); flex-wrap:wrap;
+      border-top:1px solid rgba(201,169,110,.18); padding-top:36px;
+    }
+    .hs-num   { font-family:var(--serif); font-size:clamp(2rem,3.5vw,3rem); font-weight:300; color:var(--gold); line-height:1; }
+    .hs-label { font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:rgba(240,236,228,.42); margin-top:4px; }
+
+    /* -- SHARED -------------------------------------------- */
+    .sec-pad { padding:clamp(64px,8vw,100px) var(--pad); }
+    .container { max-width:var(--max); margin:0 auto; }
+    .section-eyebrow {
+      font-size:11px; font-weight:600; letter-spacing:.26em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:12px; display:block;
+    }
+    .section-title {
+      font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300;
+      color:var(--navy); line-height:1.2; margin-bottom:16px;
+    }
+    .section-title--light { color:var(--cream); }
+    .section-sub {
+      font-size:clamp(16px,1.5vw,18px); font-weight:300; color:#6a6a7a;
+      max-width:580px; line-height:1.8; margin-bottom:clamp(40px,5vw,60px);
+    }
+    .section-sub--light { color:rgba(240,236,228,.55); }
+    .gold-rule { width:44px; height:2px; background:var(--gold); margin-bottom:32px; }
+
+    /* -- SUPPORTING ORGS ----------------------------------- */
+    .supporters-section { background:#fff; }
+    .supporters-intro {
+      max-width:var(--max); margin:0 auto;
+      display:grid; grid-template-columns:1fr 1.8fr; gap:clamp(48px,6vw,80px); align-items:center;
+      padding-bottom:clamp(48px,6vw,72px);
+      border-bottom:1px solid #eae7e0;
+    }
+    .supporters-text .section-sub { margin-bottom:0; }
+
+    .logo-showcase {
+      display:grid; grid-template-columns:repeat(2,1fr);
+      gap:2px; max-width:var(--max); margin:clamp(48px,6vw,72px) auto 0;
+    }
+    .logo-card {
+      background:#f9f7f3; border:1px solid #eae7e0;
+      padding:clamp(28px,4vw,44px) clamp(24px,3vw,40px);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:20px; text-align:center;
+      transition:background .25s, box-shadow .25s;
+      min-height:clamp(140px,18vw,180px);
+    }
+    .logo-card:hover { background:#fff; box-shadow:0 8px 32px rgba(0,0,0,.07); }
+    .logo-card img {
+      height:clamp(44px,6vw,64px); width:auto; max-width:180px;
+      object-fit:contain; opacity:.8; transition:opacity .22s;
+    }
+    .logo-card:hover img { opacity:1; }
+    .logo-card__name {
+      font-size:12px; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
+      color:#7a7a8a;
+    }
+
+    /* -- INDUSTRY SPONSORS --------------------------------- */
+    .sponsors-section { background:var(--dark); }
+    .tier-grid {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:clamp(12px,1.5vw,20px); max-width:var(--max); margin:0 auto;
+    }
+    .tier-slot {
+      border:1px solid rgba(255,255,255,.07);
+      padding:clamp(28px,3vw,40px) clamp(20px,2.5vw,30px);
+      display:flex; flex-direction:column; align-items:center;
+      text-align:center; position:relative;
+    }
+    .tier-slot--platinum { border-color:rgba(201,169,110,.35); background:rgba(201,169,110,.05); }
+    .tier-slot--gold     { border-color:rgba(212,175,55,.25);  background:rgba(212,175,55,.04); }
+    .tier-slot--silver   { border-color:rgba(168,168,179,.2);  background:rgba(168,168,179,.03); }
+    .tier-slot--bronze   { border-color:rgba(160,103,58,.2);   background:rgba(160,103,58,.03); }
+
+    .tier-badge {
+      font-size:9px; font-weight:700; letter-spacing:.24em; text-transform:uppercase;
+      padding:4px 14px; margin-bottom:20px;
+    }
+    .tier-slot--platinum .tier-badge { background:var(--gold); color:var(--dark); }
+    .tier-slot--gold     .tier-badge { background:#d4af37;    color:var(--dark); }
+    .tier-slot--silver   .tier-badge { background:#a8a8b3;    color:var(--dark); }
+    .tier-slot--bronze   .tier-badge { background:#a0673a;    color:#fff; }
+
+    .tier-available-box {
+      width:100%; border:1.5px dashed; padding:clamp(28px,4vw,44px) 20px;
+      display:flex; flex-direction:column; align-items:center; gap:12px; flex:1; margin-bottom:24px;
+    }
+    .tier-slot--platinum .tier-available-box { border-color:rgba(201,169,110,.3); }
+    .tier-slot--gold     .tier-available-box { border-color:rgba(212,175,55,.25); }
+    .tier-slot--silver   .tier-available-box { border-color:rgba(168,168,179,.2); }
+    .tier-slot--bronze   .tier-available-box { border-color:rgba(160,103,58,.2); }
+
+    .tier-avail-icon {
+      width:44px; height:44px; border-radius:50%; border:1.5px solid;
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .tier-slot--platinum .tier-avail-icon { border-color:rgba(201,169,110,.4); }
+    .tier-slot--gold     .tier-avail-icon { border-color:rgba(212,175,55,.3); }
+    .tier-slot--silver   .tier-avail-icon { border-color:rgba(168,168,179,.25); }
+    .tier-slot--bronze   .tier-avail-icon { border-color:rgba(160,103,58,.25); }
+    .tier-avail-icon svg { width:20px; height:20px; }
+    .tier-slot--platinum .tier-avail-icon svg { stroke:var(--gold); }
+    .tier-slot--gold     .tier-avail-icon svg { stroke:#d4af37; }
+    .tier-slot--silver   .tier-avail-icon svg { stroke:#b0b0be; }
+    .tier-slot--bronze   .tier-avail-icon svg { stroke:#ba8055; }
+
+    .tier-avail-label {
+      font-size:13px; font-weight:400; color:rgba(240,236,228,.45); line-height:1.5;
+    }
+    .tier-name-label {
+      font-family:var(--serif); font-size:1.1rem; font-weight:400; color:rgba(240,236,228,.6);
+      margin-bottom:8px;
+    }
+    .tier-cta-btn {
+      display:block; width:100%; text-align:center;
+      font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+      padding:12px 16px; text-decoration:none; transition:all .22s; border:1.5px solid;
+    }
+    .tier-slot--platinum .tier-cta-btn { color:var(--gold); border-color:var(--gold); }
+    .tier-slot--platinum .tier-cta-btn:hover { background:var(--gold); color:var(--dark); }
+    .tier-slot--gold .tier-cta-btn { color:#d4af37; border-color:#d4af37; }
+    .tier-slot--gold .tier-cta-btn:hover { background:#d4af37; color:var(--dark); }
+    .tier-slot--silver .tier-cta-btn { color:#c8c8d4; border-color:#c8c8d4; }
+    .tier-slot--silver .tier-cta-btn:hover { background:#c8c8d4; color:var(--dark); }
+    .tier-slot--bronze .tier-cta-btn { color:#c89060; border-color:#c89060; }
+    .tier-slot--bronze .tier-cta-btn:hover { background:#c89060; color:var(--dark); }
+
+    /* -- EXHIBITORS ---------------------------------------- */
+    .exhibitors-section { background:var(--cream); }
+    .exhibitors-grid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:clamp(16px,2vw,24px); max-width:var(--max); margin:0 auto;
+    }
+    .exhibitor-card {
+      background:#fff; border:1px solid #dedad2;
+      padding:clamp(28px,3vw,40px); text-align:center;
+      display:flex; flex-direction:column; align-items:center; gap:16px;
+      transition:box-shadow .25s;
+    }
+    .exhibitor-card:hover { box-shadow:0 8px 32px rgba(13,27,62,.09); }
+    .exhibitor-slot {
+      width:100%; min-height:100px;
+      border:1.5px dashed rgba(13,27,62,.2);
+      display:flex; align-items:center; justify-content:center;
+      padding:24px;
+    }
+    .exhibitor-slot span {
+      font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+      color:rgba(13,27,62,.3); font-weight:500;
+    }
+    .exhibitor-card__label {
+      font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--navy); padding:5px 18px; background:rgba(13,27,62,.06);
+    }
+    .exhibitor-card__desc {
+      font-size:14px; font-weight:300; color:#7a7a8a; line-height:1.7;
+    }
+
+    /* -- CTA SECTION --------------------------------------- */
+    .cta-section {
+      background:var(--navy);
+      padding:clamp(72px,9vw,112px) var(--pad);
+      position:relative; overflow:hidden;
+    }
+    .cta-section__bg {
+      position:absolute; inset:0;
+      background:radial-gradient(ellipse 60% 80% at 100% 50%, rgba(201,169,110,.09) 0%, transparent 65%);
+      pointer-events:none;
+    }
+    .cta-inner {
+      position:relative; z-index:1;
+      max-width:var(--max); margin:0 auto;
+      display:grid; grid-template-columns:1fr auto; gap:clamp(40px,6vw,80px); align-items:center;
+    }
+    .cta-inner h2 {
+      font-family:var(--serif); font-size:clamp(2rem,3.5vw,3rem); font-weight:300;
+      color:var(--cream); line-height:1.2; margin-bottom:12px;
+    }
+    .cta-inner h2 em { font-style:italic; color:var(--gold); }
+    .cta-inner p {
+      font-size:clamp(16px,1.5vw,18px); font-weight:300;
+      color:rgba(240,236,228,.55); max-width:520px; line-height:1.85;
+    }
+    .cta-buttons { display:flex; flex-direction:column; gap:14px; flex-shrink:0; }
+    .btn-gold-lg {
+      display:inline-block; font-size:11px; font-weight:600; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--dark); background:var(--gold);
+      padding:18px 36px; text-decoration:none; white-space:nowrap;
+      transition:background .22s;
+    }
+    .btn-gold-lg:hover { background:var(--gold-l); }
+    .btn-outline-cream {
+      display:inline-block; font-size:11px; font-weight:500; letter-spacing:.2em;
+      text-transform:uppercase; color:rgba(240,236,228,.75);
+      border:1.5px solid rgba(240,236,228,.25); padding:17px 36px;
+      text-decoration:none; white-space:nowrap; text-align:center;
+      transition:border-color .22s, color .22s;
+    }
+    .btn-outline-cream:hover { border-color:var(--gold); color:var(--gold); }
+
+    /* -- ORGANISERS ---------------------------------------- */
+    .organisers-strip {
+      background:#060a1a; border-top:1px solid rgba(201,169,110,.12);
+      padding:clamp(36px,5vw,56px) var(--pad);
+    }
+    .organisers-inner {
+      max-width:var(--max); margin:0 auto;
+      display:flex; align-items:center; justify-content:center;
+      gap:clamp(24px,4vw,56px); flex-wrap:wrap;
+    }
+    .org-label { font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:rgba(240,236,228,.3); text-align:center; }
+    .org-divider { width:1px; height:40px; background:rgba(255,255,255,.08); }
+    .org-name { font-family:var(--serif); font-size:clamp(1rem,1.5vw,1.25rem); font-weight:400; color:rgba(240,236,228,.7); text-align:center; line-height:1.4; }
+    .org-sub  { font-size:11px; color:rgba(240,236,228,.3); text-align:center; margin-top:2px; letter-spacing:.04em; }
+
+    /* -- FOOTER -------------------------------------------- */
+    .footer { background:#060a1a; padding:clamp(64px,8vw,88px) var(--pad) 40px; border-top:1px solid rgba(255,255,255,.04); }
+    .footer-grid {
+      display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:clamp(28px,4vw,56px);
+      max-width:var(--max); margin:0 auto;
+      padding-bottom:56px; border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .footer-brand-name { font-family:var(--serif); font-size:clamp(1.4rem,2.5vw,1.8rem); font-weight:300; color:var(--cream); line-height:1.4; margin-bottom:14px; }
+    .footer-brand-sub  { font-size:clamp(13px,1.3vw,15px); color:rgba(240,236,228,.38); line-height:1.75; }
+    .footer-col h4     { font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; font-weight:600; }
+    .footer-col a, .footer-col p { display:block; font-size:clamp(13px,1.3vw,15px); color:rgba(240,236,228,.5); text-decoration:none; margin-bottom:10px; line-height:1.7; transition:color .2s; }
+    .footer-col a:hover { color:var(--gold); }
+    .footer-newsletter { display:flex; overflow:hidden; border:1.5px solid rgba(201,169,110,.3); margin-top:12px; }
+    .footer-newsletter input { flex:1; background:transparent; border:none; outline:none; padding:14px 16px; font-size:14px; color:var(--cream); font-family:var(--sans); min-width:0; }
+    .footer-newsletter input::placeholder { color:rgba(240,236,228,.28); }
+    .footer-newsletter button { background:var(--gold); border:none; padding:14px 18px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--dark); font-family:var(--sans); font-weight:600; cursor:pointer; transition:background .22s; white-space:nowrap; }
+    .footer-newsletter button:hover { background:var(--gold-l); }
+    .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:28px; flex-wrap:wrap; gap:12px; max-width:var(--max); margin:0 auto; }
+    .footer-bottom p, .footer-bottom a { font-size:13px; color:rgba(240,236,228,.25); text-decoration:none; transition:color .2s; }
+    .footer-bottom a:hover { color:var(--gold); }
+
+    /* -- ELEMENTOR OVERRIDES ------------------------------- */
+    html body a,
+    html body a:visited              { color:inherit !important; text-decoration:none !important; }
+    html body a:hover,
+    html body a:focus                { color:inherit !important; }
+    html body button,
+    html body button:hover,
+    html body button:focus           { color:inherit !important; background-color:transparent !important; }
+    html body .nav__links a,
+    html body .nav__links a:visited  { color:rgba(240,236,228,.7) !important; }
+    html body .nav__links a:hover    { color:var(--gold) !important; }
+    html body .nav__links a.active,
+    html body .nav__links a.active:visited { color:var(--gold) !important; }
+    html body .nav__drawer a,
+    html body .nav__drawer a:visited { color:rgba(240,236,228,.85) !important; }
+    html body .nav__drawer a:hover   { color:var(--gold) !important; }
+    html body .footer-col a,
+    html body .footer-col a:visited   { color:rgba(240,236,228,.5) !important; }
+    html body .footer-col a:hover     { color:var(--gold) !important; }
+    html body .footer-bottom a,
+    html body .footer-bottom a:visited{ color:rgba(240,236,228,.25) !important; }
+    html body .footer-bottom a:hover  { color:var(--gold) !important; }
+    html body .btn-gold-lg,
+    html body .btn-gold-lg:visited    { color:var(--dark) !important; background:var(--gold) !important; text-decoration:none !important; }
+    html body .btn-gold-lg:hover      { background:var(--gold-l) !important; }
+    html body .btn-outline-cream,
+    html body .btn-outline-cream:visited { color:rgba(240,236,228,.75) !important; text-decoration:none !important; }
+    html body .btn-outline-cream:hover   { color:var(--gold) !important; border-color:var(--gold) !important; }
+    html body .tier-cta-btn { text-decoration:none !important; }
+    html body .tier-slot--platinum .tier-cta-btn,
+    html body .tier-slot--platinum .tier-cta-btn:visited { color:var(--gold) !important; border-color:var(--gold) !important; }
+    html body .tier-slot--platinum .tier-cta-btn:hover   { background:var(--gold) !important; color:var(--dark) !important; }
+    html body .tier-slot--gold .tier-cta-btn,
+    html body .tier-slot--gold .tier-cta-btn:visited { color:#d4af37 !important; border-color:#d4af37 !important; }
+    html body .tier-slot--gold .tier-cta-btn:hover   { background:#d4af37 !important; color:var(--dark) !important; }
+    html body .tier-slot--silver .tier-cta-btn,
+    html body .tier-slot--silver .tier-cta-btn:visited { color:#c8c8d4 !important; border-color:#c8c8d4 !important; }
+    html body .tier-slot--silver .tier-cta-btn:hover   { background:#c8c8d4 !important; color:var(--dark) !important; }
+    html body .tier-slot--bronze .tier-cta-btn,
+    html body .tier-slot--bronze .tier-cta-btn:visited { color:#c89060 !important; border-color:#c89060 !important; }
+    html body .tier-slot--bronze .tier-cta-btn:hover   { background:#c89060 !important; color:var(--dark) !important; }
+    html body .logo-card a,
+    html body .logo-card a:visited { color:inherit !important; }
+    .elementor-editor-active .sponsors-section  { background:var(--dark)  !important; }
+    .elementor-editor-active .cta-section       { background:var(--navy)  !important; }
+    .elementor-editor-active .organisers-strip  { background:#060a1a      !important; }
+    .elementor-editor-active .footer            { background:#060a1a      !important; }
+    .elementor-editor-active .exhibitors-section{ background:var(--cream) !important; }
+
+    /* -- RESPONSIVE ---------------------------------------- */
+    @media(max-width:1100px) {
+      .tier-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:900px) {
+      .nav__links  { display:none; }
+      .nav__burger { display:flex; }
+      .supporters-intro { grid-template-columns:1fr; }
+      .cta-inner { grid-template-columns:1fr; }
+      .cta-buttons { flex-direction:row; flex-wrap:wrap; }
+    }
+    @media(max-width:640px) {
+      .logo-showcase { grid-template-columns:1fr 1fr; }
+      .tier-grid  { grid-template-columns:1fr 1fr; }
+      .exhibitors-grid { grid-template-columns:1fr; }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:28px; }
+      .org-divider { display:none; }
+    }
+    @media(max-width:480px) {
+      .tier-grid { grid-template-columns:1fr; }
+      .footer-grid { grid-template-columns:1fr; }
+      .logo-showcase { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" aria-label="Main navigation">
+  <a href="https://einsc.com/" class="nav__logo">
+    <div class="nav__emblem"><span>EINSC</span></div>
+    <div class="nav__logo-text">
+      <div class="t1">EINSC 2026</div>
+      <div class="t2">16&ndash;18 October &middot; Dubai</div>
+    </div>
+  </a>
+  <ul class="nav__links">
+    <li><a href="https://einsc.com/program/">Program</a></li>
+    <li><a href="https://einsc.com/faculty/">Faculty</a></li>
+    <li><a href="https://einsc.com/abstracts/">Abstracts</a></li>
+    <li><a href="https://einsc.com/sponsors/" class="active">Sponsors</a></li>
+    <li><a href="https://einsc.com/venue/">Venue</a></li>
+    <li><a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a></li>
+    <li><a href="https://einsc.com/contact-us/">Contact</a></li>
+  </ul>
+  <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav__drawer" id="drawer" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
+  <a href="https://einsc.com/program/">Program</a>
+  <a href="https://einsc.com/faculty/">Faculty</a>
+  <a href="https://einsc.com/abstracts/">Abstracts</a>
+  <a href="https://einsc.com/sponsors/">Sponsors</a>
+  <a href="https://einsc.com/venue/">Venue</a>
+  <a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a>
+  <a href="https://einsc.com/contact-us/">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero__bg" aria-hidden="true"></div>
+  <div class="page-hero__inner">
+    <span class="page-hero__eyebrow">EINSC 2026 &middot; Sponsors &amp; Partners</span>
+    <h1 class="page-hero__title">Proudly Supported by <em>Industry &amp; Academic Leaders</em></h1>
+    <p class="page-hero__desc">
+      EINSC 2026 is made possible through the generous support of academic organisations,
+      medical societies, and industry partners committed to advancing neurosurgical education
+      and innovation across the region.
+    </p>
+    <div class="hero-stats">
+      <div>
+        <div class="hs-num">250+</div>
+        <div class="hs-label">Expert Delegates</div>
+      </div>
+      <div>
+        <div class="hs-num">10<span style="font-size:1.4rem">th</span></div>
+        <div class="hs-label">Anniversary Edition</div>
+      </div>
+      <div>
+        <div class="hs-num">3</div>
+        <div class="hs-label">Conference Days</div>
+      </div>
+      <div>
+        <div class="hs-num">GCC+</div>
+        <div class="hs-label">Regional Reach</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-line" aria-hidden="true"></div>
+</section>
+
+<!-- SUPPORTING ORGANISATIONS -->
+<section class="sec-pad supporters-section" id="supporters">
+  <div class="container">
+    <div class="supporters-intro">
+      <div class="supporters-text">
+        <span class="section-eyebrow">Academic Support</span>
+        <h2 class="section-title">Supporting<br><em style="font-style:italic; color:var(--navy);">Organisations</em></h2>
+        <div class="gold-rule"></div>
+        <p class="section-sub">
+          EINSC 2026 is proudly supported by leading neurosurgical societies from across
+          the globe, lending their expertise, networks, and prestige to our 10th edition.
+        </p>
+      </div>
+      <div>
+        <p style="font-size:16px; font-weight:300; color:#6a6a7a; line-height:1.85;">
+          These organisations represent the collective expertise of thousands of neurosurgeons
+          spanning South Asia, Southeast Asia, the Pacific, and the Arab world. Their endorsement
+          reflects the truly international character of EINSC 2026 &mdash; a conference that
+          brings the world&rsquo;s neurosurgical community to Dubai.
+        </p>
+        <p style="font-size:14px; color:#9a9aa8; margin-top:20px; font-style:italic;">
+          Supporting organisations contribute to the scientific programme, abstract review,
+          and speaker identification across all three conference days.
+        </p>
+      </div>
+    </div>
+
+    <div class="logo-showcase">
+      <div class="logo-card">
+        <img src="https://i0.wp.com/einsc.com/wp-content/uploads/2023/10/seens-logo-removebg.png?fit=300%2C300&ssl=1"
+             alt="SEENS - South East European Neurosurgical Society"/>
+        <span class="logo-card__name">SEENS</span>
+      </div>
+      <div class="logo-card">
+        <img src="https://i0.wp.com/einsc.com/wp-content/uploads/2023/10/Pakistan-logo_remake-removebg.png?fit=300%2C300&ssl=1"
+             alt="Pakistan Neurosurgical Society"/>
+        <span class="logo-card__name">Pakistan Neurosurgical Society</span>
+      </div>
+      <div class="logo-card">
+        <img src="https://i0.wp.com/einsc.com/wp-content/uploads/2023/10/Maldivian-Society-Logo-removebg.png?fit=300%2C300&ssl=1"
+             alt="Maldivian Society of Neurological Surgery"/>
+        <span class="logo-card__name">Maldivian Society of Neurological Surgery</span>
+      </div>
+      <div class="logo-card">
+        <img src="https://i0.wp.com/einsc.com/wp-content/uploads/2023/10/NSI-Logo-High-res-removebg.png?fit=300%2C300&ssl=1"
+             alt="Neurological Society of India"/>
+        <span class="logo-card__name">Neurological Society of India</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY SPONSORS -->
+<section class="sec-pad sponsors-section" id="industry">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:clamp(40px,5vw,60px);">
+      <span class="section-eyebrow" style="display:block;">Industry Partners 2026</span>
+      <h2 class="section-title section-title--light">Conference <em style="font-style:italic; color:var(--gold);">Sponsors</em></h2>
+      <p class="section-sub section-sub--light" style="margin:0 auto; text-align:center;">
+        Industry sponsorship slots for EINSC 2026 are now open. Position your brand
+        alongside the region&rsquo;s most prestigious neurosurgical conference.
+      </p>
+    </div>
+    <div class="tier-grid">
+
+      <!-- Platinum -->
+      <div class="tier-slot tier-slot--platinum">
+        <span class="tier-badge">Platinum</span>
+        <div class="tier-available-box">
+          <div class="tier-avail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <span class="tier-name-label">Platinum Sponsor</span>
+          <span class="tier-avail-label">Exclusive slot available &mdash; maximum visibility &amp; workshop integration</span>
+        </div>
+        <a href="https://einsc.com/partners-opportunities/" class="tier-cta-btn">Enquire Now</a>
+      </div>
+
+      <!-- Gold -->
+      <div class="tier-slot tier-slot--gold">
+        <span class="tier-badge">Gold</span>
+        <div class="tier-available-box">
+          <div class="tier-avail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true">
+              <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </div>
+          <span class="tier-name-label">Gold Sponsor</span>
+          <span class="tier-avail-label">Limited availability &mdash; prominent branding &amp; delegate engagement</span>
+        </div>
+        <a href="https://einsc.com/partners-opportunities/" class="tier-cta-btn">Enquire Now</a>
+      </div>
+
+      <!-- Silver -->
+      <div class="tier-slot tier-slot--silver">
+        <span class="tier-badge">Silver</span>
+        <div class="tier-available-box">
+          <div class="tier-avail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true">
+              <path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 12h.01"/>
+            </svg>
+          </div>
+          <span class="tier-name-label">Silver Sponsor</span>
+          <span class="tier-avail-label">Multiple slots available &mdash; exhibition space &amp; programme listing</span>
+        </div>
+        <a href="https://einsc.com/partners-opportunities/" class="tier-cta-btn">Enquire Now</a>
+      </div>
+
+      <!-- Bronze -->
+      <div class="tier-slot tier-slot--bronze">
+        <span class="tier-badge">Bronze</span>
+        <div class="tier-available-box">
+          <div class="tier-avail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <span class="tier-name-label">Bronze Sponsor</span>
+          <span class="tier-avail-label">Open availability &mdash; conference bag insert &amp; logo recognition</span>
+        </div>
+        <a href="https://einsc.com/partners-opportunities/" class="tier-cta-btn">Enquire Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXHIBITORS -->
+<section class="sec-pad exhibitors-section" id="exhibitors">
+  <div class="container">
+    <div style="margin-bottom:clamp(40px,5vw,56px);">
+      <span class="section-eyebrow">Exhibition</span>
+      <h2 class="section-title">Exhibition <em style="font-style:italic; color:var(--navy);">Floor Space</em></h2>
+      <p class="section-sub">
+        EINSC 2026 features a dedicated exhibition floor within Hotel Raffles Dubai, providing
+        direct access to delegates throughout all three conference days.
+      </p>
+    </div>
+    <div class="exhibitors-grid">
+
+      <div class="exhibitor-card">
+        <div class="exhibitor-slot">
+          <span>Exhibitor Slot Available</span>
+        </div>
+        <span class="exhibitor-card__label">Standard Stand</span>
+        <p class="exhibitor-card__desc">3&times;2m stand within the main exhibition floor, adjacent to coffee break and networking areas.</p>
+      </div>
+
+      <div class="exhibitor-card">
+        <div class="exhibitor-slot">
+          <span>Exhibitor Slot Available</span>
+        </div>
+        <span class="exhibitor-card__label">Premium Stand</span>
+        <p class="exhibitor-card__desc">6&times;3m premium position at main entrance, with additional branding opportunities and demo space.</p>
+      </div>
+
+      <div class="exhibitor-card">
+        <div class="exhibitor-slot">
+          <span>Satellite Symposium</span>
+        </div>
+        <span class="exhibitor-card__label">Satellite Symposium</span>
+        <p class="exhibitor-card__desc">Host a dedicated 60-minute satellite symposium during the conference, with full AV support and catering.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BECOME A PARTNER CTA -->
+<section class="cta-section">
+  <div class="cta-section__bg" aria-hidden="true"></div>
+  <div class="cta-inner">
+    <div>
+      <h2>Interested in Partnering<br>with <em>EINSC 2026?</em></h2>
+      <p>
+        Download our full partnership prospectus or contact our team to discuss a bespoke
+        package tailored to your organisation&rsquo;s objectives and budget.
+      </p>
+    </div>
+    <div class="cta-buttons">
+      <a href="https://einsc.com/partners-opportunities/" class="btn-gold-lg">View Partnership Tiers</a>
+      <a href="https://einsc.com/contact-us/" class="btn-outline-cream">Contact the Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANISERS STRIP -->
+<div class="organisers-strip">
+  <div class="organisers-inner">
+    <div>
+      <p class="org-label">Organised by</p>
+    </div>
+    <div class="org-divider" aria-hidden="true"></div>
+    <div>
+      <p class="org-name">Emirates Society of Neurological Surgeons</p>
+      <p class="org-sub">ESNS</p>
+    </div>
+    <div class="org-divider" aria-hidden="true"></div>
+    <div>
+      <p class="org-name">GD+ &mdash; A Gulf Dunes Division</p>
+      <p class="org-sub">Conference Management</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <p class="footer-brand-name">Emirates International<br>Neurosurgical Conference<br>2026</p>
+      <p class="footer-brand-sub">The National Conference of the<br>Emirates Society of Neurological Surgeons</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="https://einsc.com/">Home</a>
+      <a href="https://einsc.com/program/">Program</a>
+      <a href="https://einsc.com/faculty/">Faculty</a>
+      <a href="https://einsc.com/abstracts/">Abstracts</a>
+      <a href="https://einsc.com/sponsors/">Sponsors</a>
+      <a href="https://einsc.com/contact-us/">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Gulf Dunes</h4>
+      <p>Al Barsha Boutique Building,<br>3rd Floor, Al Barsha 1,<br>P.O. Box 124174, Dubai, UAE</p>
+      <a href="mailto:info@einsc.com" style="margin-top:14px;">info@einsc.com</a>
+      <a href="tel:+971504537277">+971 50 453 7277</a>
+    </div>
+    <div class="footer-col">
+      <h4>Stay Updated</h4>
+      <p>Receive news about EINSC 2026 and related neurosurgical events from across the region.</p>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Your email address" aria-label="Email address"/>
+        <button type="button">Join</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 EINSC. All rights reserved.</p>
+    <a href="https://einsc.com/">Privacy Policy</a>
+    <p>Designed and built by Gulf Dunes</p>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+  burger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    drawer.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    drawer.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }));
+</script>
+</body>
+</html>

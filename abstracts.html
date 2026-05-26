@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abstract Submission â€" EINSC 2026</title>
+  <title>Abstract Submission - EINSC 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -25,7 +25,7 @@
     html { scroll-behavior:smooth; font-size:18px; }
     body { font-family:var(--sans); background:#fff; color:#1c1c2e; overflow-x:hidden; line-height:1.7; }
 
-    /* â"€â"€ NAV â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- NAV ----------------------------------------------- */
     .nav {
       position:fixed; top:0; left:0; right:0; z-index:100;
       display:flex; align-items:center; justify-content:space-between;
@@ -59,13 +59,6 @@
     .nav__links a.active { color:var(--gold); }
     .nav__links a.active::after { width:100%; }
 
-    .nav__cta {
-      font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
-      color:var(--dark); background:var(--gold); padding:10px 20px;
-      text-decoration:none; white-space:nowrap; flex-shrink:0; transition:background .22s;
-    }
-    .nav__cta:hover { background:var(--gold-l); }
-
     .nav__burger {
       display:none; flex-direction:column; gap:6px; cursor:pointer;
       background:none; border:none; padding:8px; z-index:200;
@@ -83,9 +76,8 @@
     .nav__drawer.open { display:flex; }
     .nav__drawer a { font-size:clamp(1.1rem,4.5vw,1.7rem); letter-spacing:.16em; text-transform:uppercase; color:rgba(240,236,228,.85); text-decoration:none; transition:color .2s; }
     .nav__drawer a:hover { color:var(--gold); }
-    .nav__drawer .drawer-cta { margin-top:10px; background:var(--gold); color:var(--dark) !important; padding:16px 36px; letter-spacing:.2em; font-size:.95rem !important; }
 
-    /* â"€â"€ PAGE HERO â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- PAGE HERO ----------------------------------------- */
     .page-hero {
       background:var(--dark); padding:140px var(--pad) 80px;
       position:relative; overflow:hidden;
@@ -110,7 +102,7 @@
       color:rgba(240,236,228,.6); max-width:620px; line-height:1.85;
     }
 
-    /* â"€â"€ SHARED LAYOUT â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- SHARED LAYOUT ------------------------------------- */
     .sec-pad { padding:clamp(64px,8vw,100px) var(--pad); }
     .sec-pad--sm { padding:clamp(40px,5vw,64px) var(--pad); }
     .container { max-width:var(--max); margin:0 auto; }
@@ -125,7 +117,7 @@
     .body-text p + p { margin-top:16px; }
     .section-rule { border:none; height:1px; background:#eeebe4; max-width:var(--max); margin:0 auto; }
 
-    /* â"€â"€ INTRO CALLOUT â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- INTRO CALLOUT ------------------------------------- */
     .intro-callout {
       background:var(--dark);
       border-left:3px solid var(--gold);
@@ -138,7 +130,7 @@
     }
     .intro-callout p strong { color:var(--gold); font-weight:500; }
 
-    /* â"€â"€ DATES TIMELINE â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- DATES TIMELINE ------------------------------------ */
     .dates-zone { background:var(--navy); }
     .dates-grid {
       display:grid; grid-template-columns:repeat(3,1fr);
@@ -170,7 +162,7 @@
     }
     .date-card--range .date-card__num { font-size:clamp(1.8rem,3vw,2.6rem); }
 
-    /* â"€â"€ SUBMIT CTA STRIP â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- SUBMIT CTA STRIP ---------------------------------- */
     .submit-strip {
       background:var(--dark);
       border-top:3px solid var(--gold);
@@ -186,7 +178,7 @@
     }
     .btn-gold:hover { background:var(--gold-l); }
 
-    /* â"€â"€ GUIDELINES SECTION â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- GUIDELINES SECTION -------------------------------- */
     .guidelines-layout {
       display:grid; grid-template-columns:260px 1fr; gap:clamp(32px,5vw,72px);
       align-items:start; max-width:var(--max); margin:0 auto;
@@ -204,7 +196,7 @@
     .guidelines-nav__list a:hover,
     .guidelines-nav__list a.active { color:var(--navy); border-left-color:var(--gold); background:#faf8f4; }
 
-    /* â"€â"€ ACCORDION â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- ACCORDION ----------------------------------------- */
     .accordion { border-top:1px solid #eeebe4; }
     .accordion__item { border-bottom:1px solid #eeebe4; }
     .accordion__trigger {
@@ -261,7 +253,7 @@
     .info-box a { color:var(--gold); text-decoration:none; }
     .info-box a:hover { text-decoration:underline; }
 
-    /* â"€â"€ SELECTION CRITERIA CARDS â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- SELECTION CRITERIA CARDS -------------------------- */
     .criteria-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
     .criteria-card {
       border:1px solid #e8e4da; padding:clamp(28px,3.5vw,40px) clamp(22px,2.5vw,32px);
@@ -276,7 +268,7 @@
     .criteria-title { font-family:var(--serif); font-size:clamp(1.1rem,1.7vw,1.35rem); font-weight:400; color:var(--navy); margin-bottom:10px; line-height:1.3; }
     .criteria-body { font-size:clamp(13px,1.3vw,14px); font-weight:300; color:#606070; line-height:1.8; }
 
-    /* â"€â"€ FINAL CTA â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- FINAL CTA ----------------------------------------- */
     .cta-section { background:var(--gold); padding:clamp(64px,8vw,96px) var(--pad); text-align:center; }
     .cta-section h2 { font-family:var(--serif); font-size:clamp(2rem,4vw,3.2rem); font-weight:300; color:var(--dark); margin-bottom:12px; }
     .cta-section p { font-size:clamp(16px,1.5vw,18px); color:rgba(2,5,16,.6); margin-bottom:36px; font-weight:300; }
@@ -294,7 +286,7 @@
     }
     .btn-outline-dark:hover { background:rgba(2,5,16,.08); border-color:var(--dark); }
 
-    /* â"€â"€ FOOTER â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- FOOTER -------------------------------------------- */
     .footer { background:#060a1a; padding:clamp(64px,8vw,88px) var(--pad) 40px; }
     .footer-grid {
       display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:clamp(28px,4vw,56px);
@@ -315,7 +307,7 @@
     .footer-bottom p, .footer-bottom a { font-size:13px; color:rgba(240,236,228,.25); text-decoration:none; transition:color .2s; }
     .footer-bottom a:hover { color:var(--gold); }
 
-    /* â"€â"€ ELEMENTOR EDITOR â€" strip injected overlays â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- ELEMENTOR EDITOR &mdash; strip injected overlays ------- */
     .elementor-editor-active *:not(.elementor-element):not(.elementor-element *) {
       outline: none !important;
       box-shadow: none !important;
@@ -364,8 +356,8 @@
     .elementor-editor-active .structure-box  { background: #f9f7f3       !important; }
     .elementor-editor-active .criteria-card  { background: #fff          !important; }
 
-    /* â"€â"€ ELEMENTOR OVERRIDES â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
-    /* â"€â"€ Kill Elementor pink/teal globally â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
+    /* -- ELEMENTOR OVERRIDES ------------------------------- */
+    /* -- Kill Elementor pink/teal globally ------------------
        Elementor sets a:hover and button:hover to its accent
        colour. Override every case explicitly.               */
     html body a,
@@ -376,7 +368,7 @@
     html body button:hover,
     html body button:focus             { color: inherit !important; background-color: transparent !important; }
 
-    /* â"€â"€ Body / paragraph text â€" lock to dark grey â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- Body / paragraph text &mdash; lock to dark grey --------- */
     html body .body-text,
     html body .body-text p,
     html body .body-text--light,
@@ -390,7 +382,7 @@
     html body .body-text--light,
     html body .intro-callout p         { color: rgba(240,236,228,.68) !important; }
 
-    /* â"€â"€ Accordion trigger â€" default + hover + open â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- Accordion trigger &mdash; default + hover + open ------- */
     html body .accordion__trigger,
     html body .accordion__trigger:hover,
     html body .accordion__trigger:focus {
@@ -453,13 +445,6 @@
       background:var(--gold-l) !important; border-color:var(--gold-l) !important;
       color:var(--dark) !important;
     }
-    html body .nav__cta,
-    html body .nav__cta:visited {
-      color:var(--dark) !important; background:var(--gold) !important;
-      border-radius:0 !important; text-decoration:none !important;
-      box-shadow:none !important;
-    }
-    html body .nav__cta:hover { background:var(--gold-l) !important; color:var(--dark) !important; }
     html body .btn-dark,
     html body .btn-dark:visited {
       color:var(--cream) !important; background:var(--dark) !important;
@@ -494,7 +479,7 @@
       border-radius:0 !important; text-decoration:none !important;
     }
 
-    /* â"€â"€ TYPOGRAPHY â€" fixed sizes â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- TYPOGRAPHY &mdash; fixed sizes ------------------------- */
     .body-text, .body-text--light,
     .intro-callout p, .date-card__sub,
     .criteria-body, .rule-list li,
@@ -503,14 +488,14 @@
     .date-card__label, .accordion__trigger-label,
     .criteria-title, .structure-box__title { font-size: 20px; }
 
-    /* â"€â"€ ANCHOR OFFSET â€" compensate for fixed nav â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- ANCHOR OFFSET &mdash; compensate for fixed nav --------- */
     .accordion__item[id] { scroll-margin-top: 130px; }
 
-    /* â"€â"€ PAGE LAYOUT WITH SIDEBAR â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- PAGE LAYOUT WITH SIDEBAR ------------------------- */
     .page-layout { display:flex; align-items:flex-start; position:relative; }
     .page-main   { flex:1; min-width:0; overflow:hidden; }
 
-    /* Full-height cream column via pseudo-element â€" always fills to bottom */
+    /* Full-height cream column via pseudo-element &mdash; always fills to bottom */
     .page-layout::after {
       content:''; position:absolute; top:0; right:0; bottom:0;
       width:272px; background:#f9f7f3; border-left:3px solid var(--gold);
@@ -561,9 +546,9 @@
     }
     .sb-cta:hover { background:var(--gold-l); }
 
-    /* â"€â"€ RESPONSIVE â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
+    /* -- RESPONSIVE ---------------------------------------- */
 
-    /* Wide desktop (1400px+) â€" already handled by max-width:var(--max) */
+    /* Wide desktop (1400px+) &mdash; already handled by max-width:var(--max) */
 
     /* Sidebar hidden below 1200px */
     @media(max-width:1200px){
@@ -571,7 +556,7 @@
       .page-layout::after  { display:none; }
     }
 
-    /* Wide tablet (1024px â€" 1200px) */
+    /* Wide tablet (1024px &mdash; 1200px) */
     @media(max-width:1024px){
       .guidelines-layout { grid-template-columns:1fr; }
       .guidelines-nav    { display:none; }
@@ -583,11 +568,10 @@
       .sec-pad           { padding:clamp(48px,6vw,72px) var(--pad); }
     }
 
-    /* Tablet (768px â€" 1024px) */
+    /* Tablet (768px &mdash; 1024px) */
     @media(max-width:768px){
       html { font-size:16px; }
       .nav__links  { display:none; }
-      .nav__cta    { display:none; }
       .nav__burger { display:flex; }
 
       .page-hero   { padding:120px 24px 56px; }
@@ -635,7 +619,7 @@
 </head>
 <body>
 
-<!-- â"€â"€ NAV â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ -->
+<!-- -- NAV ------------------------------------------------- -->
 <nav class="nav" aria-label="Main navigation">
   <a href="https://einsc.com/" class="nav__logo">
     <div class="nav__emblem"><span>EINSC</span></div>
@@ -648,7 +632,7 @@
     <li><a href="https://einsc.com/program/">Program</a></li>
     <li><a href="https://einsc.com/faculty/">Faculty</a></li>
     <li><a href="https://einsc.com/abstracts/" class="active">Abstracts</a></li>
-    <li><a href="https://einsc.com/partners-opportunities/">Sponsors</a></li>
+    <li><a href="https://einsc.com/sponsors/">Sponsors</a></li>
     <li><a href="https://einsc.com/venue/">Venue</a></li>
     <li><a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a></li>
     <li><a href="https://einsc.com/contact-us/">Contact</a></li>
@@ -663,7 +647,7 @@
   <a href="https://einsc.com/program/">Program</a>
   <a href="https://einsc.com/faculty/">Faculty</a>
   <a href="https://einsc.com/abstracts/">Abstracts</a>
-  <a href="https://einsc.com/partners-opportunities/">Sponsors</a>
+  <a href="https://einsc.com/sponsors/">Sponsors</a>
   <a href="https://einsc.com/venue/">Venue</a>
   <a href="https://einsc.com/contact-us/">Contact</a>
 </div>
@@ -671,25 +655,25 @@
 <div class="page-layout">
 <div class="page-main">
 
-<!-- â"€â"€ PAGE HERO â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ -->
+<!-- -- PAGE HERO ------------------------------------------- -->
 <section class="page-hero">
   <div class="page-hero__bg" aria-hidden="true"></div>
   <div class="page-hero__content">
-    <span class="page-hero__eyebrow">EINSC 2026 â€" 10th Edition</span>
+    <span class="page-hero__eyebrow">EINSC 2026 &mdash; 10th Edition</span>
     <h1 class="page-hero__title">Abstract <em>Submission</em></h1>
     <div class="page-hero__rule" aria-hidden="true"></div>
-    <p class="page-hero__sub">Online submissions open for the 10th Emirates International Neurosurgical Conference â€" 16â€"18 October 2026, Hotel Raffles Dubai.</p>
+    <p class="page-hero__sub">Online submissions open for the 10th Emirates International Neurosurgical Conference &mdash; 16&ndash;18 October 2026, Hotel Raffles Dubai.</p>
   </div>
 </section>
 
-<!-- â"€â"€ INTRO CALLOUT â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ -->
+<!-- -- INTRO CALLOUT --------------------------------------- -->
 <div style="background:var(--dark); padding:0 var(--pad) clamp(48px,6vw,72px);">
   <div class="intro-callout">
     <p>We are officially inviting <strong>researchers, clinicians, and students</strong> to contribute to the 10th ESNS scientific legacy. This is your opportunity to present your original research before an international faculty and a diverse regional audience. We particularly encourage <strong>Resident Research</strong> and <strong>Case Studies</strong> that align with our focus on surgical foundations. Selected abstracts will be featured in oral presentations and digital poster galleries, providing a premier platform for your work to be recognised.</p>
   </div>
 </div>
 
-<!-- â"€â"€ KEY DATES â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ -->
+<!-- -- KEY DATES ------------------------------------------- -->
 <div class="dates-zone">
   <div style="max-width:var(--max); margin:0 auto; padding:clamp(40px,5vw,64px) var(--pad) 0;">
     <span class="label" style="display:block; text-align:center; margin-bottom:32px;">Important Dates</span>
@@ -714,7 +698,7 @@
       </div>
       <div class="date-card date-card--range">
         <div>
-          <div class="date-card__num">22â€"30</div>
+          <div class="date-card__num">22&mdash;30</div>
           <div class="date-card__month">June 2026</div>
         </div>
         <div class="date-card__label">Abstract Review Period</div>
@@ -724,13 +708,13 @@
   </div>
 </div>
 
-<!-- â"€â"€ SUBMIT STRIP â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ -->
+<!-- -- SUBMIT STRIP ---------------------------------------- -->
 <div class="submit-strip">
   <p class="submit-strip__text"><strong>Submissions are online only.</strong> All abstracts must be submitted via the abstract portal.</p>
-  <a href="https://einsc.com/abstracts/" class="btn-gold">Submit Your Abstract â†'</a>
+  <a href="https://einsc.com/abstracts/" class="btn-gold">Submit Your Abstract &rarr;</a>
 </div>
 
-<!-- â"€â"€ GUIDELINES â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ -->
+<!-- -- GUIDELINES ------------------------------------------ -->
 <section class="sec-pad">
   <div class="container">
     <div class="guidelines-layout">
@@ -758,7 +742,7 @@
           <!-- 1. Call for Abstracts -->
           <div class="accordion__item open" id="call">
             <button class="accordion__trigger" aria-expanded="true">
-              <span class="accordion__trigger-label">Call for Abstracts â€" Online Submission Only</span>
+              <span class="accordion__trigger-label">Call for Abstracts &mdash; Online Submission Only</span>
               <span class="accordion__icon" aria-hidden="true">+</span>
             </button>
             <div class="accordion__body">
@@ -784,7 +768,7 @@
               </div>
               <ul class="rule-list">
                 <li>All submitted research must be <strong>original scientific data</strong> collected by the author(s)</li>
-                <li>Studies "in progress" will <strong>not</strong> be accepted â€" work must already be completed</li>
+                <li>Studies "in progress" will <strong>not</strong> be accepted &mdash; work must already be completed</li>
                 <li>Any established research design or methodology may be used</li>
               </ul>
             </div>
@@ -801,7 +785,7 @@
                 <p><strong>Language:</strong> All abstracts must be written in English. The Scientific Committee reserves the right to edit abstracts where the English structure makes comprehension difficult.</p>
               </div>
               <ul class="rule-list" style="margin-top:20px;">
-                <li>All abstracts must be submitted via the <strong>abstract portal on the website</strong> â€" no email submissions accepted</li>
+                <li>All abstracts must be submitted via the <strong>abstract portal on the website</strong> &mdash; no email submissions accepted</li>
                 <li>Maximum <strong>400 words</strong></li>
                 <li>Include the <strong>title</strong> of the abstract</li>
                 <li>Include <strong>names and full contact details</strong> of all author(s): organisation, city/country, email, phone, fax, and mailing address</li>
@@ -881,7 +865,7 @@
                 <li>Each abstract may have only <strong>one designated presenting author</strong></li>
                 <li>A <strong>certificate of appreciation</strong> will be presented to all speakers to acknowledge their contribution</li>
                 <li>Presenters must not use the session as a marketing opportunity for products or equipment</li>
-                <li>The conference does <strong>not</strong> provide travel grants â€" all registration and travel expenses must be covered by the abstract presenter</li>
+                <li>The conference does <strong>not</strong> provide travel grants &mdash; all registration and travel expenses must be covered by the abstract presenter</li>
               </ul>
             </div>
           </div>
@@ -894,7 +878,7 @@
 
 <hr class="section-rule"/>
 
-<!-- â"€â"€ SELECTION CRITERIA â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ -->
+<!-- -- SELECTION CRITERIA ---------------------------------- -->
 <section class="sec-pad">
   <div class="container">
     <div style="margin-bottom:48px;">
@@ -917,21 +901,21 @@
       <div class="criteria-card">
         <div class="criteria-num">03</div>
         <h3 class="criteria-title">Quality &amp; Clarity</h3>
-        <p class="criteria-body">Overall quality, clarity, and completeness of the abstract â€" including structure, language, and completeness of reported data.</p>
+        <p class="criteria-body">Overall quality, clarity, and completeness of the abstract &mdash; including structure, language, and completeness of reported data.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- â"€â"€ FINAL CTA â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ -->
+<!-- -- FINAL CTA ------------------------------------------- -->
 <section class="cta-section">
   <h2>Ready to Submit?</h2>
-  <p>Abstract portal open from 29 May 2026 â€" deadline 19 June 2026</p>
+  <p>Abstract portal open from 29 May 2026 &mdash; deadline 19 June 2026</p>
   <a href="https://einsc.com/abstracts/" class="btn-dark">Submit Your Abstract</a>
   <a href="mailto:info@einsc.com" class="btn-outline-dark">Contact the Secretariat</a>
 </section>
 
-<!-- â"€â"€ FOOTER â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ -->
+<!-- -- FOOTER ----------------------------------------------- -->
 <footer class="footer">
   <div class="footer-grid">
     <div>
@@ -944,7 +928,7 @@
       <a href="https://einsc.com/program/">Program</a>
       <a href="https://einsc.com/local-speakers/">Local Speakers</a>
       <a href="https://einsc.com/abstracts/">Abstracts</a>
-      <a href="https://einsc.com/partners-opportunities/">Sponsors</a>
+      <a href="https://einsc.com/sponsors/">Sponsors</a>
       <a href="https://einsc.com/contact-us/">Contact Us</a>
     </div>
     <div class="footer-col">
@@ -963,7 +947,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>Â© 2026 EINSC. All rights reserved.</p>
+    <p>&copy; 2026 EINSC. All rights reserved.</p>
     <a href="https://einsc.com/">Privacy Policy</a>
     <p>Designed and built by Gulf Dunes</p>
   </div>
@@ -971,7 +955,7 @@
 
 </div><!-- /page-main -->
 
-<!-- â"€â"€ KEY DATES SIDEBAR â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ -->
+<!-- -- KEY DATES SIDEBAR ----------------------------------- -->
 <aside class="dates-sidebar" aria-label="Key dates">
   <h2 class="sb-heading">Key Dates</h2>
 
@@ -998,7 +982,7 @@
       <span class="sb-dot" aria-hidden="true"></span>
       <div class="sb-text">
         <div class="sb-label">Review Period</div>
-        <div class="sb-date">22 â€" 30 June 2026</div>
+        <div class="sb-date">22 &mdash; 30 June 2026</div>
       </div>
     </div>
   </div>
@@ -1010,12 +994,12 @@
       <span class="sb-dot" aria-hidden="true"></span>
       <div class="sb-text">
         <div class="sb-label">EINSC 2026</div>
-        <div class="sb-date">16 â€" 18 October 2026<br>Hotel Raffles Dubai</div>
+        <div class="sb-date">16 &mdash; 18 October 2026<br>Hotel Raffles Dubai</div>
       </div>
     </div>
   </div>
 
-  <a href="https://einsc.com/abstracts/" class="sb-cta">Submit Abstract â†'</a>
+  <a href="https://einsc.com/abstracts/" class="sb-cta">Submit Abstract &rarr;</a>
 </aside>
 
 </div><!-- /page-layout -->
