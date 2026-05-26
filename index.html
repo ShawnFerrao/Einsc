@@ -302,8 +302,7 @@
     /* Dubai */
     .dubai-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,80px); align-items:center; max-width:var(--max); margin:0 auto; }
     .dubai-img {
-      min-height:clamp(360px,45vw,520px);
-      background:url('https://einsc.com/wp-content/uploads/2026/05/Burj-Khalifa-Dubai.png') top center / cover no-repeat;
+      display:block; width:100%; height:auto;
       border:1px solid #e8e4da; box-shadow:0 4px 32px rgba(0,0,0,.09);
     }
 
@@ -850,7 +849,7 @@
   <!-- Dubai -->
   <section class="sec-pad">
     <div class="dubai-grid">
-      <div class="dubai-img" role="img" aria-label="Dubai skyline - Burj Khalifa aerial view"></div>
+      <img class="dubai-img" src="https://einsc.com/wp-content/uploads/2026/05/Burj-Khalifa-Dubai.png" alt="Dubai skyline - Burj Khalifa aerial view">
       <div>
         <span class="label">Welcome to Dubai</span>
         <h2 class="sec-title">The City That Never <em>Stops Evolving</em></h2>
