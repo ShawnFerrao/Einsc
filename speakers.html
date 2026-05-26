@@ -186,6 +186,10 @@
       font-family:var(--serif); font-size:2rem; font-weight:400;
       color:var(--gold); letter-spacing:.04em; line-height:1;
     }
+    .member-avatar img {
+      width:100%; height:100%; border-radius:50%;
+      object-fit:cover; object-position:center top; display:block;
+    }
     .member-name {
       font-family:var(--serif); font-size:clamp(1.15rem,1.7vw,1.45rem); font-weight:400;
       color:var(--navy); line-height:1.25; margin-bottom:14px;
@@ -235,6 +239,10 @@
     .sci-avatar .initials {
       font-family:var(--serif); font-size:1.55rem; font-weight:400;
       color:var(--gold); letter-spacing:.04em; line-height:1;
+    }
+    .sci-avatar img {
+      width:100%; height:100%; border-radius:50%;
+      object-fit:cover; object-position:center top; display:block;
     }
     .sci-name {
       font-family:var(--serif); font-size:clamp(1.05rem,1.5vw,1.3rem); font-weight:400;
@@ -527,8 +535,8 @@
       </article>
 
       <article class="member-card">
-        <div class="member-avatar" aria-hidden="true">
-          <span class="initials">AD</span>
+        <div class="member-avatar">
+          <img src="https://einsc.com/wp-content/uploads/2023/10/Aneela-Darbar.jpg" alt="Dr. Aneela Darbar"/>
         </div>
         <h3 class="member-name">Dr. Aneela Darbar</h3>
         <span class="member-badge">Organizing Committee</span>
@@ -536,8 +544,8 @@
       </article>
 
       <article class="member-card">
-        <div class="member-avatar" aria-hidden="true">
-          <span class="initials">MO</span>
+        <div class="member-avatar">
+          <img src="https://einsc.com/wp-content/uploads/2023/08/mohammed-alolama.jpg" alt="Dr. Mohammad Olama"/>
         </div>
         <h3 class="member-name">Dr. Mohammad Olama</h3>
         <span class="member-badge">Organizing Committee</span>
@@ -564,7 +572,9 @@
       </article>
 
       <article class="sci-card">
-        <div class="sci-avatar" aria-hidden="true"><span class="initials">AD</span></div>
+        <div class="sci-avatar">
+          <img src="https://einsc.com/wp-content/uploads/2023/10/Aneela-Darbar.jpg" alt="Dr. Aneela Darbar"/>
+        </div>
         <h3 class="sci-name">Dr. Aneela Darbar</h3>
         <span class="sci-badge">Scientific Program Committee</span>
       </article>
