@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Conference Venue — EINSC 2026</title>
+  <title>Conference Venue - EINSC 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -25,7 +25,7 @@
     html { scroll-behavior:smooth; }
     body { font-family:var(--sans); background:#fff; color:#1c1c2e; overflow-x:hidden; line-height:1.7; }
 
-    /* ── NAV ──────────────────────────────────────────────── */
+    /* -- NAV ------------------------------------------------ */
     .nav {
       position:fixed; top:0; left:0; right:0; z-index:100;
       display:flex; align-items:center; justify-content:space-between;
@@ -78,7 +78,7 @@
     .nav__drawer a:hover { color:var(--gold); }
     .nav__drawer .drawer-cta { margin-top:10px; background:var(--gold); color:var(--dark) !important; padding:16px 36px; letter-spacing:.2em; font-size:.95rem !important; }
 
-    /* ── PAGE HERO ─────────────────────────────────────────── */
+    /* -- PAGE HERO ------------------------------------------- */
     .page-hero {
       background:var(--dark); padding:140px var(--pad) 0;
       position:relative; overflow:hidden; min-height:80vh;
@@ -136,7 +136,7 @@
       font-size:clamp(14px,1.5vw,16px); font-weight:400; color:rgba(240,236,228,.8);
     }
 
-    /* ── VENUE INTRO ────────────────────────────────────────── */
+    /* -- VENUE INTRO ------------------------------------------ */
     .intro-section { background:#fff; padding:clamp(64px,8vw,96px) var(--pad) clamp(48px,5vw,72px); }
     .intro-inner { max-width:var(--max); margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:clamp(48px,6vw,96px); align-items:center; }
 
@@ -169,7 +169,7 @@
       color:#888;
     }
 
-    /* ── HIGHLIGHTS ─────────────────────────────────────────── */
+    /* -- HIGHLIGHTS ------------------------------------------- */
     .highlights-section { background:var(--cream); padding:clamp(64px,8vw,96px) var(--pad); }
     .section-eyebrow {
       font-size:11px; font-weight:600; letter-spacing:.26em; text-transform:uppercase;
@@ -201,7 +201,7 @@
     }
     .hl-card__text { font-size:16px; font-weight:300; color:#6a6a7a; line-height:1.75; }
 
-    /* ── LOCATION & MAP ─────────────────────────────────────── */
+    /* -- LOCATION & MAP --------------------------------------- */
     .location-section { background:var(--dark); padding:clamp(64px,8vw,96px) var(--pad); }
     .location-inner {
       max-width:var(--max); margin:0 auto;
@@ -251,7 +251,7 @@
       letter-spacing:.06em;
     }
 
-    /* ── ACCOMMODATION CTA ──────────────────────────────────── */
+    /* -- ACCOMMODATION CTA ------------------------------------ */
     .stay-section { background:var(--navy); padding:clamp(64px,8vw,96px) var(--pad); }
     .stay-inner {
       max-width:var(--max); margin:0 auto;
@@ -303,7 +303,7 @@
     .sd-value a { color:var(--gold); text-decoration:none; }
     .sd-value a:hover { color:var(--gold-l); }
 
-    /* ── DINING STRIP ───────────────────────────────────────── */
+    /* -- DINING STRIP ----------------------------------------- */
     .dining-section { background:#fff; padding:clamp(64px,8vw,96px) var(--pad); }
     .dining-grid {
       display:grid; grid-template-columns:repeat(3,1fr);
@@ -325,7 +325,7 @@
     }
     .dining-card__desc { font-size:16px; font-weight:300; color:#6a6a7a; line-height:1.7; }
 
-    /* ── FOOTER ─────────────────────────────────────────────── */
+    /* -- FOOTER ----------------------------------------------- */
     .footer { background:#060a1a; padding:clamp(64px,8vw,88px) var(--pad) 40px; }
     .footer-grid {
       display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:clamp(28px,4vw,56px);
@@ -346,7 +346,7 @@
     .footer-bottom p, .footer-bottom a { font-size:13px; color:rgba(240,236,228,.25); text-decoration:none; transition:color .2s; }
     .footer-bottom a:hover { color:var(--gold); }
 
-    /* ── ELEMENTOR OVERRIDES ─────────────────────────────────── */
+    /* -- ELEMENTOR OVERRIDES ----------------------------------- */
     html body a,
     html body a:visited              { color:inherit !important; text-decoration:none !important; }
     html body a:hover, html body a:focus { color:inherit !important; }
@@ -397,7 +397,7 @@
     .elementor-editor-active .raffles-text-col   { background:var(--navy)  !important; }
     .elementor-editor-active .footer        { background:#060a1a     !important; }
 
-    /* ── RAFFLES HOTEL ──────────────────────────────────────────── */
+    /* -- RAFFLES HOTEL -------------------------------------------- */
     .raffles-section { background:var(--navy); overflow:hidden; }
     .raffles-inner {
       max-width:100%; display:grid; grid-template-columns:1fr 1fr;
@@ -443,7 +443,7 @@
     }
     .raffles-cta:hover { background:var(--gold-l); }
 
-    /* ── RESPONSIVE ──────────────────────────────────────────── */
+    /* -- RESPONSIVE -------------------------------------------- */
     @media(max-width:1100px) {
       .dining-grid { grid-template-columns:1fr 1fr; }
       .raffles-features { grid-template-columns:repeat(2,1fr); }
@@ -474,13 +474,13 @@
 </head>
 <body>
 
-<!-- ── NAV ────────────────────────────────────────────────────── -->
+<!-- -- NAV ------------------------------------------------------ -->
 <nav class="nav">
   <a href="https://einsc.com/" class="nav__logo">
     <div class="nav__emblem"><span>EINSC</span></div>
     <div class="nav__logo-text">
       <div class="t1">EINSC 2026</div>
-      <div class="t2">17–18 October · Dubai</div>
+      <div class="t2">17-18 October · Dubai</div>
     </div>
   </a>
   <ul class="nav__links">
@@ -497,7 +497,7 @@
   </button>
 </nav>
 
-<!-- ── MOBILE DRAWER ──────────────────────────────────────────── -->
+<!-- -- MOBILE DRAWER -------------------------------------------- -->
 <div class="nav__drawer" id="drawer">
   <a href="https://einsc.com/program/">Program</a>
   <a href="https://einsc.com/faculty/">Faculty</a>
@@ -508,7 +508,7 @@
   <a href="https://einsc.com/contact-us/">Contact</a>
 </div>
 
-<!-- ── PAGE HERO ──────────────────────────────────────────────── -->
+<!-- -- PAGE HERO ------------------------------------------------ -->
 <section class="page-hero">
   <div class="page-hero__bg"></div>
 
@@ -528,7 +528,7 @@
     <h1 class="page-hero__title">Where the 10th EINSC<br>Comes to Life</h1>
     <p class="page-hero__subtitle">Raffles Dubai &mdash; Sheikh Rashid Road, Wafi</p>
     <p class="page-hero__desc">
-      Two days of scientific sessions, hands-on workshops, and international networking —
+      Two days of scientific sessions, hands-on workshops, and international networking -
       hosted at one of Dubai's most iconic five-star addresses. Raffles Dubai provides the
       setting; EINSC 2026 brings the substance.
     </p>
@@ -554,7 +554,7 @@
   </div>
 </section>
 
-<!-- ── VENUE INTRO ─────────────────────────────────────────────── -->
+<!-- -- VENUE INTRO ----------------------------------------------- -->
 <section class="intro-section">
   <div class="intro-inner">
     <div class="intro-text">
@@ -563,7 +563,7 @@
       <p>
         The 10th EINSC brings together neurosurgeons, residents, and healthcare professionals
         from across the region and beyond for two intensive days of scientific exchange. From
-        opening keynotes to concurrent specialty sessions and hands-on surgical workshops —
+        opening keynotes to concurrent specialty sessions and hands-on surgical workshops -
         the full programme unfolds within Raffles Dubai's world-class conference facilities.
       </p>
       <p>
@@ -594,16 +594,16 @@
   </div>
 </section>
 
-<!-- ── RAFFLES HOTEL ────────────────────────────────────────────── -->
+<!-- -- RAFFLES HOTEL ---------------------------------------------- -->
 <section class="raffles-section">
   <div class="raffles-inner">
-    <div class="raffles-img-col" role="img" aria-label="Raffles Dubai — EINSC 2026 Conference Venue"></div>
+    <div class="raffles-img-col" role="img" aria-label="Raffles Dubai - EINSC 2026 Conference Venue"></div>
     <div class="raffles-text-col">
       <span class="eyebrow">The Conference Venue</span>
       <h2>Raffles Dubai</h2>
       <div class="raffles-rule"></div>
       <p>Rising above the iconic Wafi pyramid complex on Sheikh Rashid Road, Raffles Dubai is one of the most recognisable landmarks on the city skyline. As the host venue for EINSC 2026, it delivers world-class conference infrastructure alongside the legendary hospitality that has defined the Raffles name for over a century.</p>
-      <p>From its grand ballroom and purpose-built meeting rooms to its rooftop terrace and six award-winning restaurants, every detail has been considered — so delegates can focus entirely on the science, the sessions, and the connections that matter.</p>
+      <p>From its grand ballroom and purpose-built meeting rooms to its rooftop terrace and six award-winning restaurants, every detail has been considered - so delegates can focus entirely on the science, the sessions, and the connections that matter.</p>
       <div class="raffles-features">
         <div class="rf-item">
           <div class="rf-num">248</div>
@@ -627,7 +627,7 @@
   </div>
 </section>
 
-<!-- ── HIGHLIGHTS ──────────────────────────────────────────────── -->
+<!-- -- HIGHLIGHTS ------------------------------------------------ -->
 <section class="highlights-section">
   <div style="max-width:var(--max); margin:0 auto;">
     <span class="section-eyebrow">Your EINSC 2026 Experience</span>
@@ -641,7 +641,7 @@
         </div>
         <div class="hl-card__body">
           <div class="hl-card__title">Plenary Hall &amp; Keynote Lectures</div>
-          <p class="hl-card__text">The main auditorium hosts the opening ceremony, international keynote addresses, and plenary debates — bringing the full delegate body together for landmark sessions at the frontier of neurosurgery.</p>
+          <p class="hl-card__text">The main auditorium hosts the opening ceremony, international keynote addresses, and plenary debates - bringing the full delegate body together for landmark sessions at the frontier of neurosurgery.</p>
         </div>
       </div>
 
@@ -652,7 +652,7 @@
         </div>
         <div class="hl-card__body">
           <div class="hl-card__title">Surgical Skills Workshops</div>
-          <p class="hl-card__text">Dedicated hands-on workshop rooms run Basic Spinal and Cranial simulation sessions alongside the main programme — giving residents and early-career neurosurgeons direct access to practical training within the same venue.</p>
+          <p class="hl-card__text">Dedicated hands-on workshop rooms run Basic Spinal and Cranial simulation sessions alongside the main programme - giving residents and early-career neurosurgeons direct access to practical training within the same venue.</p>
         </div>
       </div>
 
@@ -663,7 +663,7 @@
         </div>
         <div class="hl-card__body">
           <div class="hl-card__title">Three Concurrent Session Rooms</div>
-          <p class="hl-card__text">Day two runs three simultaneous speciality tracks — Neuro-oncology, Spine &amp; Trauma, and Functional Neurosurgery — allowing delegates to follow the stream most relevant to their practice without leaving the venue.</p>
+          <p class="hl-card__text">Day two runs three simultaneous speciality tracks - Neuro-oncology, Spine &amp; Trauma, and Functional Neurosurgery - allowing delegates to follow the stream most relevant to their practice without leaving the venue.</p>
         </div>
       </div>
 
@@ -685,7 +685,7 @@
         </div>
         <div class="hl-card__body">
           <div class="hl-card__title">Networking &amp; Social Events</div>
-          <p class="hl-card__text">Structured networking sessions and evening social events — including a conference dinner — are hosted within Raffles Dubai's award-winning dining and event spaces, giving delegates the chance to build lasting professional relationships.</p>
+          <p class="hl-card__text">Structured networking sessions and evening social events - including a conference dinner - are hosted within Raffles Dubai's award-winning dining and event spaces, giving delegates the chance to build lasting professional relationships.</p>
         </div>
       </div>
 
@@ -696,7 +696,7 @@
         </div>
         <div class="hl-card__body">
           <div class="hl-card__title">Stay On-Site, Miss Nothing</div>
-          <p class="hl-card__text">Delegates staying at Raffles Dubai are steps from every session, workshop, and event. The hotel's 248 rooms and suites offer panoramic city views, private balconies, and the legendary Raffles service — so you arrive rested and focused.</p>
+          <p class="hl-card__text">Delegates staying at Raffles Dubai are steps from every session, workshop, and event. The hotel's 248 rooms and suites offer panoramic city views, private balconies, and the legendary Raffles service - so you arrive rested and focused.</p>
         </div>
       </div>
 
@@ -704,7 +704,7 @@
   </div>
 </section>
 
-<!-- ── LOCATION & MAP ──────────────────────────────────────────── -->
+<!-- -- LOCATION & MAP -------------------------------------------- -->
 <section class="location-section">
   <div class="location-inner">
 
@@ -786,7 +786,7 @@
   </div>
 </section>
 
-<!-- ── ACCOMMODATION CTA ───────────────────────────────────────── -->
+<!-- -- ACCOMMODATION CTA ----------------------------------------- -->
 <section class="stay-section">
   <div class="stay-inner">
     <div class="stay-text">
@@ -827,7 +827,7 @@
         </div>
         <div>
           <div class="sd-label">Networking Advantage</div>
-          <div class="sd-value">Informal connections happen in lobbies and over breakfast — not just in session rooms</div>
+          <div class="sd-value">Informal connections happen in lobbies and over breakfast - not just in session rooms</div>
         </div>
       </div>
 
@@ -855,14 +855,14 @@
   </div>
 </section>
 
-<!-- ── DINING & SOCIAL ──────────────────────────────────────────── -->
+<!-- -- DINING & SOCIAL -------------------------------------------- -->
 <section class="dining-section">
   <div style="max-width:var(--max); margin:0 auto;">
     <span class="section-eyebrow">Conference Dining &amp; Social</span>
     <h2 class="section-title" style="color:var(--navy);">Every Meal, a Networking<br>Opportunity</h2>
     <p style="font-size:18px; font-weight:300; color:#5a5a6a; max-width:680px; line-height:1.9; margin-bottom:clamp(36px,5vw,52px);">
       Conference lunches, coffee breaks and evening receptions take place across Raffles
-      Dubai's dining venues — turning every interval into a chance to connect with colleagues.
+      Dubai's dining venues - turning every interval into a chance to connect with colleagues.
       The conference gala dinner brings the full delegate body together in one of Dubai's
       most celebrated dining settings.
     </p>
@@ -877,38 +877,38 @@
       <div class="dining-card">
         <div class="dining-card__name">Solo</div>
         <div class="dining-card__cuisine">Italian &middot; Regional</div>
-        <p class="dining-card__desc">An intimate Italian setting ideal for smaller faculty dinners and speaker gatherings — authentic regional cuisine in an atmosphere conducive to relaxed professional conversation.</p>
+        <p class="dining-card__desc">An intimate Italian setting ideal for smaller faculty dinners and speaker gatherings - authentic regional cuisine in an atmosphere conducive to relaxed professional conversation.</p>
       </div>
 
       <div class="dining-card">
         <div class="dining-card__name">Raffles Salon</div>
         <div class="dining-card__cuisine">Afternoon Tea &middot; Lounge</div>
-        <p class="dining-card__desc">The legendary Raffles afternoon tea — an elegant lobby lounge and one of the best spots for informal delegate catch-ups between the morning and afternoon scientific sessions.</p>
+        <p class="dining-card__desc">The legendary Raffles afternoon tea - an elegant lobby lounge and one of the best spots for informal delegate catch-ups between the morning and afternoon scientific sessions.</p>
       </div>
 
       <div class="dining-card">
         <div class="dining-card__name">Azur</div>
         <div class="dining-card__cuisine">European &middot; Arabic &middot; Asian</div>
-        <p class="dining-card__desc">An all-day dining destination with generous international buffets — the go-to venue for conference lunches, bringing together delegates from all three concurrent session rooms.</p>
+        <p class="dining-card__desc">An all-day dining destination with generous international buffets - the go-to venue for conference lunches, bringing together delegates from all three concurrent session rooms.</p>
       </div>
 
       <div class="dining-card">
         <div class="dining-card__name">Pool Restaurant &amp; Bar</div>
         <div class="dining-card__cuisine">Light Bites &middot; Poolside</div>
-        <p class="dining-card__desc">Relaxed poolside dining with small plates and curated beverages — a natural gathering point for delegates looking to decompress and connect after a full day of scientific sessions.</p>
+        <p class="dining-card__desc">Relaxed poolside dining with small plates and curated beverages - a natural gathering point for delegates looking to decompress and connect after a full day of scientific sessions.</p>
       </div>
 
       <div class="dining-card">
         <div class="dining-card__name">Raffles Garden</div>
         <div class="dining-card__cuisine">Arabic &middot; Outdoor &middot; Shisha</div>
-        <p class="dining-card__desc">A private outdoor Arabic dining experience beneath the Dubai sky — an ideal setting for an evening social event, blending Gulf hospitality with the spirit of the conference.</p>
+        <p class="dining-card__desc">A private outdoor Arabic dining experience beneath the Dubai sky - an ideal setting for an evening social event, blending Gulf hospitality with the spirit of the conference.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ──────────────────────────────────────────────────── -->
+<!-- -- FOOTER ---------------------------------------------------- -->
 <footer class="footer">
   <div class="footer-grid">
     <div>
