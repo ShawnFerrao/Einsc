@@ -107,7 +107,7 @@
 
     .hero__content {
       position:relative; z-index:2;
-      padding:180px var(--pad) 160px; max-width:min(760px, 90vw);
+      padding:180px var(--pad) clamp(180px,26vh,240px); max-width:min(760px, 90vw);
       opacity:0; animation:fadeUp 1.4s .15s ease forwards;
     }
     .hero__eyebrow {
@@ -130,7 +130,22 @@
     .hero__date-row + .hero__date-row { margin-top:10px; }
     .hero__date-row strong { font-weight:500; color:rgba(240,236,228,.95); }
 
-    .hero__actions { display:flex; gap:16px; flex-wrap:wrap; opacity:0; animation:fadeUp 1.2s 1.05s ease forwards; }
+    .hero__actions { display:flex; gap:16px; flex-wrap:wrap; opacity:0; animation:fadeUp 1.2s 1.05s ease forwards; margin-bottom:20px; }
+
+    .reg-soon {
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--gold); border:1px solid rgba(201,169,110,.32); padding:11px 22px;
+      opacity:0; animation:fadeUp 1.2s 1.1s ease forwards;
+    }
+    .reg-soon__dot {
+      width:7px; height:7px; border-radius:50%; background:var(--gold); flex-shrink:0;
+      animation:regPulse 2s ease-in-out infinite;
+    }
+    @keyframes regPulse {
+      0%,100%{ opacity:1; transform:scale(1); }
+      50%    { opacity:.35; transform:scale(.7); }
+    }
 
     .btn-gold {
       font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
@@ -699,8 +714,11 @@
       <p class="hero__date-row"><strong>Main Conference:</strong> 16&ndash;18 October 2026<br>Hotel Raffles Dubai</p>
     </div>
     <div class="hero__actions">
-      <a href="https://einsc.com/register/" class="btn-gold">Register Now</a>
       <a href="https://einsc.com/program/" class="btn-ghost">View Program</a>
+    </div>
+    <div class="reg-soon">
+      <span class="reg-soon__dot"></span>
+      Registrations Opening Soon
     </div>
   </div>
 
