@@ -107,7 +107,7 @@
 
     .hero__content {
       position:relative; z-index:2;
-      padding:180px var(--pad) 160px; max-width:min(760px, 90vw);
+      padding:180px var(--pad) 60px; max-width:min(760px, 90vw);
       opacity:0; animation:fadeUp 1.4s .15s ease forwards;
     }
     .hero__eyebrow {
@@ -165,8 +165,8 @@
     .btn-ghost:hover { border-color:var(--gold); color:var(--gold); background:rgba(201,169,110,.06); }
 
     .countdown {
-      position:absolute; bottom:clamp(36px,6vh,64px); left:var(--pad); z-index:2;
       display:flex; align-items:flex-start; gap:clamp(12px,2vw,24px);
+      margin-top:40px;
       opacity:0; animation:fadeUp 1.2s 1.25s ease forwards;
     }
     .countdown__unit { text-align:center; }
@@ -721,16 +721,15 @@
       <span class="reg-soon__dot"></span>
       Registrations Opening Soon
     </div>
-  </div>
-
-  <div class="countdown" id="countdown" aria-live="polite">
-    <div class="countdown__unit"><span class="countdown__num" id="cd-days">00</span><span class="countdown__label">Days</span></div>
-    <span class="countdown__sep" aria-hidden="true">:</span>
-    <div class="countdown__unit"><span class="countdown__num" id="cd-hours">00</span><span class="countdown__label">Hours</span></div>
-    <span class="countdown__sep" aria-hidden="true">:</span>
-    <div class="countdown__unit"><span class="countdown__num" id="cd-mins">00</span><span class="countdown__label">Minutes</span></div>
-    <span class="countdown__sep" aria-hidden="true">:</span>
-    <div class="countdown__unit"><span class="countdown__num" id="cd-secs">00</span><span class="countdown__label">Seconds</span></div>
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="countdown__unit"><span class="countdown__num" id="cd-days">00</span><span class="countdown__label">Days</span></div>
+      <span class="countdown__sep" aria-hidden="true">:</span>
+      <div class="countdown__unit"><span class="countdown__num" id="cd-hours">00</span><span class="countdown__label">Hours</span></div>
+      <span class="countdown__sep" aria-hidden="true">:</span>
+      <div class="countdown__unit"><span class="countdown__num" id="cd-mins">00</span><span class="countdown__label">Minutes</span></div>
+      <span class="countdown__sep" aria-hidden="true">:</span>
+      <div class="countdown__unit"><span class="countdown__num" id="cd-secs">00</span><span class="countdown__label">Seconds</span></div>
+    </div>
   </div>
 
   <div class="scroll-hint" aria-hidden="true">
