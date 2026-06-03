@@ -169,8 +169,26 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; color: var
 @media print {
   #editor { display: none; }
   #preview-wrap { margin-left: 0; padding: 0; background: white; }
-  #invoice { box-shadow: none; border-radius: 0; width: 100%; }
+  #invoice {
+    box-shadow: none; border-radius: 0; width: 100%;
+    padding: 28px 36px;
+  }
   body { background: white; }
+  .inv-header { margin-bottom: 20px; }
+  .inv-parties { margin-bottom: 14px; }
+  .inv-divider { margin-bottom: 14px; }
+  .items-table { margin-bottom: 14px; }
+  .items-table th, .items-table td { padding: 8px 12px; }
+  .inv-bottom { gap: 14px; }
+  .inv-card { margin-bottom: 10px !important; }
+  .inv-card-label { padding: 10px 14px 0; margin-bottom: 6px; }
+  .bank-tbl { padding: 0 14px 10px; }
+  .bank-tbl td { padding: 2px 0; font-size: 11px; }
+  .notes-body { padding: 0 14px 10px; font-size: 11px; }
+  .totals-card td { padding: 6px 14px; font-size: 11.5px; }
+  .tc-due td { padding: 9px 14px; }
+  .inv-thankyou { margin-top: 14px; }
+  .section-sub, .inv-party-detail { font-size: 11px; }
 }
 </style>
 </head>
