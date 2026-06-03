@@ -24,37 +24,8 @@
 
     html { scroll-behavior:smooth; }
     body { font-family:var(--sans); background:#fff; color:#1c1c2e; overflow-x:hidden; line-height:1.7; }
-
-    /* -- NAV ------------------------------------------------ */
-    .nav {
-      position:fixed; top:0; left:0; right:0; z-index:100;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:20px var(--pad);
-      background:rgba(2,5,16,.96);
-      border-bottom:1px solid rgba(201,169,110,.15);
-      backdrop-filter:blur(10px);
-    }
-    .nav__logo { display:flex; align-items:center; gap:14px; text-decoration:none; flex-shrink:0; }
-    .nav__emblem { width:46px; height:46px; border-radius:50%; border:1.5px solid rgba(201,169,110,.55); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-    .nav__emblem span { font-family:var(--serif); font-size:12px; font-weight:600; color:var(--gold); letter-spacing:.05em; }
-    .nav__logo-text .t1 { font-size:13px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--cream); }
-    .nav__logo-text .t2 { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(240,236,228,.4); margin-top:2px; }
-    .nav__links { display:flex; gap:clamp(14px,2vw,32px); list-style:none; }
-    .nav__links a { font-size:clamp(11px,1.1vw,13px); font-weight:400; letter-spacing:.1em; text-transform:uppercase; color:rgba(240,236,228,.7); text-decoration:none; position:relative; padding-bottom:4px; transition:color .22s; white-space:nowrap; }
-    .nav__links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--gold); transition:width .28s ease; }
-    .nav__links a:hover  { color:var(--gold); }
-    .nav__links a:hover::after { width:100%; }
     .nav__links a.active { color:var(--gold); }
     .nav__links a.active::after { width:100%; }
-    .nav__burger { display:none; flex-direction:column; gap:6px; cursor:pointer; background:none; border:none; padding:8px; z-index:200; }
-    .nav__burger span { display:block; width:26px; height:2px; background:var(--cream); border-radius:2px; transition:all .3s; }
-    .nav__burger.open span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
-    .nav__burger.open span:nth-child(2){ opacity:0; }
-    .nav__burger.open span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
-    .nav__drawer { display:none; position:fixed; inset:0; z-index:150; background:rgba(2,5,16,.97); flex-direction:column; align-items:center; justify-content:center; gap:32px; }
-    .nav__drawer.open { display:flex; }
-    .nav__drawer a { font-size:clamp(1.1rem,4.5vw,1.7rem); letter-spacing:.16em; text-transform:uppercase; color:rgba(240,236,228,.85); text-decoration:none; transition:color .2s; }
-    .nav__drawer a:hover { color:var(--gold); }
 
     /* -- PAGE HERO ------------------------------------------- */
     .page-hero {
@@ -243,37 +214,9 @@
     .org-divider { width:1px; height:40px; background:rgba(255,255,255,.08); }
     .org-name { font-family:var(--serif); font-size:clamp(1rem,1.5vw,1.25rem); font-weight:400; color:rgba(240,236,228,.7); text-align:center; line-height:1.4; }
     .org-sub  { font-size:11px; color:rgba(240,236,228,.3); text-align:center; margin-top:2px; }
-
-    /* -- FOOTER ------------------------------------------- */
-    .footer { background:#060a1a; padding:clamp(64px,8vw,88px) var(--pad) 40px; border-top:1px solid rgba(255,255,255,.04); }
-    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:clamp(28px,4vw,56px); max-width:var(--max); margin:0 auto; padding-bottom:56px; border-bottom:1px solid rgba(255,255,255,.07); }
-    .footer-brand-name { font-family:var(--serif); font-size:clamp(1.4rem,2.5vw,1.8rem); font-weight:300; color:var(--cream); line-height:1.4; margin-bottom:14px; }
-    .footer-brand-sub  { font-size:clamp(13px,1.3vw,15px); color:rgba(240,236,228,.38); line-height:1.75; }
-    .footer-col h4     { font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; font-weight:600; }
-    .footer-col a, .footer-col p { display:block; font-size:clamp(13px,1.3vw,15px); color:rgba(240,236,228,.5); text-decoration:none; margin-bottom:10px; line-height:1.7; transition:color .2s; }
-    .footer-col a:hover { color:var(--gold); }
-    .footer-newsletter { display:flex; overflow:hidden; border:1.5px solid rgba(201,169,110,.3); margin-top:12px; }
-    .footer-newsletter input { flex:1; background:transparent; border:none; outline:none; padding:14px 16px; font-size:14px; color:var(--cream); font-family:var(--sans); min-width:0; }
-    .footer-newsletter input::placeholder { color:rgba(240,236,228,.28); }
-    .footer-newsletter button { background:var(--gold); border:none; padding:14px 18px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--dark); font-family:var(--sans); font-weight:600; cursor:pointer; transition:background .22s; white-space:nowrap; }
-    .footer-newsletter button:hover { background:var(--gold-l); }
-    .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:28px; flex-wrap:wrap; gap:12px; max-width:var(--max); margin:0 auto; }
-    .footer-bottom p, .footer-bottom a { font-size:13px; color:rgba(240,236,228,.25); text-decoration:none; transition:color .2s; }
-    .footer-bottom a:hover { color:var(--gold); }
-
-    /* -- ELEMENTOR OVERRIDES ----------------------------- */
     html body a, html body a:visited { color:inherit !important; text-decoration:none !important; }
     html body a:hover, html body a:focus { color:inherit !important; }
     html body button, html body button:hover { color:inherit !important; background-color:transparent !important; }
-    html body .nav__links a, html body .nav__links a:visited { color:rgba(240,236,228,.7) !important; }
-    html body .nav__links a:hover { color:#c9a96e !important; }
-    html body .nav__links a.active { color:#c9a96e !important; }
-    html body .nav__drawer a, html body .nav__drawer a:visited { color:rgba(240,236,228,.85) !important; }
-    html body .nav__drawer a:hover { color:#c9a96e !important; }
-    html body .footer-col a, html body .footer-col a:visited { color:rgba(240,236,228,.5) !important; }
-    html body .footer-col a:hover { color:#c9a96e !important; }
-    html body .footer-bottom a { color:rgba(240,236,228,.25) !important; }
-    html body .footer-bottom a:hover { color:#c9a96e !important; }
     html body .cd-value a, html body .cd-value a:visited { color:var(--cream) !important; }
     html body .cd-value a:hover { color:#c9a96e !important; }
     html body .contact-cta, html body .contact-cta:visited { color:var(--dark) !important; background:#c9a96e !important; text-decoration:none !important; }
@@ -295,34 +238,12 @@
     .elementor-editor-active .contact-section{ background:var(--navy) !important; }
     .elementor-editor-active .about-section  { background:var(--cream) !important; }
     .elementor-editor-active .opps-section   { background:var(--cream) !important; }
-    .elementor-editor-active .footer         { background:#060a1a !important; }
-
-    /* -- NAV DROPDOWN ------------------------------------ */
-    .nav__has-dropdown { position:relative; }
-    .nav__dropdown { position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%) translateY(-6px); background:rgba(2,5,16,.97); backdrop-filter:blur(10px); border:1px solid rgba(201,169,110,.22); border-top:2px solid var(--gold); min-width:234px; list-style:none; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .18s ease, transform .18s ease; z-index:300; padding:6px 0; }
-    .nav__dropdown::before { content:''; position:absolute; top:-16px; left:0; right:0; height:16px; }
-    .nav__has-dropdown:hover .nav__dropdown, .nav__has-dropdown:focus-within .nav__dropdown { opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
-    .nav__dropdown li a { display:block; padding:10px 18px; font-size:11px; font-weight:400; letter-spacing:.12em; text-transform:uppercase; color:rgba(240,236,228,.65); white-space:nowrap; text-decoration:none; transition:color .2s, background .2s; }
-    .nav__dropdown li a::after { display:none !important; }
-    .nav__dropdown li a:hover { color:var(--gold); background:rgba(201,169,110,.07); }
-    .nav__dropdown li + li { border-top:1px solid rgba(255,255,255,.05); }
-    .drawer-sub { font-size:clamp(.95rem,4vw,1.4rem) !important; color:rgba(240,236,228,.48) !important; letter-spacing:.14em !important; margin-top:-20px; }
-    html body .nav__dropdown li a, html body .nav__dropdown li a:visited { color:rgba(240,236,228,.65) !important; text-decoration:none !important; background:transparent !important; }
-    html body .nav__dropdown li a:hover { color:var(--gold) !important; background:rgba(201,169,110,.07) !important; }
-    html body .nav__drawer a.drawer-sub, html body .nav__drawer a.drawer-sub:visited { color:rgba(240,236,228,.48) !important; }
-    html body .nav__drawer a.drawer-sub:hover { color:var(--gold) !important; }
-    html body .nav__has-dropdown > a { padding-right:14px !important; }
-    html body .nav__has-dropdown > a::after { content:'\25BE' !important; position:absolute !important; bottom:auto !important; top:50% !important; left:auto !important; right:0 !important; transform:translateY(-50%) !important; width:auto !important; height:auto !important; background:transparent !important; font-size:13px !important; opacity:.65 !important; transition:opacity .2s, color .2s !important; letter-spacing:0 !important; }
-    html body .nav__has-dropdown:hover > a::after, html body .nav__has-dropdown:focus-within > a::after { opacity:1 !important; color:var(--gold) !important; }
-
     /* -- RESPONSIVE -------------------------------------- */
     @media(max-width:1100px) {
       .tier-cards { grid-template-columns:repeat(2,1fr); }
       .contact-inner { grid-template-columns:1fr; }
     }
     @media(max-width:900px) {
-      .nav__links { display:none; }
-      .nav__burger { display:flex; }
       .welcome-grid { grid-template-columns:1fr; }
       .about-grid   { grid-template-columns:1fr; }
       .opps-grid    { grid-template-columns:1fr 1fr; }
@@ -330,56 +251,14 @@
     @media(max-width:640px) {
       .tier-cards { grid-template-columns:1fr; }
       .opps-grid  { grid-template-columns:1fr; }
-      .footer-grid { grid-template-columns:1fr 1fr; gap:28px; }
       .org-divider { display:none; }
     }
     @media(max-width:480px) {
-      .footer-grid { grid-template-columns:1fr; }
       .stat-row { gap:20px; }
     }
   </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav class="nav">
-  <a href="https://einsc.com/" class="nav__logo">
-    <div class="nav__emblem"><span>EINSC</span></div>
-    <div class="nav__logo-text">
-      <div class="t1">EINSC 2026</div>
-      <div class="t2">Emirates Neurosurgical Conference</div>
-    </div>
-  </a>
-  <ul class="nav__links">
-    <li><a href="https://einsc.com/program/">Program</a></li>
-    <li><a href="https://einsc.com/faculty/">Faculty</a></li>
-    <li><a href="https://einsc.com/abstracts/">Abstracts</a></li>
-    <li class="nav__has-dropdown">
-      <a href="https://einsc.com/sponsors/" class="active">Sponsors</a>
-      <ul class="nav__dropdown">
-        <li><a href="https://einsc.com/sponsors/">Sponsors</a></li>
-        <li><a href="https://einsc.com/partners-opportunities/" class="active">Partnership Opportunities</a></li>
-      </ul>
-    </li>
-    <li><a href="https://einsc.com/venue/">Venue</a></li>
-    <li><a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a></li>
-    <li><a href="https://einsc.com/contact-us/">Contact</a></li>
-  </ul>
-  <button class="nav__burger" id="burger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="nav__drawer" id="drawer">
-  <a href="https://einsc.com/program/">Program</a>
-  <a href="https://einsc.com/faculty/">Faculty</a>
-  <a href="https://einsc.com/abstracts/">Abstracts</a>
-  <a href="https://einsc.com/sponsors/">Sponsors</a>
-  <a href="https://einsc.com/partners-opportunities/" class="drawer-sub active">Partnership Opportunities</a>
-  <a href="https://einsc.com/venue/">Venue</a>
-  <a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a>
-  <a href="https://einsc.com/contact-us/">Contact</a>
-</div>
 
 <!-- HERO -->
 <section class="page-hero">
@@ -782,57 +661,6 @@
     <div><div class="org-name">GD+</div><div class="org-sub">Official Professional Conference Organiser</div></div>
   </div>
 </div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-brand-name">Emirates International<br>Neurosurgical Conference<br>2026</div>
-      <p class="footer-brand-sub">The National Conference of the<br>Emirates Society of Neurological Surgeons</p>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="https://einsc.com/">Home</a>
-      <a href="https://einsc.com/program/">Program</a>
-      <a href="https://einsc.com/faculty/">Faculty</a>
-      <a href="https://einsc.com/abstracts/">Abstracts</a>
-      <a href="https://einsc.com/contact-us/">Contact Us</a>
-    </div>
-    <div class="footer-col">
-      <h4>Gulf Dunes</h4>
-      <p>Al Barsha Boutique Building,<br>3rd Floor, Al Barsha 1,<br>P.O. Box 124174, Dubai, UAE</p>
-      <a href="mailto:info@einsc.com" style="margin-top:10px;">info@einsc.com</a>
-    </div>
-    <div class="footer-col">
-      <h4>Stay Updated</h4>
-      <p>Receive news about EINSC 2026 and related neurosurgical events from across the region.</p>
-      <div class="footer-newsletter">
-        <input type="email" placeholder="Your email address" aria-label="Email address"/>
-        <button type="button">Join</button>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 EINSC. All rights reserved.</p>
-    <a href="https://einsc.com/privacy/">Privacy Policy</a>
-    <p>Designed and built by Gulf Dunes</p>
-  </div>
-</footer>
-
-<script>
-  const burger = document.getElementById('burger');
-  const drawer = document.getElementById('drawer');
-  burger.addEventListener('click', () => {
-    const open = burger.classList.toggle('open');
-    drawer.classList.toggle('open', open);
-    burger.setAttribute('aria-expanded', open);
-  });
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    burger.classList.remove('open');
-    drawer.classList.remove('open');
-    burger.setAttribute('aria-expanded', 'false');
-  }));
-</script>
 
 </body>
 </html>
