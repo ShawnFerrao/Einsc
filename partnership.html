@@ -112,16 +112,16 @@
     /* Tier detail cards */
     .tier-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,22px); }
     .tier-card {
-      background:#0f1e35; border:1px solid rgba(255,255,255,.1);
+      background:#0e1c32; border:1px solid rgba(255,255,255,.12);
       padding:clamp(24px,2.5vw,36px) clamp(18px,2vw,28px);
       display:flex; flex-direction:column; position:relative;
       transition:background .25s, border-color .25s;
     }
-    .tier-card:hover { background:#132040; border-color:rgba(255,255,255,.16); }
-    .tier-card--title    { background:#1a1a08; border-color:rgba(226,194,138,.45); }
-    .tier-card--platinum { background:#15180a; border-color:rgba(201,169,110,.4); }
-    .tier-card--title:hover    { background:#1f1f0c; }
-    .tier-card--platinum:hover { background:#191d0d; }
+    .tier-card:hover { background:#132240; border-color:rgba(255,255,255,.2); }
+    .tier-card--title    { background:#141c2e; border-color:rgba(226,194,138,.45); }
+    .tier-card--platinum { background:#121a28; border-color:rgba(201,169,110,.4); }
+    .tier-card--title:hover    { background:#1a2438; }
+    .tier-card--platinum:hover { background:#182036; }
 
     .tier-featured-badge { position:absolute; top:-1px; left:50%; transform:translateX(-50%); background:var(--gold); color:var(--dark); font-size:9px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; padding:5px 16px; white-space:nowrap; }
     .tier-bar { height:3px; margin:-clamp(24px,2.5vw,36px) -clamp(18px,2vw,28px) 24px; }
