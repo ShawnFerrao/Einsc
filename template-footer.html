@@ -1,0 +1,118 @@
+<style>
+  /* =====================================================
+     EINSC 2026 — GLOBAL FOOTER TEMPLATE
+     Paste this into the Elementor Footer template block.
+  ===================================================== */
+
+  .einsc-footer {
+    background: #060a1a;
+    padding: clamp(64px,8vw,88px) clamp(20px,5vw,80px) 40px;
+    border-top: 1px solid rgba(201,169,110,.12);
+    font-family: 'Barlow', sans-serif;
+  }
+
+  .einsc-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: clamp(28px,4vw,56px);
+    max-width: 1320px; margin: 0 auto;
+    padding-bottom: 56px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+
+  .einsc-footer-brand-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.4rem,2.5vw,1.8rem); font-weight: 300;
+    color: #f0ece4; line-height: 1.4; margin-bottom: 14px;
+  }
+  .einsc-footer-brand-sub {
+    font-size: clamp(13px,1.3vw,15px);
+    color: rgba(240,236,228,.38); line-height: 1.75;
+  }
+
+  .einsc-footer-col h4 {
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: #c9a96e; margin-bottom: 20px; font-weight: 600;
+  }
+  .einsc-footer-col a,
+  .einsc-footer-col p {
+    display: block; font-size: clamp(13px,1.3vw,15px);
+    color: rgba(240,236,228,.5) !important; text-decoration: none !important;
+    margin-bottom: 10px; line-height: 1.7; transition: color .2s;
+  }
+  .einsc-footer-col a:hover { color: #c9a96e !important; }
+
+  .einsc-footer-newsletter {
+    display: flex; overflow: hidden;
+    border: 1.5px solid rgba(201,169,110,.3); margin-top: 12px;
+  }
+  .einsc-footer-newsletter input {
+    flex: 1; background: transparent; border: none; outline: none;
+    padding: 14px 16px; font-size: 14px; color: #f0ece4;
+    font-family: 'Barlow', sans-serif; min-width: 0;
+  }
+  .einsc-footer-newsletter input::placeholder { color: rgba(240,236,228,.28); }
+  .einsc-footer-newsletter button {
+    background: #c9a96e; border: none; padding: 14px 18px;
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: #020510 !important; font-family: 'Barlow', sans-serif; font-weight: 600;
+    cursor: pointer; transition: background .22s; white-space: nowrap;
+  }
+  .einsc-footer-newsletter button:hover { background: #e2c28a; }
+
+  .einsc-footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 28px; flex-wrap: wrap; gap: 12px;
+    max-width: 1320px; margin: 0 auto;
+  }
+  .einsc-footer-bottom p,
+  .einsc-footer-bottom a {
+    font-size: 13px; color: rgba(240,236,228,.25) !important;
+    text-decoration: none !important; transition: color .2s;
+  }
+  .einsc-footer-bottom a:hover { color: #c9a96e !important; }
+
+  @media (max-width: 1024px) { .einsc-footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
+  @media (max-width: 640px)  { .einsc-footer-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 480px)  {
+    .einsc-footer-newsletter { flex-direction: column; }
+    .einsc-footer-newsletter button { width: 100%; padding: 14px; }
+  }
+</style>
+
+<!-- FOOTER -->
+<footer class="einsc-footer">
+  <div class="einsc-footer-grid">
+    <div>
+      <div class="einsc-footer-brand-name">Emirates International<br>Neurosurgical Conference<br>2026</div>
+      <p class="einsc-footer-brand-sub">The National Conference of the<br>Emirates Society of Neurological Surgeons</p>
+    </div>
+    <div class="einsc-footer-col">
+      <h4>Quick Links</h4>
+      <a href="https://einsc.com/">Home</a>
+      <a href="https://einsc.com/program/">Program</a>
+      <a href="https://einsc.com/faculty/">Faculty</a>
+      <a href="https://einsc.com/abstracts/">Abstracts</a>
+      <a href="https://einsc.com/sponsors/">Sponsors</a>
+      <a href="https://einsc.com/contact-us/">Contact Us</a>
+    </div>
+    <div class="einsc-footer-col">
+      <h4>Gulf Dunes</h4>
+      <p>Al Barsha Boutique Building,<br>3rd Floor, Al Barsha 1,<br>P.O. Box 124174, Dubai, UAE</p>
+      <a href="mailto:info@einsc.com" style="margin-top:10px; display:block;">info@einsc.com</a>
+    </div>
+    <div class="einsc-footer-col">
+      <h4>Stay Updated</h4>
+      <p>Receive news about EINSC 2026 and related neurosurgical events from across the region.</p>
+      <div class="einsc-footer-newsletter">
+        <input type="email" placeholder="Your email address" aria-label="Email address"/>
+        <button type="button">Join</button>
+      </div>
+    </div>
+  </div>
+  <div class="einsc-footer-bottom">
+    <p>&copy; 2026 EINSC. All rights reserved.</p>
+    <a href="https://einsc.com/privacy/">Privacy Policy</a>
+    <p>Designed and built by Gulf Dunes</p>
+  </div>
+</footer>

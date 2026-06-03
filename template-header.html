@@ -1,0 +1,204 @@
+<style>
+  /* =====================================================
+     EINSC 2026 — GLOBAL HEADER TEMPLATE
+     Paste this into the Elementor Header template block.
+     The .active class on nav links is set by Elementor /
+     WordPress per-page — remove hardcoded .active attrs
+     before deploying, or use Elementor's dynamic classes.
+  ===================================================== */
+
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px clamp(20px, 5vw, 80px);
+    background: rgba(2,5,16,.96);
+    border-bottom: 1px solid rgba(201,169,110,.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .nav__logo {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none !important; flex-shrink: 0;
+  }
+  .nav__emblem {
+    width: 46px; height: 46px; border-radius: 50%;
+    border: 1.5px solid rgba(201,169,110,.55);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav__emblem span {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 12px; font-weight: 600; color: #c9a96e; letter-spacing: .05em;
+  }
+  .nav__logo-text .t1 {
+    font-size: 13px; font-weight: 600; letter-spacing: .2em;
+    text-transform: uppercase; color: #f0ece4;
+  }
+  .nav__logo-text .t2 {
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    color: rgba(240,236,228,.4); margin-top: 2px;
+  }
+
+  .nav__links { display: flex; gap: clamp(14px,2vw,32px); list-style: none; }
+  .nav__links a {
+    font-size: clamp(11px,1.1vw,13px); font-weight: 400; letter-spacing: .1em;
+    text-transform: uppercase; color: rgba(240,236,228,.75) !important;
+    text-decoration: none !important;
+    position: relative; padding-bottom: 4px; transition: color .22s; white-space: nowrap;
+  }
+  .nav__links a::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 1.5px; background: #c9a96e; transition: width .28s ease;
+  }
+  .nav__links a:hover  { color: #c9a96e !important; }
+  .nav__links a:hover::after { width: 100%; }
+  .nav__links a.active { color: #c9a96e !important; }
+  .nav__links a.active::after { width: 100%; }
+
+  /* Dropdown */
+  .nav__has-dropdown { position: relative; }
+  .nav__has-dropdown > a { padding-right: 14px !important; }
+  .nav__has-dropdown > a::after {
+    content: '\25BE' !important; position: absolute !important;
+    bottom: auto !important; top: 50% !important; left: auto !important; right: 0 !important;
+    transform: translateY(-50%) !important; width: auto !important; height: auto !important;
+    background: transparent !important; font-size: 13px !important; opacity: .65 !important;
+    transition: opacity .2s, color .2s !important; letter-spacing: 0 !important;
+  }
+  .nav__has-dropdown:hover > a::after,
+  .nav__has-dropdown:focus-within > a::after { opacity: 1 !important; color: #c9a96e !important; }
+
+  .nav__dropdown {
+    position: absolute; top: calc(100% + 14px); left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: rgba(2,5,16,.97); backdrop-filter: blur(10px);
+    border: 1px solid rgba(201,169,110,.22); border-top: 2px solid #c9a96e;
+    min-width: 234px; list-style: none;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 300; padding: 6px 0;
+  }
+  .nav__dropdown::before {
+    content: ''; position: absolute; top: -16px; left: 0; right: 0; height: 16px;
+  }
+  .nav__has-dropdown:hover .nav__dropdown,
+  .nav__has-dropdown:focus-within .nav__dropdown {
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav__dropdown li a {
+    display: block; padding: 10px 18px;
+    font-size: 11px; font-weight: 400; letter-spacing: .12em; text-transform: uppercase;
+    color: rgba(240,236,228,.65) !important; white-space: nowrap;
+    text-decoration: none !important; transition: color .2s, background .2s;
+  }
+  .nav__dropdown li a::after { display: none !important; }
+  .nav__dropdown li a:hover  { color: #c9a96e !important; background: rgba(201,169,110,.07); }
+  .nav__dropdown li a.active { color: #c9a96e !important; }
+  .nav__dropdown li + li { border-top: 1px solid rgba(255,255,255,.05); }
+
+  /* Burger */
+  .nav__burger {
+    display: none; flex-direction: column; gap: 6px; cursor: pointer;
+    background: none; border: none; padding: 8px; z-index: 200;
+  }
+  .nav__burger span {
+    display: block; width: 26px; height: 2px;
+    background: #f0ece4; border-radius: 2px; transition: all .3s;
+  }
+  .nav__burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav__burger.open span:nth-child(2) { opacity: 0; }
+  .nav__burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  /* Mobile drawer */
+  .nav__drawer {
+    display: none; position: fixed; inset: 0; z-index: 150;
+    background: rgba(2,5,16,.97); flex-direction: column;
+    align-items: center; justify-content: center; gap: 32px;
+  }
+  .nav__drawer.open { display: flex; }
+  .nav__drawer a {
+    font-size: clamp(1.1rem,4.5vw,1.7rem); letter-spacing: .16em;
+    text-transform: uppercase; color: rgba(240,236,228,.85) !important;
+    text-decoration: none !important; transition: color .2s;
+  }
+  .nav__drawer a:hover { color: #c9a96e !important; }
+  .nav__drawer a.active { color: #c9a96e !important; }
+  .drawer-sub {
+    font-size: clamp(.95rem,4vw,1.4rem) !important;
+    color: rgba(240,236,228,.48) !important;
+    letter-spacing: .14em !important;
+    margin-top: -20px;
+  }
+  .drawer-sub:hover { color: #c9a96e !important; }
+
+  @media (max-width: 900px) {
+    .nav__links  { display: none; }
+    .nav__burger { display: flex; }
+  }
+</style>
+
+<!-- HEADER NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="https://einsc.com/" class="nav__logo" aria-label="EINSC 2026 Home">
+    <div class="nav__emblem"><span>EINSC</span></div>
+    <div class="nav__logo-text">
+      <div class="t1">EINSC 2026</div>
+      <div class="t2">Emirates Neurosurgical Conference</div>
+    </div>
+  </a>
+  <ul class="nav__links">
+    <li><a href="https://einsc.com/program/">Program</a></li>
+    <li><a href="https://einsc.com/faculty/">Faculty</a></li>
+    <li><a href="https://einsc.com/abstracts/">Abstracts</a></li>
+    <li class="nav__has-dropdown">
+      <a href="https://einsc.com/sponsors/">Sponsors</a>
+      <ul class="nav__dropdown">
+        <li><a href="https://einsc.com/sponsors/">Sponsors</a></li>
+        <li><a href="https://einsc.com/partners-opportunities/">Partnership Opportunities</a></li>
+      </ul>
+    </li>
+    <li><a href="https://einsc.com/venue/">Venue</a></li>
+    <li><a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a></li>
+    <li><a href="https://einsc.com/contact-us/">Contact</a></li>
+  </ul>
+  <button class="nav__burger" id="einsc-burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav__drawer" id="einsc-drawer" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+  <a href="https://einsc.com/program/">Program</a>
+  <a href="https://einsc.com/faculty/">Faculty</a>
+  <a href="https://einsc.com/abstracts/">Abstracts</a>
+  <a href="https://einsc.com/sponsors/">Sponsors</a>
+  <a href="https://einsc.com/partners-opportunities/" class="drawer-sub">Partnership Opportunities</a>
+  <a href="https://einsc.com/venue/">Venue</a>
+  <a href="https://einsc.com/visa-travel-info/">Visa &amp; Travel</a>
+  <a href="https://einsc.com/contact-us/">Contact</a>
+</div>
+
+<script>
+(function() {
+  var burger = document.getElementById('einsc-burger');
+  var drawer = document.getElementById('einsc-drawer');
+  if (!burger || !drawer) return;
+  burger.addEventListener('click', function() {
+    var open = burger.classList.toggle('open');
+    drawer.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    drawer.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      burger.classList.remove('open');
+      drawer.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+</script>
