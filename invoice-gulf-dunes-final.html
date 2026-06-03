@@ -94,7 +94,7 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; color: var
 .inv-meta td:last-child { font-weight: 600; }
 
 .inv-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 22px; }
-.inv-parties { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+.inv-parties { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
 .inv-party-label { font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 7px; }
 .inv-party-name { font-weight: 600; font-size: 13px; margin-bottom: 3px; }
 .inv-party-detail { font-size: 12px; color: var(--muted); line-height: 1.6; }
@@ -198,13 +198,6 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; color: var
     <div class="e-row"><label>Invoice number</label><input id="inv-num" value="INV-2026-002"></div>
     <div class="e-row"><label>Date</label><input id="inv-date" type="date"></div>
     <div class="e-row"><label>Due</label><input id="inv-due" value="Upon receipt"></div>
-    <div class="e-row"><label>Status</label>
-      <select id="inv-status">
-        <option value="unpaid">Unpaid</option>
-        <option value="partial">Partial payment</option>
-        <option value="paid">Paid</option>
-      </select>
-    </div>
   </div>
 
   <!-- Client -->
@@ -285,10 +278,6 @@ Dubai, UAE</textarea></div>
       <div class="inv-party-label">Bill to</div>
       <div class="inv-party-name" id="p-cl-name">Gulf Dunes</div>
       <div class="inv-party-detail" id="p-cl-detail">Al Barsha Boutique Building, 3rd Floor<br>Al Barsha 1, P.O. Box 124174<br>Dubai, UAE</div>
-    </div>
-    <div>
-      <div class="inv-party-label">Status</div>
-      <span class="status-badge status-unpaid" id="p-status">Unpaid</span>
     </div>
   </div>
 
@@ -379,8 +368,11 @@ Dubai, UAE</textarea></div>
 
 <script>
 let items = [
-  { title: 'EINSC Website Build — Final Payment (2/2)', desc: '30 hours allocation — full website build, domain and hosting migration, DNS setup and site testing. Second and final instalment.', hrs: '30', amt: '4000', included: false },
-  { title: 'Google Analytics and SEO Setup — Final Payment (2/2)', desc: '5 hours allocation — initial SEO configuration and Google Analytics integration. Ongoing optimisation, reporting or maintenance invoiced separately.', hrs: '5', amt: '250', included: false },
+  { title: 'Website Design & Page Building', desc: 'Elementor page design, layout, typography and visual styling across all site pages — final 50% payment', hrs: '12', amt: '1500', included: false },
+  { title: 'Content Integration & Page Structure', desc: 'Content population, navigation hierarchy, page structure and internal linking — final 50% payment', hrs: '8', amt: '1000', included: false },
+  { title: 'Forms, Functionality & Plugin Setup', desc: 'Contact forms, enquiry flows, Elementor Pro configuration and plugin integration — final 50% payment', hrs: '6', amt: '900', included: false },
+  { title: 'Testing, QA & Launch', desc: 'Cross-browser testing, mobile responsiveness, performance checks and go-live — final 50% payment', hrs: '4', amt: '600', included: false },
+  { title: 'Google Analytics & SEO Setup', desc: 'Initial SEO configuration and Google Analytics integration. Ongoing optimisation invoiced separately.', hrs: '5', amt: '250', included: false },
   { title: 'Brain Animation', desc: 'Custom animated brain graphic for the EINSC website — included complimentary', hrs: '', amt: '', included: true },
 ];
 
@@ -419,12 +411,7 @@ function renderPreview() {
   document.getElementById('p-date').textContent = d ? new Date(d+'T00:00:00').toLocaleDateString('en-AE',{day:'numeric',month:'short',year:'numeric'}) : '—';
   document.getElementById('p-due').textContent = document.getElementById('inv-due').value || '—';
 
-  const st = document.getElementById('inv-status').value;
-  const sb = document.getElementById('p-status');
-  sb.textContent = st === 'partial' ? 'Partial payment' : st === 'paid' ? 'Paid' : 'Unpaid';
-  sb.className = 'status-badge' + (st==='paid'?' status-paid':st==='unpaid'?' status-unpaid':'');
-
-  document.getElementById('p-cl-name').textContent = document.getElementById('cl-name').value || 'Client Name';
+document.getElementById('p-cl-name').textContent = document.getElementById('cl-name').value || 'Client Name';
   const em = document.getElementById('cl-email').value;
   const ad = document.getElementById('cl-addr').value.replace(/\n/g,'<br>');
   document.getElementById('p-cl-detail').innerHTML = [em,ad].filter(Boolean).join('<br>') || '—';
@@ -459,7 +446,6 @@ function renderPreview() {
 
 document.getElementById('inv-date').value = new Date().toISOString().split('T')[0];
 document.getElementById('editor').addEventListener('input', renderPreview);
-document.getElementById('inv-status').addEventListener('change', renderPreview);
 
 renderEditor();
 renderPreview();
