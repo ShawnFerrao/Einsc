@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice — Gulf Dunes (Final Payment)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@800;900&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #2563EB; --navy: #0F172A; --canvas: #FAFAF7;
+  --surface: #fff; --border: #E2E8F0; --muted: #64748B;
+  --green-bg: #F0FDF4; --green-text: #166534;
+  --radius-md: 8px; --radius-lg: 12px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; color: var(--navy); background: #F1F5F9; min-height: 100vh; }
+
+/* ── Editor panel ── */
+#editor {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  width: 340px; min-width: 340px;
+  height: 100vh; overflow-y: auto;
+  padding: 24px 20px;
+  position: fixed; top: 0; left: 0;
+}
+#preview-wrap {
+  margin-left: 340px;
+  padding: 32px 24px;
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center;
+}
+
+/* Editor UI */
+.e-section { margin-bottom: 24px; }
+.e-label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; display: block; }
+.e-row { margin-bottom: 8px; }
+.e-row label { font-size: 11px; color: var(--muted); display: block; margin-bottom: 3px; }
+.e-row input, .e-row select, .e-row textarea {
+  width: 100%; padding: 7px 10px; border: 1px solid var(--border);
+  border-radius: var(--radius-md); font-family: inherit; font-size: 12px;
+  color: var(--navy); background: var(--canvas); outline: none;
+  transition: border-color 0.16s;
+}
+.e-row input:focus, .e-row select:focus, .e-row textarea:focus { border-color: var(--blue); }
+.e-row textarea { resize: vertical; min-height: 48px; }
+
+.item-card {
+  background: var(--canvas); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 12px; margin-bottom: 10px;
+}
+.item-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.item-card-num { font-size: 11px; font-weight: 600; color: var(--muted); }
+.item-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.item-grid .full { grid-column: 1 / -1; }
+.item-grid input, .item-grid textarea, .item-grid select {
+  width: 100%; padding: 6px 8px; border: 1px solid var(--border);
+  border-radius: 6px; font-family: inherit; font-size: 11.5px;
+  color: var(--navy); background: var(--surface); outline: none;
+}
+.item-grid input:focus, .item-grid select:focus, .item-grid textarea:focus { border-color: var(--blue); }
+.item-grid textarea { resize: vertical; min-height: 44px; }
+.included-toggle { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); cursor: pointer; }
+.included-toggle input { width: auto; }
+
+.btn { display: block; width: 100%; padding: 9px; border-radius: var(--radius-md); font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; border: none; text-align: center; }
+.btn-ghost { background: var(--canvas); color: var(--blue); border: 1px solid var(--border); margin-bottom: 6px; }
+.btn-ghost:hover { border-color: var(--blue); }
+.btn-danger { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; margin-top: 8px; font-size: 11px; padding: 6px; }
+.btn-print { background: var(--blue); color: #fff; margin-top: 8px; padding: 11px; font-size: 13px; }
+.btn-print:hover { background: #1D4ED8; }
+
+.editor-brand { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.editor-mark { width: 30px; height: 30px; background: var(--navy); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+.editor-title { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: -0.02em; }
+.editor-sub { font-size: 10px; color: var(--muted); }
+
+/* ── Invoice preview ── */
+#invoice {
+  background: var(--canvas); width: 740px; padding: 44px 48px;
+  border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+.inv-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
+.inv-brand { display: flex; align-items: center; gap: 10px; }
+.inv-mark { width: 36px; height: 36px; background: var(--navy); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.inv-name { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -0.02em; }
+.inv-tagline { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.inv-right { text-align: right; }
+.inv-overline { font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 5px; }
+.inv-number { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
+.inv-meta { margin-top: 6px; border-collapse: collapse; margin-left: auto; }
+.inv-meta td { padding: 2px 0 2px 20px; font-size: 12px; }
+.inv-meta td:first-child { color: var(--muted); }
+.inv-meta td:last-child { font-weight: 600; }
+
+.inv-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 22px; }
+.inv-parties { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+.inv-party-label { font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 7px; }
+.inv-party-name { font-weight: 600; font-size: 13px; margin-bottom: 3px; }
+.inv-party-detail { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.status-badge { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 12px; border-radius: 8px; background: #FEF9C3; color: #854D0E; border: 1px solid #FDE047; }
+.status-paid { background: #F0FDF4; color: #166534; border-color: #86EFAC; }
+.status-unpaid { background: #FEF2F2; color: #991B1B; border-color: #FECACA; }
+
+.items-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 20px; }
+.items-table th { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 11px 14px; background: var(--canvas); border-bottom: 1px solid var(--border); text-align: left; }
+.items-table th:nth-child(3), .items-table th:nth-child(4) { text-align: right; }
+.items-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.items-table td:nth-child(3), .items-table td:nth-child(4) { text-align: right; }
+.items-table tr:last-child td { border-bottom: none; }
+.item-num { color: var(--muted); font-size: 11px; }
+.item-title { font-weight: 600; font-size: 13px; margin-bottom: 3px; }
+.item-desc { font-size: 11.5px; color: var(--muted); line-height: 1.55; }
+.item-included-row { background: var(--green-bg); }
+.item-included-row .item-title { color: var(--green-text); }
+.item-included-row .item-desc { color: #16A34A; }
+.included-val { font-size: 12px; color: var(--green-text); font-style: italic; font-weight: 500; }
+.totals-foot td { background: var(--canvas); font-size: 12px; color: var(--muted); padding: 12px 14px 8px; }
+.totals-foot .tot-val { font-weight: 700; color: var(--navy); font-size: 13px; }
+
+.inv-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.inv-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.inv-card-label { font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); padding: 12px 16px 0; margin-bottom: 10px; }
+.bank-tbl { width: 100%; border-collapse: collapse; padding: 0 16px 14px; display: block; }
+.bank-tbl td { padding: 3px 0; font-size: 12px; }
+.bank-tbl td:first-child { color: var(--muted); width: 44%; }
+.bank-tbl td:last-child { font-weight: 600; word-break: break-all; }
+.notes-body { padding: 0 16px 14px; font-size: 12px; color: var(--muted); line-height: 1.65; }
+
+.totals-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.totals-card table { width: 100%; border-collapse: collapse; }
+.totals-card td { padding: 8px 16px; font-size: 12.5px; }
+.totals-card td:last-child { text-align: right; font-weight: 600; }
+.tc-muted td { color: var(--muted); font-weight: 400; }
+.tc-total td { border-top: 1px solid var(--border); font-weight: 700; font-size: 13.5px; padding-top: 10px; }
+.tc-due { background: var(--blue); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.tc-due td { color: #fff; font-weight: 700; font-size: 13px; padding: 11px 16px; }
+.tc-balance td { color: var(--muted); font-size: 12px; }
+
+/* ── Brain animation ── */
+.brain-wrap {
+  display: flex; justify-content: center; align-items: center;
+  margin: 28px 0 4px;
+}
+.brain-svg { width: 72px; height: 72px; }
+.brain-pulse { animation: brainPulse 2.8s ease-in-out infinite; transform-origin: center; }
+.brain-glow  { animation: brainGlow  2.8s ease-in-out infinite; }
+.spark { animation: spark 2.8s ease-in-out infinite; }
+.spark:nth-child(2) { animation-delay: 0.4s; }
+.spark:nth-child(3) { animation-delay: 0.8s; }
+.spark:nth-child(4) { animation-delay: 1.2s; }
+@keyframes brainPulse {
+  0%,100% { transform: scale(1);   opacity: 1; }
+  50%      { transform: scale(1.06); opacity: 0.88; }
+}
+@keyframes brainGlow {
+  0%,100% { opacity: 0.18; }
+  50%      { opacity: 0.42; }
+}
+@keyframes spark {
+  0%,100% { opacity: 0; transform: scale(0.5) translateY(0); }
+  30%      { opacity: 1; transform: scale(1) translateY(-4px); }
+  60%      { opacity: 0.4; transform: scale(0.8) translateY(-8px); }
+}
+
+.inv-thankyou { margin-top: 20px; text-align: center; font-size: 11px; color: var(--muted); }
+.inv-thankyou span { color: var(--blue); font-weight: 600; }
+
+@media print {
+  #editor { display: none; }
+  #preview-wrap { margin-left: 0; padding: 0; background: white; }
+  #invoice { box-shadow: none; border-radius: 0; width: 100%; }
+  body { background: white; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── EDITOR ── -->
+<div id="editor">
+  <div class="editor-brand">
+    <div class="editor-mark">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="9" stroke="#2563EB" stroke-width="2"/>
+        <path d="M8 12 Q10 8 12 12 Q14 16 16 12" stroke="#38BDF8" stroke-width="1.5" fill="none"/>
+        <circle cx="12" cy="12" r="2" fill="#2563EB"/>
+      </svg>
+    </div>
+    <div>
+      <div class="editor-title">SF Invoice</div>
+      <div class="editor-sub">Shawn Ferrao</div>
+    </div>
+  </div>
+
+  <!-- Invoice details -->
+  <div class="e-section">
+    <span class="e-label">Invoice details</span>
+    <div class="e-row"><label>Invoice number</label><input id="inv-num" value="INV-2026-002"></div>
+    <div class="e-row"><label>Date</label><input id="inv-date" type="date"></div>
+    <div class="e-row"><label>Due</label><input id="inv-due" value="Upon receipt"></div>
+    <div class="e-row"><label>Status</label>
+      <select id="inv-status">
+        <option value="unpaid">Unpaid</option>
+        <option value="partial">Partial payment</option>
+        <option value="paid">Paid</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Client -->
+  <div class="e-section">
+    <span class="e-label">Client</span>
+    <div class="e-row"><label>Name</label><input id="cl-name" value="Gulf Dunes"></div>
+    <div class="e-row"><label>Email</label><input id="cl-email" placeholder="accounts@gulfdunes.com"></div>
+    <div class="e-row"><label>Address</label><textarea id="cl-addr">Al Barsha Boutique Building, 3rd Floor
+Al Barsha 1, P.O. Box 124174
+Dubai, UAE</textarea></div>
+  </div>
+
+  <!-- Line items -->
+  <div class="e-section">
+    <span class="e-label">Line items</span>
+    <div id="items-editor"></div>
+    <button class="btn btn-ghost" onclick="addItem()">+ Add line item</button>
+  </div>
+
+  <!-- Bank -->
+  <div class="e-section">
+    <span class="e-label">Bank details</span>
+    <div class="e-row"><label>Bank</label><input id="bk-bank" value="Abu Dhabi Commercial Bank"></div>
+    <div class="e-row"><label>Account name</label><input id="bk-name" value="Nicole Antonette Ferrao"></div>
+    <div class="e-row"><label>IBAN</label><input id="bk-bsb" value="AE280030011834636920001"></div>
+    <div class="e-row"><label>Account number</label><input id="bk-acc" value="11834636920001"></div>
+    <div class="e-row"><label>SWIFT</label><input id="bk-swift" value="ADCBAEAA"></div>
+  </div>
+
+  <!-- Notes -->
+  <div class="e-section">
+    <span class="e-label">Notes</span>
+    <div class="e-row"><textarea id="inv-notes" rows="4">This invoice reflects the final 50% payment for the setup and development of the EINSC website. This does not include any hosting charges or fees for premium plugins used. All external service costs (hosting, plugins, themes, third-party tools) are covered by Gulf Dunes.</textarea></div>
+  </div>
+
+  <!-- Previously paid -->
+  <div class="e-section">
+    <span class="e-label">Previously paid (AED)</span>
+    <div class="e-row"><label>Amount already received</label><input id="prev-paid" type="number" min="0" value="4250"></div>
+  </div>
+
+  <button class="btn btn-print" onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<!-- ── PREVIEW ── -->
+<div id="preview-wrap">
+<div id="invoice">
+
+  <div class="inv-header">
+    <div class="inv-brand">
+      <div class="inv-mark">
+        <!-- SF monogram -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <text x="3" y="17" font-family="Inter,sans-serif" font-weight="900" font-size="14" fill="#ffffff" letter-spacing="-1">SF</text>
+        </svg>
+      </div>
+      <div>
+        <div class="inv-name">Shawn Ferrao</div>
+        <div class="inv-tagline">Design &amp; Digital Services</div>
+      </div>
+    </div>
+    <div class="inv-right">
+      <div class="inv-overline">Invoice</div>
+      <div class="inv-number" id="p-num">INV-2026-002</div>
+      <table class="inv-meta">
+        <tr><td>Date</td><td id="p-date">—</td></tr>
+        <tr><td>Due</td><td id="p-due">Upon receipt</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <hr class="inv-divider">
+
+  <div class="inv-parties">
+    <div>
+      <div class="inv-party-label">From</div>
+      <div class="inv-party-name">Shawn Ferrao</div>
+      <div class="inv-party-detail">Design &amp; Digital Services<br>Dubai, UAE</div>
+    </div>
+    <div>
+      <div class="inv-party-label">Bill to</div>
+      <div class="inv-party-name" id="p-cl-name">Gulf Dunes</div>
+      <div class="inv-party-detail" id="p-cl-detail">Al Barsha Boutique Building, 3rd Floor<br>Al Barsha 1, P.O. Box 124174<br>Dubai, UAE</div>
+    </div>
+    <div>
+      <div class="inv-party-label">Status</div>
+      <span class="status-badge status-unpaid" id="p-status">Unpaid</span>
+    </div>
+  </div>
+
+  <table class="items-table">
+    <thead>
+      <tr>
+        <th style="width:30px">#</th>
+        <th>Description</th>
+        <th style="width:54px">Hrs</th>
+        <th style="width:120px">Amount</th>
+      </tr>
+    </thead>
+    <tbody id="p-items"></tbody>
+    <tfoot>
+      <tr class="totals-foot">
+        <td></td>
+        <td style="font-size:11px;color:#94A3B8;">Items in green are included at no charge.</td>
+        <td class="tot-val" id="p-total-hrs">—</td>
+        <td class="tot-val" id="p-total-amt">AED 0.00</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="inv-bottom">
+    <div>
+      <div class="inv-card" style="margin-bottom:16px">
+        <div class="inv-card-label">Bank details</div>
+        <table class="bank-tbl">
+          <tr><td>Bank</td><td id="p-bk-bank">Abu Dhabi Commercial Bank</td></tr>
+          <tr><td>Account name</td><td id="p-bk-name">Nicole Antonette Ferrao</td></tr>
+          <tr><td>IBAN</td><td id="p-bk-bsb">AE280030011834636920001</td></tr>
+          <tr><td>Account No.</td><td id="p-bk-acc">11834636920001</td></tr>
+          <tr><td>SWIFT</td><td id="p-bk-swift">ADCBAEAA</td></tr>
+        </table>
+      </div>
+      <div class="inv-card">
+        <div class="inv-card-label">Notes</div>
+        <div class="notes-body" id="p-notes"></div>
+      </div>
+    </div>
+    <div class="totals-card">
+      <table>
+        <tr><td>Project total</td><td id="p-proj-total">AED 0.00</td></tr>
+        <tr class="tc-muted"><td>Included items</td><td>No charge</td></tr>
+        <tr class="tc-muted"><td>Tax (0%)</td><td>AED 0.00</td></tr>
+        <tr class="tc-total"><td>Subtotal (billed)</td><td id="p-subtotal">AED 0.00</td></tr>
+        <tr style="height:4px"><td colspan="2"></td></tr>
+        <tr class="tc-muted" id="p-prev-row"><td>Previously paid (50% deposit)</td><td id="p-prev-amt" style="color:#166534;font-weight:600;">— AED 0.00</td></tr>
+        <tr class="tc-due"><td>Amount due — final payment</td><td id="p-due-amt">AED 0.00</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Brain animation — complimentary -->
+  <div class="brain-wrap" title="Brain Animation — Complimentary">
+    <svg class="brain-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Glow halo -->
+      <circle class="brain-glow" cx="50" cy="50" r="42" fill="#2563EB"/>
+      <!-- Brain outline left lobe -->
+      <g class="brain-pulse">
+        <path d="M50 30 C38 30 28 38 28 48 C28 52 30 56 34 58 C32 60 31 63 32 66 C33 70 37 72 41 71 C42 74 45 76 48 76 L50 76"
+              stroke="#1E40AF" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <!-- Brain outline right lobe -->
+        <path d="M50 30 C62 30 72 38 72 48 C72 52 70 56 66 58 C68 60 69 63 68 66 C67 70 63 72 59 71 C58 74 55 76 52 76 L50 76"
+              stroke="#1E40AF" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <!-- Center divider -->
+        <line x1="50" y1="30" x2="50" y2="76" stroke="#93C5FD" stroke-width="1" stroke-dasharray="3 3"/>
+        <!-- Neural folds left -->
+        <path d="M36 44 Q40 40 44 44" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M34 54 Q38 50 42 54" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M36 63 Q40 59 44 63" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <!-- Neural folds right -->
+        <path d="M56 44 Q60 40 64 44" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M58 54 Q62 50 66 54" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M56 63 Q60 59 64 63" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </g>
+      <!-- Sparks -->
+      <circle class="spark" cx="50" cy="26" r="2.5" fill="#60A5FA"/>
+      <circle class="spark" cx="74" cy="44" r="2" fill="#93C5FD"/>
+      <circle class="spark" cx="26" cy="44" r="2" fill="#93C5FD"/>
+      <circle class="spark" cx="50" cy="82" r="2" fill="#BFDBFE"/>
+    </svg>
+  </div>
+  <div style="text-align:center;font-size:10px;color:#94A3B8;margin-bottom:20px;letter-spacing:0.06em;text-transform:uppercase;">Brain Animation — Complimentary</div>
+
+  <div class="inv-thankyou">Thank you for your business — <span>Shawn Ferrao | Design &amp; Digital Services</span></div>
+</div>
+</div>
+
+<script>
+let items = [
+  { title: 'EINSC Website Build', desc: '30 hours allocation — full website build, domain and hosting migration, DNS setup and site testing', hrs: '30', amt: '8000', included: false },
+  { title: 'Google Analytics and SEO Setup', desc: '5 hours allocation — initial SEO configuration and Google Analytics integration. Ongoing optimisation, reporting or maintenance invoiced separately.', hrs: '5', amt: '500', included: false },
+  { title: 'Brain Animation', desc: 'Custom animated brain graphic for the EINSC website — included complimentary', hrs: '', amt: '', included: true },
+];
+
+function fmt(n) { return 'AED ' + parseFloat(n || 0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+function renderEditor() {
+  const c = document.getElementById('items-editor');
+  c.innerHTML = items.map((it, i) => `
+    <div class="item-card">
+      <div class="item-card-header">
+        <span class="item-card-num">Item ${i+1}</span>
+        <button class="btn btn-danger" style="width:auto;padding:3px 10px;margin:0" onclick="removeItem(${i})">Remove</button>
+      </div>
+      <div class="item-grid">
+        <div class="full"><textarea placeholder="Title" oninput="items[${i}].title=this.value;renderPreview()" rows="1">${it.title}</textarea></div>
+        <div class="full"><textarea placeholder="Description" oninput="items[${i}].desc=this.value;renderPreview()" rows="2">${it.desc}</textarea></div>
+        <input placeholder="Hrs" value="${it.hrs}" oninput="items[${i}].hrs=this.value;renderPreview()">
+        <input placeholder="Amount (ex AED)" value="${it.amt}" oninput="items[${i}].amt=this.value;renderPreview()" ${it.included?'disabled':''}>
+        <label class="included-toggle full"><input type="checkbox" ${it.included?'checked':''} onchange="items[${i}].included=this.checked;items[${i}].amt='';renderEditor();renderPreview()"> Include at no charge</label>
+      </div>
+    </div>
+  `).join('');
+}
+
+function addItem() {
+  items.push({ title: '', desc: '', hrs: '', amt: '', included: false });
+  renderEditor(); renderPreview();
+}
+function removeItem(i) {
+  items.splice(i, 1); renderEditor(); renderPreview();
+}
+
+function renderPreview() {
+  document.getElementById('p-num').textContent = document.getElementById('inv-num').value || '—';
+  const d = document.getElementById('inv-date').value;
+  document.getElementById('p-date').textContent = d ? new Date(d+'T00:00:00').toLocaleDateString('en-AE',{day:'numeric',month:'short',year:'numeric'}) : '—';
+  document.getElementById('p-due').textContent = document.getElementById('inv-due').value || '—';
+
+  const st = document.getElementById('inv-status').value;
+  const sb = document.getElementById('p-status');
+  sb.textContent = st === 'partial' ? 'Partial payment' : st === 'paid' ? 'Paid' : 'Unpaid';
+  sb.className = 'status-badge' + (st==='paid'?' status-paid':st==='unpaid'?' status-unpaid':'');
+
+  document.getElementById('p-cl-name').textContent = document.getElementById('cl-name').value || 'Client Name';
+  const em = document.getElementById('cl-email').value;
+  const ad = document.getElementById('cl-addr').value.replace(/\n/g,'<br>');
+  document.getElementById('p-cl-detail').innerHTML = [em,ad].filter(Boolean).join('<br>') || '—';
+
+  let totalHrs = 0, totalAmt = 0;
+  const tbody = document.getElementById('p-items');
+  tbody.innerHTML = items.map((it, i) => {
+    const hrs = parseFloat(it.hrs) || 0;
+    const amt = parseFloat(it.amt) || 0;
+    if (!it.included) { totalHrs += hrs; totalAmt += amt; }
+    return `<tr class="${it.included?'item-included-row':''}">
+      <td class="item-num">${i+1}</td>
+      <td><div class="item-title">${it.title||'—'}</div><div class="item-desc">${it.desc||''}</div></td>
+      <td>${it.hrs||'—'}</td>
+      <td>${it.included?'<span class="included-val">Included</span>':fmt(it.amt)}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('p-total-hrs').textContent = totalHrs ? totalHrs+' hrs' : '—';
+  document.getElementById('p-total-amt').textContent = fmt(totalAmt);
+  document.getElementById('p-subtotal').textContent = fmt(totalAmt);
+  document.getElementById('p-proj-total').textContent = fmt(totalAmt);
+
+  const prevPaid = parseFloat(document.getElementById('prev-paid').value) || 0;
+  const dueAmt = Math.max(0, totalAmt - prevPaid);
+  const prevRow = document.getElementById('p-prev-row');
+  prevRow.style.display = prevPaid > 0 ? '' : 'none';
+  document.getElementById('p-prev-amt').textContent = '— ' + fmt(prevPaid);
+  document.getElementById('p-due-amt').textContent = fmt(dueAmt);
+
+  document.getElementById('p-bk-bank').textContent = document.getElementById('bk-bank').value;
+  document.getElementById('p-bk-name').textContent = document.getElementById('bk-name').value;
+  document.getElementById('p-bk-bsb').textContent = document.getElementById('bk-bsb').value;
+  document.getElementById('p-bk-acc').textContent = document.getElementById('bk-acc').value;
+  document.getElementById('p-bk-swift').textContent = document.getElementById('bk-swift').value;
+  document.getElementById('p-notes').textContent = document.getElementById('inv-notes').value;
+}
+
+document.getElementById('inv-date').value = new Date().toISOString().split('T')[0];
+document.getElementById('editor').addEventListener('input', renderPreview);
+document.getElementById('inv-status').addEventListener('change', renderPreview);
+
+renderEditor();
+renderPreview();
+</script>
+</body>
+</html>
