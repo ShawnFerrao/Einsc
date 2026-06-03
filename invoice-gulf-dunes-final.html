@@ -240,11 +240,8 @@ Dubai, UAE</textarea></div>
     <div class="e-row"><textarea id="inv-notes" rows="4">This invoice reflects the final 50% payment for the setup and development of the EINSC website. This does not include any hosting charges or fees for premium plugins used. All external service costs (hosting, plugins, themes, third-party tools) are covered by Gulf Dunes.</textarea></div>
   </div>
 
-  <!-- Previously paid -->
-  <div class="e-section">
-    <span class="e-label">Previously paid (AED)</span>
-    <div class="e-row"><label>Amount already received</label><input id="prev-paid" type="number" min="0" value="4250"></div>
-  </div>
+  <!-- Previously paid (hidden, fixed) -->
+  <input id="prev-paid" type="hidden" value="0">
 
   <button class="btn btn-print" onclick="window.print()">Print / Save as PDF</button>
 </div>
@@ -334,13 +331,12 @@ Dubai, UAE</textarea></div>
     </div>
     <div class="totals-card">
       <table>
-        <tr><td>Project total</td><td id="p-proj-total">AED 0.00</td></tr>
         <tr class="tc-muted"><td>Included items</td><td>No charge</td></tr>
         <tr class="tc-muted"><td>Tax (0%)</td><td>AED 0.00</td></tr>
-        <tr class="tc-total"><td>Subtotal (billed)</td><td id="p-subtotal">AED 0.00</td></tr>
+        <tr class="tc-total"><td>Subtotal</td><td id="p-subtotal">AED 0.00</td></tr>
         <tr style="height:4px"><td colspan="2"></td></tr>
-        <tr class="tc-muted" id="p-prev-row"><td>Previously paid (50% deposit)</td><td id="p-prev-amt" style="color:#166534;font-weight:600;">— AED 0.00</td></tr>
-        <tr class="tc-due"><td>Amount due — final payment</td><td id="p-due-amt">AED 0.00</td></tr>
+        <tr class="tc-muted"><td>Previously paid — Invoice 1/2</td><td style="color:#166534;font-weight:600;">AED 4,250.00</td></tr>
+        <tr class="tc-due"><td>Amount due — Invoice 2/2</td><td id="p-due-amt">AED 0.00</td></tr>
       </table>
     </div>
   </div>
@@ -383,8 +379,8 @@ Dubai, UAE</textarea></div>
 
 <script>
 let items = [
-  { title: 'EINSC Website Build', desc: '30 hours allocation — full website build, domain and hosting migration, DNS setup and site testing', hrs: '30', amt: '8000', included: false },
-  { title: 'Google Analytics and SEO Setup', desc: '5 hours allocation — initial SEO configuration and Google Analytics integration. Ongoing optimisation, reporting or maintenance invoiced separately.', hrs: '5', amt: '500', included: false },
+  { title: 'EINSC Website Build — Final Payment (2/2)', desc: '30 hours allocation — full website build, domain and hosting migration, DNS setup and site testing. Second and final instalment.', hrs: '30', amt: '4000', included: false },
+  { title: 'Google Analytics and SEO Setup — Final Payment (2/2)', desc: '5 hours allocation — initial SEO configuration and Google Analytics integration. Ongoing optimisation, reporting or maintenance invoiced separately.', hrs: '5', amt: '250', included: false },
   { title: 'Brain Animation', desc: 'Custom animated brain graphic for the EINSC website — included complimentary', hrs: '', amt: '', included: true },
 ];
 
@@ -450,14 +446,8 @@ function renderPreview() {
   document.getElementById('p-total-hrs').textContent = totalHrs ? totalHrs+' hrs' : '—';
   document.getElementById('p-total-amt').textContent = fmt(totalAmt);
   document.getElementById('p-subtotal').textContent = fmt(totalAmt);
-  document.getElementById('p-proj-total').textContent = fmt(totalAmt);
 
-  const prevPaid = parseFloat(document.getElementById('prev-paid').value) || 0;
-  const dueAmt = Math.max(0, totalAmt - prevPaid);
-  const prevRow = document.getElementById('p-prev-row');
-  prevRow.style.display = prevPaid > 0 ? '' : 'none';
-  document.getElementById('p-prev-amt').textContent = '— ' + fmt(prevPaid);
-  document.getElementById('p-due-amt').textContent = fmt(dueAmt);
+  document.getElementById('p-due-amt').textContent = fmt(totalAmt);
 
   document.getElementById('p-bk-bank').textContent = document.getElementById('bk-bank').value;
   document.getElementById('p-bk-name').textContent = document.getElementById('bk-name').value;
