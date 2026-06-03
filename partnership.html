@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sponsorship & Partnership - EINSC 2026</title>
+  <title>Sponsorship &amp; Partnership Opportunities - EINSC 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -35,38 +35,23 @@
       backdrop-filter:blur(10px);
     }
     .nav__logo { display:flex; align-items:center; gap:14px; text-decoration:none; flex-shrink:0; }
-    .nav__emblem {
-      width:46px; height:46px; border-radius:50%;
-      border:1.5px solid rgba(201,169,110,.55);
-      display:flex; align-items:center; justify-content:center; flex-shrink:0;
-    }
+    .nav__emblem { width:46px; height:46px; border-radius:50%; border:1.5px solid rgba(201,169,110,.55); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
     .nav__emblem span { font-family:var(--serif); font-size:12px; font-weight:600; color:var(--gold); letter-spacing:.05em; }
     .nav__logo-text .t1 { font-size:13px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--cream); }
     .nav__logo-text .t2 { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(240,236,228,.4); margin-top:2px; }
     .nav__links { display:flex; gap:clamp(14px,2vw,32px); list-style:none; }
-    .nav__links a {
-      font-size:clamp(11px,1.1vw,13px); font-weight:400; letter-spacing:.1em; text-transform:uppercase;
-      color:rgba(240,236,228,.7); text-decoration:none;
-      position:relative; padding-bottom:4px; transition:color .22s; white-space:nowrap;
-    }
+    .nav__links a { font-size:clamp(11px,1.1vw,13px); font-weight:400; letter-spacing:.1em; text-transform:uppercase; color:rgba(240,236,228,.7); text-decoration:none; position:relative; padding-bottom:4px; transition:color .22s; white-space:nowrap; }
     .nav__links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--gold); transition:width .28s ease; }
     .nav__links a:hover  { color:var(--gold); }
     .nav__links a:hover::after { width:100%; }
     .nav__links a.active { color:var(--gold); }
     .nav__links a.active::after { width:100%; }
-    .nav__burger {
-      display:none; flex-direction:column; gap:6px; cursor:pointer;
-      background:none; border:none; padding:8px; z-index:200;
-    }
+    .nav__burger { display:none; flex-direction:column; gap:6px; cursor:pointer; background:none; border:none; padding:8px; z-index:200; }
     .nav__burger span { display:block; width:26px; height:2px; background:var(--cream); border-radius:2px; transition:all .3s; }
     .nav__burger.open span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
     .nav__burger.open span:nth-child(2){ opacity:0; }
     .nav__burger.open span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
-    .nav__drawer {
-      display:none; position:fixed; inset:0; z-index:150;
-      background:rgba(2,5,16,.97); flex-direction:column;
-      align-items:center; justify-content:center; gap:32px;
-    }
+    .nav__drawer { display:none; position:fixed; inset:0; z-index:150; background:rgba(2,5,16,.97); flex-direction:column; align-items:center; justify-content:center; gap:32px; }
     .nav__drawer.open { display:flex; }
     .nav__drawer a { font-size:clamp(1.1rem,4.5vw,1.7rem); letter-spacing:.16em; text-transform:uppercase; color:rgba(240,236,228,.85); text-decoration:none; transition:color .2s; }
     .nav__drawer a:hover { color:var(--gold); }
@@ -82,280 +67,186 @@
         radial-gradient(ellipse 60% 70% at 90% 40%, rgba(201,169,110,.08) 0%, transparent 65%),
         radial-gradient(ellipse 40% 50% at 10% 80%, rgba(13,27,62,.6) 0%, transparent 60%);
     }
-    .hero-line {
-      position:absolute; left:0; bottom:0; right:0; height:3px;
-      background:linear-gradient(90deg, var(--gold) 0%, transparent 100%);
-    }
+    .hero-line { position:absolute; left:0; bottom:0; right:0; height:3px; background:linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
     .page-hero__inner { position:relative; z-index:1; max-width:var(--max); margin:0 auto; }
-    .page-hero__eyebrow {
-      font-size:11px; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
-      color:var(--gold); margin-bottom:16px; display:block;
-    }
-    .page-hero__title {
-      font-family:var(--serif); font-size:clamp(2.2rem,5vw,3.8rem); font-weight:300;
-      color:var(--cream); line-height:1.15; margin-bottom:28px; max-width:720px;
-    }
+    .page-hero__eyebrow { font-size:11px; font-weight:600; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; display:block; }
+    .page-hero__title { font-family:var(--serif); font-size:clamp(2.2rem,5vw,3.8rem); font-weight:300; color:var(--cream); line-height:1.15; margin-bottom:28px; max-width:720px; }
     .page-hero__title em { font-style:italic; color:var(--gold); }
-    .page-hero__desc {
-      font-size:clamp(16px,1.5vw,18px); font-weight:300; color:rgba(240,236,228,.62);
-      max-width:660px; line-height:1.85; margin-bottom:52px;
-    }
-
-    /* Stats row */
-    .hero-stats {
-      display:flex; gap:clamp(24px,4vw,56px); flex-wrap:wrap;
-      border-top:1px solid rgba(201,169,110,.18); padding-top:36px;
-    }
+    .page-hero__desc { font-size:16px; font-weight:300; color:rgba(240,236,228,.75); max-width:660px; line-height:1.85; margin-bottom:52px; }
+    .hero-stats { display:flex; gap:clamp(24px,4vw,56px); flex-wrap:wrap; border-top:1px solid rgba(201,169,110,.18); padding-top:36px; }
     .hs-num   { font-family:var(--serif); font-size:clamp(2rem,3.5vw,3rem); font-weight:300; color:var(--gold); line-height:1; }
     .hs-label { font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:rgba(240,236,228,.42); margin-top:4px; }
 
-    /* -- WHY PARTNER ------------------------------------------ */
-    .why-section { background:#fff; padding:clamp(64px,8vw,100px) var(--pad); }
-    .section-eyebrow {
-      font-size:11px; font-weight:600; letter-spacing:.26em; text-transform:uppercase;
-      color:var(--gold); margin-bottom:12px; display:block;
-    }
-    .section-title {
-      font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300;
-      color:var(--navy); line-height:1.2; margin-bottom:16px;
-    }
-    .section-sub {
-      font-size:clamp(16px,1.5vw,18px); font-weight:300; color:#6a6a7a; max-width:580px;
-      line-height:1.8; margin-bottom:clamp(40px,5vw,64px);
-    }
+    /* -- SHARED -------------------------------------------- */
+    .sec-pad { padding:clamp(64px,8vw,100px) var(--pad); }
+    .inner   { max-width:var(--max); margin:0 auto; }
+    .section-eyebrow { font-size:11px; font-weight:600; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:block; }
+    .section-title   { font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; line-height:1.2; margin-bottom:16px; }
+    .section-sub     { font-size:16px; font-weight:300; color:#6a6a7a; max-width:640px; line-height:1.85; margin-bottom:clamp(40px,5vw,60px); }
+    .gold-rule       { width:44px; height:2px; background:var(--gold); margin-bottom:28px; }
 
-    .why-grid {
-      display:grid; grid-template-columns:repeat(3,1fr);
-      gap:clamp(16px,2.5vw,28px); max-width:var(--max); margin:0 auto;
-    }
-    .why-card {
-      padding:clamp(24px,3vw,36px); border:1px solid #eae7e0;
-      border-top:3px solid var(--gold); transition:box-shadow .25s;
-    }
-    .why-card:hover { box-shadow:0 8px 32px rgba(13,27,62,.08); }
-    .why-icon {
-      width:48px; height:48px; border-radius:50%;
-      background:rgba(201,169,110,.1); display:flex; align-items:center; justify-content:center;
-      margin-bottom:20px;
-    }
-    .why-icon svg { width:22px; height:22px; stroke:var(--gold); fill:none; stroke-width:1.5; }
-    .why-card__title {
-      font-family:var(--serif); font-size:1.25rem; font-weight:600;
-      color:var(--navy); margin-bottom:10px; line-height:1.3;
-    }
-    .why-card__text { font-size:16px; font-weight:300; color:#6a6a7a; line-height:1.75; }
+    /* -- WELCOME MESSAGES ---------------------------------- */
+    .welcome-section { background:#fff; }
+    .welcome-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,64px); align-items:start; }
+    .welcome-card { padding:clamp(32px,4vw,48px); border:1px solid #eae7e0; border-top:3px solid var(--gold); }
+    .welcome-card__role { font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; display:block; }
+    .welcome-card__name { font-family:var(--serif); font-size:clamp(1.3rem,2vw,1.6rem); font-weight:400; color:var(--navy); margin-bottom:4px; line-height:1.25; }
+    .welcome-card__title { font-size:13px; color:#8a8a9a; font-weight:300; line-height:1.5; margin-bottom:24px; }
+    .welcome-card p { font-size:15px; font-weight:300; color:#4a4a5a; line-height:1.85; margin-bottom:14px; }
+    .welcome-card p:last-child { margin-bottom:0; }
+    .welcome-card__sig { margin-top:24px; padding-top:20px; border-top:1px solid #eae7e0; font-size:13px; color:#8a8a9a; font-style:italic; }
 
-    /* -- TIERS ------------------------------------------------ */
-    .tiers-section { background:var(--dark); padding:clamp(64px,8vw,100px) var(--pad); }
+    /* -- ABOUT -------------------------------------------- */
+    .about-section { background:var(--cream); }
+    .about-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:clamp(40px,6vw,80px); align-items:start; }
+    .about-body p { font-size:16px; font-weight:300; color:#4a4a5a; line-height:1.9; margin-bottom:16px; }
+    .about-body p:last-child { margin-bottom:0; }
+    .stat-row { display:flex; gap:clamp(16px,3vw,36px); flex-wrap:wrap; margin-top:36px; padding-top:28px; border-top:1px solid #ddd9d0; }
+    .stat-item .num   { font-family:var(--serif); font-size:clamp(2rem,3.5vw,2.8rem); font-weight:300; color:var(--navy); line-height:1; }
+    .stat-item .lbl   { font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:#8a8a9a; margin-top:4px; }
+    .why-reasons { display:flex; flex-direction:column; gap:0; }
+    .reason-item { display:flex; gap:18px; align-items:flex-start; padding:18px 0; border-bottom:1px solid #ddd9d0; }
+    .reason-item:last-child { border:none; padding-bottom:0; }
+    .reason-dot { width:36px; height:36px; border-radius:50%; background:var(--navy); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+    .reason-dot svg { width:16px; height:16px; stroke:#c9a96e; fill:none; stroke-width:1.5; }
+    .reason-item h4 { font-family:var(--serif); font-size:1.05rem; font-weight:600; color:var(--navy); margin-bottom:4px; line-height:1.3; }
+    .reason-item p  { font-size:14px; font-weight:300; color:#6a6a7a; line-height:1.7; }
+
+    /* -- TIERS TABLE --------------------------------------- */
+    .tiers-section { background:var(--dark); }
     .tiers-section .section-title { color:var(--cream); }
-    .tiers-section .section-sub   { color:rgba(240,236,228,.5); }
+    .tiers-section .section-sub   { color:rgba(240,236,228,.65); }
 
-    .tiers-grid {
-      display:grid; grid-template-columns:repeat(4,1fr);
-      gap:clamp(12px,1.5vw,20px); max-width:var(--max); margin:0 auto;
-    }
+    /* Overview comparison table */
+    .tier-table-wrap { overflow-x:auto; margin-bottom:clamp(48px,6vw,72px); }
+    .tier-table { width:100%; border-collapse:collapse; min-width:700px; }
+    .tier-table th { padding:14px 16px; font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; text-align:center; border-bottom:2px solid rgba(255,255,255,.08); white-space:nowrap; }
+    .tier-table th:first-child { text-align:left; color:rgba(240,236,228,.35); }
+    .tier-table th.th-title    { color:#e2c28a; }
+    .tier-table th.th-platinum { color:#c9a96e; }
+    .tier-table th.th-gold     { color:#d4af37; }
+    .tier-table th.th-silver   { color:#b0b0be; }
+    .tier-table th.th-bronze   { color:#ba8055; }
+    .tier-table th.th-network  { color:#7ab8c8; }
+    .tier-table td { padding:12px 16px; font-size:14px; text-align:center; border-bottom:1px solid rgba(255,255,255,.05); color:rgba(240,236,228,.65); vertical-align:middle; }
+    .tier-table td:first-child { text-align:left; font-size:12px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:rgba(240,236,228,.4); }
+    .tier-table td.price { font-family:var(--serif); font-size:1.3rem; font-weight:300; color:var(--cream); }
+    .tier-table td .check { color:#c9a96e; font-size:16px; }
+    .tier-table td .dash  { color:rgba(255,255,255,.15); }
+    .tier-table td .excl  { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#e2c28a; }
+    .tier-table tr:last-child td { border:none; }
+    .tier-table tr:hover td { background:rgba(255,255,255,.02); }
+    .tier-table .row-highlight td:first-child { color:rgba(240,236,228,.6); }
 
+    /* Tier detail cards */
+    .tier-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,22px); }
     .tier-card {
       background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);
-      padding:clamp(24px,2.5vw,36px) clamp(20px,2vw,28px);
+      padding:clamp(24px,2.5vw,36px) clamp(18px,2vw,28px);
       display:flex; flex-direction:column; position:relative;
       transition:background .25s, border-color .25s;
     }
-    .tier-card:hover { background:rgba(255,255,255,.055); }
+    .tier-card:hover { background:rgba(255,255,255,.05); }
+    .tier-card--title    { background:rgba(226,194,138,.07); border-color:rgba(226,194,138,.4); }
+    .tier-card--platinum { background:rgba(201,169,110,.06); border-color:rgba(201,169,110,.35); }
+    .tier-card--title:hover    { background:rgba(226,194,138,.1); }
+    .tier-card--platinum:hover { background:rgba(201,169,110,.09); }
 
-    /* Platinum &mdash; featured */
-    .tier-card--platinum {
-      background:rgba(201,169,110,.07); border-color:rgba(201,169,110,.4);
-    }
-    .tier-card--platinum:hover { background:rgba(201,169,110,.1); }
-    .tier-featured-badge {
-      position:absolute; top:-1px; left:50%; transform:translateX(-50%);
-      background:var(--gold); color:var(--dark);
-      font-size:9px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
-      padding:5px 16px; white-space:nowrap;
-    }
-
-    .tier-bar {
-      height:3px; margin:-clamp(24px,2.5vw,36px) -clamp(20px,2vw,28px) clamp(24px,2.5vw,36px);
-      margin-bottom:clamp(20px,2vw,28px);
-    }
+    .tier-featured-badge { position:absolute; top:-1px; left:50%; transform:translateX(-50%); background:var(--gold); color:var(--dark); font-size:9px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; padding:5px 16px; white-space:nowrap; }
+    .tier-bar { height:3px; margin:-clamp(24px,2.5vw,36px) -clamp(18px,2vw,28px) 24px; }
+    .tier-card--title    .tier-bar { background:#e2c28a; }
     .tier-card--platinum .tier-bar { background:var(--gold); }
     .tier-card--gold     .tier-bar { background:#d4af37; }
     .tier-card--silver   .tier-bar { background:#a8a8b3; }
     .tier-card--bronze   .tier-bar { background:#a0673a; }
+    .tier-card--network  .tier-bar { background:#5a9aaa; }
 
-    .tier-name {
-      font-size:10px; font-weight:600; letter-spacing:.24em; text-transform:uppercase;
-      margin-bottom:8px;
-    }
-    .tier-card--platinum .tier-name { color:var(--gold); }
-    .tier-card--gold     .tier-name { color:#d4af37; }
-    .tier-card--silver   .tier-name { color:#b0b0be; }
-    .tier-card--bronze   .tier-name { color:#ba8055; }
+    .tier-slots { font-size:10px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; margin-bottom:6px; }
+    .tier-card--title    .tier-slots { color:#e2c28a; }
+    .tier-card--platinum .tier-slots { color:var(--gold); }
+    .tier-card--gold     .tier-slots { color:#d4af37; }
+    .tier-card--silver   .tier-slots { color:#a8a8b3; }
+    .tier-card--bronze   .tier-slots { color:#ba8055; }
+    .tier-card--network  .tier-slots { color:#7ab8c8; }
 
-    .tier-title {
-      font-family:var(--serif); font-size:1.5rem; font-weight:400;
-      color:var(--cream); margin-bottom:20px; line-height:1.2;
-    }
-    .tier-divider { height:1px; background:rgba(255,255,255,.08); margin-bottom:20px; }
+    .tier-name  { font-family:var(--serif); font-size:1.45rem; font-weight:400; color:var(--cream); margin-bottom:4px; }
+    .tier-price { font-size:13px; font-weight:300; color:rgba(240,236,228,.45); margin-bottom:18px; }
+    .tier-price strong { font-family:var(--serif); font-size:1.3rem; font-weight:300; color:rgba(240,236,228,.85); }
+    .tier-divider { height:1px; background:rgba(255,255,255,.08); margin-bottom:18px; }
+    .tier-sub { font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:rgba(240,236,228,.3); margin-bottom:10px; }
 
-    .tier-benefits { list-style:none; flex:1; margin-bottom:28px; }
-    .tier-benefits li {
-      display:flex; gap:10px; align-items:flex-start;
-      font-size:13.5px; font-weight:300; color:rgba(240,236,228,.65);
-      padding:7px 0; border-bottom:1px solid rgba(255,255,255,.05);
-      line-height:1.5;
-    }
+    .tier-benefits { list-style:none; flex:1; margin-bottom:24px; }
+    .tier-benefits li { display:flex; gap:10px; align-items:flex-start; font-size:13.5px; font-weight:300; color:rgba(240,236,228,.75); padding:7px 0; border-bottom:1px solid rgba(255,255,255,.05); line-height:1.5; }
     .tier-benefits li:last-child { border:none; }
-    .tier-check {
-      flex-shrink:0; margin-top:3px;
-      width:14px; height:14px;
-    }
+    .tier-check { flex-shrink:0; margin-top:3px; width:14px; height:14px; }
+    .tier-card--title    .tier-check { stroke:#e2c28a; }
     .tier-card--platinum .tier-check { stroke:var(--gold); }
     .tier-card--gold     .tier-check { stroke:#d4af37; }
     .tier-card--silver   .tier-check { stroke:#a8a8b3; }
     .tier-card--bronze   .tier-check { stroke:#ba8055; }
+    .tier-card--network  .tier-check { stroke:#7ab8c8; }
 
-    .tier-cta {
-      display:block; text-align:center;
-      font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
-      padding:13px 20px; text-decoration:none; transition:all .22s; border:1.5px solid;
-    }
-    .tier-card--platinum .tier-cta {
-      background:var(--gold); color:var(--dark); border-color:var(--gold);
-    }
+    .tier-cta { display:block; text-align:center; font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; padding:13px 20px; text-decoration:none; transition:all .22s; border:1.5px solid; }
+    .tier-card--title    .tier-cta { background:#e2c28a; color:var(--dark); border-color:#e2c28a; }
+    .tier-card--title    .tier-cta:hover { background:#f0d4a0; border-color:#f0d4a0; }
+    .tier-card--platinum .tier-cta { background:var(--gold); color:var(--dark); border-color:var(--gold); }
     .tier-card--platinum .tier-cta:hover { background:var(--gold-l); border-color:var(--gold-l); }
-    .tier-card--gold .tier-cta {
-      background:transparent; color:#d4af37; border-color:#d4af37;
-    }
-    .tier-card--gold .tier-cta:hover { background:#d4af37; color:var(--dark); }
+    .tier-card--gold     .tier-cta { background:transparent; color:#d4af37; border-color:#d4af37; }
+    .tier-card--gold     .tier-cta:hover { background:#d4af37; color:var(--dark); }
+    .tier-card--silver   .tier-cta { background:transparent; color:#c8c8d4; border-color:#c8c8d4; }
+    .tier-card--silver   .tier-cta:hover { background:#c8c8d4; color:var(--dark); }
+    .tier-card--bronze   .tier-cta { background:transparent; color:#c89060; border-color:#c89060; }
+    .tier-card--bronze   .tier-cta:hover { background:#c89060; color:var(--dark); }
+    .tier-card--network  .tier-cta { background:transparent; color:#7ab8c8; border-color:#7ab8c8; }
+    .tier-card--network  .tier-cta:hover { background:#7ab8c8; color:var(--dark); }
 
-    .tier-card--silver .tier-cta {
-      background:transparent; color:#c8c8d4; border-color:#c8c8d4;
-    }
-    .tier-card--silver .tier-cta:hover { background:#c8c8d4; color:var(--dark); }
+    .tier-note { font-size:11px; color:rgba(240,236,228,.28); text-align:center; margin-top:clamp(20px,3vw,32px); }
 
-    .tier-card--bronze .tier-cta {
-      background:transparent; color:#c89060; border-color:#c89060;
-    }
-    .tier-card--bronze .tier-cta:hover { background:#c89060; color:var(--dark); }
-
-    /* -- OPPORTUNITIES SECTION -------------------------------- */
-    .opps-section { background:var(--cream); padding:clamp(64px,8vw,100px) var(--pad); }
+    /* -- ADDITIONAL OPPORTUNITIES -------------------------- */
+    .opps-section { background:var(--cream); }
     .opps-section .section-title { color:var(--navy); }
-    .opps-section .section-sub   { color:#6a6a7a; }
+    .opps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,22px); }
+    .opp-card { background:#fff; padding:clamp(24px,3vw,36px); border-top:3px solid var(--navy); transition:box-shadow .22s, transform .22s; }
+    .opp-card:hover { box-shadow:0 8px 32px rgba(13,27,62,.1); transform:translateY(-3px); }
+    .opp-price { font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--gold); margin-bottom:4px; line-height:1; }
+    .opp-name  { font-family:var(--serif); font-size:1.1rem; font-weight:600; color:var(--navy); margin-bottom:14px; line-height:1.3; }
+    .opp-text  { font-size:15px; font-weight:300; color:#6a6a7a; line-height:1.75; }
+    .opp-card--featured { border-top-color:var(--gold); }
+    .opp-excl  { display:inline-block; font-size:9px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; background:var(--gold); color:var(--dark); padding:3px 10px; margin-bottom:10px; }
 
-    .opps-grid {
-      display:grid; grid-template-columns:repeat(2,1fr);
-      gap:clamp(16px,2vw,24px); max-width:var(--max); margin:0 auto;
-    }
-    .opp-card {
-      background:#fff; padding:clamp(24px,3vw,36px);
-      border-left:4px solid var(--navy); display:flex; gap:20px; align-items:flex-start;
-      transition:box-shadow .22s;
-    }
-    .opp-card:hover { box-shadow:0 8px 32px rgba(13,27,62,.08); }
-    .opp-icon {
-      width:44px; height:44px; flex-shrink:0;
-      background:rgba(13,27,62,.06); border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-    }
-    .opp-icon svg { width:20px; height:20px; stroke:var(--navy); fill:none; stroke-width:1.5; }
-    .opp-card__title {
-      font-family:var(--serif); font-size:1.2rem; font-weight:600;
-      color:var(--navy); margin-bottom:8px;
-    }
-    .opp-card__text { font-size:16px; font-weight:300; color:#6a6a7a; line-height:1.75; }
+    /* -- CONTACT / CTA ------------------------------------ */
+    .contact-section { background:var(--navy); position:relative; overflow:hidden; }
+    .contact-section__bg { position:absolute; inset:0; background:radial-gradient(ellipse 60% 80% at 100% 50%, rgba(201,169,110,.08) 0%, transparent 65%); pointer-events:none; }
+    .contact-inner { position:relative; z-index:1; display:grid; grid-template-columns:1fr 420px; gap:clamp(40px,6vw,80px); align-items:start; }
+    .contact-section .section-title { color:var(--cream); margin-bottom:16px; }
+    .contact-lead { font-size:16px; font-weight:300; color:rgba(240,236,228,.72); line-height:1.85; margin-bottom:20px; }
+    .contact-note { font-size:13px; color:rgba(240,236,228,.35); font-style:italic; margin-bottom:32px; }
 
-    /* -- CONTACT / CTA SECTION -------------------------------- */
-    .contact-section {
-      background:var(--navy);
-      padding:clamp(64px,8vw,100px) var(--pad);
-      position:relative; overflow:hidden;
-    }
-    .contact-section__bg {
-      position:absolute; inset:0;
-      background:radial-gradient(ellipse 60% 80% at 100% 50%, rgba(201,169,110,.08) 0%, transparent 65%);
-      pointer-events:none;
-    }
-    .contact-inner {
-      position:relative; z-index:1;
-      max-width:var(--max); margin:0 auto;
-      display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,80px); align-items:start;
-    }
-    .contact-left .section-eyebrow { margin-bottom:12px; }
-    .contact-left .section-title   { color:var(--cream); margin-bottom:16px; }
-    .contact-left p {
-      font-size:18px; font-weight:300; color:rgba(240,236,228,.55);
-      line-height:1.85; margin-bottom:32px;
-    }
-    .contact-note {
-      font-size:13px; color:rgba(240,236,228,.35); font-style:italic;
-    }
-
-    .contact-card {
-      background:rgba(255,255,255,.04); border:1px solid rgba(201,169,110,.22);
-      padding:clamp(28px,3vw,40px);
-    }
-    .contact-card__label {
-      font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
-      color:var(--gold); margin-bottom:20px; display:block;
-    }
-    .contact-detail {
-      display:flex; gap:14px; align-items:flex-start;
-      padding:14px 0; border-bottom:1px solid rgba(255,255,255,.06);
-    }
+    .contact-card { background:rgba(255,255,255,.04); border:1px solid rgba(201,169,110,.22); padding:clamp(28px,3vw,40px); }
+    .contact-card__label { font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; display:block; }
+    .contact-card__name  { font-family:var(--serif); font-size:1.3rem; font-weight:400; color:var(--cream); margin-bottom:28px; }
+    .contact-detail { display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.06); }
     .contact-detail:last-of-type { border:none; }
-    .cd-icon {
-      width:36px; height:36px; flex-shrink:0;
-      background:rgba(201,169,110,.1); border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-    }
+    .cd-icon { width:36px; height:36px; flex-shrink:0; background:rgba(201,169,110,.1); border-radius:50%; display:flex; align-items:center; justify-content:center; }
     .cd-icon svg { width:16px; height:16px; stroke:var(--gold); fill:none; stroke-width:1.5; }
     .cd-label { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(240,236,228,.35); margin-bottom:3px; }
     .cd-value { font-size:15px; font-weight:400; color:var(--cream); }
     .cd-value a { color:var(--cream); text-decoration:none; transition:color .2s; }
     .cd-value a:hover { color:var(--gold); }
-
-    .contact-cta {
-      display:block; margin-top:28px; text-align:center;
-      font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
-      background:var(--gold); color:var(--dark); padding:16px 28px;
-      text-decoration:none; transition:background .22s;
-    }
+    .contact-cta { display:block; margin-top:28px; text-align:center; font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--dark); padding:16px 28px; text-decoration:none; transition:background .22s; }
     .contact-cta:hover { background:var(--gold-l); }
 
-    /* -- ORGANISERS STRIP ------------------------------------- */
-    .organisers-strip {
-      background:#060a1a; border-top:1px solid rgba(201,169,110,.12);
-      padding:clamp(36px,5vw,56px) var(--pad);
-    }
-    .organisers-inner {
-      max-width:var(--max); margin:0 auto;
-      display:flex; align-items:center; justify-content:center;
-      gap:clamp(24px,4vw,56px); flex-wrap:wrap;
-    }
-    .org-label {
-      font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
-      color:rgba(240,236,228,.3); text-align:center;
-    }
+    /* -- ORGANISERS STRIP --------------------------------- */
+    .organisers-strip { background:#060a1a; border-top:1px solid rgba(201,169,110,.12); padding:clamp(36px,5vw,56px) var(--pad); }
+    .organisers-inner { max-width:var(--max); margin:0 auto; display:flex; align-items:center; justify-content:center; gap:clamp(24px,4vw,56px); flex-wrap:wrap; }
+    .org-label { font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:rgba(240,236,228,.3); text-align:center; }
     .org-divider { width:1px; height:40px; background:rgba(255,255,255,.08); }
-    .org-name {
-      font-family:var(--serif); font-size:clamp(1rem,1.5vw,1.25rem); font-weight:400;
-      color:rgba(240,236,228,.7); text-align:center; line-height:1.4;
-    }
-    .org-sub {
-      font-size:11px; color:rgba(240,236,228,.3); text-align:center;
-      margin-top:2px; letter-spacing:.04em;
-    }
+    .org-name { font-family:var(--serif); font-size:clamp(1rem,1.5vw,1.25rem); font-weight:400; color:rgba(240,236,228,.7); text-align:center; line-height:1.4; }
+    .org-sub  { font-size:11px; color:rgba(240,236,228,.3); text-align:center; margin-top:2px; }
 
-    /* -- FOOTER ----------------------------------------------- */
+    /* -- FOOTER ------------------------------------------- */
     .footer { background:#060a1a; padding:clamp(64px,8vw,88px) var(--pad) 40px; border-top:1px solid rgba(255,255,255,.04); }
-    .footer-grid {
-      display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:clamp(28px,4vw,56px);
-      max-width:var(--max); margin:0 auto;
-      padding-bottom:56px; border-bottom:1px solid rgba(255,255,255,.07);
-    }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:clamp(28px,4vw,56px); max-width:var(--max); margin:0 auto; padding-bottom:56px; border-bottom:1px solid rgba(255,255,255,.07); }
     .footer-brand-name { font-family:var(--serif); font-size:clamp(1.4rem,2.5vw,1.8rem); font-weight:300; color:var(--cream); line-height:1.4; margin-bottom:14px; }
     .footer-brand-sub  { font-size:clamp(13px,1.3vw,15px); color:rgba(240,236,228,.38); line-height:1.75; }
     .footer-col h4     { font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; font-weight:600; }
@@ -370,159 +261,93 @@
     .footer-bottom p, .footer-bottom a { font-size:13px; color:rgba(240,236,228,.25); text-decoration:none; transition:color .2s; }
     .footer-bottom a:hover { color:var(--gold); }
 
-    /* -- ELEMENTOR OVERRIDES ----------------------------------- */
-    html body a,
-    html body a:visited              { color:inherit !important; text-decoration:none !important; }
-    html body a:hover,
-    html body a:focus                { color:inherit !important; }
-    html body button,
-    html body button:hover,
-    html body button:focus           { color:inherit !important; background-color:transparent !important; }
+    /* -- ELEMENTOR OVERRIDES ----------------------------- */
+    html body a, html body a:visited { color:inherit !important; text-decoration:none !important; }
+    html body a:hover, html body a:focus { color:inherit !important; }
+    html body button, html body button:hover { color:inherit !important; background-color:transparent !important; }
+    html body .nav__links a, html body .nav__links a:visited { color:rgba(240,236,228,.7) !important; }
+    html body .nav__links a:hover { color:#c9a96e !important; }
+    html body .nav__links a.active { color:#c9a96e !important; }
+    html body .nav__drawer a, html body .nav__drawer a:visited { color:rgba(240,236,228,.85) !important; }
+    html body .nav__drawer a:hover { color:#c9a96e !important; }
+    html body .footer-col a, html body .footer-col a:visited { color:rgba(240,236,228,.5) !important; }
+    html body .footer-col a:hover { color:#c9a96e !important; }
+    html body .footer-bottom a { color:rgba(240,236,228,.25) !important; }
+    html body .footer-bottom a:hover { color:#c9a96e !important; }
+    html body .cd-value a, html body .cd-value a:visited { color:var(--cream) !important; }
+    html body .cd-value a:hover { color:#c9a96e !important; }
+    html body .contact-cta, html body .contact-cta:visited { color:var(--dark) !important; background:#c9a96e !important; text-decoration:none !important; }
+    html body .contact-cta:hover { background:#e2c28a !important; }
+    html body .tier-card--title    .tier-cta, html body .tier-card--title    .tier-cta:visited { color:var(--dark) !important; background:#e2c28a !important; border-color:#e2c28a !important; text-decoration:none !important; }
+    html body .tier-card--platinum .tier-cta, html body .tier-card--platinum .tier-cta:visited { color:var(--dark) !important; background:#c9a96e !important; border-color:#c9a96e !important; text-decoration:none !important; }
+    html body .tier-card--gold     .tier-cta, html body .tier-card--gold     .tier-cta:visited { color:#d4af37 !important; background:transparent !important; border-color:#d4af37 !important; text-decoration:none !important; }
+    html body .tier-card--gold     .tier-cta:hover { background:#d4af37 !important; color:var(--dark) !important; }
+    html body .tier-card--silver   .tier-cta, html body .tier-card--silver   .tier-cta:visited { color:#c8c8d4 !important; background:transparent !important; border-color:#c8c8d4 !important; text-decoration:none !important; }
+    html body .tier-card--silver   .tier-cta:hover { background:#c8c8d4 !important; color:var(--dark) !important; }
+    html body .tier-card--bronze   .tier-cta, html body .tier-card--bronze   .tier-cta:visited { color:#c89060 !important; background:transparent !important; border-color:#c89060 !important; text-decoration:none !important; }
+    html body .tier-card--bronze   .tier-cta:hover { background:#c89060 !important; color:var(--dark) !important; }
+    html body .tier-card--network  .tier-cta, html body .tier-card--network  .tier-cta:visited { color:#7ab8c8 !important; background:transparent !important; border-color:#7ab8c8 !important; text-decoration:none !important; }
+    html body .tier-card--network  .tier-cta:hover { background:#7ab8c8 !important; color:var(--dark) !important; }
 
-    html body .nav__links a,
-    html body .nav__links a:visited  { color:rgba(240,236,228,.7) !important; }
-    html body .nav__links a:hover    { color:var(--gold) !important; }
-    html body .nav__drawer a,
-    html body .nav__drawer a:visited { color:rgba(240,236,228,.85) !important; }
-    html body .nav__drawer a:hover   { color:var(--gold) !important; }
+    /* Editor */
+    .elementor-editor-active .page-hero      { background:var(--dark) !important; }
+    .elementor-editor-active .tiers-section  { background:var(--dark) !important; }
+    .elementor-editor-active .contact-section{ background:var(--navy) !important; }
+    .elementor-editor-active .about-section  { background:var(--cream) !important; }
+    .elementor-editor-active .opps-section   { background:var(--cream) !important; }
+    .elementor-editor-active .footer         { background:#060a1a !important; }
 
-    html body .footer-col a,
-    html body .footer-col a:visited   { color:rgba(240,236,228,.5) !important; }
-    html body .footer-col a:hover     { color:var(--gold) !important; }
-    html body .footer-bottom a,
-    html body .footer-bottom a:visited{ color:rgba(240,236,228,.25) !important; }
-    html body .footer-bottom a:hover  { color:var(--gold) !important; }
+    /* -- NAV DROPDOWN ------------------------------------ */
+    .nav__has-dropdown { position:relative; }
+    .nav__dropdown { position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%) translateY(-6px); background:rgba(2,5,16,.97); backdrop-filter:blur(10px); border:1px solid rgba(201,169,110,.22); border-top:2px solid var(--gold); min-width:234px; list-style:none; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .18s ease, transform .18s ease; z-index:300; padding:6px 0; }
+    .nav__dropdown::before { content:''; position:absolute; top:-16px; left:0; right:0; height:16px; }
+    .nav__has-dropdown:hover .nav__dropdown, .nav__has-dropdown:focus-within .nav__dropdown { opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+    .nav__dropdown li a { display:block; padding:10px 18px; font-size:11px; font-weight:400; letter-spacing:.12em; text-transform:uppercase; color:rgba(240,236,228,.65); white-space:nowrap; text-decoration:none; transition:color .2s, background .2s; }
+    .nav__dropdown li a::after { display:none !important; }
+    .nav__dropdown li a:hover { color:var(--gold); background:rgba(201,169,110,.07); }
+    .nav__dropdown li + li { border-top:1px solid rgba(255,255,255,.05); }
+    .drawer-sub { font-size:clamp(.95rem,4vw,1.4rem) !important; color:rgba(240,236,228,.48) !important; letter-spacing:.14em !important; margin-top:-20px; }
+    html body .nav__dropdown li a, html body .nav__dropdown li a:visited { color:rgba(240,236,228,.65) !important; text-decoration:none !important; background:transparent !important; }
+    html body .nav__dropdown li a:hover { color:var(--gold) !important; background:rgba(201,169,110,.07) !important; }
+    html body .nav__drawer a.drawer-sub, html body .nav__drawer a.drawer-sub:visited { color:rgba(240,236,228,.48) !important; }
+    html body .nav__drawer a.drawer-sub:hover { color:var(--gold) !important; }
+    html body .nav__has-dropdown > a { padding-right:14px !important; }
+    html body .nav__has-dropdown > a::after { content:'\25BE' !important; position:absolute !important; bottom:auto !important; top:50% !important; left:auto !important; right:0 !important; transform:translateY(-50%) !important; width:auto !important; height:auto !important; background:transparent !important; font-size:13px !important; opacity:.65 !important; transition:opacity .2s, color .2s !important; letter-spacing:0 !important; }
+    html body .nav__has-dropdown:hover > a::after, html body .nav__has-dropdown:focus-within > a::after { opacity:1 !important; color:var(--gold) !important; }
 
-    /* Tier CTA &mdash; border/bg on the <a>, colour on the inner <span>
-       Span is NOT an <a> so Elementor's "html body a { color:inherit }" never touches it */
-    html body .tier-card--platinum .tier-cta {
-      background:var(--gold) !important; border-color:var(--gold) !important; text-decoration:none !important;
-    }
-    html body .tier-card--platinum .tier-cta:hover { background:var(--gold-l) !important; border-color:var(--gold-l) !important; }
-    html body .tier-card--platinum .tier-cta span  { color:var(--dark) !important; }
-
-    html body .tier-card--gold .tier-cta {
-      background:transparent !important; border-color:#d4af37 !important; text-decoration:none !important;
-    }
-    html body .tier-card--gold .tier-cta:hover     { background:#d4af37 !important; }
-    html body .tier-card--gold .tier-cta span      { color:#d4af37 !important; }
-    html body .tier-card--gold .tier-cta:hover span{ color:var(--dark) !important; }
-
-    html body .tier-card--silver .tier-cta {
-      background:transparent !important; border-color:#c8c8d4 !important; text-decoration:none !important;
-    }
-    html body .tier-card--silver .tier-cta:hover      { background:#c8c8d4 !important; }
-    html body .tier-card--silver .tier-cta span       { color:#c8c8d4 !important; }
-    html body .tier-card--silver .tier-cta:hover span { color:var(--dark) !important; }
-
-    html body .tier-card--bronze .tier-cta {
-      background:transparent !important; border-color:#c89060 !important; text-decoration:none !important;
-    }
-    html body .tier-card--bronze .tier-cta:hover      { background:#c89060 !important; }
-    html body .tier-card--bronze .tier-cta span       { color:#c89060 !important; }
-    html body .tier-card--bronze .tier-cta:hover span { color:var(--dark) !important; }
-
-    html body .contact-cta,
-    html body .contact-cta:visited   { color:var(--dark) !important; text-decoration:none !important; }
-    html body .cd-value a,
-    html body .cd-value a:visited    { color:var(--cream) !important; }
-    html body .cd-value a:hover      { color:var(--gold) !important; }
-
-    /* Editor overlays */
-    .elementor-editor-active .tiers-section    { background:var(--dark)  !important; }
-    .elementor-editor-active .contact-section  { background:var(--navy)  !important; }
-    .elementor-editor-active .organisers-strip { background:#060a1a      !important; }
-    .elementor-editor-active .footer           { background:#060a1a      !important; }
-    .elementor-editor-active .opps-section     { background:var(--cream) !important; }
-
-    /* -- RESPONSIVE -------------------------------------------- */
+    /* -- RESPONSIVE -------------------------------------- */
     @media(max-width:1100px) {
-      .tiers-grid { grid-template-columns:repeat(2,1fr); }
+      .tier-cards { grid-template-columns:repeat(2,1fr); }
+      .contact-inner { grid-template-columns:1fr; }
     }
     @media(max-width:900px) {
       .nav__links { display:none; }
       .nav__burger { display:flex; }
-      .why-grid    { grid-template-columns:1fr; }
-      .opps-grid   { grid-template-columns:1fr; }
-      .contact-inner { grid-template-columns:1fr; }
+      .welcome-grid { grid-template-columns:1fr; }
+      .about-grid   { grid-template-columns:1fr; }
+      .opps-grid    { grid-template-columns:1fr 1fr; }
     }
     @media(max-width:640px) {
-      .tiers-grid  { grid-template-columns:1fr; }
+      .tier-cards { grid-template-columns:1fr; }
+      .opps-grid  { grid-template-columns:1fr; }
       .footer-grid { grid-template-columns:1fr 1fr; gap:28px; }
       .org-divider { display:none; }
     }
     @media(max-width:480px) {
       .footer-grid { grid-template-columns:1fr; }
+      .stat-row { gap:20px; }
     }
-
-    /* -- NAV DROPDOWN -------------------------------------- */
-    .nav__has-dropdown { position:relative; }
-    .nav__dropdown {
-      position:absolute; top:calc(100% + 14px); left:50%;
-      transform:translateX(-50%) translateY(-6px);
-      background:rgba(2,5,16,.97); backdrop-filter:blur(10px);
-      border:1px solid rgba(201,169,110,.22);
-      border-top:2px solid var(--gold);
-      min-width:234px; list-style:none;
-      opacity:0; visibility:hidden; pointer-events:none;
-      transition:opacity .18s ease, transform .18s ease;
-      z-index:300; padding:6px 0;
-    }
-    /* Invisible bridge fills the hover gap so mouse doesn't escape */
-    .nav__dropdown::before { content:''; position:absolute; top:-16px; left:0; right:0; height:16px; }
-    .nav__has-dropdown:hover .nav__dropdown,
-    .nav__has-dropdown:focus-within .nav__dropdown {
-      opacity:1; visibility:visible; pointer-events:auto;
-      transform:translateX(-50%) translateY(0);
-    }
-    .nav__dropdown li a {
-      display:block; padding:10px 18px;
-      font-size:11px; font-weight:400; letter-spacing:.12em; text-transform:uppercase;
-      color:rgba(240,236,228,.65); white-space:nowrap; text-decoration:none;
-      transition:color .2s, background .2s;
-    }
-    .nav__dropdown li a::after { display:none !important; }
-    .nav__dropdown li a:hover  { color:var(--gold); background:rgba(201,169,110,.07); }
-    .nav__dropdown li a.active { color:var(--gold); }
-    .nav__dropdown li + li { border-top:1px solid rgba(255,255,255,.05); }
-    .drawer-sub {
-      font-size:clamp(.95rem,4vw,1.4rem) !important;
-      color:rgba(240,236,228,.48) !important;
-      letter-spacing:.14em !important;
-      margin-top:-20px;
-    }
-    html body .nav__dropdown li a,
-    html body .nav__dropdown li a:visited  { color:rgba(240,236,228,.65) !important; text-decoration:none !important; background:transparent !important; }
-    html body .nav__dropdown li a:hover    { color:var(--gold) !important; background:rgba(201,169,110,.07) !important; }
-    html body .nav__dropdown li a.active,
-    html body .nav__dropdown li a.active:visited { color:var(--gold) !important; }
-    html body .nav__drawer a.drawer-sub,
-    html body .nav__drawer a.drawer-sub:visited  { color:rgba(240,236,228,.48) !important; }
-    html body .nav__drawer a.drawer-sub:hover     { color:var(--gold) !important; }
-    html body .nav__drawer a.drawer-sub.active,
-    html body .nav__drawer a.drawer-sub.active:visited { color:var(--gold) !important; }
-    .drawer-sub.active { color:var(--gold) !important; }
-    /* Chevron affordance on Sponsors nav trigger */
-    html body .nav__has-dropdown > a { padding-right:14px !important; }
-    html body .nav__has-dropdown > a::after {
-      content:'\25BE' !important; position:absolute !important;
-      bottom:auto !important; top:50% !important; left:auto !important; right:0 !important;
-      transform:translateY(-50%) !important; width:auto !important; height:auto !important;
-      background:transparent !important; font-size:13px !important; opacity:.65 !important;
-      transition:opacity .2s, color .2s !important; letter-spacing:0 !important;
-    }
-    html body .nav__has-dropdown:hover > a::after,
-    html body .nav__has-dropdown:focus-within > a::after { opacity:1 !important; color:var(--gold) !important; }  </style>
+  </style>
 </head>
 <body>
 
-<!-- -- NAV ------------------------------------------------------ -->
+<!-- NAV -->
 <nav class="nav">
   <a href="https://einsc.com/" class="nav__logo">
     <div class="nav__emblem"><span>EINSC</span></div>
     <div class="nav__logo-text">
       <div class="t1">EINSC 2026</div>
-      <div class="t2">17&ndash;18 October &middot; Dubai</div>
+      <div class="t2">Emirates Neurosurgical Conference</div>
     </div>
   </a>
   <ul class="nav__links">
@@ -545,7 +370,6 @@
   </button>
 </nav>
 
-<!-- -- MOBILE DRAWER -------------------------------------------- -->
 <div class="nav__drawer" id="drawer">
   <a href="https://einsc.com/program/">Program</a>
   <a href="https://einsc.com/faculty/">Faculty</a>
@@ -557,403 +381,429 @@
   <a href="https://einsc.com/contact-us/">Contact</a>
 </div>
 
-<!-- -- PAGE HERO ------------------------------------------------ -->
+<!-- HERO -->
 <section class="page-hero">
   <div class="page-hero__bg"></div>
   <div class="page-hero__inner">
-    <span class="page-hero__eyebrow">EINSC 2026 &middot; Sponsorship &amp; Industry Partnership</span>
-    <h1 class="page-hero__title">Position Your Brand at the <em>Nexus of Medical Innovation.</em></h1>
+    <span class="page-hero__eyebrow">EINSC 2026 &middot; Sponsorship &amp; Exhibition Prospectus</span>
+    <h1 class="page-hero__title">Partner with the <em>Leading Neurosurgical Conference</em> in the GCC</h1>
     <p class="page-hero__desc">
-      Sponsorship at EINSC 2026 offers unparalleled access to over 250 neurosurgical experts
-      and healthcare decision-makers from across the Middle East and beyond. As we celebrate our
-      10th anniversary, our partnership tiers provide unique opportunities for high-visibility
-      branding, hands-on workshop integration, and direct engagement within our
-      Simulation &amp; Precision Zone &mdash; at Raffles Dubai.
+      The 10th Emirates International Neurosurgical Conference takes place 16&ndash;18 October 2026
+      at Raffles Hotel Dubai. Connect your brand with the region's most influential neurosurgeons
+      and healthcare decision-makers at this landmark decennial edition.
     </p>
     <div class="hero-stats">
-      <div>
-        <div class="hs-num">250+</div>
-        <div class="hs-label">Expert Attendees</div>
-      </div>
-      <div>
-        <div class="hs-num">10<span style="font-size:1.4rem">th</span></div>
-        <div class="hs-label">Anniversary Edition</div>
-      </div>
-      <div>
-        <div class="hs-num">2</div>
-        <div class="hs-label">Conference Days</div>
-      </div>
-      <div>
-        <div class="hs-num">GCC</div>
-        <div class="hs-label">Regional Reach</div>
-      </div>
+      <div><div class="hs-num">10<sup style="font-size:.6em">th</sup></div><div class="hs-label">Anniversary Edition</div></div>
+      <div><div class="hs-num">3</div><div class="hs-label">Conference Days</div></div>
+      <div><div class="hs-num">GCC</div><div class="hs-label">Largest in Region</div></div>
+      <div><div class="hs-num">Oct 2026</div><div class="hs-label">Raffles Dubai</div></div>
     </div>
   </div>
   <div class="hero-line"></div>
 </section>
 
-<!-- -- WHY PARTNER ----------------------------------------------- -->
-<section class="why-section">
-  <div style="max-width:var(--max); margin:0 auto;">
-    <span class="section-eyebrow">Why Partner With Us</span>
-    <h2 class="section-title">Connect With the Region's<br>Most Influential Neurosurgeons</h2>
-    <p class="section-sub">
-      The Emirates International Neurosurgical Conference is the GCC's premier platform for
-      clinical education, industry collaboration, and surgical innovation.
-    </p>
-    <div class="why-grid">
+<!-- WELCOME MESSAGES -->
+<section class="welcome-section sec-pad">
+  <div class="inner">
+    <span class="section-eyebrow">Welcome Messages</span>
+    <h2 class="section-title" style="color:var(--navy);">A Word from Our <em style="font-style:italic; color:var(--gold);">Leadership</em></h2>
+    <div class="gold-rule"></div>
+    <div class="welcome-grid">
 
-      <div class="why-card">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="why-card__title">Direct Access to Decision-Makers</div>
-        <p class="why-card__text">Engage directly with 250+ neurosurgeons, department heads, and healthcare procurement leaders across the Middle East and GCC region.</p>
+      <div class="welcome-card">
+        <span class="welcome-card__role">Conference President</span>
+        <div class="welcome-card__name">Dr. Khaled Fares AlAli</div>
+        <div class="welcome-card__title">President, Emirates Society of Neurological Surgeons<br>Head of Neurosurgery, Zayed Military Hospital</div>
+        <p>Dear Esteemed Colleagues and Friends,</p>
+        <p>It is with great pride and pleasure that we welcome you to the 10th Edition of the Emirates International Neurosurgical Conference 2026 (EINSC), taking place from 16&ndash;18 October 2026 at the Raffles Hotel Dubai.</p>
+        <p>Marking a significant milestone, this 10th edition reflects a decade of scientific progress, collaboration, and shared commitment to advancing the field of neurosurgery. The conference brings together neurosurgeons, healthcare professionals, and experts from across the region and internationally for three days of insightful scientific exchange and professional engagement.</p>
+        <p>Your participation is integral to the success of this landmark edition. Together, we celebrate past achievements and look ahead to shaping the future of neurosurgery.</p>
+        <p>On behalf of the EINSC 2026 organizing committee, we look forward to welcoming you this October for an engaging and memorable 10th EINSC Conference.</p>
+        <div class="welcome-card__sig">Warm Regards, <strong>DR. KHALED FARES ALALI</strong></div>
       </div>
 
-      <div class="why-card">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <div class="why-card__title">Simulation &amp; Precision Zone</div>
-        <p class="why-card__text">Showcase your technology within EINSC 2026's signature Simulation &amp; Precision Zone &mdash; a live, hands-on environment unlike any other regional conference.</p>
-      </div>
-
-      <div class="why-card">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div class="why-card__title">A Decade of Prestige</div>
-        <p class="why-card__text">Be part of a milestone edition. EINSC's 10th anniversary brings unprecedented media coverage, delegate numbers, and regional recognition.</p>
-      </div>
-
-      <div class="why-card">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div class="why-card__title">Raffles Dubai Setting</div>
-        <p class="why-card__text">Your brand presented within one of Dubai's most iconic luxury venues &mdash; an environment that elevates every partnership and amplifies your presence.</p>
-      </div>
-
-      <div class="why-card">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <div class="why-card__title">Multi-Channel Visibility</div>
-        <p class="why-card__text">From pre-conference digital campaigns to on-site branding and post-event publications &mdash; your partnership extends well beyond the two conference days.</p>
-      </div>
-
-      <div class="why-card">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <div class="why-card__title">Limited Partnership Positions</div>
-        <p class="why-card__text">Exclusivity is by design. Tier positions are limited to ensure each partner receives the prominence and attention their investment deserves.</p>
+      <div class="welcome-card">
+        <span class="welcome-card__role">Scientific Chair</span>
+        <div class="welcome-card__name">Dr. Aneela Darbar</div>
+        <div class="welcome-card__title">Scientific Chair, Emirates Society of Neurological Surgeons (ESNS)<br>Consultant Neurosurgeon, King's College Hospital London</div>
+        <p>Dear Colleagues and Friends,</p>
+        <p>It is my great pleasure to welcome you to the 10th Edition of the Emirates International Neurosurgical Conference 2026 (EINSC), taking place from 16&ndash;18 October 2026.</p>
+        <p>This landmark edition features an exceptional scientific programme, carefully developed to reflect the latest advances and evolving practices in neurosurgery. The conference will deliver high-quality scientific sessions led by distinguished faculty, offering in-depth discussions, evidence-based insights, and practical perspectives across key subspecialties.</p>
+        <p>The scientific committee is especially proud to highlight this year's hands-on workshop, designed to showcase the latest surgical techniques in the field. Building on its proven track record of strong attendance and consistently high educational value, the workshop returns following the outstanding success of previous editions.</p>
+        <p>On behalf of the scientific committee, I warmly invite the community to submit abstracts, offering the chance to present original research, clinical experience, and innovative ideas.</p>
+        <div class="welcome-card__sig">Sincerely, <strong>DR. ANEELA DARBAR</strong></div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- -- PARTNERSHIP TIERS ------------------------------------------ -->
-<section class="tiers-section">
-  <div style="max-width:var(--max); margin:0 auto;">
-    <span class="section-eyebrow">Partnership Tiers</span>
+<!-- ABOUT + WHY PARTNER -->
+<section class="about-section sec-pad">
+  <div class="inner">
+    <div class="about-grid">
+      <div>
+        <span class="section-eyebrow">About EINSC 2026</span>
+        <h2 class="section-title" style="color:var(--navy);">The Largest Neurosurgical<br>Conference in the GCC</h2>
+        <div class="gold-rule"></div>
+        <div class="about-body">
+          <p>The 10th Emirates International Neurosurgical Conference (EINSC) is the flagship event of the Emirates Society of Neurological Surgeons (ESNS), established in 2013 as a subspecialty of the Emirates Medical Association (EMA). EINSC has grown to become the largest neurosurgical conference in the GCC, serving as a premier platform for scientific exchange and professional development.</p>
+          <p>Each year, we bring together leading neurosurgeons, medical professionals, researchers, and healthcare companies from across the region and globally to discuss the latest advancements, techniques, and innovations in the field.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item"><div class="num">10<sup style="font-size:.55em">th</sup></div><div class="lbl">Edition</div></div>
+          <div class="stat-item"><div class="num">2013</div><div class="lbl">Founded</div></div>
+          <div class="stat-item"><div class="num">GCC</div><div class="lbl">Largest in Region</div></div>
+        </div>
+      </div>
+      <div>
+        <span class="section-eyebrow" style="margin-bottom:20px;">Why Partner with EINSC?</span>
+        <div class="why-reasons">
+          <div class="reason-item">
+            <div class="reason-dot"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div><h4>Unrivalled Access</h4><p>Connect with top neurosurgeons and decision-makers across the GCC and MENA region.</p></div>
+          </div>
+          <div class="reason-item">
+            <div class="reason-dot"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div><h4>High-Impact Visibility</h4><p>Brand exposure across all conference materials, digital platforms, and media channels.</p></div>
+          </div>
+          <div class="reason-item">
+            <div class="reason-dot"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div><h4>Targeted Lead Generation</h4><p>Direct access to pre- and post-event delegate lists for focused marketing.</p></div>
+          </div>
+          <div class="reason-item">
+            <div class="reason-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+            <div><h4>Thought Leadership</h4><p>Workshop opportunities to elevate your expertise and innovation before a specialist audience.</p></div>
+          </div>
+          <div class="reason-item">
+            <div class="reason-dot"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <div><h4>Exclusive Networking</h4><p>Engage with key stakeholders in neurosurgery in a premium Raffles Dubai setting.</p></div>
+          </div>
+          <div class="reason-item">
+            <div class="reason-dot"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div><h4>Prestige Association</h4><p>Align your brand with the most prestigious neurosurgical event in the GCC.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORSHIP TIERS -->
+<section class="tiers-section sec-pad">
+  <div class="inner">
+    <span class="section-eyebrow">Sponsorship Opportunities at a Glance</span>
     <h2 class="section-title">Choose Your Level of Engagement</h2>
-    <p class="section-sub">
-      Each tier is designed to deliver measurable value &mdash; from brand presence to direct
-      clinical engagement. Contact us to receive the full sponsorship prospectus.
-    </p>
-    <div class="tiers-grid">
+    <p class="section-sub">Select the partnership level that best aligns with your strategic goals for 2026. All prices exclude 5% VAT.</p>
+
+    <!-- Comparison table -->
+    <div class="tier-table-wrap">
+      <table class="tier-table">
+        <thead>
+          <tr>
+            <th>Benefit</th>
+            <th class="th-title">Title</th>
+            <th class="th-platinum">Platinum</th>
+            <th class="th-gold">Gold</th>
+            <th class="th-silver">Silver</th>
+            <th class="th-bronze">Bronze</th>
+            <th class="th-network">Networking</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-highlight">
+            <td>Price (USD)</td>
+            <td class="price">$35,000</td>
+            <td class="price">$28,000</td>
+            <td class="price">$20,000</td>
+            <td class="price">$18,000</td>
+            <td class="price">$15,000</td>
+            <td class="price">$10,000</td>
+          </tr>
+          <tr><td>Available Slots</td><td><span class="excl">Exclusive</span></td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td></tr>
+          <tr><td>VIP Passes</td><td>8</td><td>6</td><td>4</td><td>4</td><td>4</td><td>4</td></tr>
+          <tr><td>Networking Space</td><td>8 SQM</td><td>8 SQM</td><td>6 SQM</td><td>6 SQM</td><td>6 SQM</td><td>6 SQM</td></tr>
+          <tr><td>"Powered by" Branding</td><td><span class="excl">Exclusive</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td></tr>
+          <tr><td>Pre-Event Delegate List</td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td></tr>
+          <tr><td>Post-Event Delegate List</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td></tr>
+          <tr><td>Post-Event Email Logo</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td></tr>
+          <tr><td>Chairman Recognition</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+          <tr><td>Logo on Materials</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td>Selected</td><td>Selected</td><td>Selected</td><td>Selected</td></tr>
+          <tr><td>Post-Event Report</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td><td><span class="check">&#10003;</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tier detail cards -->
+    <div class="tier-cards">
+
+      <!-- TITLE -->
+      <div class="tier-card tier-card--title">
+        <div class="tier-featured-badge">Flagship Sponsor</div>
+        <div class="tier-bar"></div>
+        <div class="tier-slots">Exclusive &mdash; 1 Slot</div>
+        <div class="tier-name">Title Sponsor</div>
+        <div class="tier-price">USD <strong>35,000</strong> <span>excl. VAT</span></div>
+        <div class="tier-divider"></div>
+        <div class="tier-sub">Branding &amp; Marketing</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>"EINSC 2026 Powered By" across all major branding: stage backdrop, banners, delegate badges, website, digital screens</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>All pre-event marketing: email campaigns, media announcements, press releases</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event report with dedicated paragraph</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Recognition as Title Sponsor at opening &amp; closing sessions</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>8 SQM high-visibility networking space</li>
+        </ul>
+        <div class="tier-sub">Audience Access</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>8 VIP Passes (sessions, coffee breaks &amp; luncheons)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-event delegate list (designation &amp; company)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list (name, designation, company, country)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email to all attendees &amp; media partners</li>
+        </ul>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Title Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
+      </div>
 
       <!-- PLATINUM -->
       <div class="tier-card tier-card--platinum">
-        <div class="tier-featured-badge">Flagship Partner</div>
         <div class="tier-bar"></div>
-        <div class="tier-name">Platinum</div>
-        <div class="tier-title">Title Partner</div>
+        <div class="tier-slots">3 Slots Available</div>
+        <div class="tier-name">Platinum Sponsor</div>
+        <div class="tier-price">USD <strong>28,000</strong> <span>excl. VAT</span></div>
         <div class="tier-divider"></div>
+        <div class="tier-sub">Branding &amp; Marketing</div>
         <ul class="tier-benefits">
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Exclusive title naming rights
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Premium exhibition stand (largest)
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Dedicated symposium / workshop session
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Simulation &amp; Precision Zone integration
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Logo on all conference materials &amp; signage
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Complimentary delegate registrations
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Pre &amp; post-conference digital presence
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            VIP networking event access
-          </li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo across all major branding: stage backdrop, banners, website with hyperlink, digital screens</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-event marketing: email campaigns, media announcements, press releases</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event report with dedicated paragraph</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Chairman recognition at opening &amp; closing sessions</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>8 SQM networking space</li>
         </ul>
-        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Platinum Partnership Enquiry" class="tier-cta"><span>Enquire Now</span></a>
+        <div class="tier-sub">Audience Access</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 VIP Passes (sessions, coffee breaks &amp; luncheons)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list (name, designation, company, country)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email to all attendees</li>
+        </ul>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Platinum Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
       </div>
 
       <!-- GOLD -->
       <div class="tier-card tier-card--gold">
         <div class="tier-bar"></div>
-        <div class="tier-name">Gold</div>
-        <div class="tier-title">Premier Partner</div>
+        <div class="tier-slots">3 Slots Available</div>
+        <div class="tier-name">Gold Sponsor</div>
+        <div class="tier-price">USD <strong>20,000</strong> <span>excl. VAT</span></div>
         <div class="tier-divider"></div>
+        <div class="tier-sub">Branding &amp; Marketing</div>
         <ul class="tier-benefits">
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Featured exhibition stand
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Session sponsorship (named)
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Simulation Zone presence
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Logo on conference materials
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Complimentary delegate registrations
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Digital presence &amp; social media feature
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Networking event access
-          </li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on selected materials: stage backdrops, banners, website with hyperlink, digital screens</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-event marketing: email campaigns &amp; media announcements</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event report with dedicated paragraph</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Chairman recognition at opening &amp; closing sessions</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 SQM high-visibility networking space</li>
         </ul>
-        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Gold Partnership Enquiry" class="tier-cta"><span>Enquire Now</span></a>
+        <div class="tier-sub">Audience Access</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 VIP Passes</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email</li>
+        </ul>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Gold Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
       </div>
 
       <!-- SILVER -->
       <div class="tier-card tier-card--silver">
         <div class="tier-bar"></div>
-        <div class="tier-name">Silver</div>
-        <div class="tier-title">Associate Partner</div>
+        <div class="tier-slots">3 Slots Available</div>
+        <div class="tier-name">Silver Sponsor</div>
+        <div class="tier-price">USD <strong>18,000</strong> <span>excl. VAT</span></div>
         <div class="tier-divider"></div>
+        <div class="tier-sub">Branding &amp; Marketing</div>
         <ul class="tier-benefits">
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Exhibition stand
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Break sponsorship (named)
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Logo on conference materials
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Complimentary delegate registrations
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Digital presence
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Networking event access
-          </li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on selected summit materials: stage backdrops, banners, website with hyperlink</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-event marketing: email campaigns &amp; media announcements</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event report with dedicated paragraph</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Chairman recognition at opening &amp; closing sessions</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 SQM networking space</li>
         </ul>
-        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Silver Partnership Enquiry" class="tier-cta"><span>Enquire Now</span></a>
+        <div class="tier-sub">Audience Access</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 VIP Passes</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email</li>
+        </ul>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Silver Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
       </div>
 
       <!-- BRONZE -->
       <div class="tier-card tier-card--bronze">
         <div class="tier-bar"></div>
-        <div class="tier-name">Industry</div>
-        <div class="tier-title">Industry Partner</div>
+        <div class="tier-slots">3 Slots Available</div>
+        <div class="tier-name">Bronze Sponsor</div>
+        <div class="tier-price">USD <strong>15,000</strong> <span>excl. VAT</span></div>
         <div class="tier-divider"></div>
+        <div class="tier-sub">Branding &amp; Marketing</div>
         <ul class="tier-benefits">
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Exhibition stand
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Logo on conference website
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Delegate registration
-          </li>
-          <li>
-            <svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Literature display space
-          </li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on selected materials: stage backdrops, banners, website with hyperlink</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-event marketing: email campaigns &amp; media announcements</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Chairman recognition at opening &amp; closing sessions</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 SQM networking space</li>
         </ul>
-        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Industry Partnership Enquiry" class="tier-cta"><span>Enquire Now</span></a>
+        <div class="tier-sub">Audience Access</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 VIP Passes</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email</li>
+        </ul>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Bronze Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
+      </div>
+
+      <!-- NETWORKING -->
+      <div class="tier-card tier-card--network">
+        <div class="tier-bar"></div>
+        <div class="tier-slots">3 Slots Available</div>
+        <div class="tier-name">Networking Sponsor</div>
+        <div class="tier-price">USD <strong>10,000</strong> <span>excl. VAT</span></div>
+        <div class="tier-divider"></div>
+        <div class="tier-sub">Branding &amp; Marketing</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>"EINSC 2026 Powered By" on networking materials, digital screens &amp; website</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-event marketing: email campaigns &amp; media announcements</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event report with dedicated paragraph</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Chairman recognition at opening &amp; closing sessions</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 SQM networking space</li>
+        </ul>
+        <div class="tier-sub">Audience Access</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 VIP Passes</li>
+        </ul>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Networking Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
       </div>
 
     </div>
+    <p class="tier-note">All prices exclusive of 5% VAT &nbsp;&middot;&nbsp; For enquiries: <a href="mailto:sponsorship@einsc.com" style="color:rgba(201,169,110,.6);">sponsorship@einsc.com</a></p>
   </div>
 </section>
 
-<!-- -- PARTNERSHIP OPPORTUNITIES -------------------------------- -->
-<section class="opps-section">
-  <div style="max-width:var(--max); margin:0 auto;">
-    <span class="section-eyebrow">Partnership Opportunities</span>
-    <h2 class="section-title">Tailored Engagement Across<br>Every Conference Touchpoint</h2>
-    <p class="section-sub">
-      Beyond standard tiers, bespoke packages are available across every aspect of the conference.
-    </p>
+<!-- ADDITIONAL BRANDING OPPORTUNITIES -->
+<section class="opps-section sec-pad">
+  <div class="inner">
+    <span class="section-eyebrow">Additional Branding Opportunities</span>
+    <h2 class="section-title" style="color:var(--navy);">Enhance Your Presence at <em style="font-style:italic; color:var(--gold);">Every Touchpoint</em></h2>
+    <div class="gold-rule"></div>
     <div class="opps-grid">
 
-      <div class="opp-card">
-        <div class="opp-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-        </div>
-        <div>
-          <div class="opp-card__title">Workshop &amp; Simulation Sponsorship</div>
-          <p class="opp-card__text">Place your brand at the heart of EINSC 2026's most immersive educational experience. Sponsor a hands-on simulation workshop and demonstrate your technology to an audience of actively engaged surgeons.</p>
-        </div>
+      <div class="opp-card opp-card--featured">
+        <span class="opp-excl">Exclusive</span>
+        <div class="opp-price">USD 20,000</div>
+        <div class="opp-name">Lunch Sponsor</div>
+        <p class="opp-text">Dedicated lunch invitation email sent to all attendees. Roll-up banner at luncheon entrance and logo on conference website. Premium visibility during seated networking lunch.</p>
+      </div>
+
+      <div class="opp-card opp-card--featured">
+        <span class="opp-excl">Exclusive</span>
+        <div class="opp-price">USD 20,000</div>
+        <div class="opp-name">Workshop Sponsor</div>
+        <p class="opp-text">Host a 60&ndash;90 minute workshop in a parallel breakout room. Ideal for product demonstrations and clinical education to an engaged, specialist audience.</p>
       </div>
 
       <div class="opp-card">
-        <div class="opp-icon">
-          <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-        </div>
-        <div>
-          <div class="opp-card__title">Session &amp; Plenary Sponsorship</div>
-          <p class="opp-card__text">Attach your brand to a named scientific session or keynote lecture. Your logo precedes every plenary presentation, commanding attention from the full delegate audience.</p>
-        </div>
+        <div class="opp-price">USD 15,000</div>
+        <div class="opp-name">Coffee Break Sponsor</div>
+        <p class="opp-text">Maximum brand visibility. Your logo prominently displayed on table flags throughout the exhibit hall during all conference coffee breaks.</p>
       </div>
 
       <div class="opp-card">
-        <div class="opp-icon">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <div>
-          <div class="opp-card__title">Exhibition &amp; Display Space</div>
-          <p class="opp-card__text">Secure a prominent position within the main exhibition hall to display equipment, products, or literature directly alongside the scientific programme &mdash; maximising dwell time and delegate interaction.</p>
-        </div>
+        <div class="opp-price">USD 8,000</div>
+        <div class="opp-name">Lanyard Sponsor</div>
+        <p class="opp-text">Exclusive brand placement on ALL attendee lanyards. Worn by every delegate, speaker, and VIP throughout the entire conference.</p>
       </div>
 
       <div class="opp-card">
-        <div class="opp-icon">
-          <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-        </div>
-        <div>
-          <div class="opp-card__title">Hospitality &amp; Networking Events</div>
-          <p class="opp-card__text">Sponsor a coffee break, networking lunch, or the conference gala dinner. Hospitality sponsorships place your brand in an informal setting &mdash; where the most meaningful conversations happen.</p>
-        </div>
+        <div class="opp-price">USD 8,000</div>
+        <div class="opp-name">Badge Sponsor</div>
+        <p class="opp-text">As the official Badge Sponsor, your logo will be featured on the most-viewed item at the event, worn by every delegate, speaker, and VIP.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- -- CONTACT / CTA --------------------------------------------- -->
-<section class="contact-section" id="contact">
+<!-- CONTACT -->
+<section class="contact-section sec-pad" id="contact">
   <div class="contact-section__bg"></div>
-  <div class="contact-inner">
-
-    <div class="contact-left">
-      <span class="section-eyebrow">Become a Partner</span>
-      <h2 class="section-title">Join the Leading<br>Neurosurgical Conference<br>in the GCC</h2>
-      <p>
-        Connect your brand with the region's most influential neurosurgeons and healthcare
-        decision-makers. Partnership opportunities are limited &mdash; secure your position today.
-      </p>
-      <p class="contact-note">
-        A full sponsorship prospectus is available on request.
-        Bespoke packages can be arranged to suit your specific objectives.
-      </p>
-    </div>
-
-    <div>
+  <div class="inner">
+    <div class="contact-inner">
+      <div>
+        <span class="section-eyebrow">Become a Partner</span>
+        <h2 class="section-title">Join the Leading<br>Neurosurgical Conference<br>in the GCC</h2>
+        <p class="contact-lead">
+          Connect your brand with the region's most influential neurosurgeons and healthcare
+          decision-makers. Partnership opportunities are limited &mdash; secure your position today.
+        </p>
+        <p class="contact-note">
+          Organised by the Emirates Society of Neurological Surgeons (ESNS)<br>
+          with GD+ as the Official Professional Conference Organiser.
+        </p>
+      </div>
       <div class="contact-card">
         <span class="contact-card__label">Ready to Book Your Package?</span>
+        <div class="contact-card__name">Dilan Pereira</div>
 
         <div class="contact-detail">
-          <div class="cd-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
+          <div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div>
-            <div class="cd-label">Email</div>
-            <div class="cd-value"><a href="mailto:dilan.pereira@gdplus.ae">dilan.pereira@gdplus.ae</a></div>
+            <div class="cd-label">Sponsorship Email</div>
+            <div class="cd-value"><a href="mailto:sponsorship@einsc.com">sponsorship@einsc.com</a></div>
           </div>
         </div>
 
         <div class="contact-detail">
-          <div class="cd-icon">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.53 2 2 0 0 1 3.6 1.37h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
-          </div>
+          <div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.53 2 2 0 0 1 3.6 1.37h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg></div>
           <div>
-            <div class="cd-label">Phone</div>
+            <div class="cd-label">Office</div>
+            <div class="cd-value"><a href="tel:+97144504460">+971 4 450 4460 ext 189</a></div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.53 2 2 0 0 1 3.6 1.37h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg></div>
+          <div>
+            <div class="cd-label">Mobile</div>
             <div class="cd-value"><a href="tel:+971588179215">+971 58 817 9215</a></div>
           </div>
         </div>
 
         <div class="contact-detail">
-          <div class="cd-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
+          <div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
-            <div class="cd-label">Contact</div>
-            <div class="cd-value">Dilan Pereira</div>
+            <div class="cd-label">Address</div>
+            <div class="cd-value">Al Barsha Boutique, Al Barsha 1,<br>P.O. Box 124174, Dubai, UAE</div>
           </div>
         </div>
 
-        <a href="mailto:dilan.pereira@gdplus.ae?subject=EINSC 2026 Sponsorship Enquiry" class="contact-cta">
-          Request Sponsorship Prospectus
-        </a>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Sponsorship Enquiry" class="contact-cta">Request Sponsorship Prospectus</a>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- -- ORGANISERS ------------------------------------------------ -->
+<!-- ORGANISERS -->
 <div class="organisers-strip">
   <div class="organisers-inner">
-    <div>
-      <div class="org-label">Conference Organised By</div>
-    </div>
+    <div><div class="org-label">Conference Organised By</div></div>
     <div class="org-divider"></div>
-    <div>
-      <div class="org-name">Emirates Society of Neurological Surgeons</div>
-      <div class="org-sub">ESNS</div>
-    </div>
+    <div><div class="org-name">Emirates Society of Neurological Surgeons</div><div class="org-sub">ESNS</div></div>
     <div class="org-divider"></div>
-    <div>
-      <div class="org-name">GD+</div>
-      <div class="org-sub">A Gulf Dunes Division</div>
-    </div>
+    <div><div class="org-name">GD+</div><div class="org-sub">Official Professional Conference Organiser</div></div>
   </div>
 </div>
 
-<!-- -- FOOTER ---------------------------------------------------- -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-grid">
     <div>
-      <div class="footer-brand-name">Emirates International<br>Neurosurgical Conference</div>
+      <div class="footer-brand-name">Emirates International<br>Neurosurgical Conference<br>2026</div>
       <p class="footer-brand-sub">The National Conference of the<br>Emirates Society of Neurological Surgeons</p>
     </div>
     <div class="footer-col">
@@ -967,21 +817,21 @@
     <div class="footer-col">
       <h4>Gulf Dunes</h4>
       <p>Al Barsha Boutique Building,<br>3rd Floor, Al Barsha 1,<br>P.O. Box 124174, Dubai, UAE</p>
-      <a href="mailto:info@einsc.com">info@einsc.com</a>
-      <a href="tel:+971504537277">+971 50 453 7277</a>
+      <a href="mailto:info@einsc.com" style="margin-top:10px;">info@einsc.com</a>
     </div>
     <div class="footer-col">
       <h4>Stay Updated</h4>
       <p>Receive news about EINSC 2026 and related neurosurgical events from across the region.</p>
       <div class="footer-newsletter">
-        <input type="email" placeholder="Your email address"/>
-        <button>Subscribe</button>
+        <input type="email" placeholder="Your email address" aria-label="Email address"/>
+        <button type="button">Join</button>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
     <p>&copy; 2026 EINSC. All rights reserved.</p>
     <a href="https://einsc.com/privacy/">Privacy Policy</a>
+    <p>Designed and built by Gulf Dunes</p>
   </div>
 </footer>
 
@@ -989,15 +839,16 @@
   const burger = document.getElementById('burger');
   const drawer = document.getElementById('drawer');
   burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    drawer.classList.toggle('open');
+    const open = burger.classList.toggle('open');
+    drawer.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
   });
   drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     burger.classList.remove('open');
     drawer.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
   }));
 </script>
 
 </body>
 </html>
-
