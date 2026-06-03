@@ -458,7 +458,7 @@
     html body .member-body,
     html body .bullet-list li        { color: #4a4a5a !important; }
     html body .body-text--light,
-    html body .body-text--light p    { color: rgba(240,236,228,.68) !important; }
+    html body .body-text--light p    { color: rgba(240,236,228,.80) !important; }
 
     /* Nav */
     html body .nav__links a,
@@ -536,11 +536,19 @@
     html body .abstract-link:visited { color:var(--gold-l) !important; text-decoration:none !important; }
     html body .abstract-link:hover   { color:var(--gold-l) !important; }
 
-    /* -- TYPOGRAPHY &mdash; fixed sizes ------------------------- */
+    /* -- TYPOGRAPHY — fixed sizes & readability -------------- */
     .body-text, .body-text--light,
     .why-body, .abstract-body,
     .bullet-list li, .member-body,
-    .date-item p, .welcome-quote { font-size: 16px; }
+    .date-item p, .welcome-quote {
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .body-text p, .body-text--light p { font-size: 16px; }
+
+    .why-body { color: rgba(240,236,228,.72); }
+    .body-text--light p { color: rgba(240,236,228,.8); }
 
     .why-title, .abstract-title,
     .member-name, .dates-card__title { font-size: 20px; }
@@ -757,9 +765,8 @@
           <h2 class="sec-title">The largest <em>Neurosurgical Conference</em> in the GCC</h2>
           <div class="gold-rule"></div>
           <div class="body-text">
-            <p>The Emirates Society of Neurological Surgeons (ESNS) was founded in 2013 as a subspecialty of the Emirates Medical Association (EMA). The purpose of the Society is the study and advancement of Neurosurgery through scientific meetings and fostering professional relationships.</p>
-            <p>ESNS promotes safe and effective neurosurgical treatment for patients throughout the UAE, continuously aiming to collect and disseminate knowledge and innovations in the educational, research and service provision aspects of neurosurgical practice.</p>
-            <p>The Society represents the UAE in regional and international meetings and forums, encouraging the development of academic neurosurgical organisations across the GCC and beyond.</p>
+            <p>Welcome to the 10th Emirates Society of Neurological Surgeons (ESNS) Conference, the region's premier forum for neurosurgical advancement. Taking place from 16&ndash;18 October 2026 at the iconic Raffles Hotel Dubai, this landmark decennial edition marks ten years of unwavering commitment to scientific progress, clinical excellence, and global collaboration.</p>
+            <p>The 10th ESNS Conference is uniquely designed to serve the entire neurosurgical community. Our program facilitates a high-level exchange between world-renowned experts and the next generation of neurosurgeons.</p>
           </div>
           <div class="supporters">
             <p class="supporters-label">Supported by</p>
@@ -798,9 +805,10 @@
         <h2 class="sec-title sec-title--light" style="text-align:center; margin-bottom:36px;">Welcome to the <em>10th EINSC</em></h2>
         <div class="gold-rule" style="margin:0 auto 36px;"></div>
         <blockquote class="welcome-quote">
-          "Marking a significant milestone, this 10th edition reflects a decade of scientific progress, collaboration, and shared commitment to advancing the field of neurosurgery. The conference brings together neurosurgeons, healthcare professionals, and experts from across the region and internationally for three days of insightful scientific exchange and professional engagement."
+          "It is with great pride and pleasure that we welcome you to the 10th Emirates Society of Neurological Surgeons (ESNS) Conference, set to take place from 16&ndash;18 October 2026 at the Raffles Hotel Dubai."
         </blockquote>
         <div class="body-text body-text--light">
+          <p>Marking a significant milestone, this 10th edition reflects a decade of scientific progress, collaboration, and shared commitment to advancing the field of neurosurgery. The conference brings together neurosurgeons, healthcare professionals, and experts from across the region and internationally for three days of insightful scientific exchange and professional engagement.</p>
           <p>The programme has been thoughtfully curated to showcase the latest developments, innovative techniques, and emerging trends in neurosurgery, while providing a platform for meaningful discussion and knowledge sharing among peers.</p>
           <p>In addition to the scientific sessions, the conference offers valuable networking opportunities designed to strengthen professional relationships and foster future collaboration within our growing neurosurgical community.</p>
           <p>Your participation is integral to the success of this landmark edition. Together, we celebrate past achievements and look ahead to shaping the future of neurosurgery.</p>
@@ -832,7 +840,7 @@
         <div class="why-card">
           <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 308.004 308.004" fill="currentColor" aria-hidden="true"><g><path d="M244.63,29.53H220.27c0-9.784,0-19.184,0-26.935c0-0.9-0.467-1.736-1.234-2.208c-0.766-0.472-1.724-0.514-2.527-0.108C204.231,6.48,180.844,10.67,154.002,10.67S103.774,6.48,91.495,0.279c-0.804-0.406-1.761-0.366-2.528,0.106c-0.767,0.472-1.232,1.309-1.232,2.21c0,7.752,0,17.152,0,26.935H63.374c-5.58,0-10.103,4.523-10.103,10.103v13.446c0,5.58,4.523,10.103,10.103,10.103h24.361c0,6.843,0,13.059,0,18.071c0,3.457,2,6.611,5.127,8.083c16.076,7.567,44.219,9.695,61.14,9.695c18.273,0,45.549-2.389,61.129-9.696c3.136-1.471,5.139-4.625,5.139-8.089c0-5.016,0-11.228,0-18.065h24.361c5.58,0,10.103-4.523,10.103-10.103V39.633C254.733,34.053,250.21,29.53,244.63,29.53z M116.047,70.479c0,4.143-3.357,7.5-7.5,7.5c-4.143,0-7.5-3.357-7.5-7.5V33.715c0-4.143,3.357-7.5,7.5-7.5c4.143,0,7.5,3.357,7.5,7.5V70.479z"/><path d="M244.63,133.795H220.27c0-9.784,0-19.184,0-26.935c0-0.9-0.467-1.736-1.234-2.208c-0.766-0.472-1.724-0.514-2.527-0.108c-12.278,6.201-35.665,10.392-62.507,10.392s-50.229-4.19-62.507-10.392c-0.804-0.406-1.761-0.366-2.528,0.106c-0.767,0.472-1.232,1.309-1.232,2.21c0,7.752,0,17.152,0,26.935H63.374c-5.58,0-10.103,4.523-10.103,10.103v13.446c0,5.58,4.523,10.103,10.103,10.103h24.361c0,6.843,0,13.059,0,18.071c0,3.457,2,6.611,5.127,8.083c16.076,7.567,44.219,9.695,61.14,9.695c18.273,0,45.549-2.389,61.129-9.696c3.136-1.47,5.139-4.625,5.139-8.088c0-5.016,0-11.228,0-18.065h24.361c5.58,0,10.103-4.523,10.103-10.103v-13.446C254.733,138.319,250.21,133.795,244.63,133.795z M116.047,174.629c0,4.143-3.357,7.5-7.5,7.5c-4.143,0-7.5-3.357-7.5-7.5v-36.765c0-4.143,3.357-7.5,7.5-7.5c4.143,0,7.5,3.357,7.5,7.5V174.629z"/><path d="M244.63,238.503H220.27c0-9.784,0-19.184,0-26.935c0-0.9-0.467-1.736-1.234-2.208c-0.766-0.472-1.724-0.514-2.527-0.108c-12.278,6.201-35.665,10.392-62.507,10.392s-50.229-4.19-62.507-10.392c-0.804-0.406-1.761-0.366-2.528,0.106c-0.767,0.472-1.232,1.309-1.232,2.21c0,7.752,0,17.152,0,26.935H63.374c-5.58,0-10.103,4.523-10.103,10.103v13.446c0,5.58,4.523,10.103,10.103,10.103h24.361c0,6.843,0,13.059,0,18.071c0,3.457,2,6.611,5.127,8.083c16.076,7.567,44.219,9.695,61.14,9.695c18.273,0,45.549-2.39,61.129-9.696c3.136-1.471,5.139-4.625,5.139-8.089c0-5.016,0-11.228,0-18.065h24.361c5.58,0,10.103-4.523,10.103-10.103v-13.446C254.733,243.026,250.21,238.503,244.63,238.503z M116.047,282.337c0,4.143-3.357,7.5-7.5,7.5c-4.143,0-7.5-3.357-7.5-7.5v-36.765c0-4.143,3.357-7.5,7.5-7.5c4.143,0,7.5,3.357,7.5,7.5V282.337z"/></g></svg></div>
           <h3 class="why-title">Hands-on Learning</h3>
-          <p class="why-body">Dedicated Basic Spinal and Cranial Workshops for residents and early-career neurosurgeons to refine their surgical foundations.</p>
+          <p class="why-body">Dedicated Basic Spinal and Cranial Workshops designed specifically for residents and early-career neurosurgeons to refine their surgical foundations.</p>
         </div>
 
         <!-- Global Networking - globe -->
