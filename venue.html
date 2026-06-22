@@ -314,7 +314,7 @@
     }
     .raffles-img-col {
       min-height:520px;
-      background:url('https://einsc.com/wp-content/uploads/2026/06/img_6854.jpg') center/cover no-repeat;
+      background:url('https://einsc.com/wp-content/uploads/2026/06/img_6854.jpg') center 25%/cover no-repeat;
     }
     .raffles-text-col {
       padding:clamp(52px,7vw,88px) clamp(36px,5vw,80px);
@@ -357,6 +357,8 @@
     @media(max-width:1100px) {
       .dining-grid { grid-template-columns:1fr 1fr; }
       .raffles-features { grid-template-columns:repeat(2,1fr); }
+      .raffles-inner { grid-template-columns:1fr; }
+      .raffles-img-col { min-height:360px; }
     }
     @media(max-width:900px) {
       .intro-inner   { grid-template-columns:1fr; }
@@ -364,7 +366,6 @@
       .stay-inner    { grid-template-columns:1fr; }
       .highlights-grid { grid-template-columns:1fr 1fr; }
       .dining-grid   { grid-template-columns:1fr 1fr; }
-      .raffles-inner { grid-template-columns:1fr; }
       .raffles-img-col { min-height:320px; }
     }
     @media(max-width:640px) {
