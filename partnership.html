@@ -64,6 +64,17 @@
     html body .btn-outline, html body .btn-outline:visited { color:var(--cream) !important; text-decoration:none !important; }
     html body .btn-outline:hover { color:var(--gold) !important; }
 
+    .btn-outline-navy {
+      display:inline-flex; align-items:center; gap:10px; margin-top:28px;
+      font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+      padding:16px 30px; text-decoration:none; background:transparent;
+      border:1px solid rgba(13,27,62,.25); color:var(--navy); transition:border-color .22s, color .22s;
+    }
+    .btn-outline-navy svg { width:15px; height:15px; flex-shrink:0; }
+    .btn-outline-navy:hover { border-color:var(--gold); color:#a3823f; }
+    html body .btn-outline-navy, html body .btn-outline-navy:visited { color:var(--navy) !important; background:transparent !important; text-decoration:none !important; }
+    html body .btn-outline-navy:hover { border-color:var(--gold) !important; color:#a3823f !important; }
+
     /* -- SHARED -------------------------------------------- */
     .sec-pad { padding:clamp(64px,8vw,100px) var(--pad); }
     .inner   { max-width:var(--max); margin:0 auto; }
@@ -113,7 +124,6 @@
     .tier-table th.th-platinum { color:#c9a96e; }
     .tier-table th.th-gold     { color:#d4af37; }
     .tier-table th.th-silver   { color:#b8b8c8; }
-    .tier-table th.th-bronze   { color:#c4906a; }
     .tier-table th.th-network  { color:#7ab8c8; }
     .tier-table td { padding:13px 16px; font-size:15px; text-align:center; border-bottom:1px solid rgba(255,255,255,.07); color:#c8c4bc; vertical-align:middle; }
     .tier-table td:first-child { text-align:left; font-size:13px; font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:#8a8f9a; }
@@ -145,7 +155,6 @@
     .tier-card--platinum .tier-bar { background:var(--gold); }
     .tier-card--gold     .tier-bar { background:#d4af37; }
     .tier-card--silver   .tier-bar { background:#a8a8b3; }
-    .tier-card--bronze   .tier-bar { background:#a0673a; }
     .tier-card--network  .tier-bar { background:#5a9aaa; }
 
     .tier-slots { font-size:10px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; margin-bottom:6px; }
@@ -153,7 +162,6 @@
     .tier-card--platinum .tier-slots { color:var(--gold); }
     .tier-card--gold     .tier-slots { color:#d4af37; }
     .tier-card--silver   .tier-slots { color:#a8a8b3; }
-    .tier-card--bronze   .tier-slots { color:#ba8055; }
     .tier-card--network  .tier-slots { color:#7ab8c8; }
 
     .tier-name  { font-family:var(--serif); font-size:1.5rem; font-weight:400; color:#f0ece4; margin-bottom:4px; }
@@ -170,7 +178,6 @@
     .tier-card--platinum .tier-check { stroke:var(--gold); }
     .tier-card--gold     .tier-check { stroke:#d4af37; }
     .tier-card--silver   .tier-check { stroke:#a8a8b3; }
-    .tier-card--bronze   .tier-check { stroke:#ba8055; }
     .tier-card--network  .tier-check { stroke:#7ab8c8; }
 
     .tier-cta { display:block; text-align:center; font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; padding:13px 20px; text-decoration:none; transition:all .22s; border:1.5px solid; }
@@ -182,8 +189,6 @@
     .tier-card--gold     .tier-cta:hover { background:#d4af37; color:var(--dark); }
     .tier-card--silver   .tier-cta { background:transparent; color:#c8c8d4; border-color:#c8c8d4; }
     .tier-card--silver   .tier-cta:hover { background:#c8c8d4; color:var(--dark); }
-    .tier-card--bronze   .tier-cta { background:transparent; color:#c89060; border-color:#c89060; }
-    .tier-card--bronze   .tier-cta:hover { background:#c89060; color:var(--dark); }
     .tier-card--network  .tier-cta { background:transparent; color:#7ab8c8; border-color:#7ab8c8; }
     .tier-card--network  .tier-cta:hover { background:#7ab8c8; color:var(--dark); }
 
@@ -247,8 +252,6 @@
     html body .tier-card--gold     .tier-cta:hover { background:#d4af37 !important; color:var(--dark) !important; }
     html body .tier-card--silver   .tier-cta, html body .tier-card--silver   .tier-cta:visited { color:#c8c8d4 !important; background:transparent !important; border-color:#c8c8d4 !important; text-decoration:none !important; }
     html body .tier-card--silver   .tier-cta:hover { background:#c8c8d4 !important; color:var(--dark) !important; }
-    html body .tier-card--bronze   .tier-cta, html body .tier-card--bronze   .tier-cta:visited { color:#c89060 !important; background:transparent !important; border-color:#c89060 !important; text-decoration:none !important; }
-    html body .tier-card--bronze   .tier-cta:hover { background:#c89060 !important; color:var(--dark) !important; }
     html body .tier-card--network  .tier-cta, html body .tier-card--network  .tier-cta:visited { color:#7ab8c8 !important; background:transparent !important; border-color:#7ab8c8 !important; text-decoration:none !important; }
     html body .tier-card--network  .tier-cta:hover { background:#7ab8c8 !important; color:var(--dark) !important; }
 
@@ -412,30 +415,29 @@
             <th class="th-platinum">Platinum</th>
             <th class="th-gold">Gold</th>
             <th class="th-silver">Silver</th>
-            <th class="th-bronze">Bronze</th>
-            <th class="th-network">Networking</th>
+            <th class="th-network">Exhibitor</th>
           </tr>
         </thead>
         <tbody>
           <tr class="row-highlight">
             <td>Price (USD)</td>
-            <td class="price">$35,000</td>
-            <td class="price">$28,000</td>
             <td class="price">$20,000</td>
             <td class="price">$18,000</td>
             <td class="price">$15,000</td>
+            <td class="price">$12,000</td>
             <td class="price">$10,000</td>
           </tr>
-          <tr><td>Available Slots</td><td><span class="excl">Exclusive</span></td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td></tr>
-          <tr><td>VIP Passes</td><td>8</td><td>6</td><td>4</td><td>4</td><td>4</td><td>4</td></tr>
-          <tr><td>Networking Space</td><td>8 SQM</td><td>8 SQM</td><td>6 SQM</td><td>6 SQM</td><td>6 SQM</td><td>6 SQM</td></tr>
-          <tr><td>"Powered by" Branding</td><td><span class="excl">Exclusive</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td></tr>
-          <tr><td>Pre-Event Delegate List</td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td></tr>
-          <tr><td>Post-Event Delegate List</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td></tr>
-          <tr><td>Post-Event Email Logo</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td></tr>
-          <tr><td>Chairman Recognition</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
-          <tr><td>Logo on Materials</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td>Selected</td><td>Selected</td><td>Selected</td><td>Selected</td></tr>
-          <tr><td>Post-Event Report</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td><td><span class="check">&#10003;</span></td></tr>
+          <tr><td>Available Slots</td><td><span class="excl">Exclusive</span></td><td>2</td><td>3</td><td>3</td><td>Multiple</td></tr>
+          <tr><td>Exhibitor Passes</td><td>6</td><td>4</td><td>3</td><td>3</td><td>2</td></tr>
+          <tr><td>Delegate Registration</td><td>10</td><td>5</td><td>5</td><td>5</td><td><span class="dash">&mdash;</span></td></tr>
+          <tr><td>Networking Space</td><td>15 SQM</td><td>12 SQM</td><td>9 SQM</td><td>6 SQM</td><td>4 SQM</td></tr>
+          <tr><td>Pre-Event Marketing</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td></tr>
+          <tr><td>Dedicated Account Manager</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td></tr>
+          <tr><td>Post-Event Delegate List</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td></tr>
+          <tr><td>Post-Event Email Logo</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+          <tr><td>MC Recognition, Opening Ceremony</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+          <tr><td>Logo on Materials &amp; Website</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+          <tr><td>Post-Event Report</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -449,20 +451,20 @@
         <div class="tier-bar"></div>
         <div class="tier-slots">Exclusive &mdash; 1 Slot</div>
         <div class="tier-name">Title Sponsor</div>
-        <div class="tier-price">USD <strong>35,000</strong> <span>excl. VAT</span></div>
+        <div class="tier-price">USD <strong>20,000</strong> <span>excl. VAT</span></div>
         <div class="tier-divider"></div>
         <div class="tier-sub">Branding &amp; Marketing</div>
         <ul class="tier-benefits">
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>"EINSC 2026 Powered By" across all major branding: stage backdrop, banners, delegate badges, website, digital screens</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>All pre-event marketing: email campaigns, media announcements, press releases</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event report with dedicated paragraph</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Recognition as Title Sponsor at opening &amp; closing sessions</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>8 SQM high-visibility networking space</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acknowledged as Title Sponsor during the Opening Ceremony by the MC &mdash; highest billing among all partners</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo across all major branding: stage backdrop, signage, lanyards, digital screens &amp; promotional campaigns</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Featured on the home page of the summit website with a hyperlink, plus all pre-event marketing &amp; media</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated paragraph in the post-event report</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>15 SQM high-visibility networking space</li>
         </ul>
         <div class="tier-sub">Audience Access</div>
         <ul class="tier-benefits">
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>8 VIP Passes (sessions, coffee breaks &amp; luncheons)</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-event delegate list (designation &amp; company)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 Exhibitor Passes &amp; 10 Delegate Registrations</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated account manager to assist onsite</li>
           <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list (name, designation, company, country)</li>
           <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email to all attendees &amp; media partners</li>
         </ul>
@@ -472,21 +474,22 @@
       <!-- PLATINUM -->
       <div class="tier-card tier-card--platinum">
         <div class="tier-bar"></div>
-        <div class="tier-slots">3 Slots Available</div>
+        <div class="tier-slots">2 Slots Available</div>
         <div class="tier-name">Platinum Sponsor</div>
-        <div class="tier-price">USD <strong>28,000</strong> <span>excl. VAT</span></div>
+        <div class="tier-price">USD <strong>18,000</strong> <span>excl. VAT</span></div>
         <div class="tier-divider"></div>
         <div class="tier-sub">Branding &amp; Marketing</div>
         <ul class="tier-benefits">
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo across all major branding: stage backdrop, banners, website with hyperlink, digital screens</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-event marketing: email campaigns, media announcements, press releases</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event report with dedicated paragraph</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Chairman recognition at opening &amp; closing sessions</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>8 SQM networking space</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acknowledged as Platinum Sponsor during the Opening Ceremony by the MC</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on summit marketing material, signage &amp; banners on-site, plus home page placement with hyperlink</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Inclusion in pre-event marketing: email, social and partner communications</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated paragraph in the post-event report</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>12 SQM networking space</li>
         </ul>
         <div class="tier-sub">Audience Access</div>
         <ul class="tier-benefits">
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 VIP Passes (sessions, coffee breaks &amp; luncheons)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 Exhibitor Passes &amp; 5 Delegate Registrations</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated account manager to assist onsite</li>
           <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list (name, designation, company, country)</li>
           <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email to all attendees</li>
         </ul>
@@ -498,21 +501,21 @@
         <div class="tier-bar"></div>
         <div class="tier-slots">3 Slots Available</div>
         <div class="tier-name">Gold Sponsor</div>
-        <div class="tier-price">USD <strong>20,000</strong> <span>excl. VAT</span></div>
+        <div class="tier-price">USD <strong>15,000</strong> <span>excl. VAT</span></div>
         <div class="tier-divider"></div>
         <div class="tier-sub">Branding &amp; Marketing</div>
         <ul class="tier-benefits">
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on selected materials: stage backdrops, banners, website with hyperlink, digital screens</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-event marketing: email campaigns &amp; media announcements</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event report with dedicated paragraph</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Chairman recognition at opening &amp; closing sessions</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 SQM high-visibility networking space</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acknowledged as Gold Sponsor during the Opening Ceremony by the MC</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on summit marketing material, signage/banners on-site, and home page with hyperlink</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Inclusion in pre-event marketing: email, social and partner communications</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated paragraph in the post-event report</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>9 SQM high-visibility networking space</li>
         </ul>
         <div class="tier-sub">Audience Access</div>
         <ul class="tier-benefits">
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 VIP Passes</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3 Exhibitor Passes &amp; 5 Delegate Registrations</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list (name, designation, company, country)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email to all attendees</li>
         </ul>
         <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Gold Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
       </div>
@@ -522,72 +525,53 @@
         <div class="tier-bar"></div>
         <div class="tier-slots">3 Slots Available</div>
         <div class="tier-name">Silver Sponsor</div>
-        <div class="tier-price">USD <strong>18,000</strong> <span>excl. VAT</span></div>
+        <div class="tier-price">USD <strong>12,000</strong> <span>excl. VAT</span></div>
         <div class="tier-divider"></div>
         <div class="tier-sub">Branding &amp; Marketing</div>
         <ul class="tier-benefits">
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on selected summit materials: stage backdrops, banners, website with hyperlink</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-event marketing: email campaigns &amp; media announcements</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event report with dedicated paragraph</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Chairman recognition at opening &amp; closing sessions</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acknowledged as Silver Sponsor during the Opening Ceremony by the MC</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on summit marketing material, signage/banners on-site, and home page with hyperlink</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Inclusion in pre-event marketing: email, social and partner communications</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated paragraph in the post-event report</li>
           <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 SQM networking space</li>
         </ul>
         <div class="tier-sub">Audience Access</div>
         <ul class="tier-benefits">
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 VIP Passes</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3 Exhibitor Passes &amp; 5 Delegate Registrations</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list (name, designation, company, country)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email to all attendees</li>
         </ul>
         <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Silver Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
       </div>
 
-      <!-- BRONZE -->
-      <div class="tier-card tier-card--bronze">
-        <div class="tier-bar"></div>
-        <div class="tier-slots">3 Slots Available</div>
-        <div class="tier-name">Bronze Sponsor</div>
-        <div class="tier-price">USD <strong>15,000</strong> <span>excl. VAT</span></div>
-        <div class="tier-divider"></div>
-        <div class="tier-sub">Branding &amp; Marketing</div>
-        <ul class="tier-benefits">
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on selected materials: stage backdrops, banners, website with hyperlink</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-event marketing: email campaigns &amp; media announcements</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Chairman recognition at opening &amp; closing sessions</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 SQM networking space</li>
-        </ul>
-        <div class="tier-sub">Audience Access</div>
-        <ul class="tier-benefits">
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 VIP Passes</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email</li>
-        </ul>
-        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Bronze Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
-      </div>
-
-      <!-- NETWORKING -->
+      <!-- EXHIBITOR -->
       <div class="tier-card tier-card--network">
         <div class="tier-bar"></div>
-        <div class="tier-slots">3 Slots Available</div>
-        <div class="tier-name">Networking Sponsor</div>
+        <div class="tier-slots">Multiple Slots Available</div>
+        <div class="tier-name">Exhibitor</div>
         <div class="tier-price">USD <strong>10,000</strong> <span>excl. VAT</span></div>
         <div class="tier-divider"></div>
         <div class="tier-sub">Branding &amp; Marketing</div>
         <ul class="tier-benefits">
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>"EINSC 2026 Powered By" on networking materials, digital screens &amp; website</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pre-event marketing: email campaigns &amp; media announcements</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event report with dedicated paragraph</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Chairman recognition at opening &amp; closing sessions</li>
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 SQM networking space</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acknowledged as Exhibitor during the Opening Ceremony by the MC</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on summit marketing material, signage/banners on-site, and home page with hyperlink</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated paragraph in the post-event report</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 SQM networking space</li>
         </ul>
         <div class="tier-sub">Audience Access</div>
         <ul class="tier-benefits">
-          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 VIP Passes</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>2 Exhibitor Passes</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email to all attendees</li>
         </ul>
-        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Networking Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Exhibitor Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
       </div>
 
     </div>
     <p class="tier-note">All prices exclusive of 5% VAT &nbsp;&middot;&nbsp; For enquiries: <a href="mailto:sponsorship@einsc.com" style="color:rgba(201,169,110,.6);">sponsorship@einsc.com</a></p>
+    <a href="https://einsc.com/wp-content/uploads/2026/06/EINSC-Sponsorship-Brochure-2026.pdf" class="btn-outline-navy" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Full Sponsorship Brochure
+    </a>
   </div>
 </section>
 
@@ -601,28 +585,28 @@
 
       <div class="opp-card opp-card--featured">
         <span class="opp-excl">Exclusive</span>
-        <div class="opp-price">USD 20,000</div>
-        <div class="opp-name">Lunch Sponsor</div>
-        <p class="opp-text">Dedicated lunch invitation email sent to all attendees. Roll-up banner at luncheon entrance and logo on conference website. Premium visibility during seated networking lunch.</p>
-      </div>
-
-      <div class="opp-card opp-card--featured">
-        <span class="opp-excl">Exclusive</span>
-        <div class="opp-price">USD 20,000</div>
-        <div class="opp-name">Workshop Sponsor</div>
-        <p class="opp-text">Host a 60&ndash;90 minute workshop in a parallel breakout room. Ideal for product demonstrations and clinical education to an engaged, specialist audience.</p>
-      </div>
-
-      <div class="opp-card">
         <div class="opp-price">USD 15,000</div>
-        <div class="opp-name">Coffee Break Sponsor</div>
-        <p class="opp-text">Maximum brand visibility. Your logo prominently displayed on table flags throughout the exhibit hall during all conference coffee breaks.</p>
+        <div class="opp-name">Lunch Sponsor</div>
+        <p class="opp-text">Dedicated lunch invitation email sent to all attendees. Roll-up banner at luncheon entrance (company to provide) and acknowledgment as sponsor of the selected lunch break on the conference website.</p>
       </div>
 
       <div class="opp-card">
         <div class="opp-price">USD 8,000</div>
+        <div class="opp-name">Workshop Sponsor</div>
+        <p class="opp-text">Book your own 60&ndash;90 minute workshop in a parallel room. Sponsor provides instructor &amp; description; the committee must approve the completed program including speakers.</p>
+      </div>
+
+      <div class="opp-card">
+        <div class="opp-price">USD 8,000</div>
+        <div class="opp-name">Coffee Break Sponsor</div>
+        <p class="opp-text">Premium brand exposure. Your logo displayed on table flags placed around the coffee break area in the exhibition hall, ensuring strong visibility among attendees throughout the break.</p>
+      </div>
+
+      <div class="opp-card opp-card--featured">
+        <span class="opp-excl">Exclusive</span>
+        <div class="opp-price">USD 15,000</div>
         <div class="opp-name">Lanyard Sponsor</div>
-        <p class="opp-text">Exclusive brand placement on ALL attendee lanyards. Worn by every delegate, speaker, and VIP throughout the entire conference.</p>
+        <p class="opp-text">Elevate your brand exposure &mdash; lanyard sponsorship ensures your brand is seen by every delegate, speaker, and VIP throughout the entire conference.</p>
       </div>
 
       <div class="opp-card">
@@ -632,6 +616,25 @@
       </div>
 
     </div>
+    <p class="tier-note" style="margin-top:32px;">All prices exclusive of 5% VAT &nbsp;&middot;&nbsp; For inquiries and custom package bookings: <a href="mailto:sponsorship@einsc.com" style="color:var(--gold);">sponsorship@einsc.com</a></p>
+  </div>
+</section>
+
+<!-- EINSC SERIES SPONSORS -->
+<section class="sec-pad" style="background:#fdfbf7; border-top:1px solid var(--cream); border-bottom:1px solid var(--cream); text-align:center;">
+  <div class="inner">
+    <span class="section-eyebrow">EINSC Series Sponsors</span>
+    <h2 class="section-title" style="color:var(--navy);">Trusted by Industry Leaders<br>Across <em style="font-style:italic; color:var(--gold);">a Decade of Editions</em></h2>
+    <div class="gold-rule" style="margin-left:auto; margin-right:auto;"></div>
+    <p class="section-sub" style="margin-left:auto; margin-right:auto; text-align:center;">
+      See who has supported past editions of EINSC and the calibre of organisations you'll be joining
+      as a partner of the 10th Anniversary Conference. Full case studies and past-sponsor details are
+      available in the sponsorship brochure.
+    </p>
+    <a href="https://einsc.com/wp-content/uploads/2026/06/EINSC-Sponsorship-Brochure-2026.pdf" class="btn-outline-navy" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Sponsorship Brochure
+    </a>
   </div>
 </section>
 
