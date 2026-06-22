@@ -21,14 +21,8 @@
     display: flex; align-items: center; gap: 14px;
     text-decoration: none !important; flex-shrink: 0;
   }
-  .nav__emblem {
-    width: 46px; height: 46px; border-radius: 50%;
-    border: 1.5px solid rgba(201,169,110,.55);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .nav__emblem span {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 12px; font-weight: 600; color: #c9a96e; letter-spacing: .05em;
+  .nav__emblem-img {
+    height: 46px; width: auto; flex-shrink: 0; display: block;
   }
   .nav__logo-text .t1 {
     font-size: 13px; font-weight: 600; letter-spacing: .2em;
@@ -146,7 +140,7 @@
 <!-- HEADER NAV -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <a href="https://einsc.com/" class="nav__logo" aria-label="EINSC 2026 Home">
-    <div class="nav__emblem"><span>EINSC</span></div>
+    <img src="https://einsc.com/wp-content/uploads/2026/06/EINSC-Logo_White-scaled.png" alt="EINSC 2026" class="nav__emblem-img"/>
     <div class="nav__logo-text">
       <div class="t1">EINSC 2026</div>
       <div class="t2">Emirates Neurosurgical Conference</div>
