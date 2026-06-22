@@ -48,6 +48,22 @@
     .hs-num   { font-family:var(--serif); font-size:clamp(2rem,3.5vw,3rem); font-weight:300; color:var(--gold); line-height:1; }
     .hs-label { font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:rgba(240,236,228,.42); margin-top:4px; }
 
+    .hero-buttons { display:flex; gap:18px; flex-wrap:wrap; margin-bottom:52px; }
+    .btn-gold, .btn-outline {
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+      padding:16px 30px; text-decoration:none; transition:background .22s, border-color .22s, color .22s;
+    }
+    .btn-gold { background:var(--gold); color:var(--dark); }
+    .btn-gold:hover { background:var(--gold-l); }
+    .btn-outline { background:transparent; border:1px solid rgba(240,236,228,.3); color:var(--cream); }
+    .btn-outline:hover { border-color:var(--gold); color:var(--gold); }
+    .btn-gold svg, .btn-outline svg { width:15px; height:15px; flex-shrink:0; }
+    html body .btn-gold, html body .btn-gold:visited { color:var(--dark) !important; background:#c9a96e !important; text-decoration:none !important; }
+    html body .btn-gold:hover { background:#e2c28a !important; }
+    html body .btn-outline, html body .btn-outline:visited { color:var(--cream) !important; text-decoration:none !important; }
+    html body .btn-outline:hover { color:var(--gold) !important; }
+
     /* -- SHARED -------------------------------------------- */
     .sec-pad { padding:clamp(64px,8vw,100px) var(--pad); }
     .inner   { max-width:var(--max); margin:0 auto; }
@@ -206,6 +222,10 @@
     .cd-value a:hover { color:var(--gold); }
     .contact-cta { display:block; margin-top:28px; text-align:center; font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--dark); padding:16px 28px; text-decoration:none; transition:background .22s; }
     .contact-cta:hover { background:var(--gold-l); }
+    .contact-cta--outline { background:transparent; border:1px solid rgba(201,169,110,.4); color:var(--cream); margin-top:12px; }
+    .contact-cta--outline:hover { border-color:var(--gold); color:var(--gold); }
+    html body .contact-cta--outline, html body .contact-cta--outline:visited { color:var(--cream) !important; background:transparent !important; }
+    html body .contact-cta--outline:hover { color:var(--gold) !important; }
 
     /* -- ORGANISERS STRIP --------------------------------- */
     .organisers-strip { background:#060a1a; border-top:1px solid rgba(201,169,110,.12); padding:clamp(36px,5vw,56px) var(--pad); }
@@ -271,6 +291,13 @@
       at Raffles Hotel Dubai. Connect your brand with the region's most influential neurosurgeons
       and healthcare decision-makers at this landmark decennial edition.
     </p>
+    <div class="hero-buttons">
+      <a href="https://einsc.com/wp-content/uploads/2026/06/EINSC-Sponsorship-Brochure-2026.pdf" class="btn-gold" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Sponsorship Brochure
+      </a>
+      <a href="#contact" class="btn-outline">Become a Partner</a>
+    </div>
     <div class="hero-stats">
       <div><div class="hs-num">10<sup style="font-size:.6em">th</sup></div><div class="hs-label">Anniversary Edition</div></div>
       <div><div class="hs-num">3</div><div class="hs-label">Conference Days</div></div>
@@ -646,6 +673,7 @@
         </div>
 
         <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Sponsorship Enquiry" class="contact-cta">Request Sponsorship Prospectus</a>
+        <a href="https://einsc.com/wp-content/uploads/2026/06/EINSC-Sponsorship-Brochure-2026.pdf" class="contact-cta contact-cta--outline" target="_blank" rel="noopener">Download Brochure (PDF)</a>
       </div>
     </div>
   </div>
