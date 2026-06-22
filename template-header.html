@@ -21,8 +21,11 @@
     display: flex; align-items: center; gap: 14px;
     text-decoration: none !important; flex-shrink: 0;
   }
-  .nav__emblem-img {
-    height: 46px; width: auto; flex-shrink: 0; display: block;
+  .nav__emblem-img,
+  .nav__logo img.nav__emblem-img {
+    height: 40px !important; width: auto !important;
+    max-width: 160px !important; max-height: 40px !important;
+    flex-shrink: 0; display: block; object-fit: contain;
   }
   .nav__logo-text .t1 {
     font-size: 13px; font-weight: 600; letter-spacing: .2em;
