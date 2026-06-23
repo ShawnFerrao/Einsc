@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Past Sponsors - EINSC 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --gold:   #c9a96e;
+      --gold-l: #e2c28a;
+      --cream:  #f0ece4;
+      --navy:   #0d1b3e;
+      --dark:   #020510;
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --sans:   'Barlow', sans-serif;
+      --max:    1280px;
+      --pad:    clamp(20px, 5vw, 80px);
+    }
+
+    html { scroll-behavior:smooth; }
+    body { font-family:var(--sans); background:#fff; color:#1c1c2e; overflow-x:hidden; line-height:1.7; }
+
+    /* -- PAGE HERO ------------------------------------------- */
+    .page-hero {
+      background:var(--dark); padding:140px var(--pad) 80px;
+      position:relative; overflow:hidden;
+    }
+    .page-hero__bg {
+      position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse 60% 70% at 90% 40%, rgba(201,169,110,.08) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(13,27,62,.6) 0%, transparent 60%);
+    }
+    .hero-line { position:absolute; left:0; bottom:0; right:0; height:3px; background:linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
+    .page-hero__inner { position:relative; z-index:1; max-width:var(--max); margin:0 auto; }
+    .page-hero__eyebrow { font-size:11px; font-weight:600; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; display:block; }
+    .page-hero__title { font-family:var(--serif); font-size:clamp(2.2rem,5vw,3.8rem); font-weight:300; color:var(--cream); line-height:1.15; margin-bottom:28px; max-width:720px; }
+    .page-hero__title em { font-style:italic; color:var(--gold); }
+    .page-hero__desc { font-size:16px; font-weight:300; color:rgba(240,236,228,.75); max-width:660px; line-height:1.85; }
+
+    /* -- SHARED SECTION UTILITIES ----------------------------- */
+    .inner   { max-width:var(--max); margin:0 auto; }
+    .sec-pad { padding:clamp(64px,8vw,100px) var(--pad); }
+    .section-eyebrow { font-size:11px; font-weight:600; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:block; }
+    .section-title   { font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; line-height:1.2; margin-bottom:16px; }
+    .section-sub     { font-size:16px; font-weight:300; color:#6a6a7a; max-width:640px; line-height:1.85; margin-bottom:clamp(40px,5vw,60px); }
+    .gold-rule       { width:44px; height:2px; background:var(--gold); margin-bottom:28px; }
+
+    /* -- LOGO WALL --------------------------------------------- */
+    .logo-wall { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,1.6vw,22px); }
+    .logo-slot {
+      background:#fff; border:1px solid var(--cream); border-radius:4px;
+      display:flex; align-items:center; justify-content:center;
+      padding:clamp(18px,2vw,28px); height:120px; transition:border-color .25s, box-shadow .25s;
+    }
+    .logo-slot:hover { border-color:rgba(201,169,110,.4); box-shadow:0 10px 32px rgba(13,27,62,.08); }
+    .logo-slot img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
+    @media(max-width:900px) { .logo-wall { grid-template-columns:repeat(3,1fr); } }
+    @media(max-width:600px) { .logo-wall { grid-template-columns:repeat(2,1fr); } }
+
+    /* -- BACK LINK --------------------------------------------- */
+    .back-link { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); text-decoration:none; margin-bottom:clamp(40px,5vw,56px); }
+    .back-link:hover { color:var(--gold-l); }
+    .back-link svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:2; }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero__bg"></div>
+  <div class="page-hero__inner">
+    <span class="page-hero__eyebrow">EINSC &middot; A Decade of Partnership</span>
+    <h1 class="page-hero__title">EINSC Series <em>Sponsors</em></h1>
+    <p class="page-hero__desc">
+      See who has supported past editions of the Emirates International Neurosurgical Conference
+      and the calibre of organisations that have partnered with us across the years.
+    </p>
+  </div>
+  <div class="hero-line"></div>
+</section>
+
+<!-- PAST SPONSORS -->
+<section class="sec-pad" style="text-align:center;">
+  <div class="inner">
+    <a href="https://einsc.com/partners-opportunities/" class="back-link">
+      <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Sponsorship Opportunities
+    </a>
+    <span class="section-eyebrow">EINSC Series Sponsors</span>
+    <h2 class="section-title" style="color:var(--navy);">See Who Has Supported<br><em style="font-style:italic; color:var(--gold);">Past Conferences:</em></h2>
+    <div class="gold-rule" style="margin-left:auto; margin-right:auto;"></div>
+    <p class="section-sub" style="margin-left:auto; margin-right:auto; text-align:center;">
+      The organisations below have partnered with EINSC across a decade of editions, helping
+      bring together leading neurosurgeons and healthcare innovators from across the GCC and beyond.
+    </p>
+    <div class="logo-wall" style="text-align:left;">
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2024/01/1200px-Johnson_and_Johnson_Logo.svg_.png" alt="Johnson &amp; Johnson"/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/amico-logo.webp" alt="AMICO"/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/bayan-medical-logo.webp" alt="Bayan Medical Co."/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/eoc-logo.webp" alt="EOC"/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/csm_adeor_a26136802c.webp" alt="Adeor Medical"/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/images-1.png" alt="Sponsor"/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/images-2.png" alt="Sponsor"/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/logo-atrees-e1734357019657.webp" alt="Atrees"/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/manman-logo.webp" alt="Manman"/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/maxresdefault.jpg" alt="Sponsor"/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/Medline-Logo-400x400-1.png" alt="Medline"/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/medtronic-logo.webp" alt="Medtronic"/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/proxy-logo.webp" alt="Proxy"/></div>
+      <div class="logo-slot"><img src="https://einsc.com/wp-content/uploads/2026/06/147-small.webp" alt="Baxter"/></div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
