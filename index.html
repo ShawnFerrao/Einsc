@@ -32,6 +32,25 @@
   .einsc-hero-block { box-sizing: border-box; }
   .einsc-hero-block *, .einsc-hero-block *::before, .einsc-hero-block *::after { box-sizing: inherit; }
 
+  /* ---- ANNOUNCEMENT BAR ---- */
+  .einsc-announce-bar {
+    background: #c9a96e; display: flex; align-items: center; justify-content: center;
+    gap: 14px; flex-wrap: wrap; text-align: center;
+    padding: 12px clamp(20px,5vw,80px); position: relative; z-index: 101;
+  }
+  .einsc-announce-bar p {
+    margin: 0; font-family: 'Barlow', sans-serif; font-size: clamp(13px,1.3vw,15px);
+    font-weight: 500; color: #020510 !important; letter-spacing: .01em;
+  }
+  .einsc-announce-bar a {
+    font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase; color: #f0ece4 !important;
+    background: #020510 !important; padding: 8px 18px; text-decoration: none !important;
+    white-space: nowrap; transition: background .22s;
+  }
+  .einsc-announce-bar a:hover { background: #0d1b3e !important; }
+  @media (max-width: 600px) { .einsc-announce-bar { padding: 12px 20px; } }
+
   /* ---- HERO ---- */
   .einsc-hero {
     position: relative; width: 100%; height: 100svh; min-height: 600px;
@@ -186,6 +205,10 @@
 </style>
 
 <div class="einsc-hero-block">
+  <div class="einsc-announce-bar">
+    <p>Abstract Submission Portal is now <strong>live</strong> &mdash; deadline 25 July 2026</p>
+    <a href="https://app.oxfordabstracts.com/stages/82958/submitter" target="_blank" rel="noopener">Submit Now</a>
+  </div>
   <section class="einsc-hero">
     <video class="einsc-hero__video"
       src="https://einsc.com/wp-content/uploads/2026/05/hf_20260517_031820_3e274d58-ca24-4c52-9725-9c7520e98882.mp4"
