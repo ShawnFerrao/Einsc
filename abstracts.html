@@ -121,8 +121,8 @@
       display:flex; align-items:center; justify-content:space-between;
       padding:clamp(24px,3vw,36px) var(--pad); gap:24px; flex-wrap:wrap;
     }
-    .submit-strip__text { font-size:clamp(16px,1.5vw,18px); color:rgba(240,236,228,.7); font-weight:300; }
-    .submit-strip__text strong { color:var(--cream); font-weight:500; }
+    .submit-strip__text { font-size:16px; color:rgba(240,236,228,.7) !important; font-weight:300; }
+    .submit-strip__text strong { color:var(--cream) !important; font-weight:500; }
     .btn-gold {
       font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
       color:var(--dark); background:var(--gold); padding:16px 36px;
@@ -345,6 +345,9 @@
     html body .guidelines-nav__list a:hover { color: var(--navy) !important; }
     html body .card__link:hover    { color: var(--gold) !important; border-bottom-color: var(--gold) !important; }
     html body .abstract-link:hover { color: var(--gold-l) !important; }
+
+    html body .submit-strip__text { color:rgba(240,236,228,.7) !important; font-size:16px !important; }
+    html body .submit-strip__text strong { color:var(--cream) !important; }
 
     /* Footer links */
 
