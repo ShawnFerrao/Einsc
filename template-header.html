@@ -148,15 +148,15 @@
 
   /* Social icons */
   .nav__social { display: flex; align-items: center; gap: 18px; }
-  .nav__social a {
-    display: flex; color: rgba(240,236,228,.55); transition: color .22s;
+  .nav__social a, .nav__social a:visited {
+    display: flex; color: rgba(240,236,228,.55) !important; transition: color .22s; text-decoration: none !important;
   }
-  .nav__social a:hover { color: #c9a96e; }
-  .nav__social svg { width: 17px; height: 17px; fill: currentColor; }
+  .nav__social a:hover { color: #c9a96e !important; }
+  .nav__social svg { width: 17px; height: 17px; fill: currentColor !important; display: block; }
   .nav__drawer-social { display: flex; align-items: center; gap: 28px; margin-top: 8px; }
-  .nav__drawer-social a { display: flex; color: rgba(240,236,228,.6); transition: color .22s; }
-  .nav__drawer-social a:hover { color: #c9a96e; }
-  .nav__drawer-social svg { width: 22px; height: 22px; fill: currentColor; }
+  .nav__drawer-social a, .nav__drawer-social a:visited { display: flex; color: rgba(240,236,228,.6) !important; transition: color .22s; text-decoration: none !important; }
+  .nav__drawer-social a:hover { color: #c9a96e !important; }
+  .nav__drawer-social svg { width: 22px; height: 22px; fill: currentColor !important; display: block; }
 </style>
 
 <!-- HEADER NAV -->
