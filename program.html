@@ -1020,6 +1020,25 @@
 </div><!-- /program-inner -->
 </section>
 
+<script>
+  /* Tab switching */
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.day-program').forEach(function(d) { d.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('day' + btn.dataset.day).classList.add('active');
+    });
+  });
+
+  /* Presenter list toggle */
+  function togglePres(btn) {
+    btn.classList.toggle('open');
+    var list = btn.nextElementSibling;
+    if (list) list.classList.toggle('open');
+  }
+</script>
+
 </body>
 </html>
 
