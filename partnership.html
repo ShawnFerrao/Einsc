@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sponsorship &amp; Partnership Opportunities - EINSC 2026</title>
+  <title>Sponsorship &amp; Partnership Opportunities - EINSC 2027</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -85,7 +85,7 @@
 
     /* -- WELCOME MESSAGES ---------------------------------- */
     .welcome-section { background:#fff; }
-    .welcome-grid { display:grid; grid-template-columns:1fr; max-width:720px; gap:clamp(32px,5vw,64px); align-items:start; }
+    .welcome-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,64px); align-items:start; }
     .welcome-card { padding:clamp(32px,4vw,48px); border:1px solid #eae7e0; border-top:3px solid var(--gold); }
     .welcome-card__role { font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; display:block; }
     .welcome-card__name { font-family:var(--serif); font-size:clamp(1.3rem,2vw,1.6rem); font-weight:400; color:var(--navy); margin-bottom:4px; line-height:1.25; }
@@ -110,29 +110,101 @@
     .reason-item h4 { font-family:var(--serif); font-size:1.05rem; font-weight:600; color:var(--navy); margin-bottom:4px; line-height:1.3; }
     .reason-item p  { font-size:14px; font-weight:300; color:#6a6a7a; line-height:1.7; }
 
-    /* -- LOGO WALL ------------------------------------------ */
-    .logo-wall { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,1.6vw,22px); }
-    .logo-slot {
-      background:#fff; border:1px solid #eae7e0;
-      height:clamp(170px,17vw,220px);
-      display:flex; align-items:center; justify-content:center;
-      padding:clamp(26px,3vw,38px);
-      transition:border-color .22s, box-shadow .22s;
-    }
-    .logo-slot:hover { border-color:rgba(201,169,110,.4); box-shadow:0 10px 32px rgba(13,27,62,.08); }
-    .logo-slot img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
-    @media(max-width:900px) { .logo-wall { grid-template-columns:repeat(3,1fr); } }
-    @media(max-width:600px) { .logo-wall { grid-template-columns:repeat(2,1fr); } }
+    /* -- TIERS TABLE --------------------------------------- */
+    .tiers-section { background:#0a1628; }
+    .tiers-section .section-title { color:#f0ece4; }
+    .tiers-section .section-sub   { color:#b8b4ac; }
 
-    /* -- LOGO MARQUEE (auto-scrolling slider) ---------------- */
-    .logo-marquee { overflow:hidden; margin-top:clamp(32px,4vw,48px); -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-    .logo-marquee__track { display:flex; align-items:center; gap:clamp(28px,3vw,48px); width:max-content; animation:logo-marquee-scroll 36s linear infinite; }
-    .logo-marquee:hover .logo-marquee__track { animation-play-state:paused; }
-    .logo-marquee__slot { flex:0 0 auto; height:80px; display:flex; align-items:center; justify-content:center; padding:0 8px; }
-    .logo-marquee__slot img { max-height:100%; max-width:160px; width:auto; height:auto; object-fit:contain; filter:grayscale(15%); opacity:.85; transition:opacity .22s, filter .22s; }
-    .logo-marquee__slot img:hover { opacity:1; filter:none; }
-    @keyframes logo-marquee-scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
-    @media(max-width:600px) { .logo-marquee__slot { height:60px; } .logo-marquee__slot img { max-width:110px; } }
+    /* Overview comparison table */
+    .tier-table-wrap { overflow-x:auto; margin-bottom:clamp(48px,6vw,72px); }
+    .tier-table { width:100%; border-collapse:collapse; min-width:700px; }
+    .tier-table th { padding:14px 16px; font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; text-align:center; border-bottom:2px solid rgba(255,255,255,.12); white-space:nowrap; }
+    .tier-table th:first-child { text-align:left; color:#8a8f9a; }
+    .tier-table th.th-title    { color:#e2c28a; }
+    .tier-table th.th-platinum { color:#c9a96e; }
+    .tier-table th.th-gold     { color:#d4af37; }
+    .tier-table th.th-silver   { color:#b8b8c8; }
+    .tier-table th.th-network  { color:#7ab8c8; }
+    .tier-table td { padding:13px 16px; font-size:15px; text-align:center; border-bottom:1px solid rgba(255,255,255,.07); color:#c8c4bc; vertical-align:middle; }
+    .tier-table td:first-child { text-align:left; font-size:13px; font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:#8a8f9a; }
+    .tier-table td.price { font-family:var(--serif); font-size:1.35rem; font-weight:300; color:#f0ece4; }
+    .tier-table td .check { color:#c9a96e; font-size:17px; }
+    .tier-table td .dash  { color:rgba(255,255,255,.2); }
+    .tier-table td .excl  { font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#e2c28a; }
+    .tier-table tr:last-child td { border:none; }
+    .tier-table tr:hover td { background:rgba(255,255,255,.03); }
+    .tier-table .row-highlight td:first-child { color:#b0b5c0; }
+
+    /* Tier detail cards */
+    .tier-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,22px); }
+    .tier-card {
+      background:#0e1c32; border:1px solid rgba(255,255,255,.12);
+      padding:clamp(24px,2.5vw,36px) clamp(18px,2vw,28px);
+      display:flex; flex-direction:column; position:relative;
+      transition:background .25s, border-color .25s;
+    }
+    .tier-card:hover { background:#132240; border-color:rgba(255,255,255,.2); }
+    .tier-card--title    { background:#141c2e; border-color:rgba(226,194,138,.45); }
+    .tier-card--platinum { background:#121a28; border-color:rgba(201,169,110,.4); }
+    .tier-card--title:hover    { background:#1a2438; }
+    .tier-card--platinum:hover { background:#182036; }
+
+    .tier-featured-badge { position:absolute; top:-1px; left:50%; transform:translateX(-50%); background:var(--gold); color:var(--dark); font-size:9px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; padding:5px 16px; white-space:nowrap; }
+    .tier-bar { height:3px; margin:-clamp(24px,2.5vw,36px) -clamp(18px,2vw,28px) 24px; }
+    .tier-card--title    .tier-bar { background:#e2c28a; }
+    .tier-card--platinum .tier-bar { background:var(--gold); }
+    .tier-card--gold     .tier-bar { background:#d4af37; }
+    .tier-card--silver   .tier-bar { background:#a8a8b3; }
+    .tier-card--network  .tier-bar { background:#5a9aaa; }
+
+    .tier-slots { font-size:10px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; margin-bottom:6px; }
+    .tier-card--title    .tier-slots { color:#e2c28a; }
+    .tier-card--platinum .tier-slots { color:var(--gold); }
+    .tier-card--gold     .tier-slots { color:#d4af37; }
+    .tier-card--silver   .tier-slots { color:#a8a8b3; }
+    .tier-card--network  .tier-slots { color:#7ab8c8; }
+
+    .tier-name  { font-family:var(--serif); font-size:1.5rem; font-weight:400; color:#f0ece4; margin-bottom:4px; }
+    .tier-price { font-size:14px; font-weight:300; color:#9098a8; margin-bottom:18px; }
+    .tier-price strong { font-family:var(--serif); font-size:1.35rem; font-weight:300; color:#ddd8d0; }
+    .tier-divider { height:1px; background:rgba(255,255,255,.1); margin-bottom:18px; }
+    .tier-sub { font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#7a8090; margin-bottom:10px; }
+
+    .tier-benefits { list-style:none; flex:1; margin-bottom:24px; }
+    .tier-benefits li { display:flex; gap:10px; align-items:flex-start; font-size:16px; font-weight:300; color:#c4c0b8; padding:8px 0; border-bottom:1px solid rgba(255,255,255,.07); line-height:1.7; }
+    .tier-benefits li:last-child { border:none; }
+    .tier-check { flex-shrink:0; margin-top:3px; width:14px; height:14px; }
+    .tier-card--title    .tier-check { stroke:#e2c28a; }
+    .tier-card--platinum .tier-check { stroke:var(--gold); }
+    .tier-card--gold     .tier-check { stroke:#d4af37; }
+    .tier-card--silver   .tier-check { stroke:#a8a8b3; }
+    .tier-card--network  .tier-check { stroke:#7ab8c8; }
+
+    .tier-cta { display:block; text-align:center; font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; padding:13px 20px; text-decoration:none; transition:all .22s; border:1.5px solid; }
+    .tier-card--title    .tier-cta { background:#e2c28a; color:var(--dark); border-color:#e2c28a; }
+    .tier-card--title    .tier-cta:hover { background:#f0d4a0; border-color:#f0d4a0; }
+    .tier-card--platinum .tier-cta { background:var(--gold); color:var(--dark); border-color:var(--gold); }
+    .tier-card--platinum .tier-cta:hover { background:var(--gold-l); border-color:var(--gold-l); }
+    .tier-card--gold     .tier-cta { background:transparent; color:#d4af37; border-color:#d4af37; }
+    .tier-card--gold     .tier-cta:hover { background:#d4af37; color:var(--dark); }
+    .tier-card--silver   .tier-cta { background:transparent; color:#c8c8d4; border-color:#c8c8d4; }
+    .tier-card--silver   .tier-cta:hover { background:#c8c8d4; color:var(--dark); }
+    .tier-card--network  .tier-cta { background:transparent; color:#7ab8c8; border-color:#7ab8c8; }
+    .tier-card--network  .tier-cta:hover { background:#7ab8c8; color:var(--dark); }
+
+    .tier-note { font-size:11px; color:rgba(240,236,228,.28); text-align:center; margin-top:clamp(20px,3vw,32px); }
+
+    /* -- ADDITIONAL OPPORTUNITIES -------------------------- */
+    .opps-section { background:var(--cream); }
+    .opps-section .section-title { color:var(--navy); }
+    .opps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,22px); }
+    .opp-card { background:#fff; padding:clamp(24px,3vw,36px); border-top:3px solid var(--navy); transition:box-shadow .22s, transform .22s; }
+    .opp-card:hover { box-shadow:0 8px 32px rgba(13,27,62,.1); transform:translateY(-3px); }
+    .opp-price { font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--gold); margin-bottom:4px; line-height:1; }
+    .opp-name  { font-family:var(--serif); font-size:1.1rem; font-weight:600; color:var(--navy); margin-bottom:14px; line-height:1.3; }
+    .opp-text  { font-size:15px; font-weight:300; color:#6a6a7a; line-height:1.75; }
+    .opp-card--featured { border-top-color:var(--gold); }
+    .opp-excl  { display:inline-block; font-size:9px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; background:var(--gold); color:var(--dark); padding:3px 10px; margin-bottom:10px; }
 
     /* -- CONTACT / CTA ------------------------------------ */
     .contact-section { background:var(--navy); position:relative; overflow:hidden; }
@@ -170,22 +242,28 @@
     html body a, html body a:visited { color:inherit !important; text-decoration:none !important; }
     html body a:hover, html body a:focus { color:inherit !important; }
     html body button, html body button:hover { color:inherit !important; background-color:transparent !important; }
-    html body .einsc-footer-newsletter button,
-    html body .einsc-footer-newsletter button:hover,
-    html body .einsc-footer-newsletter button:focus { color:#020510 !important; background-color:#c9a96e !important; }
-    html body .einsc-footer-newsletter button:hover { background-color:#e2c28a !important; }
     html body .cd-value a, html body .cd-value a:visited { color:var(--cream) !important; }
     html body .cd-value a:hover { color:#c9a96e !important; }
     html body .contact-cta, html body .contact-cta:visited { color:var(--dark) !important; background:#c9a96e !important; text-decoration:none !important; }
     html body .contact-cta:hover { background:#e2c28a !important; }
+    html body .tier-card--title    .tier-cta, html body .tier-card--title    .tier-cta:visited { color:var(--dark) !important; background:#e2c28a !important; border-color:#e2c28a !important; text-decoration:none !important; }
+    html body .tier-card--platinum .tier-cta, html body .tier-card--platinum .tier-cta:visited { color:var(--dark) !important; background:#c9a96e !important; border-color:#c9a96e !important; text-decoration:none !important; }
+    html body .tier-card--gold     .tier-cta, html body .tier-card--gold     .tier-cta:visited { color:#d4af37 !important; background:transparent !important; border-color:#d4af37 !important; text-decoration:none !important; }
+    html body .tier-card--gold     .tier-cta:hover { background:#d4af37 !important; color:var(--dark) !important; }
+    html body .tier-card--silver   .tier-cta, html body .tier-card--silver   .tier-cta:visited { color:#c8c8d4 !important; background:transparent !important; border-color:#c8c8d4 !important; text-decoration:none !important; }
+    html body .tier-card--silver   .tier-cta:hover { background:#c8c8d4 !important; color:var(--dark) !important; }
+    html body .tier-card--network  .tier-cta, html body .tier-card--network  .tier-cta:visited { color:#7ab8c8 !important; background:transparent !important; border-color:#7ab8c8 !important; text-decoration:none !important; }
+    html body .tier-card--network  .tier-cta:hover { background:#7ab8c8 !important; color:var(--dark) !important; }
 
     /* Editor */
     .elementor-editor-active .page-hero      { background:var(--dark) !important; }
+    .elementor-editor-active .tiers-section  { background:#0a1628 !important; }
     .elementor-editor-active .contact-section{ background:var(--navy) !important; }
     .elementor-editor-active .about-section  { background:var(--cream) !important; }
     .elementor-editor-active .opps-section   { background:var(--cream) !important; }
     /* -- RESPONSIVE -------------------------------------- */
     @media(max-width:1100px) {
+      .tier-cards { grid-template-columns:repeat(2,1fr); }
       .contact-inner { grid-template-columns:1fr; }
     }
     @media(max-width:900px) {
@@ -194,6 +272,7 @@
       .opps-grid    { grid-template-columns:1fr 1fr; }
     }
     @media(max-width:640px) {
+      .tier-cards { grid-template-columns:1fr; }
       .opps-grid  { grid-template-columns:1fr; }
       .org-divider { display:none; }
     }
@@ -208,11 +287,11 @@
 <section class="page-hero">
   <div class="page-hero__bg"></div>
   <div class="page-hero__inner">
-    <span class="page-hero__eyebrow">EINSC 2026 &middot; Sponsorship &amp; Exhibition Prospectus</span>
+    <span class="page-hero__eyebrow">EINSC 2027 &middot; Sponsorship &amp; Exhibition Prospectus</span>
     <h1 class="page-hero__title">Partner with the <em>Leading Neurosurgical Conference</em> in the GCC</h1>
     <p class="page-hero__desc">
-      The 10th Emirates International Neurosurgical Conference takes place 29&ndash;31 January 2027
-      in Dubai. Connect your brand with the region's most influential neurosurgeons
+      The 10th Emirates International Neurosurgical Conference takes place 16&ndash;18 October 2026
+      at Raffles Hotel Dubai. Connect your brand with the region's most influential neurosurgeons
       and healthcare decision-makers at this landmark decennial edition.
     </p>
     <div class="hero-buttons">
@@ -226,7 +305,7 @@
       <div><div class="hs-num">10<sup style="font-size:.6em">th</sup></div><div class="hs-label">Anniversary Edition</div></div>
       <div><div class="hs-num">3</div><div class="hs-label">Conference Days</div></div>
       <div><div class="hs-num">GCC</div><div class="hs-label">Largest in Region</div></div>
-      <div><div class="hs-num">Oct 2026</div><div class="hs-label">Dubai</div></div>
+      <div><div class="hs-num">Oct 2026</div><div class="hs-label">Raffles Dubai</div></div>
     </div>
   </div>
   <div class="hero-line"></div>
@@ -245,11 +324,23 @@
         <div class="welcome-card__name">Dr. Khaled Fares AlAli</div>
         <div class="welcome-card__title">President, Emirates Society of Neurological Surgeons<br>Head of Neurosurgery, Zayed Military Hospital</div>
         <p>Dear Esteemed Colleagues and Friends,</p>
-        <p>It is with great pride and pleasure that we welcome you to the 10th Edition of the Emirates International Neurosurgical Conference 2026 (EINSC), taking place from 29&ndash;31 January 2027 in Dubai.</p>
+        <p>It is with great pride and pleasure that we welcome you to the 10th Edition of the Emirates International Neurosurgical Conference 2026 (EINSC), taking place from 16&ndash;18 October 2026 at the Raffles Hotel Dubai.</p>
         <p>Marking a significant milestone, this 10th edition reflects a decade of scientific progress, collaboration, and shared commitment to advancing the field of neurosurgery. The conference brings together neurosurgeons, healthcare professionals, and experts from across the region and internationally for three days of insightful scientific exchange and professional engagement.</p>
         <p>Your participation is integral to the success of this landmark edition. Together, we celebrate past achievements and look ahead to shaping the future of neurosurgery.</p>
-        <p>On behalf of the EINSC 2026 organizing committee, we look forward to welcoming you this October for an engaging and memorable 10th EINSC Conference.</p>
+        <p>On behalf of the EINSC 2027 organizing committee, we look forward to welcoming you this October for an engaging and memorable 10th EINSC Conference.</p>
         <div class="welcome-card__sig">Warm Regards, <strong>DR. KHALED FARES ALALI</strong></div>
+      </div>
+
+      <div class="welcome-card">
+        <span class="welcome-card__role">Scientific Chair</span>
+        <div class="welcome-card__name">Dr. Aneela Darbar</div>
+        <div class="welcome-card__title">Scientific Chair, Emirates Society of Neurological Surgeons (ESNS)<br>Consultant Neurosurgeon, King's College Hospital London</div>
+        <p>Dear Colleagues and Friends,</p>
+        <p>It is my great pleasure to welcome you to the 10th Edition of the Emirates International Neurosurgical Conference 2026 (EINSC), taking place from 16&ndash;18 October 2026.</p>
+        <p>This landmark edition features an exceptional scientific programme, carefully developed to reflect the latest advances and evolving practices in neurosurgery. The conference will deliver high-quality scientific sessions led by distinguished faculty, offering in-depth discussions, evidence-based insights, and practical perspectives across key subspecialties.</p>
+        <p>The scientific committee is especially proud to highlight this year's hands-on workshop, designed to showcase the latest surgical techniques in the field. Building on its proven track record of strong attendance and consistently high educational value, the workshop returns following the outstanding success of previous editions.</p>
+        <p>On behalf of the scientific committee, I warmly invite the community to submit abstracts, offering the chance to present original research, clinical experience, and innovative ideas.</p>
+        <div class="welcome-card__sig">Sincerely, <strong>DR. ANEELA DARBAR</strong></div>
       </div>
 
     </div>
@@ -261,7 +352,7 @@
   <div class="inner">
     <div class="about-grid">
       <div>
-        <span class="section-eyebrow">About EINSC 2026</span>
+        <span class="section-eyebrow">About EINSC 2027</span>
         <h2 class="section-title" style="color:var(--navy);">The Largest Neurosurgical<br>Conference in the GCC</h2>
         <div class="gold-rule"></div>
         <div class="about-body">
@@ -295,7 +386,7 @@
           </div>
           <div class="reason-item">
             <div class="reason-dot"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-            <div><h4>Exclusive Networking</h4><p>Engage with key stakeholders in neurosurgery in a premium Dubai setting.</p></div>
+            <div><h4>Exclusive Networking</h4><p>Engage with key stakeholders in neurosurgery in a premium Raffles Dubai setting.</p></div>
           </div>
           <div class="reason-item">
             <div class="reason-dot"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
@@ -307,48 +398,243 @@
   </div>
 </section>
 
-<!-- EINSC SERIES SPONSORS (CALLOUT + SLIDER) -->
+<!-- SPONSORSHIP TIERS -->
+<section class="tiers-section sec-pad">
+  <div class="inner">
+    <span class="section-eyebrow">Sponsorship Opportunities at a Glance</span>
+    <h2 class="section-title">Choose Your Level of Engagement</h2>
+    <p class="section-sub">Select the partnership level that best aligns with your strategic goals for 2026. All prices exclude 5% VAT.</p>
+
+    <!-- Comparison table -->
+    <div class="tier-table-wrap">
+      <table class="tier-table">
+        <thead>
+          <tr>
+            <th>Benefit</th>
+            <th class="th-title">Title</th>
+            <th class="th-platinum">Platinum</th>
+            <th class="th-gold">Gold</th>
+            <th class="th-silver">Silver</th>
+            <th class="th-network">Exhibitor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-highlight">
+            <td>Price (USD)</td>
+            <td class="price">$20,000</td>
+            <td class="price">$18,000</td>
+            <td class="price">$15,000</td>
+            <td class="price">$12,000</td>
+            <td class="price">$10,000</td>
+          </tr>
+          <tr><td>Available Slots</td><td><span class="excl">Exclusive</span></td><td>2</td><td>3</td><td>3</td><td>Multiple</td></tr>
+          <tr><td>Exhibitor Passes</td><td>6</td><td>4</td><td>3</td><td>3</td><td>2</td></tr>
+          <tr><td>Delegate Registration</td><td>10</td><td>5</td><td>5</td><td>5</td><td><span class="dash">&mdash;</span></td></tr>
+          <tr><td>Networking Space</td><td>15 SQM</td><td>12 SQM</td><td>9 SQM</td><td>6 SQM</td><td>4 SQM</td></tr>
+          <tr><td>Pre-Event Marketing</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td></tr>
+          <tr><td>Dedicated Account Manager</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td><td><span class="dash">&mdash;</span></td></tr>
+          <tr><td>Post-Event Delegate List</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="dash">&mdash;</span></td></tr>
+          <tr><td>Post-Event Email Logo</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+          <tr><td>MC Recognition, Opening Ceremony</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+          <tr><td>Logo on Materials &amp; Website</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+          <tr><td>Post-Event Report</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tier detail cards -->
+    <div class="tier-cards">
+
+      <!-- TITLE -->
+      <div class="tier-card tier-card--title">
+        <div class="tier-featured-badge">Flagship Sponsor</div>
+        <div class="tier-bar"></div>
+        <div class="tier-slots">Exclusive &mdash; 1 Slot</div>
+        <div class="tier-name">Title Sponsor</div>
+        <div class="tier-price">USD <strong>20,000</strong> <span>excl. VAT</span></div>
+        <div class="tier-divider"></div>
+        <div class="tier-sub">Branding &amp; Marketing</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acknowledged as Title Sponsor during the Opening Ceremony by the MC &mdash; highest billing among all partners</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo across all major branding: stage backdrop, signage, lanyards, digital screens &amp; promotional campaigns</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Featured on the home page of the summit website with a hyperlink, plus all pre-event marketing &amp; media</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated paragraph in the post-event report</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>15 SQM high-visibility networking space</li>
+        </ul>
+        <div class="tier-sub">Audience Access</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 Exhibitor Passes &amp; 10 Delegate Registrations</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated account manager to assist onsite</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list (name, designation, company, country)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email to all attendees &amp; media partners</li>
+        </ul>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2027 Title Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
+      </div>
+
+      <!-- PLATINUM -->
+      <div class="tier-card tier-card--platinum">
+        <div class="tier-bar"></div>
+        <div class="tier-slots">2 Slots Available</div>
+        <div class="tier-name">Platinum Sponsor</div>
+        <div class="tier-price">USD <strong>18,000</strong> <span>excl. VAT</span></div>
+        <div class="tier-divider"></div>
+        <div class="tier-sub">Branding &amp; Marketing</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acknowledged as Platinum Sponsor during the Opening Ceremony by the MC</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on summit marketing material, signage &amp; banners on-site, plus home page placement with hyperlink</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Inclusion in pre-event marketing: email, social and partner communications</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated paragraph in the post-event report</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>12 SQM networking space</li>
+        </ul>
+        <div class="tier-sub">Audience Access</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 Exhibitor Passes &amp; 5 Delegate Registrations</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated account manager to assist onsite</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list (name, designation, company, country)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email to all attendees</li>
+        </ul>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2027 Platinum Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
+      </div>
+
+      <!-- GOLD -->
+      <div class="tier-card tier-card--gold">
+        <div class="tier-bar"></div>
+        <div class="tier-slots">3 Slots Available</div>
+        <div class="tier-name">Gold Sponsor</div>
+        <div class="tier-price">USD <strong>15,000</strong> <span>excl. VAT</span></div>
+        <div class="tier-divider"></div>
+        <div class="tier-sub">Branding &amp; Marketing</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acknowledged as Gold Sponsor during the Opening Ceremony by the MC</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on summit marketing material, signage/banners on-site, and home page with hyperlink</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Inclusion in pre-event marketing: email, social and partner communications</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated paragraph in the post-event report</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>9 SQM high-visibility networking space</li>
+        </ul>
+        <div class="tier-sub">Audience Access</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3 Exhibitor Passes &amp; 5 Delegate Registrations</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list (name, designation, company, country)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email to all attendees</li>
+        </ul>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2027 Gold Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
+      </div>
+
+      <!-- SILVER -->
+      <div class="tier-card tier-card--silver">
+        <div class="tier-bar"></div>
+        <div class="tier-slots">3 Slots Available</div>
+        <div class="tier-name">Silver Sponsor</div>
+        <div class="tier-price">USD <strong>12,000</strong> <span>excl. VAT</span></div>
+        <div class="tier-divider"></div>
+        <div class="tier-sub">Branding &amp; Marketing</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acknowledged as Silver Sponsor during the Opening Ceremony by the MC</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on summit marketing material, signage/banners on-site, and home page with hyperlink</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Inclusion in pre-event marketing: email, social and partner communications</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated paragraph in the post-event report</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 SQM networking space</li>
+        </ul>
+        <div class="tier-sub">Audience Access</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3 Exhibitor Passes &amp; 5 Delegate Registrations</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-event delegate list (name, designation, company, country)</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email to all attendees</li>
+        </ul>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2027 Silver Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
+      </div>
+
+      <!-- EXHIBITOR -->
+      <div class="tier-card tier-card--network">
+        <div class="tier-bar"></div>
+        <div class="tier-slots">Multiple Slots Available</div>
+        <div class="tier-name">Exhibitor</div>
+        <div class="tier-price">USD <strong>10,000</strong> <span>excl. VAT</span></div>
+        <div class="tier-divider"></div>
+        <div class="tier-sub">Branding &amp; Marketing</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acknowledged as Exhibitor during the Opening Ceremony by the MC</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo on summit marketing material, signage/banners on-site, and home page with hyperlink</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dedicated paragraph in the post-event report</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>4 SQM networking space</li>
+        </ul>
+        <div class="tier-sub">Audience Access</div>
+        <ul class="tier-benefits">
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>2 Exhibitor Passes</li>
+          <li><svg class="tier-check" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Logo in post-event email to all attendees</li>
+        </ul>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2027 Exhibitor Sponsorship Enquiry" class="tier-cta">Enquire Now</a>
+      </div>
+
+    </div>
+    <p class="tier-note">All prices exclusive of 5% VAT &nbsp;&middot;&nbsp; For enquiries: <a href="mailto:sponsorship@einsc.com" style="color:rgba(201,169,110,.6);">sponsorship@einsc.com</a></p>
+    <a href="https://einsc.com/wp-content/uploads/2026/06/EINSC-Sponsorship-Brochure-2026.pdf" class="btn-outline-navy" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Full Sponsorship Brochure
+    </a>
+  </div>
+</section>
+
+<!-- ADDITIONAL BRANDING OPPORTUNITIES -->
+<section class="opps-section sec-pad">
+  <div class="inner">
+    <span class="section-eyebrow">Additional Branding Opportunities</span>
+    <h2 class="section-title" style="color:var(--navy);">Enhance Your Presence at <em style="font-style:italic; color:var(--gold);">Every Touchpoint</em></h2>
+    <div class="gold-rule"></div>
+    <div class="opps-grid">
+
+      <div class="opp-card opp-card--featured">
+        <span class="opp-excl">Exclusive</span>
+        <div class="opp-price">USD 15,000</div>
+        <div class="opp-name">Lunch Sponsor</div>
+        <p class="opp-text">Dedicated lunch invitation email sent to all attendees. Roll-up banner at luncheon entrance (company to provide) and acknowledgment as sponsor of the selected lunch break on the conference website.</p>
+      </div>
+
+      <div class="opp-card">
+        <div class="opp-price">USD 8,000</div>
+        <div class="opp-name">Workshop Sponsor</div>
+        <p class="opp-text">Book your own 60&ndash;90 minute workshop in a parallel room. Sponsor provides instructor &amp; description; the committee must approve the completed program including speakers.</p>
+      </div>
+
+      <div class="opp-card">
+        <div class="opp-price">USD 8,000</div>
+        <div class="opp-name">Coffee Break Sponsor</div>
+        <p class="opp-text">Premium brand exposure. Your logo displayed on table flags placed around the coffee break area in the exhibition hall, ensuring strong visibility among attendees throughout the break.</p>
+      </div>
+
+      <div class="opp-card opp-card--featured">
+        <span class="opp-excl">Exclusive</span>
+        <div class="opp-price">USD 15,000</div>
+        <div class="opp-name">Lanyard Sponsor</div>
+        <p class="opp-text">Elevate your brand exposure &mdash; lanyard sponsorship ensures your brand is seen by every delegate, speaker, and VIP throughout the entire conference.</p>
+      </div>
+
+      <div class="opp-card">
+        <div class="opp-price">USD 8,000</div>
+        <div class="opp-name">Badge Sponsor</div>
+        <p class="opp-text">As the official Badge Sponsor, your logo will be featured on the most-viewed item at the event, worn by every delegate, speaker, and VIP.</p>
+      </div>
+
+    </div>
+    <p class="tier-note" style="margin-top:32px;">All prices exclusive of 5% VAT &nbsp;&middot;&nbsp; For inquiries and custom package bookings: <a href="mailto:sponsorship@einsc.com" style="color:var(--gold);">sponsorship@einsc.com</a></p>
+  </div>
+</section>
+
+<!-- EINSC SERIES SPONSORS -->
 <section class="sec-pad" style="background:#fdfbf7; border-top:1px solid var(--cream); border-bottom:1px solid var(--cream); text-align:center;">
   <div class="inner">
     <span class="section-eyebrow">EINSC Series Sponsors</span>
-    <h2 class="section-title" style="color:var(--navy);">See Who Has Supported<br><em style="font-style:italic; color:var(--gold);">Past Conferences:</em></h2>
+    <h2 class="section-title" style="color:var(--navy);">Trusted by Industry Leaders<br>Across <em style="font-style:italic; color:var(--gold);">a Decade of Editions</em></h2>
     <div class="gold-rule" style="margin-left:auto; margin-right:auto;"></div>
     <p class="section-sub" style="margin-left:auto; margin-right:auto; text-align:center;">
-      Discover the calibre of organisations you'll be joining as a partner of the 10th Anniversary Conference.
+      See who has supported past editions of EINSC and the calibre of organisations you'll be joining
+      as a partner of the 10th Anniversary Conference. Full case studies and past-sponsor details are
+      available in the sponsorship brochure.
     </p>
-    <a href="https://einsc.com/past-sponsors/" class="btn-outline-navy" style="margin-bottom:clamp(40px,5vw,56px);">View Past Sponsors</a>
-  </div>
-  <div class="logo-marquee">
-    <div class="logo-marquee__track">
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2024/01/1200px-Johnson_and_Johnson_Logo.svg_.png" alt="Johnson &amp; Johnson"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/amico-logo.webp" alt="AMICO"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/bayan-medical-logo.webp" alt="Bayan Medical Co."/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/eoc-logo.webp" alt="EOC"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/csm_adeor_a26136802c.webp" alt="Adeor Medical"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/images-1.png" alt="Sponsor"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/images-2.png" alt="Sponsor"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/logo-atrees-e1734357019657.webp" alt="Atrees"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/manman-logo.webp" alt="Manman"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/maxresdefault.jpg" alt="Sponsor"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/Medline-Logo-400x400-1.png" alt="Medline"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/medtronic-logo.webp" alt="Medtronic"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/proxy-logo.webp" alt="Proxy"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/147-small.webp" alt="Baxter"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2024/01/1200px-Johnson_and_Johnson_Logo.svg_.png" alt="Johnson &amp; Johnson"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/amico-logo.webp" alt="AMICO"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/bayan-medical-logo.webp" alt="Bayan Medical Co."/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/eoc-logo.webp" alt="EOC"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/csm_adeor_a26136802c.webp" alt="Adeor Medical"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/images-1.png" alt="Sponsor"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/images-2.png" alt="Sponsor"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/logo-atrees-e1734357019657.webp" alt="Atrees"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/manman-logo.webp" alt="Manman"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/maxresdefault.jpg" alt="Sponsor"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/Medline-Logo-400x400-1.png" alt="Medline"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/medtronic-logo.webp" alt="Medtronic"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/proxy-logo.webp" alt="Proxy"/></div>
-      <div class="logo-marquee__slot"><img src="https://einsc.com/wp-content/uploads/2026/06/147-small.webp" alt="Baxter"/></div>
-    </div>
+    <a href="https://einsc.com/wp-content/uploads/2026/06/EINSC-Sponsorship-Brochure-2026.pdf" class="btn-outline-navy" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Sponsorship Brochure
+    </a>
   </div>
 </section>
 
@@ -389,7 +675,7 @@
           </div>
         </div>
 
-        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2026 Sponsorship Enquiry" class="contact-cta">Request Sponsorship Prospectus</a>
+        <a href="mailto:sponsorship@einsc.com?subject=EINSC 2027 Sponsorship Enquiry" class="contact-cta">Request Sponsorship Prospectus</a>
         <a href="https://einsc.com/wp-content/uploads/2026/06/EINSC-Sponsorship-Brochure-2026.pdf" class="contact-cta contact-cta--outline" target="_blank" rel="noopener">Download Brochure (PDF)</a>
       </div>
     </div>
