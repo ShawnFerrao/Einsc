@@ -121,8 +121,8 @@
       display:flex; align-items:center; justify-content:space-between;
       padding:clamp(24px,3vw,36px) var(--pad); gap:24px; flex-wrap:wrap;
     }
-    .submit-strip__text { font-size:clamp(16px,1.5vw,18px); color:rgba(240,236,228,.7); font-weight:300; }
-    .submit-strip__text strong { color:var(--cream); font-weight:500; }
+    .submit-strip__text { font-size:16px; color:rgba(240,236,228,.7) !important; font-weight:300; }
+    .submit-strip__text strong { color:var(--cream) !important; font-weight:500; }
     .btn-gold {
       font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
       color:var(--dark); background:var(--gold); padding:16px 36px;
@@ -294,6 +294,10 @@
     html body button,
     html body button:hover,
     html body button:focus             { color: inherit !important; background-color: transparent !important; }
+    html body .einsc-footer-newsletter button,
+    html body .einsc-footer-newsletter button:hover,
+    html body .einsc-footer-newsletter button:focus { color:#020510 !important; background-color:#c9a96e !important; }
+    html body .einsc-footer-newsletter button:hover { background-color:#e2c28a !important; }
 
     /* -- Body / paragraph text &mdash; lock to dark grey --------- */
     html body .body-text,
@@ -345,6 +349,9 @@
     html body .guidelines-nav__list a:hover { color: var(--navy) !important; }
     html body .card__link:hover    { color: var(--gold) !important; border-bottom-color: var(--gold) !important; }
     html body .abstract-link:hover { color: var(--gold-l) !important; }
+
+    html body .submit-strip__text { color:rgba(240,236,228,.7) !important; font-size:16px !important; }
+    html body .submit-strip__text strong { color:var(--cream) !important; }
 
     /* Footer links */
 
@@ -531,9 +538,24 @@
     <span class="page-hero__eyebrow">EINSC 2027 &mdash; 10th Edition</span>
     <h1 class="page-hero__title">Abstract <em>Submission</em></h1>
     <div class="page-hero__rule" aria-hidden="true"></div>
-    <p class="page-hero__sub">Online submissions open for the 10th Emirates International Neurosurgical Conference &mdash; 29&ndash;31 January 2027, Le Meridien Dubai Hotel &amp; Conference Centre.</p>
+    <p class="page-hero__sub">Online submissions open for the 10th Emirates International Neurosurgical Conference &mdash; 29&ndash;31 January 2027, Dubai.</p>
   </div>
 </section>
+
+<!-- -- SCIENTIFIC CHAIR LETTER ------------------------------ -->
+<div style="background:var(--dark); padding:clamp(48px,6vw,72px) var(--pad) 0;">
+  <div class="intro-callout" style="text-align:left;">
+    <span style="display:block; font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:14px;">A Word from the Scientific Chair</span>
+    <p style="color:var(--cream); font-weight:500; margin-bottom:4px;">Dr. Aneela Darbar</p>
+    <p style="margin-bottom:18px; font-size:14px;">Scientific Chair, Emirates Society of Neurological Surgeons (ESNS)<br>Consultant Neurosurgeon, King's College Hospital London</p>
+    <p>Dear Colleagues and Friends,</p>
+    <p>It is my great pleasure to welcome you to the 10th Edition of the Emirates International Neurosurgical Conference 2026 (EINSC), taking place from 29&ndash;31 January 2027.</p>
+    <p>This landmark edition features an exceptional scientific programme, carefully developed to reflect the latest advances and evolving practices in neurosurgery. The conference will deliver high-quality scientific sessions led by distinguished faculty, offering in-depth discussions, evidence-based insights, and practical perspectives across key subspecialties.</p>
+    <p>The scientific committee is especially proud to highlight this year's hands-on workshop, designed to showcase the latest surgical techniques in the field. Building on its proven track record of strong attendance and consistently high educational value, the workshop returns following the outstanding success of previous editions.</p>
+    <p>On behalf of the scientific committee, I warmly invite the community to submit abstracts, offering the chance to present original research, clinical experience, and innovative ideas.</p>
+    <p style="margin-top:18px;">Sincerely, <strong>DR. ANEELA DARBAR</strong></p>
+  </div>
+</div>
 
 <!-- -- INTRO CALLOUT --------------------------------------- -->
 <div style="background:var(--dark); padding:0 var(--pad) clamp(48px,6vw,72px);">
@@ -551,24 +573,24 @@
     <div class="dates-grid">
       <div class="date-card">
         <div>
-          <div class="date-card__num">29</div>
-          <div class="date-card__month">May 2026</div>
+          <div class="date-card__num">23</div>
+          <div class="date-card__month">June 2026</div>
         </div>
         <div class="date-card__label">Abstract Portal Launch</div>
-        <div class="date-card__sub">Submissions open online. All abstracts must be submitted via the portal on the website.</div>
+        <div class="date-card__sub">The submission portal is now live. All abstracts must be submitted online via the portal.</div>
       </div>
       <div class="date-card">
         <div>
-          <div class="date-card__num">10</div>
-          <div class="date-card__month">November 2026</div>
+          <div class="date-card__num">31</div>
+          <div class="date-card__month">July 2026</div>
         </div>
         <div class="date-card__label">Submission Deadline</div>
         <div class="date-card__sub">Final date to submit your abstract. Late submissions will not be considered.</div>
       </div>
       <div class="date-card date-card--range">
         <div>
-          <div class="date-card__num">22&mdash;30</div>
-          <div class="date-card__month">June 2026</div>
+          <div class="date-card__num">26 Jul&mdash;2 Aug</div>
+          <div class="date-card__month">2026</div>
         </div>
         <div class="date-card__label">Abstract Review Period</div>
         <div class="date-card__sub">Blind peer-review by the Scientific Committee. Authors notified of outcomes by email.</div>
@@ -579,8 +601,8 @@
 
 <!-- -- SUBMIT STRIP ---------------------------------------- -->
 <div class="submit-strip">
-  <p class="submit-strip__text"><strong>Submissions are online only.</strong> All abstracts must be submitted via the abstract portal.</p>
-  <a href="https://einsc.com/abstracts/" class="btn-gold">Submit Your Abstract &rarr;</a>
+  <p class="submit-strip__text"><strong>The submission portal is now live.</strong> All abstracts must be submitted online via the abstract portal &mdash; deadline 10 November 2026.</p>
+  <a href="https://app.oxfordabstracts.com/stages/82958/submitter" class="btn-gold" target="_blank" rel="noopener">Submit Abstract</a>
 </div>
 
 <!-- -- GUIDELINES ------------------------------------------ -->
@@ -616,11 +638,11 @@
             </button>
             <div class="accordion__body">
               <div class="body-text">
-                <p>The Emirates Society of Neurological Surgeons (ESNS) is proud to announce the <strong>10th Emirates International Neurosurgical Conference</strong>. The Scientific Committee invites individuals to submit abstracts for oral or poster presentations.</p>
-                <p>Submissions are accepted for both original research and case reports. The conference particularly encourages contributions from residents and early-career clinicians.</p>
+                <p>The Emirates Society of Neurological Surgeons (ESNS) is proud to announce the <strong>10th Emirates International Neurosurgical Conference</strong>. The Scientific Committee invites individuals to submit abstracts for oral or poster presentations via the now-live submission portal.</p>
+                <p>Submissions will be accepted for both original research and case reports. The conference particularly encourages contributions from residents and early-career clinicians.</p>
               </div>
               <div class="info-box" style="margin-top:20px;">
-                <strong>Contact:</strong> If you have any difficulties with the submission portal, please contact the Secretariat at <a href="mailto:info@einsc.com">info@einsc.com</a>
+                <strong>Contact:</strong> If you have any difficulties with the submission portal, please contact the Secretariat at <a href="mailto:info@einsc.com">info@einsc.com</a>. Submit your abstract via the <a href="https://app.oxfordabstracts.com/stages/82958/submitter" target="_blank" rel="noopener">official portal</a>.
               </div>
             </div>
           </div>
@@ -654,7 +676,7 @@
                 <p><strong>Language:</strong> All abstracts must be written in English. The Scientific Committee reserves the right to edit abstracts where the English structure makes comprehension difficult.</p>
               </div>
               <ul class="rule-list" style="margin-top:20px;">
-                <li>All abstracts must be submitted via the <strong>abstract portal on the website</strong> &mdash; no email submissions accepted</li>
+                <li>All abstracts must be submitted via the <strong><a href="https://app.oxfordabstracts.com/stages/82958/submitter" target="_blank" rel="noopener">official abstract portal</a></strong> &mdash; no email submissions accepted</li>
                 <li>Maximum <strong>400 words</strong></li>
                 <li>Include the <strong>title</strong> of the abstract</li>
                 <li>Include <strong>names and full contact details</strong> of all author(s): organisation, city/country, email, phone, fax, and mailing address</li>
@@ -778,9 +800,9 @@
 
 <!-- -- FINAL CTA ------------------------------------------- -->
 <section class="cta-section">
-  <h2>Ready to Submit?</h2>
-  <p>Abstract portal open from 29 May 2026 &mdash; deadline 19 June 2026</p>
-  <a href="https://einsc.com/abstracts/" class="btn-dark">Submit Your Abstract</a>
+  <h2>Submission Portal Now Open</h2>
+  <p>Submit your abstract online &mdash; deadline 10 November 2026</p>
+  <a href="https://app.oxfordabstracts.com/stages/82958/submitter" class="btn-dark" target="_blank" rel="noopener">Submit Abstract</a>
   <a href="mailto:info@einsc.com" class="btn-outline-dark">Contact the Secretariat</a>
 </section>
 
@@ -797,7 +819,7 @@
       <span class="sb-dot sb-dot--active" aria-hidden="true"></span>
       <div class="sb-text">
         <div class="sb-label">Portal Launch</div>
-        <div class="sb-date">Friday, 29 May 2026</div>
+        <div class="sb-date">Tuesday, 23 June 2026</div>
       </div>
     </div>
 
@@ -805,7 +827,7 @@
       <span class="sb-dot sb-dot--next" aria-hidden="true"></span>
       <div class="sb-text">
         <div class="sb-label">Submission Deadline</div>
-        <div class="sb-date">Monday, 10 November 2026</div>
+        <div class="sb-date">Friday, 10 November 2026</div>
       </div>
     </div>
 
@@ -813,7 +835,7 @@
       <span class="sb-dot" aria-hidden="true"></span>
       <div class="sb-text">
         <div class="sb-label">Review Period</div>
-        <div class="sb-date">22 &mdash; 30 June 2026</div>
+        <div class="sb-date">11 November &ndash; 17 November 2026</div>
       </div>
     </div>
   </div>
@@ -825,12 +847,12 @@
       <span class="sb-dot" aria-hidden="true"></span>
       <div class="sb-text">
         <div class="sb-label">EINSC 2027</div>
-        <div class="sb-date">29 &mdash; 31 January 2027<br>Le Meridien Dubai Hotel &amp; Conference Centre</div>
+        <div class="sb-date">2929&ndash;31 January 2027<br>Dubaindash;31 January 2027<br>Le Meridien Dubai Hotel &amp; Conference Centre</div>
       </div>
     </div>
   </div>
 
-  <a href="https://einsc.com/abstracts/" class="sb-cta">Submit Abstract &rarr;</a>
+  <a href="https://app.oxfordabstracts.com/stages/82958/submitter" class="sb-cta" target="_blank" rel="noopener">Submit Your Abstract</a>
 </aside>
 
 </div><!-- /page-layout -->

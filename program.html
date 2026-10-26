@@ -301,6 +301,10 @@
     html body button,
     html body button:hover,
     html body button:focus           { color:inherit !important; background-color:transparent !important; }
+    html body .einsc-footer-newsletter button,
+    html body .einsc-footer-newsletter button:hover,
+    html body .einsc-footer-newsletter button:focus { color:#020510 !important; background-color:#c9a96e !important; }
+    html body .einsc-footer-newsletter button:hover { background-color:#e2c28a !important; }
 
 
 
@@ -336,7 +340,7 @@
 <section class="page-hero">
   <div class="page-hero__bg"></div>
   <div class="page-hero__content">
-    <span class="page-hero__eyebrow">EINSC 2027 — Scientific Program</span>
+    <span class="page-hero__eyebrow">EINSC 2027 &mdash; Scientific Program</span>
     <h1 class="page-hero__title">Education,<br>Simulation,<br>and <em>Precision.</em></h1>
     <p class="page-hero__desc">
       The EINSC 2027 Scientific Program is meticulously curated to transcend traditional lectures &mdash;
@@ -1015,6 +1019,25 @@
 
 </div><!-- /program-inner -->
 </section>
+
+<script>
+  /* Tab switching */
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.day-program').forEach(function(d) { d.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('day' + btn.dataset.day).classList.add('active');
+    });
+  });
+
+  /* Presenter list toggle */
+  function togglePres(btn) {
+    btn.classList.toggle('open');
+    var list = btn.nextElementSibling;
+    if (list) list.classList.toggle('open');
+  }
+</script>
 
 </body>
 </html>
