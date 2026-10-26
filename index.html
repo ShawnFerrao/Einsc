@@ -157,6 +157,26 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
+  /* ---- ANNOUNCE BAR ---- */
+  .einsc-announce-bar {
+    background: #c9a96e;
+    padding: 14px clamp(20px,5vw,80px);
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+    flex-wrap: wrap; text-align: center;
+  }
+  .einsc-announce-bar p {
+    margin: 0; font-size: 15px; font-weight: 400; color: #020510 !important;
+    letter-spacing: .02em;
+  }
+  .einsc-announce-bar strong { font-weight: 600; }
+  .einsc-announce-bar a, .einsc-announce-bar a:visited {
+    display: inline-block;
+    background: #020510 !important; color: #f0ece4 !important;
+    padding: 8px 20px; font-size: 13px; font-weight: 500; letter-spacing: .1em;
+    text-transform: uppercase; text-decoration: none !important;
+    white-space: nowrap;
+  }
+
   /* ---- STRIP ---- */
   .einsc-strip {
     background: #020510;
@@ -226,6 +246,11 @@
       <div class="einsc-scroll-hint__line"></div>
     </div>
   </section>
+
+  <div class="einsc-announce-bar">
+    <p>Abstract Submission Portal is now <strong>live</strong> &mdash; deadline 10 November 2026</p>
+    <a href="https://app.oxfordabstracts.com/stages/82958/submitter" target="_blank" rel="noopener">Submit Now</a>
+  </div>
 
   <div class="einsc-strip">
     <div class="einsc-strip__rule" aria-hidden="true"></div>
